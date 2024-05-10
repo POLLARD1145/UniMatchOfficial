@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Third Year\\CS 301 - Project Management\\School project\\UniMatch\\DotNet\\UniMatch\\UniMatch.csproj": {}
+    "C:\\Users\\user\\Documents\\Project\\UniMatchOfficial\\dotnet\\unimatch\\UniMatch.csproj": {}
   },
   "projects": {
-    "E:\\Third Year\\CS 301 - Project Management\\School project\\UniMatch\\DotNet\\UniMatch\\UniMatch.csproj": {
+    "C:\\Users\\user\\Documents\\Project\\UniMatchOfficial\\dotnet\\unimatch\\UniMatch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Third Year\\CS 301 - Project Management\\School project\\UniMatch\\DotNet\\UniMatch\\UniMatch.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\Project\\UniMatchOfficial\\dotnet\\unimatch\\UniMatch.csproj",
         "projectName": "UniMatch",
-        "projectPath": "E:\\Third Year\\CS 301 - Project Management\\School project\\UniMatch\\DotNet\\UniMatch\\UniMatch.csproj",
-        "packagesPath": "C:\\Users\\Pollard\\.nuget\\packages\\",
-        "outputPath": "E:\\Third Year\\CS 301 - Project Management\\School project\\UniMatch\\DotNet\\UniMatch\\obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\Project\\UniMatchOfficial\\dotnet\\unimatch\\UniMatch.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\Project\\UniMatchOfficial\\dotnet\\unimatch\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pollard\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
