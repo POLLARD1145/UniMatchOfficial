@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ztDg8r/bapIK7tsfHxeJNGXHgA1SLOxAxms1a/HW5bms0VNQXt/xxiPsLbzbmZ62VGycJk5AZbLBChNdy6Rc6g==",
+  "dgSpecHash": "tP83EaARVoAUGcBr0ehMoYcCTK1x9ErjPY4NXwvFw192nr1y9gXdTSpPBA2jUK+7TYTrAluqtb5A2By0VwXUNg==",
   "success": true,
-  "projectFilePath": "E:\\Third Year\\CS 301 - Project Management\\School project\\UniMatch\\DotNet\\UniMatch\\UniMatch.csproj",
+  "projectFilePath": "E:\\Third Year\\CS 301 - Project Management\\School project\\UniMatchOfficial\\DotNet\\UniMatch\\UniMatch.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pollard\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Pollard\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.4\\microsoft.aspnetcore.cryptography.internal.8.0.4.nupkg.sha512",
