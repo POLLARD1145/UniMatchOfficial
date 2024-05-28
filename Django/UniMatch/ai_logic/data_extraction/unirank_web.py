@@ -2,11 +2,15 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-# Define the URL (replace with the actual URL)
-url = 'https://www.4icu.org/zm/'  # Replace with the actual URL
+# Define the URL to fetch the current ranking list
+url = 'https://www.4icu.org/zm/'  
+
+# define file path to save the list when the url is not responding
+unirank_file = "Django/UniMatch/ai_logic/csvdocs/unirank_list.csv"
 
 # Function to fetch the page content
 def fetch_page_content(url):
+    
     response = requests.get(url)
     response.raise_for_status()  # Check that the request was successful
     return response.text
@@ -30,7 +34,7 @@ def parse_universities(html_content):
         name = cells[1].text.strip()
         town = cells[2].text.strip()
         universities.append((rank, name, town))
-
+    save_to_csv(universities,unirank_file)
     return universities
 
 # Function to save the data to a CSV file
@@ -39,11 +43,18 @@ def save_to_csv(data, filename):
     df.to_csv(filename, index=False)
     print(f"Data saved to {filename}")
 
-# Main function to orchestrate the scraping
-def main():
+#get the ranking list upto a certain number
+def get_rank_list(number_of_universities):
     html_content = fetch_page_content(url)
     universities = parse_universities(html_content)
-    save_to_csv(universities, 'zambia_universities.csv')
+    return universities[:number_of_universities]
 
-if __name__ == '__main__':
-    main()
+
+#get the list of all the universities
+def get_rank_list_all():
+    html_content = fetch_page_content(url)
+    universities = parse_universities(html_content)
+    return universities
+
+for rank,uni,town in get_rank_list(5):
+    print(rank," ",uni," ",town)
