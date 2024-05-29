@@ -1,3 +1,5 @@
+<b>Uni</b><u>Match</u>
+
 # University Recommendation System
 
 This project is a University Recommendation System built using the Django framework for web applications, Beautiful Soup for web scraping, and various Python libraries such as Pandas, NumPy, and other machine learning frameworks.
@@ -31,8 +33,8 @@ The University Recommendation System is designed to help students find suitable 
 ### Steps
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/yourusername/university-recommendation.git
-    cd university-recommendation
+    git clone https://github.com/POLLARD1145/UniMatchOfficial.git
+    cd UniMatchOfficial
     ```
 
 2. **Create and activate a virtual environment:**
