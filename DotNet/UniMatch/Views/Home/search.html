@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Universities - Unimatch Zambia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Unimatch Zambia</div>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Search Universities</a></li>
+                <li><a href="#">My Matches</a></li>
+                <li><a href="#">Preferences</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filters">
+            <h3>Filters</h3>
+            <form>
+                <label for="location">Location</label>
+                <select id="location">
+                    <option value="urban">Urban</option>
+                    <option value="rural">Rural</option>
+                    <!-- More options -->
+                </select>
+                
+                <label for="program-type">Program Type</label>
+                <select id="program-type">
+                    <option value="undergraduate">Undergraduate</option>
+                    <option value="postgraduate">Postgraduate</option>
+                </select>
+                
+                <label for="duration">Duration</label>
+                <select id="duration">
+                    <option value="2-years">2 Years</option>
+                    <option value="4-years">4 Years</option>
+                    <!-- More options -->
+                </select>
+                
+                <label for="specializations">Specializations</label>
+                <select id="specializations">
+                    <option value="engineering">Engineering</option>
+                    <option value="medicine">Medicine</option>
+                    <!-- More options -->
+                </select>
+                
+                <label for="fees">Tuition Fees</label>
+                <input type="range" id="fees" min="0" max="100000" step="1000">
+                
+                <button type="submit">Apply Filters</button>
+            </form>
+        </section>
+
+        <section class="results">
+            <h3>Search Results</h3>
+            <div class="university-card">
+                <img src="university-logo.jpg" alt="University Logo">
+                <div class="university-info">
+                    <h4>University Name</h4>
+                    <p>Location: Lusaka</p>
+                    <p>Programs: Engineering, Medicine, Arts</p>
+                </div>
+                <button>View Programs</button>
+            </div>
+            <!-- More university cards -->
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <p>&copy; 2024 Unimatch Zambia. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p>Contact: info@unimatchzambia.com | +260 123 456 789</p>
+        </div>
+    </footer>
+</body>
+</html>
