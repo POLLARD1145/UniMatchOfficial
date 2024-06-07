@@ -6,7 +6,7 @@ import pandas as pd
 url = 'https://www.4icu.org/zm/'  
 
 # define file path to save the list when the url is not responding
-unirank_file = "Django/UniMatch/ai_logic/csvdocs/unirank_list.csv"
+unirank_file = "Django/UniMatch/app/ai_logic/csvdocs/unirank_list.csv"
 
 # Function to fetch the page content
 def fetch_page_content(url):
@@ -33,8 +33,9 @@ def parse_universities(html_content):
         rank = cells[0].text.strip()
         name = cells[1].text.strip()
         town = cells[2].text.strip()
-        universities.append((rank, name, town))
-    save_to_csv(universities,unirank_file)
+        university_info = {"rank": rank, "name": name, "town": town}
+        universities.append(university_info)
+    #save_to_csv(universities,unirank_file)
     return universities
 
 # Function to save the data to a CSV file

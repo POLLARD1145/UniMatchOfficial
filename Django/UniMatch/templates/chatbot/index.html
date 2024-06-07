@@ -1,0 +1,45 @@
+{% extends "master.html" %}
+{% load static %}
+{% block title %}Personalized Reccomendations{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/chat.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="container main-body">
+      <div id="greeting-text" class="greeting-text text-center">
+          <h1 class="display-4">Welcome to <span><b>Uni</b></span><span><u>Match</u></span></h1>
+          <p>How may I help you today??</p>
+      </div>
+
+      <!--chats area -->
+      <div id="chats-area-container" class="container chats-container">
+          <div id="messages-container" class="position-relative">
+              <!--bot response -->
+              
+                <!--bot response ends here -->
+
+              <!--user message -->
+                <!--user message ends here -->
+          </div>
+      </div>
+      <!--chats area ends here -->
+
+      <!--Input area -->
+      <div id="input-area-container" class="input-area-container fixed-bottom container">
+          <div class="input-group">
+              <input type="text" id="message-input" class="form-control" placeholder="Enter message here..." aria-label="Enter message here...">
+              <button type="button" id="send-message-button" onclick="sendMessage()" class="btn btn-outline-secondary">Send</button>
+          </div>
+          <br>
+      </div>
+      <!--Input area ends here -->
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+  <script src="{% static 'js/chat_script.js' %}"></script>
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+{% endblock scripts %}
