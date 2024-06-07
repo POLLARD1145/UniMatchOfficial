@@ -9,6 +9,9 @@
       }
       */
       /* Custom styles for the input group and textarea */
+      .input-area-container{
+        background-color: #b3c2c9;
+      }
       .input-group {
           display: flex;
           align-items: center;
@@ -17,14 +20,16 @@
       .chats-container {
           position: relative;
           padding: 20px;
+          top: 0px;
       }
 
       .bot-response, .user-message {
           padding: 10px;
           border-radius: 5px;
           margin-bottom: 10px;
-          width: fit-content;
+          width: 70%;
           max-width: 70%;
+          word-wrap: break-word;
       }
 
       .bot-response {

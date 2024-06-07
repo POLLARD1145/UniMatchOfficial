@@ -4,58 +4,35 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/chat.css' %}">
-<script src="{% static 'js/chat.js' %}"></script>
 {% endblock styles %}
 
 {% block content %}
     <div class="container main-body">
-      <div class="greeting-text text-center">
+      <div id="greeting-text" class="greeting-text text-center">
           <h1 class="display-4">Welcome to <span><b>Uni</b></span><span><u>Match</u></span></h1>
           <p>How may I help you today??</p>
       </div>
 
       <!--chats area -->
-      <div class="container chats-container">
+      <div id="chats-area-container" class="container chats-container">
           <div id="messages-container" class="position-relative">
               <!--bot response -->
-              <div class="bot-response">
-                <div class="bot-response-content">
-                </div>
-                  <!--spinners -->
-              <div class="spinners">
-                <div class="spinner-grow spinner-grow-sm" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow spinner-grow-sm" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow spinner-grow-sm" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
-              </div>
-              <!--spinners -->
-                </div>
+              
                 <!--bot response ends here -->
 
-              
-
               <!--user message -->
-              <div class="user-message">
-                </div>
                 <!--user message ends here -->
-
-
           </div>
       </div>
       <!--chats area ends here -->
 
       <!--Input area -->
-      <div class="fixed-bottom container">
+      <div id="input-area-container" class="input-area-container fixed-bottom container">
           <div class="input-group">
-              <input type="text" id="message-input" class="form-control" aria-label="Enter message here...">
+              <input type="text" id="message-input" class="form-control" placeholder="Enter message here..." aria-label="Enter message here...">
               <button type="button" id="send-message-button" onclick="sendMessage()" class="btn btn-outline-secondary">Send</button>
-            </div>
-            <br>
+          </div>
+          <br>
       </div>
       <!--Input area ends here -->
     </div>
