@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+{% load static %}
+{% block title %}Universities{% endblock title %}
+{% block content %}
+  <div class="container main-body">
+    <div class="text-left">
+        <h5 class="display-4">List of Universities</h5>
+        <div class="container sticky-top">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="badge text-bg-primary rounded-pill">Rank</span>
+            University Name
+            <span class="">Town</span>
+          </li>
+        </div>
+        <ul class="">
+          
+        {% for university in Universities %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="badge text-bg-primary rounded-pill">{{university.rank}}</span>
+              {{university.name}} 
+              <span class="">{{university.town}}</span>             
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+  </div>
+{% endblock content %}

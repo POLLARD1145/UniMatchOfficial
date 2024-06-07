@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from app.ai_logic import chatbot
+from app.ai_logic.data_extraction import unirank_web as uw
 # Create your views here.
 
 def index(request):
@@ -8,14 +9,9 @@ def index(request):
 def chat(request):
     return render(request=request,template_name="chatbot/index.html")
 
-print("Hello there, I'm your personal assitant, how canI assist you today?, to exit the chat just type 'quit'")
-while True:
-    user_input = input("You: ")
-    if(user_input == "quit"):
-        print("UniMatch: Thank you, have a great day, feel free to talk to me again.")
-        break
-    else:
-        bot_response = chatbot.get_response(user_input=user_input)
-        print("UniMatch: ",bot_response)
-        
+def universities(request):
+    unilist = uw.get_rank_list_all()
+    context = {'Universities': unilist}
+    return render(request=request,template_name="universities.html", context=context)
+
     

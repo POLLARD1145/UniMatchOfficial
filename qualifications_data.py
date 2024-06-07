@@ -375,6 +375,6 @@ data = {
 # Print the list of universities
 for university in data:
     print(university, "offers the following programs:")
-    for qualifications in data[university]:
-        print(qualifications)
-    print("\n")
+    #for qualifications in data[university]:
+        #print(qualifications)
+    #print("\n")
