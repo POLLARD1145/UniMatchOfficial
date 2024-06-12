@@ -5,23 +5,34 @@ function addHobbies() {
     var hobbyitem = document.createElement("li");
     hobbyitem.className = "list-group-item";
     hobbyitem.textContent = hobbie;
-    hobbiesList.appendChild(hobbyitem);
+    if (hobbie === "") {
+        //do nothing
+    } else {
+        hobbiesList.appendChild(hobbyitem);
+    }
+    
 }
 
 document.getElementById('add-hobby-button').addEventListener('click', function(event) {
     event.preventDefault();
+    
     addHobbies();
 });
 
 //goals
 function addGoals() {
-    var hobbie = document.getElementById("goal").value;
-    var hobbiesList = document.getElementById("goal-list");
+    var goal = document.getElementById("goal").value;
+    var goalList = document.getElementById("goal-list");
 
-    var hobbyitem = document.createElement("li");
-    hobbyitem.className = "list-group-item";
-    hobbyitem.textContent = hobbie;
-    hobbiesList.appendChild(hobbyitem);
+    var goalitem = document.createElement("li");
+    goalitem.className = "list-group-item";
+    goalitem.textContent = goal;
+    if (goal === "") {
+        //do nothing
+    } else {
+        goalList.appendChild(goalitem);
+    }
+    
 }
 
 document.getElementById('add-goal-button').addEventListener('click', function(event) {
@@ -37,7 +48,12 @@ function addPreferences() {
     var preferenceitem = document.createElement("li");
     preferenceitem.className = "list-group-item";
     preferenceitem.textContent = preference;
-    preferenceList.appendChild(preferenceitem);
+    if (preference === "") {
+        //do nothing
+    } else {
+        preferenceList.appendChild(preferenceitem); 
+    }
+    
 }
 
 document.getElementById('add-preference-button').addEventListener('click', function(event) {
