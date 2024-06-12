@@ -15,3 +15,6 @@ def register(request):
 
 def login(request):
     return render(request=request, template_name="user_account/login.html")
+
+def user_details(request):
+    return render(request=request, template_name="user_account/user_details.html")
