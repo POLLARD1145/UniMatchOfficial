@@ -27,7 +27,6 @@ var userInput = document.getElementById("message-input");
         function appendUserMessage(message){
             var userMessageContainer = document.createElement("div");
             userMessageContainer.className = "user-message"
-            userMessageContainer.id = "user-message"
             userMessageContainer.textContent = message;
             messagesArea.appendChild(userMessageContainer);
         }
@@ -36,7 +35,6 @@ var userInput = document.getElementById("message-input");
         function appendBotMessage(message){
             var botMessageContainer = document.createElement("div");
             botMessageContainer.className = "bot-response bot-response-content"
-            botMessageContainer.id = "bot-response-content"
             botMessageContainer.textContent = message;
             messagesArea.appendChild(botMessageContainer);
         }
