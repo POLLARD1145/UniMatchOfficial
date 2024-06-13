@@ -26,7 +26,7 @@ class CustomLoginView(LoginView):
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('/views')
     template_name = 'user_account/register.html'
 
 @method_decorator(login_required, name='dispatch')
@@ -34,7 +34,7 @@ class ProfileUpdateView(UpdateView):
     model = CustomUser
     form_class = CustomUserChangeForm
     success_url = reverse_lazy('profile')
-    template_name = 'accounts/profile.html'
+    template_name = 'user_account/user_details.html'
 
     def get_object(self):
         return self.request.user

@@ -6,16 +6,37 @@
 <div class="row">
     <center>
         <div class="col-md-4 py-5">
-            <h2>Sign Up</h2>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Sign Up</button>
-                </form>
+            <form class="py-5" id="registerForm"  method="post">
+                {% csrf_token %}
+                <h2>Create a new account.</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    {{form.username}}
+                    <label for="username">Username</label>
+                    <span for="username" class="text-danger">{{form.username.errors}}</span>
+                </div>
+                <div class="form-floating mb-3">
+                    {{form.email}}
+                    <label for="email">Email</label>
+                    <span for="email" class="text-danger">{{form.email.errors}}</span>
+                </div>
+                <div class="form-floating mb-3">
+                    {{form.password1}}
+                    <label for="password1">Password</label>
+                    <span for="password1" class="text-danger">{{form.password1.errors}}</span>
+                </div>
+                <div class="form-floating mb-3">
+                    {{form.password2}}
+                    <label for="password2">Confirm Password</label>
+                    <span for="password2" class="text-danger">{{form.password2.errors}}</span>
+                </div>
+                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            </form>
              <p>
-                            <h6>Have an account? <a href="/accounts/login" asp-route-returnUrl="Home/Main"><u>Login</u></a></h6>
+                            <h6>Have an account? <a href="/accounts/login" ><u>Login</u></a></h6>
                             
-                        </p>
+            </p>
         </div>
         <div class="col-md-6 col-md-offset-2">
             </center>
