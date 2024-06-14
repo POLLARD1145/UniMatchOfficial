@@ -1,7 +1,7 @@
 # accounts/forms.py
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
+from .models import CustomUser, Hobby, Interest
 from django.contrib.auth.forms import AuthenticationForm
 
 class CustomUserCreationForm(UserCreationForm):
@@ -45,3 +45,14 @@ class CustomAuthenticationForm(AuthenticationForm):
                                     'placeholder': 'Password',
                                     'for':'password'
                                 }))
+
+#forms for other details
+class HobbyForm(forms.ModelForm):
+    class Meta:
+        model = Hobby
+        fields = ('name',)
+
+class InterestForm(forms.ModelForm):
+    class Meta:
+        model = Interest
+        fields = ('name',)

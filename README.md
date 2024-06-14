@@ -36,29 +36,36 @@ The University Recommendation System is designed to help students find suitable 
     git clone https://github.com/POLLARD1145/UniMatchOfficial.git
     cd UniMatchOfficial
     ```
+2. **Navigate to the project folder:**
+    ```sh
+    cd Django
+    cd UniMatch
+    ```
 
-2. **Create and activate a virtual environment:**
+
+3. **Create and activate a virtual environment:**
     ```sh
     python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    venv\Scripts\activate
+     # On other OSs, use 'source venv/bin/activate'
     ```
 
-3. **Install the dependencies:**
+4. **Install the dependencies:**
     ```sh
-    pip install -r requirements.txt
+    pip install -r requirements.txt #install all the required dependencies
     ```
 
-4. **Apply migrations:**
+5. **Apply migrations:**
     ```sh
     python manage.py migrate
     ```
 
-5. **Run the development server:**
+6. **Run the development server:**
     ```sh
     python manage.py runserver
     ```
 
-6. **Open your web browser and go to:**
+7. **Open your web browser and go to:**
     ```sh
     http://127.0.0.1:8000/
     ```

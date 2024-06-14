@@ -7,3 +7,19 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+#models for other user details
+class Hobby(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    user = models.ForeignKey(CustomUser, on_delete = models.CASCADE)
+
+    #define the to string to return the name when the model is called
+    def __str__(self):
+        return self.name
+class Interest(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    user = models.ForeignKey(CustomUser,on_delete = models.CASCADE)
+
+    #define the to string to return the name when the model is called
+    def __str__(self):
+        return self.name
