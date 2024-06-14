@@ -1,6 +1,5 @@
-<b>Uni</b><u>Match</u>
-
-# University Recommendation System
+# <b>Uni</b><u>Match</u>
+## University Recommendation System
 
 This project is a University Recommendation System built using the Django framework for web applications, Beautiful Soup for web scraping, and various Python libraries such as Pandas, NumPy, and other machine learning frameworks.
 
