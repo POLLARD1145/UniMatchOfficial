@@ -56,6 +56,3 @@ def get_rank_list_all():
     html_content = fetch_page_content(url)
     universities = parse_universities(html_content)
     return universities
-
-for rank,uni,town in get_rank_list(5):
-    print(rank," ",uni," ",town)

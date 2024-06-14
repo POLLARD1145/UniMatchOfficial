@@ -11,15 +11,18 @@
       /* Custom styles for the input group and textarea */
       .input-area-container{
         background-color: #b3c2c9;
+        
       }
       .input-group {
           display: flex;
           align-items: center;
           margin: 20px;
       }
+      .chats-container{
+        margin-bottom: 20px;
+      }
       .chats-container {
           position: relative;
-          padding: 20px;
           top: 0px;
       }
 

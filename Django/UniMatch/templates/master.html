@@ -20,6 +20,7 @@
         }
         */
         body{
+            padding-bottom: 18px;
             background-color: #b3c2c9;
         }
         nav.navbar.navbar-custom.navbar-expand-lg.bg-body-tertiary {
@@ -65,8 +66,19 @@
               
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/accounts/details">Account details</a></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                  <li>
+                    <form action="/accounts/edit_user_details/" method="post">
+                      {% csrf_token %}
+                      <button type="submit"> Edit Account Details </button>
+                  </form>
+                  <hr>
+                    <a class="dropdown-item" href="#">Settings</a></li>
+                  <li>
+                    <form id="logout-form" method="post" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                      <button type="submit" class="dropdown-item">Logout</button>
+                    </form>
+                  </li>
                 </ul>
               </div>                
             {% else %}
@@ -78,9 +90,11 @@
     <!--NAVAGATION BAR ENDS HERE-->
     </header>
     <main>
+      <br><br>
     {% block content %}
 
     {% endblock content %}
+    <br><br><br><br>
     </main>
 
     <footer>
