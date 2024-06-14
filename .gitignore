@@ -32,8 +32,8 @@ ENV/
 env.bak/
 venv.bak/
 myenv/
-#the DotNet Side
-DotNet/
+
+Lib/
 # PyCharm
 .idea/
 
