@@ -30,8 +30,8 @@
           padding: 10px;
           border-radius: 5px;
           margin-bottom: 10px;
-          width: 70%;
-          max-width: 70%;
+          width:min-content;
+          max-width: max-content;
           word-wrap: break-word;
       }
 

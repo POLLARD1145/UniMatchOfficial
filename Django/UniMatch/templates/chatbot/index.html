@@ -9,7 +9,11 @@
 {% block content %}
     <div class="container main-body">
       <div id="greeting-text" class="greeting-text text-center">
-          <h1 class="display-4">Welcome to <span><b>Uni</b></span><span><u>Match</u></span></h1>
+          <h1 class="display-4">
+            Hello 
+            {{ user.first_name|default:user.username }},
+            Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+          </h1>
           <p>How may I help you today??</p>
       </div>
 
