@@ -1,17 +1,18 @@
 import nltk
 #nltk.download('punkt')
 from nltk.tokenize import word_tokenize, sent_tokenize
-
-text = "Hello world! This is an NLP tutorial."
-print(word_tokenize(text))
-print(sent_tokenize(text))
+#local/custom imports
+import app.ai_logic.data_extraction.unirank_web as uni_rank
 
 
-import spacy
-nlp = spacy.load("en_core_web_sm")
-doc = nlp(text)
-
-tokens = [token.text for token in doc]
-sentences = [sent.text for sent in doc.sents]
-print(tokens)
-print(sentences)
+def preprocess_message(message):
+    rank = 5
+    tokens = [token for token in word_tokenize(message)]
+    response = message
+    for token in tokens:
+        if token == "rank":
+            rank_list = uni_rank.get_rank_list(rank)
+            response = "\n- ".join([f"{i+1}. {uni}" for i, uni in enumerate(rank_list)])
+    
+    return response
+    

@@ -47,7 +47,7 @@ var userInput = document.getElementById("message-input");
         function appendBotMessage(message){
             var botMessageContainer = document.createElement("div");
             botMessageContainer.className = "bot-response bot-response-content"
-            botMessageContainer.textContent = message;
+            botMessageContainer.innerHTML = message;
             messagesArea.appendChild(botMessageContainer);
         }
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Event listener to adjust bottom margin of messages-container when window is resized
 window.addEventListener('resize', function() {
-    setMessagesContainerMargin();
+    setMessagesContainerPadding();
 });
 
 // Helper function to get CSRF token for Django
