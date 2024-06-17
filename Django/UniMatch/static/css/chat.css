@@ -18,8 +18,8 @@
           align-items: center;
           margin: 20px;
       }
-      .chats-container{
-        margin-bottom: 20px;
+      #chats-area-container{
+        margin-bottom: 20000px;
       }
       .chats-container {
           position: relative;

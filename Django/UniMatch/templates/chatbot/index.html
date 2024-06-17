@@ -7,8 +7,9 @@
 {% endblock styles %}
 
 {% block content %}
-    <div class="container main-body">
-      <div id="greeting-text" class="greeting-text text-center">
+    <div id="chats-area-container" class="container main-body">
+      <div class="grid">
+      <div id="greeting-text" class="greeting-text position-absolute top-50 start-50 translate-middle text-center">
           <h1 class="display-4">
             Hello 
             {{ user.first_name|default:user.username }},
@@ -18,7 +19,7 @@
       </div>
 
       <!--chats area -->
-      <div id="chats-area-container" class="container chats-container">
+      <div  class="container chats-container">
           <div id="messages-container" class="position-relative">
               <!--bot response -->
               
@@ -40,10 +41,11 @@
       </div>
       <!--Input area ends here -->
     </div>
+    </div>
 
 {% endblock content %}
 
 {% block scripts %}
-  <script src="{% static 'js/chat_script.js' %}"></script>
+  <script src="{% static 'js/chat_script1.0.js' %}"></script>
   <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
 {% endblock scripts %}

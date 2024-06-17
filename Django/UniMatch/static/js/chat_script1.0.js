@@ -8,13 +8,25 @@ var userInput = document.getElementById("message-input");
             appendUserMessage(userMessage);
             userInput.value = "";
             document.getElementById("greeting-text").style.display = "none";
-            appendBotMessage("This is the message from the bot...");
             scrollChatsToBottom();
-            /*var messageContainer = document.getElementById('messages-container');
-            var newMessage = document.createElement('div');
-            newMessage.textContent = message;
-            newMessage.classList.add(sender);
-            messageContainer.appendChild(newMessage);*/
+            // Send the user message to the backend
+            fetch('/get_bot_response/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken') // Django CSRF token if needed
+                },
+                body: JSON.stringify({ message: userMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Append the bot's response to the chat
+                appendBotMessage(data.botMessage);
+                scrollChatsToBottom();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
         //add event listner to the input area to wait for the enter key to send the message
         userInput.addEventListener('keypress', function(event) {
@@ -47,7 +59,9 @@ var userInput = document.getElementById("message-input");
         // Function to set bottom margin of messages-container to match the height of input-area-container
 function setMessagesContainerPadding() {
     var inputAreaHeight = document.getElementById('input-area-container').offsetHeight;
-    document.getElementById('chats-area-container').style.bottom = (inputAreaHeight) + 'px';
+    var chatsArea = document.getElementById('chats-area-container');
+    chatsArea.style.bottom = (inputAreaHeight) + 'px';
+    chatsArea.style.marginBottom = 900 + 'px';
 }
 
 // Call the setMessagesContainerMargin function initially to set the bottom margin
@@ -59,3 +73,20 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('resize', function() {
     setMessagesContainerMargin();
 });
+
+// Helper function to get CSRF token for Django
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
