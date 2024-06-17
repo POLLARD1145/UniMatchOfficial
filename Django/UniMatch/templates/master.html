@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" id="html-main" style="filter: invert(1) hue-rotate(100deg);">
+<html lang="en" id="html-main" style="filter: invert(1) hue-rotate(180deg);">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,7 +130,7 @@
     </footer>
     
     {% block scripts %}{% endblock scripts %}
-    
+
       <script>
         document.addEventListener("DOMContentLoaded", function() {
         var button = document.getElementById("light-button");
@@ -144,7 +144,7 @@
           icon.className = "bi bi-moon";
         } else {
           button.className = button.className.replace("dark", "light");
-          html.style.filter = "invert(1) hue-rotate(100deg)";
+          html.style.filter = "invert(1) hue-rotate(180deg)";
           icon.className = "bi bi-sun";
         }
 
