@@ -6,7 +6,7 @@ import unirank_web as uni_rank
 import data_preprocessor as preprocessor
 
 
-def preprocess_message(message):
+def preprocess_message(message, user):
     rank = 5
     tokens = [token for token in word_tokenize(message)]
     response = ""
@@ -20,6 +20,6 @@ def preprocess_message(message):
             response = """Here is the list of universities in Zambia
             \n- """+"\n".join([f"{i+1}. {uni}" for i, uni in enumerate(rank_list["name"])])
         else:
-            response = preprocessor.get_message(message)
+            response = preprocessor.get_message(message,user_id=user)
     return response
     

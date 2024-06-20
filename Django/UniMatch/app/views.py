@@ -31,9 +31,10 @@ def get_bot_response(request):
         try:
             data = json.loads(request.body)
             user_message = data.get('message', '')
+            user_id =  request.user.id
 
             # Simulate bot response
-            bot_message = chatbot.get_response(user_message)
+            bot_message = chatbot.get_response(user_message,user_id)
 
             return JsonResponse({'botMessage': bot_message})
         except json.JSONDecodeError:

@@ -23,7 +23,7 @@ def preprocess_doc(document):
     return preprocessed_sentences
 
 # Load the intents file
-with open('../UniMatch/app/ai_logic/jsonfiles/intents.json') as file:
+with open('../UniMatch/app/ai_logic/jsonfiles/intents.json', 'r') as file:
     intents = json.load(file)
 
 # Prepare data
@@ -50,27 +50,37 @@ y_train = [doc[1] for doc in documents]
 vectorizer = TfidfVectorizer(tokenizer=lambda x: x, preprocessor=lambda x: x)
 X_train_tfidf = vectorizer.fit_transform(X_train)
 
-model = SVC(kernel='linear')
+model = SVC(kernel='linear',probability=True)
 model.fit(X_train_tfidf, y_train)
 
-# Define the bot response
-def get_response(intents_list, intents_json):
-    tag = intents_list
+# Context dictionary to track conversation state
+context = {}
+
+def get_response(intent, intents_json, user_id):
+    tag = intent
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if i['tag'] == tag:
-            result = random.choice(i['responses'])
-            break
+            if 'context_set' in i:
+                context[user_id] = i['context_set']
+            if not 'context_filter' in i or (user_id in context and 'context_filter' in i and context[user_id] == i['context_filter']):
+                result = random.choice(i['responses'])
+                break
     return result
 
 def predict_class(sentence):
     sentence_tfidf = vectorizer.transform([preprocess_sentence(sentence)])
     prediction = model.predict(sentence_tfidf)
-    return prediction[0]
+    confidence = model.decision_function(sentence_tfidf)
+    return prediction[0], confidence.max()
 
 # allow call by just using the message
-def get_message(user_input):
-    predicted_class = predict_class(user_input)
-    response = get_response(predicted_class, intents)
+def get_message(user_input, user_id):
+    predicted_class, confidence = predict_class(user_input)
+    if confidence < 0.5:  # Threshold for confidence
+        response = "I'm not sure I understand. Can you please rephrase?"
+    else:
+        response = get_response(predicted_class, intents, user_id)
     return response
 
+# Example usage
