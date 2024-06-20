@@ -1,0 +1,22 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["Hi", "Hello", "How are you?"],
+            "responses": ["Hello! how can I be of help to you today?",
+             "Hi there!", "Greetings!"]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["Bye", "See you later"],
+            "responses": ["Goodbye!", "See you soon!"]
+        },
+        {
+            "tag": "name",
+            "patterns": ["who are you?", "what is your name?","your name"],
+            "responses": ["My name is UniMatch, a university personalized reccomendation system.",
+             "I'm UniMatch, your personalized univeristy search helper, how can I help you today?"]
+        }
+        
+    ]
+}

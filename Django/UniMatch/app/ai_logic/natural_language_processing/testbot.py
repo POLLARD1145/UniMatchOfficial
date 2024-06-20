@@ -1,8 +1,8 @@
 import nltk
-#nltk.download('punkt')
+nltk.download('stopwords')
 from nltk.tokenize import word_tokenize, sent_tokenize
 #local/custom imports
-import app.ai_logic.data_extraction.unirank_web as uni_rank
+import data_extraction.unirank_web as uni_rank
 
 
 def preprocess_message(message):

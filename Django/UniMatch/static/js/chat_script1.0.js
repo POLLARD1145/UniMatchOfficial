@@ -1,6 +1,11 @@
 //GLOBAL Varriables
 var messagesArea = document.getElementById("messages-container");
 var userInput = document.getElementById("message-input");
+    function userMessage(){
+        if(userInput.value = ""){}else{
+            sendMessage();
+        }
+    }
 
         // Function to add a new message div
         function sendMessage() {
@@ -31,7 +36,9 @@ var userInput = document.getElementById("message-input");
         //add event listner to the input area to wait for the enter key to send the message
         userInput.addEventListener('keypress', function(event) {
             if (event.keyCode === 13 || event.key === "Enter") {
-                sendMessage();
+                if(userInput.value === " "){}else{
+                    sendMessage();
+                }
             }
         });
 
