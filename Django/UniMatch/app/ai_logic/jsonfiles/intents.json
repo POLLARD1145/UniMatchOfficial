@@ -2,21 +2,93 @@
     "intents": [
         {
             "tag": "greeting",
-            "patterns": ["Hi", "Hello", "How are you?"],
-            "responses": ["Hello! how can I be of help to you today?",
-             "Hi there!", "Greetings!"]
+            "patterns": ["Hi", "Hello", "How are you?", "Hey there", "Good day"],
+            "responses": ["Hello! How can I assist you with ICT programs at Zambian universities today?", "Hi there! What information do you need about ICT programs?", "Hey! How can I help you with your university search?"]
         },
         {
             "tag": "goodbye",
-            "patterns": ["Bye", "See you later"],
-            "responses": ["Goodbye!", "See you soon!"]
+            "patterns": ["Bye", "Goodbye", "See you later", "Talk to you soon"],
+            "responses": ["Goodbye! Have a great day!", "See you later! If you have more questions about ICT programs, feel free to ask!", "Bye! Don't hesitate to reach out if you need more help."]
         },
         {
             "tag": "name",
-            "patterns": ["who are you?", "what is your name?","your name"],
-            "responses": ["My name is UniMatch, a university personalized reccomendation system.",
-             "I'm UniMatch, your personalized univeristy search helper, how can I help you today?"]
+            "patterns": ["Who are you?", "What is your name?", "Your name", "Tell me your name"],
+            "responses": ["My name is UniMatch, a personalized recommendation system for universities in Zambia.", "I'm UniMatch, your guide to finding the best ICT programs at Zambian universities. How can I help you today?"]
+        },
+        {
+            "tag": "ict_programs",
+            "patterns": ["What ICT programs are available?", "Tell me about ICT programs", "ICT courses", "Available ICT degrees"],
+            "responses": ["Zambian universities offer various ICT programs including Computer Science, Information Technology, and Cybersecurity. Which specific program are you interested in?", "There are several ICT programs such as Software Engineering, Network Administration, and Data Science. Do you have a specific field in mind?"]
+        },
+        {
+            "tag": "university_list",
+            "patterns": ["List public universities in Zambia", "Public universities offering ICT", "Universities with ICT programs", "Where can I study ICT in Zambia?"],
+            "responses": ["The public universities in Zambia offering ICT programs include the University of Zambia, Copperbelt University, and Mulungushi University.", "You can study ICT at public universities like the University of Zambia, Copperbelt University, and Mulungushi University. Which university would you like more information on?"]
+        },
+        {
+            "tag": "unza_ict",
+            "patterns": ["Tell me about ICT programs at the University of Zambia", "UNZA ICT courses", "University of Zambia ICT", "ICT at UNZA"],
+            "responses": ["The University of Zambia offers ICT programs such as Computer Science, Information Systems, and Software Engineering. What specific information do you need about these programs?", "At UNZA, you can pursue degrees in Computer Science, Information Systems, and more. Are you interested in undergraduate or postgraduate programs?"]
+        },
+        {
+            "tag": "cbu_ict",
+            "patterns": ["ICT programs at Copperbelt University", "Tell me about ICT courses at CBU", "Copperbelt University ICT", "CBU ICT degrees"],
+            "responses": ["Copperbelt University offers ICT programs like Information Technology, Computer Engineering, and Cybersecurity. Do you want details on any specific program?", "At CBU, you can study Information Technology, Computer Engineering, and more. Are you looking for details on undergraduate or postgraduate options?"]
+        },
+        {
+            "tag": "mu_ict",
+            "patterns": ["ICT courses at Mulungushi University", "Mulungushi University ICT programs", "ICT at MU", "Tell me about Mulungushi University's ICT degrees"],
+            "responses": ["Mulungushi University offers ICT programs including Computer Science and Information Systems. Would you like more details on these programs?", "At MU, you can pursue degrees in Computer Science and Information Systems. Are you interested in the course structure or admission requirements?"]
+        },
+        {
+            "tag": "admission_requirements",
+            "patterns": ["What are the admission requirements for ICT programs?", "ICT program entry requirements", "Requirements for ICT degrees", "How to get into ICT programs"],
+            "responses": ["Admission requirements for ICT programs typically include a strong background in mathematics and sciences. Specific requirements may vary by university. Would you like details for a particular university?", "To get into ICT programs, you generally need good grades in subjects like mathematics and physics. Each university has its own criteria. Which university's requirements do you need?"]
+        },
+        {
+            "tag": "scholarships",
+            "patterns": ["Are there scholarships for ICT programs?", "ICT scholarships", "Funding for ICT studies", "Financial aid for ICT degrees"],
+            "responses": ["Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?", "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?"]
+        },
+        {
+            "tag": "program_duration",
+            "patterns": ["How long are the ICT programs?", "Duration of ICT courses", "ICT degree length", "Length of ICT studies"],
+            "responses": ["The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?", "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?"]
+        },
+        {
+            "tag": "application_deadlines",
+            "patterns": ["What are the application deadlines for ICT programs?", "ICT program application dates", "Deadlines for ICT courses", "When to apply for ICT degrees"],
+            "responses": ["Application deadlines vary by university and program. Generally, applications are accepted in the first half of the year. Would you like the deadlines for a specific university?", "The application deadlines for ICT programs depend on the university. Are you interested in the deadlines for UNZA, CBU, or MU?"]
+        },
+        {
+            "tag": "campus_facilities",
+            "patterns": ["What facilities are available for ICT students?", "ICT student facilities", "Campus resources for ICT programs", "ICT program facilities"],
+            "responses": ["Universities offer various facilities for ICT students, including computer labs, libraries, and research centers. Would you like to know about facilities at a specific university?", "ICT students have access to computer labs, study areas, and specialized equipment. Are you looking for information on facilities at UNZA, CBU, or MU?"]
+        },
+        {
+            "tag": "student_life",
+            "patterns": ["What is student life like for ICT students?", "ICT student life", "Life as an ICT student", "ICT program student experience"],
+            "responses": ["Student life for ICT students includes engaging in various tech clubs, attending seminars, and participating in hackathons. Do you want to know about student life at a particular university?", "ICT students often participate in tech clubs, coding competitions, and workshops. Are you interested in the student life at UNZA, CBU, or MU?"]
+        },
+        {
+            "tag": "cost_of_attendance",
+            "patterns": ["How much does it cost to attend ICT programs?", "ICT program tuition fees", "Cost of ICT degrees", "ICT studies expenses"],
+            "responses": ["The cost of attending ICT programs varies by university. Would you like detailed information on tuition fees for a specific university?", "Tuition fees for ICT programs differ between universities. Are you interested in the costs at UNZA, CBU, or MU?"]
+        },
+        {
+            "tag": "alumni_success",
+            "patterns": ["What are the career prospects for ICT graduates?", "ICT program alumni success", "Jobs for ICT graduates", "Career opportunities after ICT studies"],
+            "responses": ["ICT graduates have diverse career opportunities in fields such as software development, network administration, and cybersecurity. Would you like to know about specific success stories from any university?", "Career prospects for ICT graduates are excellent, with opportunities in various tech industries. Are you interested in alumni success from UNZA, CBU, or MU?"]
+        },
+        {
+            "tag": "admission_procedure",
+            "patterns": ["How do I apply for ICT programs?", "Application process for ICT courses", "Steps to apply for ICT degrees", "ICT program application procedure"],
+            "responses": ["To apply for ICT programs, you'll need to fill out an application form, submit your academic transcripts, and possibly attend an interview. Do you need the application procedure for a specific university?", "The application process typically involves submitting an online application, providing academic records, and sometimes attending an interview. Are you looking for the procedure at UNZA, CBU, or MU?"]
+        },
+        {
+            "tag": "program_details",
+            "patterns": ["Tell me more about the ICT program structure", "Details of ICT courses", "Curriculum for ICT degrees", "ICT program course content"],
+            "responses": ["ICT programs cover subjects like programming, databases, networking, and cybersecurity. Would you like the detailed curriculum for a specific university?", "The curriculum for ICT programs includes courses in software development, network security, and data analysis. Are you looking for detailed course content from UNZA, CBU, or MU?"]
         }
-        
     ]
 }

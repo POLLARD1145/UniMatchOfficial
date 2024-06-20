@@ -1,6 +1,8 @@
 import json
 
-data = {
+with open("../jsonfiles/zambian_universities_and_programs.json") as file:
+    data = json.load(file)
+data1 = {
   "Copperbelt University (CBU)": [
     "Certificate in Mining Engineering",
     "Certificate in Metallurgy",
@@ -428,9 +430,8 @@ data = {
   ]
 }
 
-# Print the list of universities
-for university in data:
-    print(university, "offers the following programs:")
-    #for qualifications in data[university]:
-        #print(qualifications)
-    #print("\n")
+
+def get_list_of_universities():
+    return list(data.keys())
+def get_program_and_university():
+    return data

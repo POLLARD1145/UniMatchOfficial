@@ -19,7 +19,7 @@ def fetch_page_content(url):
 def parse_universities(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     table = soup.find('table', class_='table-hover')
-    universities = []
+    universities = {"rank": [], "name": [], "town": []}
 
     if table is None or table.tbody is None:
         print("No table found on the page.")
@@ -33,8 +33,10 @@ def parse_universities(html_content):
         rank = cells[0].text.strip()
         name = cells[1].text.strip()
         town = cells[2].text.strip()
-        university_info = {"rank": rank, "name": name, "town": town}
-        universities.append(university_info)
+        
+        universities["rank"].append(rank)
+        universities["name"].append(name)
+        universities["town"].append(town)
     #save_to_csv(universities,unirank_file)
     return universities
 
@@ -47,8 +49,14 @@ def save_to_csv(data, filename):
 #get the ranking list upto a certain number
 def get_rank_list(number_of_universities):
     html_content = fetch_page_content(url)
-    universities = parse_universities(html_content)
-    return universities[:number_of_universities]
+    universities_info = parse_universities(html_content)
+    #get the specified number
+    def slice_dict(d, n):
+        return dict(list(d.items())[:n])
+
+    universities = slice_dict(universities_info, number_of_universities)
+    
+    return universities
 
 
 #get the list of all the universities

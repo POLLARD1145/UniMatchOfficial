@@ -1,9 +1,15 @@
 from django.shortcuts import render
-from app.ai_logic import chatbot
-from app.ai_logic.data_extraction import unirank_web as uw
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+#local imports
+#add ai_logic to the system path for imports
+import sys
+import os
+# Add the subdirectory to the sys.path
+sys.path.append(os.path.join(os.path.dirname(__file__), 'ai_logic'))
+#import now
+from .ai_logic import chatbot as chatbot, unirank_web as uw
 
 # Create your views here.
 
