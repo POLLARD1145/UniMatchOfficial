@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-main" style="filter: invert(1) hue-rotate(180deg);">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +8,15 @@
     {% block styles %}
     
     {% endblock styles %}
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        /*
-        .main-body{
-            background-image: url("{% static 'images/background.jpeg' %}");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            height: 90vh;
-        }
-        */
+        
         body{
             padding-bottom: 18px;
             background-color: #b3c2c9;
+            
         }
         nav.navbar.navbar-custom.navbar-expand-lg.bg-body-tertiary {
             background-color: #b3c2c9 !important; /* Change this to your desired background color */
@@ -58,32 +53,64 @@
                 </ul>
               </li>
             </ul>
-            {% if user.is_authenticated %}
-              <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ user.username|upper }}
-                </a>
-              
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/accounts/details">Account details</a></li>
-                  <li>
-                    <form action="/accounts/edit_user_details/" method="post">
-                      {% csrf_token %}
-                      <button type="submit"> Edit Account Details </button>
-                  </form>
-                  <hr>
-                    <a class="dropdown-item" href="#">Settings</a></li>
-                  <li>
-                    <form id="logout-form" method="post" action="{% url 'logout' %}">
-                      {% csrf_token %}
-                      <button type="submit" class="dropdown-item">Logout</button>
-                    </form>
-                  </li>
-                </ul>
-              </div>                
-            {% else %}
-              <a href="/accounts/login/" class="btn btn-outline-success" >Login</a>
-            {% endif %}
+            <ul class="navbar-nav end">
+              <li class="nav-item">
+                <span>
+                  <button id="light-button" class="light nav-link" onclick="toggleDarkMode()">
+                    <i id="light-icon" title="Change light/dark mode" class="bi bi-sun"></i>
+                  </button>
+                </span>
+              </li>
+              <li class="nav-item">
+                {% if user.is_authenticated %}
+                  <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{ user.first_name|default:user.username | upper }}
+                    </a>
+                  
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="/accounts/details">
+                          <span><i class="bi bi-person"></i></span> 
+                          Account details
+                        </a>
+                      </li>
+                      <li>
+                        
+                        <form action="/accounts/edit_user_details/" method="post">
+                          {% csrf_token %}
+                          <button class="dropdown-item" type="submit">
+                            <span><i class="bi bi-pencil"></i></span>
+                             Edit Account Details 
+                            </button>
+                        </form>
+                        <hr>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          <i class="bi bi-gear"></i> Settings
+                        </a>
+                      </li>
+                      <li>
+                        <form id="logout-form" method="post" action="{% url 'logout' %}">
+                          {% csrf_token %}
+                          <button type="submit" class="dropdown-item">
+                            <span><i class="bi bi-box-arrow-left"></i></span> 
+                            Logout
+                          </button>
+                        </form>
+                      </li>
+                    </ul>
+                  </div>                
+                {% else %}
+                  <a href="/accounts/login/" class="btn btn-outline-success" >
+                    <span><i class="bi bi-person"></i></span>
+                    Login
+                  </a>
+                {% endif %}
+              </li>
+          
+          </ul>
           </div>
         </div>
       </nav>
@@ -104,6 +131,38 @@
     </footer>
     
     {% block scripts %}{% endblock scripts %}
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        var button = document.getElementById("light-button");
+        var html = document.getElementById("html-main");
+        var icon = document.getElementById("light-icon");
+
+        // Check local storage for dark mode preference
+        if (localStorage.getItem("darkMode") === "enabled") {
+          button.className = button.className.replace("light", "dark");
+          html.style.filter = "";
+          icon.className = "bi bi-moon";
+        } else {
+          button.className = button.className.replace("dark", "light");
+          html.style.filter = "invert(1) hue-rotate(180deg)";
+          icon.className = "bi bi-sun";
+        }
+
+        button.addEventListener("click", function() {
+          if (button.className.includes("light")) {
+            button.className = button.className.replace("light", "dark");
+            html.style.filter = "";
+            localStorage.setItem("darkMode", "enabled");
+          } else {
+            button.className = button.className.replace("dark", "light");
+            html.style.filter = "invert(1) hue-rotate(180deg)";
+            localStorage.setItem("darkMode", "disabled");
+          }
+        });
+      });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
