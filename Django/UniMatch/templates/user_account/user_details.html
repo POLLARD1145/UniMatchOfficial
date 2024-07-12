@@ -1,0 +1,109 @@
+{% extends "master.html" %}
+{% load static %}
+{% block title %}Edit account details{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Current Details Section -->
+        <div class="col-md-6">
+            <section>
+                <div>
+                    <h2>Current Details In System</h2>
+                    <hr>
+                    <h3>Personal Details</h3>
+                    <p>Username: {{ user.username }}</p>
+                    <p>Email: {{ user.email }}</p>
+                    <p>First Name: {{ user.first_name }}</p>
+                    <p>Last Name: {{ user.last_name }}</p>
+                    <hr>
+                    <h3>Hobbies</h3>
+                    <ul>
+                        {% for hobby in hobbies %}
+                            <li>{{ hobby.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    <h3>Interests</h3>
+                    <ul>
+                        {% for interest in interests %}
+                            <li>{{ interest.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                </div>
+            </section>
+        </div>
+
+        <!-- Edit Details Section -->
+        <div class="col-md-6">
+            <section>
+                <h2>Edit account details</h2>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Hobbies</legend>
+                        {{ hobby_form }}
+                        <button type="submit" class="btn btn-primary">Add Hobby</button>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Interests</legend>
+                        {{ interest_form }}
+                        <button type="submit" class="btn btn-primary">Add Interest</button>
+                    </fieldset>
+                <form action="" method="get">
+                    <hr>
+                    <fieldset>
+                        <legend>Education</legend>
+                        <div class="input-group flex-nowrap mb-3">
+                            <span class="input-group-text" id="addon-wrapping">Grade 12 Points</span>
+                            <input type="text" class="form-control" placeholder="points" aria-label="points" aria-describedby="addon-wrapping">
+                        </div>
+                        
+                        <!-- PREFERENCES START HERE -->
+                        <label for="preference">Preferences</label>
+                        <div class="input-group flex-nowrap mb-3">
+                            <input type="text" id="preference" class="form-control" placeholder="Enter your preference" aria-label="enter goals" aria-describedby="addon-wrapping">
+                            <span class="input-group-text" id="addon-wrapping3">
+                                <button id="add-preference-button" type="button" class="btn">+</button>
+                            </span>
+                        </div>
+                        <ul id="preference-list" class="list-group goals-list mb-3"></ul>
+                        <!-- PREFERENCES END HERE -->
+                    </fieldset>
+                    <hr>
+                    <fieldset>
+                        <legend>Other details</legend>
+                        <!-- HOBBIES START HERE -->
+                        <label for="hobbie">Hobbies</label>
+                        <div class="input-group flex-nowrap mb-3">
+                            <input type="text" id="hobbie" class="form-control" placeholder="Enter your interest" aria-label="enter interests" aria-describedby="addon-wrapping">
+                            <span class="input-group-text" id="addon-wrapping1">
+                                <button id="add-hobby-button" type="button" class="btn">+</button>
+                            </span>
+                        </div>
+                        <ul id="hobbie-list" class="list-group hobbies-list mb-3"></ul>
+                        <!-- HOBBIES END HERE -->
+
+                        <!-- GOALS START HERE -->
+                        <label for="goal">Goals</label>
+                        <div class="input-group flex-nowrap mb-3">
+                            <input type="text" id="goal" class="form-control" placeholder="Enter your goal" aria-label="enter goals" aria-describedby="addon-wrapping">
+                            <span class="input-group-text" id="addon-wrapping2">
+                                <button id="add-goal-button" type="button" class="btn">+</button>
+                            </span>
+                        </div>
+                        <ul id="goal-list" class="list-group goals-list"></ul>
+                        <!-- GOALS END HERE -->
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/edit_details_script.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,53 @@
+{% extends "master.html" %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<center>
+    <div class="row">
+        <center>
+            <div class="col-md-4 py-5">
+                <section>
+                    <form id="accountLogin" method="post" class="py-5">
+                        {% csrf_token %}
+                        <h2>Login Into Your Account</h2>
+                        <hr />
+                        <div class="form-floating mb-3">
+                            {{form.username}}
+                            <label for="username" class="form-label">Username</label>
+                            <span class="text-danger">{{ form.username.errors }}</span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{form.password}}
+                            <label for="password" class="form-label">Password</label>
+                            <span class="text-danger">{{ form.password.errors }}</span>
+                        </div>
+                        <div class="checkbox mb-3">
+                            <label for="remember_me" class="form-label">
+                                <input 
+                                    type="checkbox" 
+                                    name="remember_me" 
+                                    class="form-check-input" />
+                                Remember me
+                            </label>
+                        </div>
+                        <div>
+                            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                        </div>
+                        <div>
+                            <p>
+                                <a id="forgot-password" href="{% url 'password_reset' %}">Forgot your password?</a>
+                            </p>
+                            <p>
+                                <h6>Don't have an account? <a href="/accounts/register"><u>Register</u></a></h6>
+                            </p>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <div class="col-md-6 col-md-offset-2">
+            </div>
+        </center>
+    </div>
+</center>
+{% endblock content %}

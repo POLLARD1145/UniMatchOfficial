@@ -1,0 +1,4 @@
+rm  accounts/migrations/0*.py
+rm  admin/migrations/0*.py
+rm  contenttypes/migrations/0*.py
+rm  auth/migrations/0*.py

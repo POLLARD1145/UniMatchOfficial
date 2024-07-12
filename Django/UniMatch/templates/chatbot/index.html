@@ -1,0 +1,59 @@
+{% extends "master.html" %}
+{% load static %}
+{% block title %}Personalized Reccomendations{% endblock title %}
+
+{% block styles %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js" integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="{% static 'css/chat.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div id="chats-area-container" class="container main-body">
+      <div class="grid">
+      <div id="greeting-text" class="greeting-text position-absolute top-50 start-50 translate-middle text-center">
+          <h1 class="display-4">
+            Hello 
+            {{ user.first_name|default:user.username }},
+            Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+          </h1>
+          <p>How may I help you today??</p>
+      </div>
+
+      <!--chats area -->
+      <div  class="container chats-container">
+          <div id="messages-container" class="position-relative">
+              <!--bot response -->
+              
+                <!--bot response ends here -->
+
+              <!--user message -->
+                <!--user message ends here -->
+          </div>
+      </div>
+      <!--chats area ends here -->
+
+      <!--Input area -->
+      <div id="input-area-container" class="input-area-container fixed-bottom container">
+          <div class="input-group">
+              <input type="text" id="message-input" class="form-control" placeholder="Enter message here..." aria-label="Enter message here...">
+              <button type="button" id="send-message-button" onclick="userMessage()" class="btn btn-outline-secondary">Send</button>
+          </div>
+          <br>
+      </div>
+      <!--Input area ends here -->
+    </div>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    let markdown = '## This is a header\n\nAnd this is a paragraph.';
+    document.getElementsByClassName('bot-response').innerHTML = marked(markdown);
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js" integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="{% static 'js/chat_script1.0.js' %}"></script>
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+{% endblock scripts %}
