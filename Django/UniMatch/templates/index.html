@@ -1,11 +1,44 @@
 {% extends "master.html" %}
 {% load static %}
 {% block title %}Home{% endblock title %}
+{% block styles %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock styles %}
 {% block content %}
   <div class="container main-body">
     <div class="text-center">
         <h1 class="display-4">Welcome to <span><b>Uni</b></span><span><u>Match</u></span></h1>
         <p>Let me help find your most suitable university...</p>
     </div>
+
+    <div class="container mt-5">
+      <div class="row">
+          <!-- Personalized Recommendations Card -->
+          <div class="col-md-6 mb-4">
+              <div class="card" onclick="window.location.href='chat';">
+                  <div class="card-body">
+                      <h5 class="card-title">
+                          <i class="bi bi-star-fill mr-2"></i>Personalized Recommendations
+                      </h5>
+                      <p class="card-text">Discover recommendations tailored just for you, based on your preferences and past interactions.</p>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- General Recommendations Card -->
+          <div class="col-md-6 mb-4">
+              <div class="card" onclick="window.location.href='general-recommendations';">
+                  <div class="card-body">
+                      <h5 class="card-title">
+                          <i class="bi bi-star mr-2"></i>General Recommendations
+                      </h5>
+                      <p class="card-text">Explore a range of recommendations suitable for everyone, without specific personalization.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
   </div>
 {% endblock content %}
