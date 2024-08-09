@@ -127,34 +127,46 @@ def edit_hobbies(request):
 def edit_interests(request):
     if not request.user.is_authenticated:
         return redirect(f"{settings.LOGIN_URL}?next={request.path}")
-
-    # Fetch the interests for the current user
-    interests = Interest.objects.filter(user=request.user)
-
-    # Get a list of all program names
-    all_programs = extract_programs()
-
-    # Get a list of programs already chosen as interests
-    chosen_programs = interests.values_list('name', flat=True)
-
-    # Filter out programs that have already been selected as interests
-    available_programs = [program for program in all_programs if program not in chosen_programs]
-
+    
+    # List of programs to be used as choices
+    programs = [
+        'Software Development',
+        'Web Development',
+        'Data Science',
+        'Cyber Security',
+        'Networking',
+        'Cloud Computing',
+        'Artificial Intelligence',
+        'Internet of Things (IoT)',
+        'Blockchain',
+        'UX/UI Design',
+        'Database Management',
+        'Game Development'
+    ]
+    
     if request.method == 'POST':
-        form = InterestForm(request.POST, programs=available_programs)
+        form = InterestForm(request.POST, programs=programs)
         if form.is_valid():
-            interest = form.save(commit=False)
-            interest.user = request.user
-            interest.name = form.cleaned_data['program']  # Set the program as the interest name
-            interest.save()
+            # Get the selected program interest
+            selected_program = form.cleaned_data['program']
+            # Create or update interest instance
+            interest, created = Interest.objects.update_or_create(
+                user=request.user,
+                defaults={'name': selected_program}
+            )
             return redirect('details')
     else:
-        form = InterestForm(programs=available_programs)
+        # Initialize the form with the list of program choices
+        form = InterestForm(programs=programs)
+
+    # Fetch existing interests for the user
+    existing_interests = Interest.objects.filter(user=request.user)
 
     return render(request, "user_account/edit_interests.html", {
         'form': form,
-        'interests': interests,
+        'existing_interests': existing_interests,
     })
+
 
 @login_required
 def edit_details(request):
