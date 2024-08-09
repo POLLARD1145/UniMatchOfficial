@@ -1,0 +1,68 @@
+{% extends "master.html" %}
+{% load static %}
+{% block title %}General Recommendations{% endblock title %}
+{% block styles %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock styles %}
+{% block content %}
+<div class="container main-body mt-5">
+    <div class="text-center">
+        <h1 class="display-4">General Recommendations</h1>
+        <p>Explore a range of recommendations suitable for everyone.</p>
+    </div>
+
+    <!-- Filters Section -->
+    <form method="get" action="{% url 'general_recommendations' %}" class="row mt-4">
+        <div class="col-md-4">
+            <label for="programFilter" class="form-label">Filter by Program of Study</label>
+            <select class="form-select" id="programFilter" name="program" onchange="this.form.submit()">
+                <option value="">Choose...</option>
+                {% for program in programs %}
+                    <option value="{{ program }}" {% if selected_program == program %}selected{% endif %}>{{ program }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="universityFilter" class="form-label">Filter by University</label>
+            <select class="form-select" id="universityFilter" name="university" onchange="this.form.submit()">
+                <option value="">Choose...</option>
+                {% for university in universities %}
+                    <option value="{{ university }}" {% if selected_university == university %}selected{% endif %}>{{ university }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="levelFilter" class="form-label">Filter by Level of Study</label>
+            <select class="form-select" id="levelFilter" name="level" onchange="this.form.submit()">
+                <option value="">Choose...</option>
+                {% for level in levels %}
+                    <option value="{{ level }}" {% if selected_level == level %}selected{% endif %}>{{ level }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+
+    <!-- Recommendations Section -->
+    <div class="row mt-5">
+        {% for university, programs in filtered_universities.items %}
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ university }}</h5>
+                        <ul class="card-text">
+                            {% for program in programs %}
+                                <li>
+                                    <strong>{{ program.name }}</strong>: {{ program.description }} <em>({{ program.level }})</em>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No recommendations available for the selected filters.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
