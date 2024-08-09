@@ -40,11 +40,11 @@ universities_data = {
         {"name": "PhD in Computer Science", "description": "Research-focused program aimed at creating new knowledge in the field.", "level": "Doctorate"}
     ],
     "Mulungushi University": [
-        {"name": "Bachelor of Science (BSc) in Computer Science", "description": "Foundational program in computer science principles and applications.", "level": "Degree"},
-        {"name": "Bachelor of Science (BSc) in Information Technology", "description": "Covers a wide range of topics in IT with a practical approach.", "level": "Degree"},
-        {"name": "Bachelor of Science (BSc) in Information Systems", "description": "Focuses on information systems design, development, and management.", "level": "Degree"},
-        {"name": "Bachelor of Science (BSc) in Data Science", "description": "Introduces data analysis, machine learning, and big data technologies.", "level": "Degree"},
-        {"name": "Bachelor of Science (BSc) in Cyber Security", "description": "Teaches security principles, risk management, and cyber threat prevention.", "level": "Degree"}
+        {"name": "Bachelor of Science in Computer Science", "description": "Foundational program in computer science principles and applications.", "level": "Degree"},
+        {"name": "Bachelor of Science in Information Technology", "description": "Covers a wide range of topics in IT with a practical approach.", "level": "Degree"},
+        {"name": "Bachelor of Science in Information Systems", "description": "Focuses on information systems design, development, and management.", "level": "Degree"},
+        {"name": "Bachelor of Science in Data Science", "description": "Introduces data analysis, machine learning, and big data technologies.", "level": "Degree"},
+        {"name": "Bachelor of Science in Cyber Security", "description": "Teaches security principles, risk management, and cyber threat prevention.", "level": "Degree"}
     ],
     "Kwame Nkrumah University": [
         {"name": "Bachelor of ICT with Education", "description": "Integrates ICT skills with educational practices for teaching roles.", "level": "Degree"}
