@@ -10,14 +10,36 @@
 {% block content %}
     <div id="chats-area-container" class="container main-body">
       <div class="grid">
-      <div id="greeting-text" class="greeting-text position-absolute top-50 start-50 translate-middle text-center">
+        <div id="greeting-text" class="greeting-text position-absolute top-50 start-50 translate-middle text-center">
           <h1 class="display-4">
-            Hello 
-            {{ user.first_name|default:user.username }},
-            Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+            {% if user.is_authenticated %}
+              Hello {{ user.first_name|default:user.username }},
+              Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+            {% else %}
+              Hello, Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+            {% endif %}
           </h1>
-          <p>How may I help you today??</p>
-      </div>
+        
+          {% if recommended_programs %}
+          <div class="recommended-programs mt-4">
+            <p>According to your details, here are the recommended programs and the universities you can pursue them at:</p>
+            <ul class="list-group mt-3">
+              {% for program in recommended_programs %}
+              <li class="list-group-item">
+                <strong> {{ program.name }} </strong> at 
+                <strong> {{ program.university }}</strong><br>
+              </li>
+              {% endfor %}
+            </ul>
+            <p>How else may I help you today?</p>
+          </div>
+          {% else %}
+          <p>No recommended programs available. Please update your profile details for personalized recommendations.
+            You can as well as ask for recommendations based on your interests and hobbies.
+          </p>
+          <p>How may I help you today?</p>
+          {% endif %}
+        </div>
 
       <!--chats area -->
       <div  class="container chats-container">
