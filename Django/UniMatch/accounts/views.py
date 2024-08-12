@@ -8,6 +8,16 @@ from .forms import CustomAuthenticationForm
 from UniMatch import settings
 from .models import CustomUser, Hobby, Interest
 from .forms import CustomUserCreationForm, CustomUserChangeForm,HobbyForm,InterestForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from .models import Hobby, Interest
+from .forms import HobbyForm, InterestForm
+from django.conf import settings
+from .forms import PersonalDetailsForm, EducationForm, HobbyForm, InterestForm
+from django.conf import settings
+from .models import CustomUser, Hobby, Interest, Education
+
 
 # Import university_data from app.views
 from app.views import universities_data
@@ -36,11 +46,6 @@ def user_details(request):
         'interests' : interests
     })
 
-from django.shortcuts import render, redirect
-from django.conf import settings
-from .models import Hobby, Interest, Education
-from .forms import PersonalDetailsForm, EducationForm, HobbyForm, InterestForm
-
 def user_details(request):
     if not request.user.is_authenticated:
         return redirect(f"{settings.LOGIN_URL}?next={request.path}")
@@ -56,11 +61,6 @@ def user_details(request):
         'education': education,
     })
 
-# views.py
-from django.shortcuts import render, redirect
-from django.conf import settings
-from .models import CustomUser, Hobby, Interest, Education
-from .forms import PersonalDetailsForm, EducationForm, HobbyForm, InterestForm
 
 def user_details(request):
     if not request.user.is_authenticated:
@@ -91,10 +91,8 @@ def edit_personal_details(request):
     
     return render(request, "user_account/edit_personal_details.html", {'form': form})
 
+@login_required
 def edit_education(request):
-    if not request.user.is_authenticated:
-        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
-    
     if request.method == 'POST':
         form = EducationForm(request.POST)
         if form.is_valid():
@@ -105,12 +103,36 @@ def edit_education(request):
     else:
         form = EducationForm()
     
+    # Retrieve existing education details for the current user
+    educations = Education.objects.filter(user=request.user)
+    
+    return render(request, "user_account/edit_education.html", {'form': form, 'educations': educations})
+
+@login_required
+def edit_education_detail(request, education_id):
+    education = get_object_or_404(Education, id=education_id, user=request.user)
+    if request.method == 'POST':
+        form = EducationForm(request.POST, instance=education)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_education')
+    else:
+        form = EducationForm(instance=education)
+    
     return render(request, "user_account/edit_education.html", {'form': form})
 
-def edit_hobbies(request):
-    if not request.user.is_authenticated:
-        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+@login_required
+def delete_education(request, education_id):
+    education = get_object_or_404(Education, id=education_id, user=request.user)
+    if request.method == 'POST':
+        education.delete()
+        return redirect('edit_education')
     
+    return redirect('edit_education')
+
+
+@login_required
+def edit_hobbies(request):
     if request.method == 'POST':
         form = HobbyForm(request.POST)
         if form.is_valid():
@@ -121,40 +143,95 @@ def edit_hobbies(request):
     else:
         form = HobbyForm()
     
+    # Retrieve existing hobbies for the current user
+    hobbies = Hobby.objects.filter(user=request.user)
+    
+    return render(request, "user_account/edit_hobbies.html", {'form': form, 'hobbies': hobbies})
+
+@login_required
+def edit_hobby_detail(request, hobby_id):
+    hobby = get_object_or_404(Hobby, id=hobby_id, user=request.user)
+    if request.method == 'POST':
+        form = HobbyForm(request.POST, instance=hobby)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_hobbies')
+    else:
+        form = HobbyForm(instance=hobby)
+    
     return render(request, "user_account/edit_hobbies.html", {'form': form})
 
+@login_required
+def delete_hobby(request, hobby_id):
+    hobby = get_object_or_404(Hobby, id=hobby_id, user=request.user)
+    if request.method == 'POST':
+        hobby.delete()
+        return redirect('edit_hobbies')
+    
+    return redirect('edit_hobbies')
 
+
+@login_required
 def edit_interests(request):
-    if not request.user.is_authenticated:
-        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+    # Get the full list of programs
+    all_programs = set(extract_programs())
 
-    # Fetch the interests for the current user
-    interests = Interest.objects.filter(user=request.user)
+    # Get existing interests for the user
+    existing_interests = Interest.objects.filter(user=request.user)
 
-    # Get a list of all program names
-    all_programs = extract_programs()
-
-    # Get a list of programs already chosen as interests
-    chosen_programs = interests.values_list('name', flat=True)
-
-    # Filter out programs that have already been selected as interests
-    available_programs = [program for program in all_programs if program not in chosen_programs]
-
+    # Exclude programs already in the user's interests
+    existing_program_names = {interest.name for interest in existing_interests}
+    available_programs = list(all_programs - existing_program_names)
+    
     if request.method == 'POST':
         form = InterestForm(request.POST, programs=available_programs)
         if form.is_valid():
-            interest = form.save(commit=False)
-            interest.user = request.user
-            interest.name = form.cleaned_data['program']  # Set the program as the interest name
-            interest.save()
-            return redirect('details')
+            # Save the selected program to a new Interest instance
+            selected_program = form.cleaned_data['program']
+            Interest.objects.create(user=request.user, name=selected_program)
+            return redirect('edit_interests')
     else:
         form = InterestForm(programs=available_programs)
 
     return render(request, "user_account/edit_interests.html", {
         'form': form,
-        'interests': interests,
+        'existing_interests': existing_interests,
     })
+
+@login_required
+def edit_interest_detail(request, interest_id):
+    interest = get_object_or_404(Interest, id=interest_id, user=request.user)
+    all_programs = set(extract_programs())
+
+    # Exclude current interest from the exclusion list
+    existing_program_names = {i.name for i in Interest.objects.filter(user=request.user) if i.id != interest_id}
+    available_programs = list(all_programs - existing_program_names)
+
+    if request.method == 'POST':
+        form = InterestForm(request.POST, programs=available_programs)
+        if form.is_valid():
+            # Update the name of the existing interest
+            interest.name = form.cleaned_data['program']
+            interest.save()
+            return redirect('edit_interests')
+    else:
+        # Initialize the form with the current interest
+        form = InterestForm(initial={'program': interest.name}, programs=available_programs)
+
+    return render(request, "user_account/edit_interests.html", {
+        'form': form,
+        'existing_interests': Interest.objects.filter(user=request.user),
+        'editing': True,
+    })
+
+@login_required
+def delete_interest(request, interest_id):
+    interest = get_object_or_404(Interest, id=interest_id, user=request.user)
+    if request.method == 'POST':
+        interest.delete()
+        return redirect('edit_interests')
+    return redirect('edit_interests')
+
 
 @login_required
 def edit_details(request):

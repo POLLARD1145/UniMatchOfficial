@@ -23,3 +23,6 @@ def preprocess_message(message, user):
             response = preprocessor.get_message(message,user_id=user)
     return response
     
+if __name__ == "main":
+    #do nothing
+    preprocess_message("Hello", 12)

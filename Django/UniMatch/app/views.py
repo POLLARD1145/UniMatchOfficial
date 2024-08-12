@@ -9,7 +9,8 @@ import os
 # Add the subdirectory to the sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'ai_logic'))
 #import now
-from .ai_logic import chatbot as chatbot, unirank_web as uw
+from app.ai_logic import unirank_web as uw, recommender
+from app.ai_logic.chatbot import Chatbot
 
 # Create your views here.
 
@@ -19,40 +20,84 @@ def index(request):
 def chat(request):
     return render(request=request,template_name="chatbot/index.html")
 
-def universities(request):
-    unilist = uw.get_rank_list_all()
-    context = {'Universities': unilist}
-    return render(request=request,template_name="universities.html", context=context)
+# Assuming you have models for these
+from accounts.models import Hobby, Interest, Education
 
+def chat(request):
+    # Check if the user is authenticated
+    if not request.user.is_authenticated:
+        # If not logged in, render the template without context
+        return render(request, template_name="chatbot/index.html")
+
+    # Retrieve user details from the database
+    hobbies = Hobby.objects.filter(user=request.user)
+    interests = Interest.objects.filter(user=request.user)
+    
+    # Get the user's education details, checking for grade 12 points
+    education = Education.objects.filter(user=request.user).first()
+    if education and education.grade_twelve_points is not None:
+        # Rate the academic results based on grade_twelve_points
+        grade_twelve_points = education.grade_twelve_points
+        # Normalize grade_twelve_points to a scale where 6 is highest and 25 is lowest
+        if 6 <= grade_twelve_points <= 25:
+            academic_results = (25 - grade_twelve_points) / 19 * 100  # Scale to 0 - 100
+        else:
+            academic_results = 50  # Default to middle if out of expected range
+    else:
+        academic_results = 50  # Default to average if no education record
+
+    # Construct user profile for the recommender
+    user_profile = {
+        "interests": ", ".join([interest.name for interest in interests]),
+        "academic_results": academic_results,
+        "hobbies": ", ".join([hobby.name for hobby in hobbies])
+    }
+
+    # Get recommended programs based on user profile
+    recommended_programs_df = recommender.get_user_recommended_programs(user_profile)
+
+    # Convert DataFrame to a list of dictionaries
+    recommended_programs = recommended_programs_df.to_dict(orient='records')
+
+    # Pass recommended programs to the template
+    context = {
+        'recommended_programs': recommended_programs,
+        'user': request.user,
+        'hobbies': hobbies,
+        'interests': interests,
+    }
+
+    return render(request, template_name="chatbot/index.html", context=context)
+
+def universities(request):
+    from .ai_logic import qualifications_data as qd
+    institutions_data = qd.get_program_and_university()
+
+    # Get the search query from the request
+    query = request.GET.get('query', '').lower()
+
+    if query:
+        # Filter institutions and programs based on the search query
+        filtered_data = {}
+        for institution, programs in institutions_data.items():
+            # Check if the institution name or any program name matches the query
+            if query in institution.lower() or any(query in program.lower() for program in programs):
+                filtered_data[institution] = [program for program in programs if query in program.lower()]
+
+        institutions_data = filtered_data
+    return render(request, 'universities.html', {'institutions_data': institutions_data})
+    
 
 # Enhanced sample data with levels and descriptions
-universities_data = {
-    "University of Zambia": [
-        {"name": "Software Engineering (SE)", "description": "Focus on designing, developing, and maintaining software systems.", "level": "Degree"},
-        {"name": "Computer Systems Engineering (CSE)", "description": "Combines computer science and electrical engineering for system design.", "level": "Degree"},
-        {"name": "Bachelor of Science in Computer Science", "description": "Comprehensive program covering algorithms, data structures, and software design.", "level": "Degree"}
-    ],
-    "Copperbelt University": [
-        {"name": "Diploma in Information Technology", "description": "Entry-level program in IT, focusing on basic skills and knowledge.", "level": "Diploma"},
-        {"name": "Bachelor of Science in Computer Science", "description": "Focuses on computational theory, programming, and problem-solving.", "level": "Degree"},
-        {"name": "Bachelor of Science in Information System", "description": "Study of systems that manage, process, and analyze data.", "level": "Degree"},
-        {"name": "Masters of Science in Computer Science", "description": "Advanced studies in computer science research and applications.", "level": "Masters"},
-        {"name": "PhD in Computer Science", "description": "Research-focused program aimed at creating new knowledge in the field.", "level": "Doctorate"}
-    ],
-    "Mulungushi University": [
-        {"name": "Bachelor of Science in Computer Science", "description": "Foundational program in computer science principles and applications.", "level": "Degree"},
-        {"name": "Bachelor of Science in Information Technology", "description": "Covers a wide range of topics in IT with a practical approach.", "level": "Degree"},
-        {"name": "Bachelor of Science in Information Systems", "description": "Focuses on information systems design, development, and management.", "level": "Degree"},
-        {"name": "Bachelor of Science in Data Science", "description": "Introduces data analysis, machine learning, and big data technologies.", "level": "Degree"},
-        {"name": "Bachelor of Science in Cyber Security", "description": "Teaches security principles, risk management, and cyber threat prevention.", "level": "Degree"}
-    ],
-    "Kwame Nkrumah University": [
-        {"name": "Bachelor of ICT with Education", "description": "Integrates ICT skills with educational practices for teaching roles.", "level": "Degree"}
-    ],
-    "Kapasa Makasa University": [
-        {"name": "Bachelor of ICT with Education", "description": "Prepares students for educational roles in ICT.", "level": "Degree"}
-    ]
-}
+# Path to your JSON file
+file_path = 'app/ai_logic/jsonfiles/zambia_public_university.json'
+
+def load_universities_data():
+    """ Load universities data from the JSON file. """
+    with open(file_path, 'r') as json_file:
+        return json.load(json_file)
+    
+universities_data = load_universities_data()
 
 def general_recommendations(request):
     # Extract all programs, university names, and levels
@@ -109,14 +154,25 @@ def general_recommendations(request):
 def get_bot_response(request):
     if request.method == 'POST':
         try:
+            # Initialize the chatbot
+            chatbot = Chatbot()
+
+            # Get the user's message
             data = json.loads(request.body)
             user_message = data.get('message', '')
-            user_id =  request.user.id
+            user_id = request.user.id
 
-            # Simulate bot response
-            bot_message = chatbot.get_response(user_message,user_id)
+            # Get bot response
+            bot_response = chatbot.get_response(user_message, user_id)
 
-            return JsonResponse({'botMessage': bot_message})
+            # Check if feedback is needed based on accuracy
+            feedback_requested = False
+            if chatbot.low_accuracy:
+                # Request feedback
+                feedback_requested = True
+
+            return JsonResponse({'botMessage': bot_response, 'feedbackRequested': feedback_requested})
+        
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
     return JsonResponse({'error': 'Invalid request method'}, status=405)

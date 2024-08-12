@@ -237,293 +237,306 @@
                 "The curriculum for ICT programs includes courses in software development, network security, and data analysis. Are you looking for detailed course content from UNZA, CBU, or MU?"
             ]
         },
-        {
-            "tag": "scholarships_0",
-            "patterns": [
-                "Are there scholarships for ICT programs?",
-                "Funding for ICT studies",
-                "Financial aid for ICT degrees"
-            ],
-            "responses": [
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?",
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?"
-            ]
-        },
-        {
-            "tag": "scholarships_1",
-            "patterns": [
-                "Financial aid for ICT degrees",
-                "Are there scholarships for ICT programs?",
-                "ICT scholarships"
-            ],
-            "responses": [
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?",
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?"
-            ]
-        },
-        {
-            "tag": "program_duration_0",
-            "patterns": [
-                "ICT degree length",
-                "Duration of ICT courses",
-                "How long are the ICT programs?"
-            ],
-            "responses": [
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?",
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?"
-            ]
-        },
-        {
-            "tag": "program_duration_1",
-            "patterns": [
-                "ICT degree length",
-                "Duration of ICT courses",
-                "How long are the ICT programs?"
-            ],
-            "responses": [
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?",
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?"
-            ]
-        },
-        {
-            "tag": "scholarships_0",
-            "patterns": [
-                "Financial aid for ICT degrees",
-                "ICT scholarships",
-                "Funding for ICT studies"
-            ],
-            "responses": [
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?",
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?"
-            ]
-        },
-        {
-            "tag": "scholarships_1",
-            "patterns": [
-                "Are there scholarships for ICT programs?",
-                "Financial aid for ICT degrees",
-                "ICT scholarships"
-            ],
-            "responses": [
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?",
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?"
-            ]
-        },
-        {
-            "tag": "program_duration_0",
-            "patterns": [
-                "How long are the ICT programs?",
-                "Length of ICT studies",
-                "Duration of ICT courses"
-            ],
-            "responses": [
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?",
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?"
-            ]
-        },
-        {
-            "tag": "program_duration_1",
-            "patterns": [
-                "ICT degree length",
-                "Length of ICT studies",
-                "Duration of ICT courses"
-            ],
-            "responses": [
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?",
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?"
-            ]
-        },
-        {
-            "tag": "scholarships_0",
-            "patterns": [
-                "Funding for ICT studies",
-                "Financial aid for ICT degrees",
-                "Are there scholarships for ICT programs?"
-            ],
-            "responses": [
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?",
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?"
-            ]
-        },
-        {
-            "tag": "scholarships_1",
-            "patterns": [
-                "Are there scholarships for ICT programs?",
-                "ICT scholarships",
-                "Financial aid for ICT degrees"
-            ],
-            "responses": [
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?",
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?"
-            ]
-        },
-        {
-            "tag": "program_duration_0",
-            "patterns": [
-                "How long are the ICT programs?",
-                "ICT degree length",
-                "Length of ICT studies"
-            ],
-            "responses": [
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?",
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?"
-            ]
-        },
-        {
-            "tag": "program_duration_1",
-            "patterns": [
-                "Length of ICT studies",
-                "Duration of ICT courses",
-                "ICT degree length"
-            ],
-            "responses": [
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?",
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?"
-            ]
-        },
-        {
-            "tag": "scholarships_0",
-            "patterns": [
-                "ICT scholarships",
-                "Financial aid for ICT degrees",
-                "Are there scholarships for ICT programs?"
-            ],
-            "responses": [
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?",
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?"
-            ]
-        },
-        {
-            "tag": "scholarships_1",
-            "patterns": [
-                "Funding for ICT studies",
-                "Financial aid for ICT degrees",
-                "ICT scholarships"
-            ],
-            "responses": [
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?",
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?"
-            ]
-        },
-        {
-            "tag": "program_duration_0",
-            "patterns": [
-                "Length of ICT studies",
-                "Duration of ICT courses",
-                "ICT degree length"
-            ],
-            "responses": [
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?",
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?"
-            ]
-        },
-        {
-            "tag": "program_duration_1",
-            "patterns": [
-                "ICT degree length",
-                "Length of ICT studies",
-                "Duration of ICT courses"
-            ],
-            "responses": [
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?",
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?"
-            ]
-        },
-        {
-            "tag": "scholarships_0",
-            "patterns": [
-                "Financial aid for ICT degrees",
-                "Are there scholarships for ICT programs?",
-                "ICT scholarships"
-            ],
-            "responses": [
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?",
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?"
-            ]
-        },
-        {
-            "tag": "scholarships_1",
-            "patterns": [
-                "Funding for ICT studies",
-                "Are there scholarships for ICT programs?",
-                "Financial aid for ICT degrees"
-            ],
-            "responses": [
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?",
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?"
-            ]
-        },
-        {
-            "tag": "program_duration_0",
-            "patterns": [
-                "How long are the ICT programs?",
-                "Length of ICT studies",
-                "ICT degree length"
-            ],
-            "responses": [
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?",
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?"
-            ]
-        },
-        {
-            "tag": "program_duration_1",
-            "patterns": [
-                "How long are the ICT programs?",
-                "ICT degree length",
-                "Duration of ICT courses"
-            ],
-            "responses": [
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?",
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?"
-            ]
-        },
-        {
-            "tag": "scholarships_0",
-            "patterns": [
-                "Financial aid for ICT degrees",
-                "Are there scholarships for ICT programs?",
-                "ICT scholarships"
-            ],
-            "responses": [
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?",
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?"
-            ]
-        },
-        {
-            "tag": "scholarships_1",
-            "patterns": [
-                "Funding for ICT studies",
-                "Are there scholarships for ICT programs?",
-                "ICT scholarships"
-            ],
-            "responses": [
-                "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?",
-                "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?"
-            ]
-        },
-        {
-            "tag": "program_duration_0",
-            "patterns": [
-                "ICT degree length",
-                "Length of ICT studies",
-                "Duration of ICT courses"
-            ],
-            "responses": [
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?",
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?"
-            ]
-        },
-        {
-            "tag": "program_duration_1",
-            "patterns": [
-                "How long are the ICT programs?",
-                "Length of ICT studies",
-                "ICT degree length"
-            ],
-            "responses": [
-                "ICT undergraduate degrees usually take 3 to 4 years to complete. Are you looking for details on undergraduate or postgraduate program durations?",
-                "The duration of ICT programs typically ranges from 3 to 4 years for undergraduate degrees. Postgraduate programs may take 1 to 2 years. Do you need information on a specific program?"
-            ]
-        }
+                {
+                    "tag": "recommend_programs",
+                    "patterns": [
+                        "Can you suggest some study programs?",
+                        "Recommend a program for me.",
+                        "What programs should I study?",
+                        "Which courses are suitable for me?",
+                        "Suggest a course based on my interests.",
+                        "What should I enroll in?",
+                        "Help me choose a program.",
+                        "Find a suitable program for me.",
+                        "Which degree is best for me?",
+                        "Guide me to a study program.",
+                        "What program matches my skills?",
+                        "Recommend a course for my career.",
+                        "Suggest a study path.",
+                        "What courses align with my goals?",
+                        "Help me pick a university program.",
+                        "Which program should I pursue?",
+                        "Advise me on academic programs.",
+                        "What programs fit my interests?",
+                        "Suggest a degree based on my profile.",
+                        "What courses do you recommend?"
+                    ],
+                    "responses": [
+                        "Based on your interests, I recommend the following programs...",
+                        "Here are some programs that might interest you...",
+                        "Considering your strengths and interests, these programs could be a great fit..."
+                    ]
+                },
+                {
+                    "tag": "list_programs",
+                    "patterns": [
+                        "List all available programs.",
+                        "What programs do you offer?",
+                        "Show me the course list.",
+                        "What courses are there?",
+                        "Can you list the programs?",
+                        "What are the study options?",
+                        "Give me a list of courses.",
+                        "Display the available programs.",
+                        "What programs can I choose from?",
+                        "List all courses.",
+                        "What programs are provided?",
+                        "What courses are offered?",
+                        "Show all study options.",
+                        "List the degrees available.",
+                        "What are the educational programs?",
+                        "Can I see the course catalog?",
+                        "What courses can I enroll in?",
+                        "Show the list of programs.",
+                        "Display the available courses.",
+                        "What academic programs are there?"
+                    ],
+                    "responses": [
+                        "Here is a list of available programs...",
+                        "These are the programs currently offered...",
+                        "Check out these programs you can enroll in..."
+                    ]
+                },
+                {
+                    "tag": "rank_universities",
+                    "patterns": [
+                        "Rank the universities in Zambia.",
+                        "What are the top universities?",
+                        "Show me the university rankings.",
+                        "Which universities are the best?",
+                        "List the top-ranked universities.",
+                        "Who are the leading universities?",
+                        "What is the university ranking?",
+                        "Which university is number one?",
+                        "Give me a ranking of universities.",
+                        "What are the top universities in the country?",
+                        "Who tops the university list?",
+                        "Where does UNZA rank among universities?",
+                        "Which universities rank the highest?",
+                        "List the highest-ranking universities.",
+                        "Tell me about the best universities.",
+                        "Show the university leaderboard.",
+                        "Which universities have the best ratings?",
+                        "How are universities ranked here?",
+                        "Tell me the university standings.",
+                        "Which university ranks at the top?"
+                    ],
+                    "responses": [
+                        "Here are the top universities in Zambia...",
+                        "These universities rank highest in the country...",
+                        "According to recent rankings, the top universities are..."
+                    ]
+                },
+                {
+                    "tag": "list_universities",
+                    "patterns": [
+                        "List all universities in Zambia.",
+                        "Show me the universities.",
+                        "What universities are there?",
+                        "Give me a list of universities.",
+                        "What universities can I apply to?",
+                        "Which universities are available?",
+                        "List the universities.",
+                        "Tell me about the universities here.",
+                        "Show all universities in the country.",
+                        "Which universities can I consider?",
+                        "What universities are open for application?",
+                        "Can you list the universities?",
+                        "What are the universities I can choose from?",
+                        "Display the universities in Zambia.",
+                        "What universities are there to select from?",
+                        "List universities offering ICT programs.",
+                        "Tell me the universities I can attend.",
+                        "Which universities should I consider?",
+                        "Show me all the universities.",
+                        "Give me the university options."
+                    ],
+                    "responses": [
+                        "Here is a list of universities in Zambia...",
+                        "These are the universities you can apply to...",
+                        "You can consider these universities for your studies..."
+                    ]
+                },
+                {
+                    "tag": "get_program_details",
+                    "patterns": [
+                        "Tell me about the computer science program.",
+                        "What courses are available for software engineering?",
+                        "Give me details about the ICT program.",
+                        "What does the nursing program entail?",
+                        "Provide information about the engineering program.",
+                        "What are the course details for law?",
+                        "Explain the business administration program.",
+                        "What subjects are covered in the arts program?",
+                        "Tell me about the economics course.",
+                        "What is included in the psychology program?",
+                        "Can you describe the education program?",
+                        "What courses are offered in the technology program?",
+                        "Explain the structure of the biology program.",
+                        "What modules are in the history course?",
+                        "Provide details on the chemistry program.",
+                        "Tell me about the curriculum for physics.",
+                        "What are the learning outcomes for sociology?",
+                        "Describe the environmental science program.",
+                        "What is the focus of the architecture course?",
+                        "Can you detail the content of the journalism program?"
+                    ],
+                    "responses": [
+                        "The Computer Science program focuses on algorithms, data structures, and software development...",
+                        "Our Software Engineering program covers subjects such as system design, programming, and project management...",
+                        "The Nursing program includes both theoretical and practical training in patient care..."
+                    ]
+                },
+                {
+                    "tag": "admission_requirements",
+                    "patterns": [
+                        "What are the admission requirements for engineering?",
+                        "How do I qualify for the law program?",
+                        "What do I need to get into medical school?",
+                        "Tell me the criteria for admission to business studies.",
+                        "What are the prerequisites for the computer science course?",
+                        "How can I enroll in the arts program?",
+                        "What are the entry requirements for psychology?",
+                        "What qualifications do I need for nursing?",
+                        "How do I apply to the economics program?",
+                        "What is needed to get into the education course?",
+                        "Explain the requirements for the biology program.",
+                        "What are the conditions for admission to sociology?",
+                        "How do I become eligible for the architecture course?",
+                        "What are the standards for admission to journalism?",
+                        "Tell me about the requirements for the chemistry program.",
+                        "What are the admission guidelines for the physics course?",
+                        "How can I join the environmental science program?",
+                        "What are the criteria for the ICT degree?",
+                        "What do I need to apply for the engineering diploma?",
+                        "Tell me how to qualify for the business administration course."
+                    ],
+                    "responses": [
+                        "Admission requirements for Engineering include O-Level credits in Mathematics and Science...",
+                        "To qualify for the Law program, you need strong grades in English and Social Studies...",
+                        "Medical School requires a background in Biology, Chemistry, and high academic performance..."
+                    ]
+                },
+                {
+                    "tag": "tuition_fees",
+                    "patterns": [
+                        "How much is the tuition fee for medicine?",
+                        "What are the fees for the business course?",
+                        "Tell me the cost of studying engineering.",
+                        "What is the tuition for the law program?",
+                        "How much does it cost to study computer science?",
+                        "What are the fees for the arts degree?",
+                        "Explain the tuition for the economics program.",
+                        "How much is the psychology course fee?",
+                        "What are the charges for the nursing program?",
+                        "How much do I pay for the education course?",
+                        "What is the cost of the biology program?",
+                        "Tell me about the fees for sociology.",
+                        "How much is the architecture degree?",
+                        "What is the tuition for the journalism course?",
+                        "What are the costs for the chemistry program?",
+                        "How much do I pay for physics studies?",
+                        "What are the financial requirements for environmental science?",
+                        "How much is the ICT program fee?",
+                        "What is the price of the engineering diploma?",
+                        "Tell me the expenses for the business administration course."
+                    ],
+                    "responses": [
+                        "The tuition fee for Medicine is approximately $2,000 per year...",
+                        "Studying Business Administration costs around $1,500 annually...",
+                        "The fees for Engineering programs are generally $1,800 per academic year..."
+                    ]
+                },
+                {
+                    "tag": "campus_facilities",
+                    "patterns": [
+                        "What facilities are available for ICT students?",
+                        "Describe the campus facilities.",
+                        "What resources are on campus for students?",
+                        "Tell me about the university facilities.",
+                        "What amenities are available at the campus?",
+                        "What facilities can students use?",
+                        "What student resources are there?",
+                        "What does the campus offer for students?",
+                        "Explain the facilities at the university.",
+                        "What is available for student use on campus?",
+                        "What services are provided to students?",
+                        "What facilities support student learning?",
+                        "What resources are accessible to students?",
+                        "What amenities are provided at the university?",
+                        "Tell me about the study facilities available.",
+                        "What student activities are supported by the campus?",
+                        "What does the university provide for student engagement?",
+                        "What facilities enhance student experience?",
+                        "What infrastructure is available for student support?",
+                        "Explain what the campus offers for academic and personal growth."
+                    ],
+                    "responses": [
+                        "The campus offers a state-of-the-art library, sports complex, and research labs...",
+                        "Students have access to modern computer labs and a student center...",
+                        "Campus facilities include a health clinic, cafeteria, and student housing..."
+                    ]
+                },
+                {
+                    "tag": "academic_calendar",
+                    "patterns": [
+                        "When does the academic year start?",
+                        "Tell me about the school calendar.",
+                        "What is the academic schedule?",
+                        "When are the academic terms?",
+                        "Explain the academic calendar.",
+                        "What are the school year dates?",
+                        "When does the semester begin?",
+                        "What is the academic year timeline?",
+                        "When are the holidays in the school year?",
+                        "What is the schedule for classes?",
+                        "When do semesters start and end?",
+                        "What are the important dates for the academic year?",
+                        "When does the new school year begin?",
+                        "What is the timeline for the academic session?",
+                        "When are classes scheduled to begin?",
+                        "Explain the academic year layout.",
+                        "When do students return to campus?",
+                        "What are the start and end dates for the school year?",
+                        "When is the academic break scheduled?",
+                        "Tell me about the class schedule for the year."
+                    ],
+                    "responses": [
+                        "The academic year begins in September and ends in June...",
+                        "Classes start in August and the year concludes in May...",
+                        "The university follows a semester system, with terms beginning in January and July..."
+                    ]
+                },
+                {
+                    "tag": "scholarship_info",
+                    "patterns": [
+                        "How can I apply for a scholarship?",
+                        "Are there scholarships for ICT programs?",
+                        "What scholarships are available?",
+                        "Tell me about financial aid options.",
+                        "How do I get a scholarship?",
+                        "What funding opportunities exist for students?",
+                        "Explain the scholarship application process.",
+                        "What are the requirements for a scholarship?",
+                        "Can you tell me about the scholarships offered?",
+                        "What scholarships are provided by the university?",
+                        "How can I qualify for financial aid?",
+                        "What are the criteria for getting a scholarship?",
+                        "How do I access funding for my studies?",
+                        "What scholarships support ICT programs?",
+                        "Can I get a scholarship for computer science?",
+                        "What are the available bursaries for students?",
+                        "How does one apply for university scholarships?",
+                        "What financial assistance can I receive?",
+                        "Tell me about the scholarships for academic excellence.",
+                        "How can students apply for bursaries?"
+                    ],
+                    "responses": [
+                        "Scholarships are available for students with high academic achievement and financial need...",
+                        "You can apply for scholarships through the university's financial aid office...",
+                        "There are several scholarships available for ICT programs, including merit-based awards..."
+                    ]
+                }
+        
     ]
 }
