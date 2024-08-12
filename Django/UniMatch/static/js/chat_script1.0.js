@@ -2,6 +2,25 @@
 var messagesArea = document.getElementById("messages-container");
 var userInput = document.getElementById("message-input");
 
+// Function to load chat history from session storage
+function loadChatHistory() {
+    var chatHistory = JSON.parse(sessionStorage.getItem("chatHistory")) || [];
+    chatHistory.forEach(messageObj => {
+        if (messageObj.type === "user") {
+            appendUserMessage(messageObj.message);
+        } else if (messageObj.type === "bot") {
+            appendBotMessage(messageObj.message);
+        }
+    });
+}
+
+// Function to save chat history to session storage
+function saveChatHistory(type, message) {
+    var chatHistory = JSON.parse(sessionStorage.getItem("chatHistory")) || [];
+    chatHistory.push({ type: type, message: message });
+    sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+}
+
 // Function to send a message when user presses Enter or clicks send button
 function userMessage() {
     if (userInput.value.trim() !== "") {
@@ -15,6 +34,7 @@ function sendMessage() {
     if (userMessage === "") return;
 
     appendUserMessage(userMessage);
+    saveChatHistory("user", userMessage); // Save user message
     userInput.value = "";
     document.getElementById("greeting-text").style.display = "none";
     scrollChatsToBottom();
@@ -32,6 +52,7 @@ function sendMessage() {
     .then(data => {
         // Append the bot's response to the chat
         appendBotMessage(data.botMessage);
+        saveChatHistory("bot", data.botMessage); // Save bot message
         scrollChatsToBottom();
 
         // If feedback is requested, ask for feedback
@@ -59,15 +80,28 @@ function appendUserMessage(message) {
     messagesArea.appendChild(userMessageContainer);
 }
 
-// Create a new bot message div and render markdown content
+// Create a new bot message div and render markdown content with typewriter effect
 function appendBotMessage(message) {
     var converter = new showdown.Converter();
     var htmlContent = converter.makeHtml(message);
 
     var botMessageContainer = document.createElement("div");
     botMessageContainer.className = "bot-response bot-response-content";
-    botMessageContainer.innerHTML = htmlContent; // Render markdown as HTML
     messagesArea.appendChild(botMessageContainer);
+
+    let index = 0;
+    let tempContent = '';
+    
+    function type() {
+        if (index < htmlContent.length) {
+            tempContent += htmlContent.charAt(index);
+            botMessageContainer.innerHTML = tempContent; // Render full HTML content periodically
+            index++;
+            scrollChatsToBottom();
+            setTimeout(type, 25); // Reduced delay for faster typing speed
+        }
+    }
+    type();
 }
 
 // Scroll chat area to the bottom
@@ -83,9 +117,10 @@ function setMessagesContainerPadding() {
     chatsArea.style.marginBottom = 900 + 'px';
 }
 
-// Initial setup for message container padding
+// Initial setup for message container padding and load chat history
 document.addEventListener('DOMContentLoaded', function() {
     setMessagesContainerPadding();
+    loadChatHistory(); // Load chat history on page load
 });
 
 // Adjust padding when window is resized

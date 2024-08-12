@@ -183,12 +183,7 @@ class Chatbot:
 
     # Placeholder functions for program listing, university ranking, and other features
     def _list_programs(self, user_details=None):
-        programs = [
-            "Bachelor of Science in Computer Science",
-            "Bachelor of Software Engineering",
-            "Bachelor of Information Systems",
-            "Diploma in Information Technology"
-        ]
+        programs = ["CS", "CE"]
         return "Here is the list of available programs:\n" + "\n".join(programs)
 
     def _rank_universities(self, user_details=None):
@@ -251,17 +246,39 @@ class Chatbot:
             data=recommender.data
         )
         
-        response = f"Based on your strengths {user_details.get('strengths', '')}, " \
-                f"weaknesses {user_details.get('weaknesses', '')}, " \
-                f"interests in {user_details.get('interests', '')}, " \
-                f"and hobbies of {user_details.get('hobbies', '')}, " \
-                f"we recommend the following programs:\n"
-        
+        response = ""
+
+        if user_details.get('strengths'):
+            response += f"**Based on your strengths:**\n"
+            for strength in user_details['strengths']:
+                response += f"- {strength}\n"
+            response += "\n"
+
+        if user_details.get('weaknesses'):
+            response += f"**Weaknesses:**\n"
+            for weakness in user_details['weaknesses']:
+                response += f"- {weakness}\n"
+            response += "\n"
+
+        if user_details.get('interests'):
+            response += f"**Interests:**\n"
+            for interest in user_details['interests']:
+                response += f"- {interest}\n"
+            response += "\n"
+
+        if user_details.get('hobbies'):
+            response += f"**Hobbies:**\n"
+            for hobby in user_details['hobbies']:
+                response += f"- {hobby}\n"
+            response += "\n"
+
+        response += "### Recommended Programs:\n\n"
+
         for _, row in recommended_programs.iterrows():
-            response += f"{row['name']} at {row['university']}.\n"
-            
-        response += "\nYou can update your details in the system to get more accurate recommendations."
-        
+            response += f"- **{row['name']}** at **{row['university']}**.\n"
+
+        response += "\n*You can update your details in the system to get more accurate recommendations.*"
+
         return response
 
 
