@@ -192,12 +192,22 @@ class Chatbot:
         return "Here is the list of available programs:\n" + "\n".join(programs)
 
     def _rank_universities(self, user_details=None):
-        universities = [
-            "1. University of Zambia",
-            "2. Copperbelt University",
-            "3. Mulungushi University"
+        import unirank_web as rank
+        universities_info = rank.get_rank_list(5)  # Get the top 5 universities
+        
+        university_list = [
+            f"- **{rank}**: {name} in {town}"
+            for rank, name, town in zip(
+                universities_info["rank"], universities_info["name"], universities_info["town"]
+            )
         ]
-        return "Here is the ranking of universities in Zambia:\n" + "\n".join(universities)
+        
+        return (
+            "The top 5 universities in Zambia according to the [4icu.org](https://www.4icu.org/zm/) ranking are:\n"
+            + "\n".join(university_list)
+        )
+
+
 
     def _list_universities(self, user_details=None):
         universities = [

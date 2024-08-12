@@ -59,11 +59,14 @@ function appendUserMessage(message) {
     messagesArea.appendChild(userMessageContainer);
 }
 
-// Create a new bot message div
+// Create a new bot message div and render markdown content
 function appendBotMessage(message) {
+    var converter = new showdown.Converter();
+    var htmlContent = converter.makeHtml(message);
+
     var botMessageContainer = document.createElement("div");
     botMessageContainer.className = "bot-response bot-response-content";
-    botMessageContainer.innerHTML = message;
+    botMessageContainer.innerHTML = htmlContent; // Render markdown as HTML
     messagesArea.appendChild(botMessageContainer);
 }
 
