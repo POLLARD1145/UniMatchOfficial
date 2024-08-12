@@ -70,10 +70,23 @@ def chat(request):
     return render(request, template_name="chatbot/index.html", context=context)
 
 def universities(request):
-    unilist = uw.get_rank_list_all()
-    context = {'Universities': unilist}
-    return render(request=request,template_name="universities.html", context=context)
+    from .ai_logic import qualifications_data as qd
+    institutions_data = qd.get_program_and_university()
 
+    # Get the search query from the request
+    query = request.GET.get('query', '').lower()
+
+    if query:
+        # Filter institutions and programs based on the search query
+        filtered_data = {}
+        for institution, programs in institutions_data.items():
+            # Check if the institution name or any program name matches the query
+            if query in institution.lower() or any(query in program.lower() for program in programs):
+                filtered_data[institution] = [program for program in programs if query in program.lower()]
+
+        institutions_data = filtered_data
+    return render(request, 'universities.html', {'institutions_data': institutions_data})
+    
 
 # Enhanced sample data with levels and descriptions
 # Path to your JSON file
