@@ -72,13 +72,14 @@ class HobbyForm(forms.ModelForm):
         fields = ('name',)
 
 # Form for interests
+
 class InterestForm(forms.ModelForm):
     # Program choice field for selecting interest
-    program = forms.ChoiceField(required=False, label="Select Program Interest", choices=[])
+    program = forms.ChoiceField(required=True, label="Select Program Interest", choices=[])
 
     class Meta:
         model = Interest
-        fields = ('program',)
+        fields = ('program',)  # Note: 'program' is not a real field in the model
 
     def __init__(self, *args, **kwargs):
         programs = kwargs.pop('programs', [])
@@ -87,3 +88,11 @@ class InterestForm(forms.ModelForm):
         self.fields['program'].choices = [(program, program) for program in programs]
         # Update widget attributes for styling
         self.fields['program'].widget.attrs.update({'class': 'form-control'})
+
+    def save(self, commit=True):
+        # Override save method to set 'name' field of Interest model
+        interest = super().save(commit=False)
+        interest.name = self.cleaned_data['program']
+        if commit:
+            interest.save()
+        return interest

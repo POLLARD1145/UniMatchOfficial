@@ -1,4 +1,5 @@
 import json
+import os
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -16,7 +17,7 @@ data = load_university_data(file_path)
 
 def get_user_recommended_programs(user_profile):
     # Extract relevant information from the user's profile
-    return recommend_programs(user_profile=user_profile,data=data)
+    return recommend_programs(user_profile=user_profile, data=data)
 
 # Function to recommend programs based on user profile
 def recommend_programs(user_profile, data):
@@ -56,29 +57,33 @@ def recommend_programs(user_profile, data):
     # Recommend top programs based on similarity scores
     recommended_programs = df.sort_values(by='similarity', ascending=False)
 
-    # Return the recommended programs with similarity scores
+    # Return the top 3 recommended programs with similarity scores
     return recommended_programs[['university', 'name', 'similarity']].head(3)
 
 # Function to get interests from chatbot and recommend programs
-def recommend_based_on_interests(interests, data):
+def recommend_based_on_interests(interests, hobbies, data):
     # Construct a mock user profile based on interests
     user_profile = {
         "interests": ", ".join(interests),
         "academic_results": "average",  # Can be adjusted based on chatbot input
-        "hobbies": "general hobbies"  # Can be adjusted based on chatbot input
+        "hobbies": ", ".join(hobbies),  # Can be adjusted based on chatbot input
     }
     
     # Get recommended programs
     recommended_programs = recommend_programs(user_profile, data)
     
     # Return the top recommended programs
-    return recommended_programs[['university', 'name', 'similarity']]
+    return recommended_programs
 
 # Example usage: get interests from chatbot and recommend programs
 if __name__ == "__main__":
+    # Mock user interests and hobbies
     chatbot_interests = ["education", "ai"]
-    recommended_programs = recommend_based_on_interests(chatbot_interests, data)
+    chatbot_hobbies = ["reading", "coding"]
+
+    # Get recommendations based on interests and hobbies
+    recommended_programs = recommend_based_on_interests(chatbot_interests, chatbot_hobbies, data)
 
     # Display the recommended programs
-    print("Recommended Programs Based on Interests:")
+    print("Recommended Programs Based on Interests and Hobbies:")
     print(recommended_programs)

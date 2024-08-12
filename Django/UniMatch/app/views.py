@@ -9,7 +9,8 @@ import os
 # Add the subdirectory to the sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'ai_logic'))
 #import now
-from .ai_logic import chatbot as chatbot, unirank_web as uw, recommender
+from app.ai_logic import unirank_web as uw, recommender
+from app.ai_logic.chatbot import Chatbot
 
 # Create your views here.
 
@@ -140,14 +141,25 @@ def general_recommendations(request):
 def get_bot_response(request):
     if request.method == 'POST':
         try:
+            # Initialize the chatbot
+            chatbot = Chatbot()
+
+            # Get the user's message
             data = json.loads(request.body)
             user_message = data.get('message', '')
-            user_id =  request.user.id
+            user_id = request.user.id
 
-            # Simulate bot response
-            bot_message = chatbot.get_response(user_message,user_id)
+            # Get bot response
+            bot_response = chatbot.get_response(user_message, user_id)
 
-            return JsonResponse({'botMessage': bot_message})
+            # Check if feedback is needed based on accuracy
+            feedback_requested = False
+            if chatbot.low_accuracy:
+                # Request feedback
+                feedback_requested = True
+
+            return JsonResponse({'botMessage': bot_response, 'feedbackRequested': feedback_requested})
+        
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
     return JsonResponse({'error': 'Invalid request method'}, status=405)
