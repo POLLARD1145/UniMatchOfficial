@@ -1,124 +1,89 @@
+import json
+import os
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Sample user profile
-user_profile = {
-    "interests": "education,",
-    "academic_results": "high",
-    "hobbies": "coding, solving puzzles, technology"
-}
+# Function to load data from a JSON file
+def load_university_data(file_path):
+    with open(file_path, 'r') as json_file:
+        data = json.load(json_file)
+    return data
 
-# University programs data with associated interests
-data = {
-    "University of Zambia": [
-        {"name": "Software Engineering (SE)", 
-         "description": "Focus on designing, developing, and maintaining software systems.", 
-         "level": "Degree", 
-         "interests": "software development, programming, systems design, technology"},
-        {"name": "Computer Systems Engineering (CSE)", 
-         "description": "Combines computer science and electrical engineering for system design.", 
-         "level": "Degree", 
-         "interests": "hardware, systems architecture, electronics, programming"},
-        {"name": "Bachelor of Science in Computer Science", 
-         "description": "Comprehensive program covering algorithms, data structures, and software design.", 
-         "level": "Degree", 
-         "interests": "algorithms, data structures, software development, computer theory"}
-    ],
-    "Copperbelt University": [
-        {"name": "Diploma in Information Technology", 
-         "description": "Entry-level program in IT, focusing on basic skills and knowledge.", 
-         "level": "Diploma", 
-         "interests": "basic IT skills, computer applications, technology"},
-        {"name": "Bachelor of Science in Computer Science", 
-         "description": "Focuses on computational theory, programming, and problem-solving.", 
-         "level": "Degree", 
-         "interests": "programming, problem-solving, computational theory"},
-        {"name": "Bachelor of Science in Information System", 
-         "description": "Study of systems that manage, process, and analyze data.", 
-         "level": "Degree", 
-         "interests": "data management, information systems, data analysis"},
-        {"name": "Masters of Science in Computer Science", 
-         "description": "Advanced studies in computer science research and applications.", 
-         "level": "Masters", 
-         "interests": "research, advanced computing, algorithms"},
-        {"name": "PhD in Computer Science", 
-         "description": "Research-focused program aimed at creating new knowledge in the field.", 
-         "level": "Doctorate", 
-         "interests": "research, innovation, computing"}
-    ],
-    "Mulungushi University": [
-        {"name": "Bachelor of Science in Computer Science", 
-         "description": "Foundational program in computer science principles and applications.", 
-         "level": "Degree", 
-         "interests": "programming, algorithms, applications"},
-        {"name": "Bachelor of Science in Information Technology", 
-         "description": "Covers a wide range of topics in IT with a practical approach.", 
-         "level": "Degree", 
-         "interests": "IT skills, practical computing, technology"},
-        {"name": "Bachelor of Science in Information Systems", 
-         "description": "Focuses on information systems design, development, and management.", 
-         "level": "Degree", 
-         "interests": "systems design, information management, data systems"},
-        {"name": "Bachelor of Science in Data Science", 
-         "description": "Introduces data analysis, machine learning, and big data technologies.", 
-         "level": "Degree", 
-         "interests": "data science, machine learning, big data"},
-        {"name": "Bachelor of Science in Cyber Security", 
-         "description": "Teaches security principles, risk management, and cyber threat prevention.", 
-         "level": "Degree", 
-         "interests": "cybersecurity, risk management, security systems"}
-    ],
-    "Kwame Nkrumah University": [
-        {"name": "Bachelor of ICT with Education", 
-         "description": "Integrates ICT skills with educational practices for teaching roles.", 
-         "level": "Degree", 
-         "interests": "education, ICT, teaching"}
-    ],
-    "Kapasa Makasa University": [
-        {"name": "Bachelor of ICT with Education", 
-         "description": "Prepares students for educational roles in ICT.", 
-         "level": "Degree", 
-         "interests": "ICT, education, teaching"}
-    ]
-}
+# Load university programs data from JSON file
+file_path = 'app/ai_logic/jsonfiles/university_program.json'
 
-# Flatten the data into a DataFrame
-programs = []
-for university, courses in data.items():
-    for course in courses:
-        programs.append({
-            "university": university,
-            "name": course["name"],
-            "description": course["description"],
-            "level": course["level"],
-            "interests": course["interests"]
-        })
+data = load_university_data(file_path)
 
-df = pd.DataFrame(programs)
+def get_user_recommended_programs(user_profile):
+    # Extract relevant information from the user's profile
+    return recommend_programs(user_profile=user_profile, data=data)
 
-# Combine program attributes for vectorization
-df['combined_features'] = df.apply(lambda x: f"{x['description']} {x['level']} {x['interests']}", axis=1)
+# Function to recommend programs based on user profile
+def recommend_programs(user_profile, data):
+    # Flatten the data into a DataFrame
+    programs = []
+    for university, courses in data.items():
+        for course in courses:
+            programs.append({
+                "university": university,
+                "name": course["name"],
+                "description": course["description"],
+                "level": course["level"],
+                "interests": course["interests"]
+            })
 
-# Combine user profile into a single string
-user_profile_text = f"{user_profile['interests']} {user_profile['academic_results']} {user_profile['hobbies']}"
+    df = pd.DataFrame(programs)
 
-# Vectorize both combined program features and user profile using TF-IDF
-tfidf_vectorizer = TfidfVectorizer(stop_words='english')
-tfidf_matrix = tfidf_vectorizer.fit_transform(df['combined_features'])
+    # Combine program attributes for vectorization
+    df['combined_features'] = df.apply(lambda x: f"{x['description']} {x['level']} {x['interests']}", axis=1)
 
-# Vectorize the user profile text
-user_profile_vector = tfidf_vectorizer.transform([user_profile_text])
+    # Combine user profile into a single string
+    user_profile_text = f"{user_profile['interests']} {user_profile['academic_results']} {user_profile['hobbies']}"
 
-# Compute cosine similarity between the user profile and all programs
-cosine_sim = cosine_similarity(user_profile_vector, tfidf_matrix)
+    # Vectorize both combined program features and user profile using TF-IDF
+    tfidf_vectorizer = TfidfVectorizer(stop_words='english')
+    tfidf_matrix = tfidf_vectorizer.fit_transform(df['combined_features'])
 
-# Add similarity scores to the DataFrame
-df['similarity'] = cosine_sim.flatten()
+    # Vectorize the user profile text
+    user_profile_vector = tfidf_vectorizer.transform([user_profile_text])
 
-# Recommend top programs based on similarity scores
-recommended_programs = df.sort_values(by='similarity', ascending=False)
+    # Compute cosine similarity between the user profile and all programs
+    cosine_sim = cosine_similarity(user_profile_vector, tfidf_matrix)
 
-# Display the recommended programs with similarity scores
-print("Recommended Programs:")
-print(recommended_programs[['university', 'name', 'similarity']].head())
+    # Add similarity scores to the DataFrame
+    df['similarity'] = cosine_sim.flatten()
+
+    # Recommend top programs based on similarity scores
+    recommended_programs = df.sort_values(by='similarity', ascending=False)
+
+    # Return the top 3 recommended programs with similarity scores
+    return recommended_programs[['university', 'name', 'similarity']].head(3)
+
+# Function to get interests from chatbot and recommend programs
+def recommend_based_on_interests(interests, hobbies, data):
+    # Construct a mock user profile based on interests
+    user_profile = {
+        "interests": ", ".join(interests),
+        "academic_results": "average",  # Can be adjusted based on chatbot input
+        "hobbies": ", ".join(hobbies),  # Can be adjusted based on chatbot input
+    }
+    
+    # Get recommended programs
+    recommended_programs = recommend_programs(user_profile, data)
+    
+    # Return the top recommended programs
+    return recommended_programs
+
+# Example usage: get interests from chatbot and recommend programs
+if __name__ == "__main__":
+    # Mock user interests and hobbies
+    chatbot_interests = ["programming","education", "ai"]
+    chatbot_hobbies = ["reading", "coding"]
+
+    # Get recommendations based on interests and hobbies
+    recommended_programs = recommend_based_on_interests(chatbot_interests, chatbot_hobbies, data)
+
+    # Display the recommended programs
+    print("Recommended Programs Based on Interests and Hobbies:")
+    print(recommended_programs)

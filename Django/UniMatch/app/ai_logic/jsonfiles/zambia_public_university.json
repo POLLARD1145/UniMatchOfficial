@@ -1,0 +1,27 @@
+{
+    "University of Zambia": [
+        {"name": "Software Engineering (SE)", "description": "Focus on designing, developing, and maintaining software systems.", "level": "Degree"},
+        {"name": "Computer Systems Engineering (CSE)", "description": "Combines computer science and electrical engineering for system design.", "level": "Degree"},
+        {"name": "Bachelor of Science in Computer Science", "description": "Comprehensive program covering algorithms, data structures, and software design.", "level": "Degree"}
+    ],
+    "Copperbelt University": [
+        {"name": "Diploma in Information Technology", "description": "Entry-level program in IT, focusing on basic skills and knowledge.", "level": "Diploma"},
+        {"name": "Bachelor of Science in Computer Science", "description": "Focuses on computational theory, programming, and problem-solving.", "level": "Degree"},
+        {"name": "Bachelor of Science in Information System", "description": "Study of systems that manage, process, and analyze data.", "level": "Degree"},
+        {"name": "Masters of Science in Computer Science", "description": "Advanced studies in computer science research and applications.", "level": "Masters"},
+        {"name": "PhD in Computer Science", "description": "Research-focused program aimed at creating new knowledge in the field.", "level": "Doctorate"}
+    ],
+    "Mulungushi University": [
+        {"name": "Bachelor of Science in Computer Science", "description": "Foundational program in computer science principles and applications.", "level": "Degree"},
+        {"name": "Bachelor of Science in Information Technology", "description": "Covers a wide range of topics in IT with a practical approach.", "level": "Degree"},
+        {"name": "Bachelor of Science in Information Systems", "description": "Focuses on information systems design, development, and management.", "level": "Degree"},
+        {"name": "Bachelor of Science in Data Science", "description": "Introduces data analysis, machine learning, and big data technologies.", "level": "Degree"},
+        {"name": "Bachelor of Science in Cyber Security", "description": "Teaches security principles, risk management, and cyber threat prevention.", "level": "Degree"}
+    ],
+    "Kwame Nkrumah University": [
+        {"name": "Bachelor of ICT with Education", "description": "Integrates ICT skills with educational practices for teaching roles.", "level": "Degree"}
+    ],
+    "Kapasa Makasa University": [
+        {"name": "Bachelor of ICT with Education", "description": "Prepares students for educational roles in ICT.", "level": "Degree"}
+    ]
+}

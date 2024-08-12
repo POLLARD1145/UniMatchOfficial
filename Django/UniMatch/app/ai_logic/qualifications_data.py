@@ -1,6 +1,6 @@
 import json
 
-with open("../jsonfiles/zambian_universities_and_programs.json") as file:
+with open("app/ai_logic/jsonfiles/zambian_universities_and_programs.json") as file:
     data = json.load(file)
 data1 = {
   "Copperbelt University (CBU)": [
@@ -434,4 +434,4 @@ data1 = {
 def get_list_of_universities():
     return list(data.keys())
 def get_program_and_university():
-    return data
+    return data1

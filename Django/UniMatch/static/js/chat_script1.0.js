@@ -1,69 +1,81 @@
-//GLOBAL Varriables
+// Global Variables
 var messagesArea = document.getElementById("messages-container");
 var userInput = document.getElementById("message-input");
-    function userMessage(){
-        if(userInput.value = ""){}else{
-            sendMessage();
-        }
+
+// Function to send a message when user presses Enter or clicks send button
+function userMessage() {
+    if (userInput.value.trim() !== "") {
+        sendMessage();
     }
+}
 
-        // Function to add a new message div
-        function sendMessage() {
-            userMessage = userInput.value;
-            appendUserMessage(userMessage);
-            userInput.value = "";
-            document.getElementById("greeting-text").style.display = "none";
-            scrollChatsToBottom();
-            // Send the user message to the backend
-            fetch('/get_bot_response/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken') // Django CSRF token if needed
-                },
-                body: JSON.stringify({ message: userMessage })
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Append the bot's response to the chat
-                appendBotMessage(data.botMessage);
-                scrollChatsToBottom();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+// Function to send the user message and handle the bot's response
+function sendMessage() {
+    var userMessage = userInput.value.trim();
+    if (userMessage === "") return;
+
+    appendUserMessage(userMessage);
+    userInput.value = "";
+    document.getElementById("greeting-text").style.display = "none";
+    scrollChatsToBottom();
+
+    // Send the user message to the backend
+    fetch('/get_bot_response/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken') // Django CSRF token if needed
+        },
+        body: JSON.stringify({ message: userMessage })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Append the bot's response to the chat
+        appendBotMessage(data.botMessage);
+        scrollChatsToBottom();
+
+        // If feedback is requested, ask for feedback
+        if (data.feedbackRequested) {
+            askForFeedback();
         }
-        //add event listner to the input area to wait for the enter key to send the message
-        userInput.addEventListener('keypress', function(event) {
-            if (event.keyCode === 13 || event.key === "Enter") {
-                if(userInput.value === " "){}else{
-                    sendMessage();
-                }
-            }
-        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
 
-        //create a new user message div when a message is sent.
-        function appendUserMessage(message){
-            var userMessageContainer = document.createElement("div");
-            userMessageContainer.className = "user-message"
-            userMessageContainer.textContent = message;
-            messagesArea.appendChild(userMessageContainer);
-        }
+// Event listener for Enter key press
+userInput.addEventListener('keypress', function(event) {
+    if (event.key === "Enter") {
+        userMessage();
+    }
+});
 
-        //create a new bot message div when a message is sent and feedback is received from the bot.
-        function appendBotMessage(message){
-            var botMessageContainer = document.createElement("div");
-            botMessageContainer.className = "bot-response bot-response-content"
-            botMessageContainer.innerHTML = message;
-            messagesArea.appendChild(botMessageContainer);
-        }
+// Create a new user message div
+function appendUserMessage(message) {
+    var userMessageContainer = document.createElement("div");
+    userMessageContainer.className = "user-message";
+    userMessageContainer.textContent = message;
+    messagesArea.appendChild(userMessageContainer);
+}
 
-        function scrollChatsToBottom() {
-            messagesArea.scrollTop = messagesArea.scrollHeight;
-        }
-   
+// Create a new bot message div and render markdown content
+function appendBotMessage(message) {
+    var converter = new showdown.Converter();
+    var htmlContent = converter.makeHtml(message);
 
-        // Function to set bottom margin of messages-container to match the height of input-area-container
+    var botMessageContainer = document.createElement("div");
+    botMessageContainer.className = "bot-response bot-response-content";
+    botMessageContainer.innerHTML = htmlContent; // Render markdown as HTML
+    messagesArea.appendChild(botMessageContainer);
+}
+
+// Scroll chat area to the bottom
+function scrollChatsToBottom() {
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+}
+
+// Function to adjust chat container padding
 function setMessagesContainerPadding() {
     var inputAreaHeight = document.getElementById('input-area-container').offsetHeight;
     var chatsArea = document.getElementById('chats-area-container');
@@ -71,12 +83,12 @@ function setMessagesContainerPadding() {
     chatsArea.style.marginBottom = 900 + 'px';
 }
 
-// Call the setMessagesContainerMargin function initially to set the bottom margin
+// Initial setup for message container padding
 document.addEventListener('DOMContentLoaded', function() {
     setMessagesContainerPadding();
 });
 
-// Event listener to adjust bottom margin of messages-container when window is resized
+// Adjust padding when window is resized
 window.addEventListener('resize', function() {
     setMessagesContainerPadding();
 });
@@ -88,7 +100,6 @@ function getCookie(name) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
@@ -96,4 +107,14 @@ function getCookie(name) {
         }
     }
     return cookieValue;
+}
+
+// Function to ask for user feedback
+function askForFeedback() {
+    let feedback = prompt("How would you rate this response? (1-5)");
+    if (feedback <= 3) {
+        let additionalFeedback = prompt("What would have been a more accurate response? (Optional): ");
+        // Optionally send feedback to the server or log it
+        console.log("User feedback:", feedback, additionalFeedback);
+    }
 }
