@@ -1,19 +1,51 @@
 {
     "intents": [
         {
-            "tag": "greeting",
-            "patterns": [
-                "Hi",
-                "Hello",
-                "How are you?",
-                "Hey there",
-                "Good day"
-            ],
-            "responses": [
-                "Hello! How can I assist you with ICT programs at Zambian universities today?",
-                "Hi there! What information do you need about ICT programs?",
-                "Hey! How can I help you with your university search?"
-            ]
+                "tag": "greeting",
+                "patterns": [
+                    "Hi",
+                    "hi",
+                    "Hello",
+                    "How are you?",
+                    "Hey there",
+                    "Good day",
+                    "What's up?",
+                    "Howdy",
+                    "Greetings",
+                    "Hey",
+                    "Hi there",
+                    "Hello there",
+                    "Good morning",
+                    "Good afternoon",
+                    "Good evening",
+                    "Hey! How’s it going?",
+                    "What’s new?",
+                    "What’s going on?",
+                    "How’s everything?",
+                    "How’s life?",
+                    "How are you doing?",
+                    "Yo",
+                    "Hiya",
+                    "How’s your day?",
+                    "How’s your day going?",
+                    "Hello! What’s happening?",
+                    "Hi! What’s up?",
+                    "Good to see you!",
+                    "Hi! Need any help?",
+                    "Hello! Anything I can do for you?"
+                ],
+                "responses": [
+                    "Hello! How can I assist you with ICT programs at Zambian universities today?",
+                    "Hi there! What information do you need about ICT programs?",
+                    "Hey! How can I help you with your university search?",
+                    "Greetings! What would you like to know about ICT courses?",
+                    "Hi! Looking for details on ICT programs? I'm here to help.",
+                    "Hello! How can I support your research on ICT studies?",
+                    "Hey there! Need any guidance on Zambian university ICT programs?",
+                    "Hi! I'm here to answer any questions you have about ICT education.",
+                    "Good day! How can I assist you with your ICT program inquiries?",
+                    "Hello! Ready to explore ICT programs at Zambian universities? I'm here to help."
+                ]            
         },
         {
             "tag": "goodbye",

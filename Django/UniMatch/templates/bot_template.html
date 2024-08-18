@@ -104,7 +104,7 @@
                                         <li>
                                             <form id="logout-form" method="post" action="{% url 'logout' %}">
                                                 {% csrf_token %}
-                                                <button type="submit" class="dropdown-item">
+                                                <button onclick="handleLogout()" class="dropdown-item">
                                                     <span><i class="bi bi-box-arrow-left"></i></span> 
                                                     Logout
                                                 </button>

@@ -11,7 +11,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'ai_logic'))
 #import now
 from app.ai_logic import unirank_web as uw, recommender
 from app.ai_logic.chatbot import Chatbot
-
+# Initialize the chatbot
+chatbot = Chatbot()
 # Create your views here.
 
 def index(request):
@@ -154,8 +155,6 @@ def general_recommendations(request):
 def get_bot_response(request):
     if request.method == 'POST':
         try:
-            # Initialize the chatbot
-            chatbot = Chatbot()
 
             # Get the user's message
             data = json.loads(request.body)

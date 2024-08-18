@@ -1,17 +1,26 @@
 // Global Variables
 var messagesArea = document.getElementById("messages-container");
 var userInput = document.getElementById("message-input");
+var sessionID = getSessionID(); // Get the session ID from session storage
 
 // Function to load chat history from session storage
 function loadChatHistory() {
+    
     var chatHistory = JSON.parse(sessionStorage.getItem("chatHistory")) || [];
-    chatHistory.forEach(messageObj => {
-        if (messageObj.type === "user") {
-            appendUserMessage(messageObj.message);
-        } else if (messageObj.type === "bot") {
-            appendBotMessage(messageObj.message);
-        }
-    });
+    var storedSessionID = sessionStorage.getItem("sessionID");
+
+    // Load chats only if the session ID matches
+    if (storedSessionID && storedSessionID === sessionID) {
+        chatHistory.forEach(messageObj => {
+            if (messageObj.type === "user") {
+                appendUserMessage(messageObj.message);
+            } else if (messageObj.type === "bot") {
+                appendBotMessage(messageObj.message);
+            }
+        });
+    } else {
+        clearChatHistory(); // Clear chat history if the session ID doesn't match
+    }
 }
 
 // Function to save chat history to session storage
@@ -19,6 +28,22 @@ function saveChatHistory(type, message) {
     var chatHistory = JSON.parse(sessionStorage.getItem("chatHistory")) || [];
     chatHistory.push({ type: type, message: message });
     sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+}
+
+// Function to get or generate a session ID
+function getSessionID() {
+    var storedSessionID = sessionStorage.getItem("sessionID");
+    if (!storedSessionID) {
+        // Generate a new session ID if not present
+        storedSessionID = generateSessionID();
+        sessionStorage.setItem("sessionID", storedSessionID);
+    }
+    return storedSessionID;
+}
+
+// Function to generate a unique session ID
+function generateSessionID() {
+    return 'session-' + Math.random().toString(36).substr(2, 16);
 }
 
 // Function to send a message when user presses Enter or clicks send button
@@ -46,7 +71,7 @@ function sendMessage() {
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('csrftoken') // Django CSRF token if needed
         },
-        body: JSON.stringify({ message: userMessage })
+        body: JSON.stringify({ message: userMessage, sessionID: sessionID }) // Send session ID with the message
     })
     .then(response => response.json())
     .then(data => {
@@ -98,7 +123,7 @@ function appendBotMessage(message) {
             botMessageContainer.innerHTML = tempContent; // Render full HTML content periodically
             index++;
             scrollChatsToBottom();
-            setTimeout(type, 25); // Reduced delay for faster typing speed
+            setTimeout(type, 0.01); // Reduced delay for faster typing speed
         }
     }
     type();
@@ -152,4 +177,18 @@ function askForFeedback() {
         // Optionally send feedback to the server or log it
         console.log("User feedback:", feedback, additionalFeedback);
     }
+}
+
+// Function to handle logout and clear chat history
+function handleLogout() {
+    clearChatHistory();
+    sessionStorage.removeItem("sessionID"); // Remove session ID on logout
+    // Redirect to logout URL or handle logout process here
+    window.location.href = '/logout/';
+}
+
+// Function to clear chat history from session storage
+function clearChatHistory() {
+    sessionStorage.removeItem("chatHistory");
+    messagesArea.innerHTML = ''; // Clear chat area
 }

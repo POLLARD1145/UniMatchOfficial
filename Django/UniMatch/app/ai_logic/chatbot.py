@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import random
 import nltk
+import pickle
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -24,10 +25,10 @@ class Chatbot:
     def __init__(self):
         # Initialize lemmatizer
         self.lemmatizer = WordNetLemmatizer()
-        
+
         # Initialize data and models
         self.data = self._load_data()
-        self.pipeline, self.low_accuracy = self._train_model()
+        self.pipeline, self.low_accuracy = self._load_or_train_model()
         self.user_sessions = {}
         self.feedback_storage = []
         self.intent_to_function = {
@@ -42,6 +43,32 @@ class Chatbot:
             "academic_calendar": self._academic_calendar,
             "scholarship_info": self._scholarship_info
         }
+
+    def _load_or_train_model(self):
+        model_path = os.path.join(os.path.dirname(__file__), 'ai_models/trained_model.pkl')
+
+        # Check if the model file exists
+        if os.path.exists(model_path):
+            # Load the saved model
+            with open(model_path, 'rb') as model_file:
+                best_pipeline = pickle.load(model_file)
+            print("Loaded trained model from file.")
+            
+            # Evaluate the loaded model
+            df = self.data
+            df['processed_queries'] = df['queries'].apply(self._preprocess_text)
+            y_pred = best_pipeline.predict(df['processed_queries'])
+            accuracy = accuracy_score(df['intents'], y_pred)
+            #print("Loaded Model Accuracy:", accuracy)
+            #print("Classification Report:\n", classification_report(df['intents'], y_pred))
+
+            # Determine if feedback is needed based on accuracy
+            low_accuracy = accuracy < 0.80
+            return best_pipeline, low_accuracy
+
+        else:
+            # Train the model if no saved model is found
+            return self._train_model()
 
     def _load_data(self):
         # Load data from a JSON file
@@ -104,13 +131,19 @@ class Chatbot:
         best_pipeline = grid_search.best_estimator_
         y_pred = best_pipeline.predict(df['processed_queries'])
         accuracy = accuracy_score(df['intents'], y_pred)
-        print("Best Model Accuracy:", accuracy)
-        print("Classification Report:\n", classification_report(df['intents'], y_pred))
+        #print("Best Model Accuracy:", accuracy)
+        #print("Classification Report:\n", classification_report(df['intents'], y_pred))
+
+        # Save the trained model to a file
+        model_path = os.path.join(os.path.dirname(__file__), 'ai_models/trained_model.pkl')
+        with open(model_path, 'wb') as model_file:
+            pickle.dump(best_pipeline, model_file)
 
         # Determine if feedback is needed based on accuracy
         low_accuracy = accuracy < 0.80
 
         return best_pipeline, low_accuracy
+
 
     def manage_session(self, user_id):
         if user_id not in self.user_sessions:
@@ -205,14 +238,9 @@ class Chatbot:
 
 
     def _list_universities(self, user_details=None):
-        universities = [
-            "University of Zambia",
-            "Copperbelt University",
-            "Mulungushi University",
-            "Kwame Nkrumah University",
-            "Kapasa Makasa University"
-        ]
-        return "Here is the list of universities in Zambia:\n" + "\n".join(universities)
+        import qualifications_data as qd
+        universities = qd.get_list_of_universities()
+        return "Here is the list of universities in Zambia:\n" + "\n- ".join(universities)
 
     def _get_program_details(self, user_details=None):
         # Simulate fetching details for a specific program
