@@ -5,7 +5,6 @@ var sessionID = getSessionID(); // Get the session ID from session storage
 
 // Function to load chat history from session storage
 function loadChatHistory() {
-    
     var chatHistory = JSON.parse(sessionStorage.getItem("chatHistory")) || [];
     var storedSessionID = sessionStorage.getItem("sessionID");
 
@@ -116,7 +115,7 @@ function appendBotMessage(message) {
 
     let index = 0;
     let tempContent = '';
-    
+
     function type() {
         if (index < htmlContent.length) {
             tempContent += htmlContent.charAt(index);
@@ -173,22 +172,23 @@ function getCookie(name) {
 function askForFeedback() {
     let feedback = prompt("How would you rate this response? (1-5)");
     if (feedback <= 3) {
-        let additionalFeedback = prompt("What would have been a more accurate response? (Optional): ");
-        // Optionally send feedback to the server or log it
-        console.log("User feedback:", feedback, additionalFeedback);
+        let additionalFeedback = prompt("What would you like to see improved?");
+        console.log(additionalFeedback);
+    }
+    if (feedback > 3) {
+        let additionalFeedback = prompt("Would you like to provide additional feedback?");
+        console.log(additionalFeedback);
     }
 }
 
-// Function to handle logout and clear chat history
+// Function to handle logout
 function handleLogout() {
-    clearChatHistory();
-    sessionStorage.removeItem("sessionID"); // Remove session ID on logout
-    // Redirect to logout URL or handle logout process here
-    window.location.href = '/logout/';
+    clearChatHistory(); // Clear chat history on logout
+    sessionStorage.removeItem("sessionID"); // Clear session ID on logout
+    window.location.href = "/logout/";
 }
 
-// Function to clear chat history from session storage
+// Function to clear chat history
 function clearChatHistory() {
     sessionStorage.removeItem("chatHistory");
-    messagesArea.innerHTML = ''; // Clear chat area
 }

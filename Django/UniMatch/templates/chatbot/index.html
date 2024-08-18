@@ -4,46 +4,12 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/chat.css' %}">
-<style>
-    .input-group {
-        display: flex;
-        align-items: center;
-    }
-
-    #message-input {
-        flex: 1;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    #send-message-button {
-        flex: none;
-        width: auto;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-
-    .input-group .form-control,
-    .input-group .btn {
-        height: 100%;
-    }
-
-    @media (max-width: 576px) {
-        #message-input {
-            width: calc(100% - 50px); /* Adjust based on button width */
-        }
-
-        #send-message-button {
-            width: 50px;
-            padding: 0;
-        }
-    }
-</style>
 {% endblock styles %}
 
 {% block content %}
 <div id="chats-area-container" class="container main-body">
     <div class="grid">
+        <!-- Greeting text and recommendations -->
         <div id="greeting-text" class="greeting-text position-absolute top-50 start-50 translate-middle text-center">
             <h1 class="display-4">
                 {% if user.is_authenticated %}
@@ -60,8 +26,8 @@
                 <ul class="list-group mt-3">
                     {% for program in recommended_programs %}
                     <li class="list-group-item">
-                        <strong> {{ program.name }} </strong> at
-                        <strong> {{ program.university }}</strong><br>
+                        <strong>{{ program.name }}</strong> at
+                        <strong>{{ program.university }}</strong><br>
                     </li>
                     {% endfor %}
                 </ul>
@@ -75,20 +41,15 @@
             {% endif %}
         </div>
 
-        <!--chats area -->
+        <!-- Chats area -->
         <div class="container chats-container">
-            <div id="messages-container" class="position-relative">
-                <!--bot response -->
-
-                <!--bot response ends here -->
-
-                <!--user message -->
-                <!--user message ends here -->
+            <div id="messages-container">
+                <!-- Chat messages will be dynamically added here -->
             </div>
         </div>
-        <!--chats area ends here -->
+        <!-- Chats area ends here -->
 
-        <!--Input area -->
+        <!-- Input area -->
         <div id="input-area-container" class="input-area-container fixed-bottom container">
             <div class="input-group">
                 <input type="text" id="message-input" class="form-control" placeholder="Enter message here..." aria-label="Enter message here...">
@@ -96,7 +57,7 @@
             </div>
             <br>
         </div>
-        <!--Input area ends here -->
+        <!-- Input area ends here -->
     </div>
 </div>
 {% endblock content %}

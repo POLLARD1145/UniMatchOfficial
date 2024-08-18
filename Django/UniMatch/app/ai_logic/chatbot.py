@@ -17,9 +17,9 @@ from textblob import TextBlob
 import recommender
 
 # Download necessary NLTK data
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
+#nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('wordnet')
 
 class Chatbot:
     def __init__(self):
@@ -63,7 +63,7 @@ class Chatbot:
             #print("Classification Report:\n", classification_report(df['intents'], y_pred))
 
             # Determine if feedback is needed based on accuracy
-            low_accuracy = accuracy < 0.80
+            low_accuracy = accuracy < 0.8
             return best_pipeline, low_accuracy
 
         else:
@@ -216,8 +216,14 @@ class Chatbot:
 
     # Placeholder functions for program listing, university ranking, and other features
     def _list_programs(self, user_details=None):
-        programs = ["CS", "CE"]
-        return "Here is the list of available programs:\n" + "\n".join(programs)
+        import qualifications_data as qd
+        ict_universities = qd.get_public_universities()
+        response = "Here is the list of ICT programs offered by public universitis in zambia:\n"
+        for uni in ict_universities.keys():
+            response += f"###### {uni}\n"
+            for program in ict_universities[uni]:
+                response += f"- {program["name"]}\n"  
+        return  response+ "\n"
 
     def _rank_universities(self, user_details=None):
         import unirank_web as rank

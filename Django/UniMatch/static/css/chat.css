@@ -1,102 +1,112 @@
+/* Ensure the chat container is positioned correctly and scrollable */
+.chats-container {
+    position: relative; /* Ensure it respects the positioning context */
+    overflow-y: auto; /* Allows scrolling if the content is too long */
+    padding-bottom: 60px; /* Reserve space for the input area */
+    height: calc(100vh - 60px); /* Adjust based on input area height */
+}
 
-      /*
-      .main-body{
-          background-image: url("{% static 'images/background.jpeg' %}");
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center;
-          height: 90vh;
-      }
-      */
-      /* Custom styles for the input group and textarea */
-      .input-area-container{
-        background-color: #b3c2c9;
-        
-      }
-      .input-group {
-          display: flex;
-          align-items: center;
-          margin: 20px;
-      }
-      #chats-area-container{
-        margin-bottom: 20000px;
-      }
-      .chats-container {
-          position: relative;
-          top: 0px;
-      }
+/* Ensure input area is fixed at the bottom and full width */
+.input-area-container {
+    position: fixed; /* Fix to the bottom of the viewport */
+    bottom: 0;
+    width: 100%;
+    background-color: #b3c2c9; /* Background color for input area */
+    z-index: 1000; /* Ensure it's above other content */
+}
 
-      .bot-response, .user-message {
-          padding: 10px;
-          border-radius: 5px;
-          margin-bottom: 10px;
-          width:fit-content;
-          max-width: max-content;
-          word-wrap: break-word;
-      }
+/* Ensure the messages container scrolls properly */
+#messages-container {
+    max-height: calc(100vh - 60px); /* Adjust based on the height of the input area */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
 
-      .bot-response {
-          background-color: #f0f0f0;
-          float: left;
-          clear: both;
-      }
+/* Custom styles for the input group and textarea */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
 
-      .spinner-container {
-          float: left;
-          clear: both;
-          margin-bottom: 10px;
-      }
+.textarea {
+    background-color: #f0f8ff; /* Custom background color */
+    color: #333; /* Custom text color */
+    border: 1px solid #ccc; /* Custom border color */
+    padding: 10px;
+    border-radius: 5px;
+    flex: 1;
+    resize: none; /* Prevent resizing */
+    font-size: 16px; /* Custom font size */
+}
 
-      .user-message {
-          background-color: #d1e7dd;
-          float: right;
-          clear: both;
-      }
+.input-group-text {
+    background-color: #4CAF50; /* Custom background color */
+    color: white; /* Custom text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
 
-      .send-button{
-          height: match-parent;
-      }
-      .textarea {
-          background-color: #f0f8ff; /* Custom background color */
-          color: #333; /* Custom text color */
-          border: 1px solid #ccc; /* Custom border color */
-          padding: 10px;
-          border-radius: 5px;
-          flex: 1;
-          height: match-parent;
-          resize: none; /* Prevent resizing */
-          font-size: 16px; /* Custom font size */
-      }
+.input-group-text:hover {
+    background-color: #45a049; /* Hover effect */
+}
 
-      .input-group-text {
-          background-color: #4CAF50; /* Custom background color */
-          color: white; /* Custom text color */
-          padding: 10px 20px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          margin-left: 10px;
-      }
+/* Additional styles for responsiveness */
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+    }
 
-      .input-group-text:hover {
-          background-color: #45a049; /* Hover effect */
-      }
+    .input-group-text {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
 
-      /* Additional styles for responsiveness */
-      @media (max-width: 600px) {
-          .input-group {
-              flex-direction: column;
-          }
+body {
+    background-color: #b3c2c9;
+}
 
-          .input-group-text {
-              margin-left: 0;
-              margin-top: 10px;
-          }
-      }
+nav.navbar.navbar-custom.navbar-expand-lg.bg-body-tertiary {
+    background-color: #b3c2c9 !important; 
+}
 
-      body{
-          background-color: #b3c2c9;
-      }
-      nav.navbar.navbar-custom.navbar-expand-lg.bg-body-tertiary {
-          background-color: #b3c2c9 !important; 
-      }
+@media (max-width: 576px) {
+    #message-input {
+        width: calc(100% - 50px); /* Adjust based on button width */
+    }
+
+    #send-message-button {
+        width: 50px;
+        padding: 0;
+    }
+}
+
+.bot-response, .user-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: fit-content;
+    max-width: max-content;
+    word-wrap: break-word;
+}
+
+.bot-response {
+    background-color: #f0f0f0;
+    float: left;
+    clear: both;
+}
+
+.spinner-container {
+    float: left;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.user-message {
+    background-color: #d1e7dd;
+    float: right;
+    clear: both;
+}
