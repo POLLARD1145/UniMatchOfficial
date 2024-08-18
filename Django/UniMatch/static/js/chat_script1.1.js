@@ -144,7 +144,8 @@ function setMessagesContainerPadding() {
 // Initial setup for message container padding and load chat history
 document.addEventListener('DOMContentLoaded', function() {
     setMessagesContainerPadding();
-    loadChatHistory(); // Load chat history on page load
+    //loadChatHistory(); // Load chat history on page load
+
 });
 
 // Adjust padding when window is resized
