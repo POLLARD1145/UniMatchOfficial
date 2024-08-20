@@ -1,9 +1,11 @@
 /* Ensure the chat container is positioned correctly and scrollable */
 .chats-container {
     position: relative; /* Ensure it respects the positioning context */
-    overflow-y: auto; /* Allows scrolling if the content is too long */
-    padding-bottom: 60px; /* Reserve space for the input area */
-    height: calc(100vh - 60px); /* Adjust based on input area height */
+    /* overflow-y: auto;  Allows scrolling if the content is too long */
+    padding-bottom: 400px; /* Reserve space for the input area */
+    margin-bottom: 400px;
+    border-bottom: 400px;
+    height: calc(100vh - 250px); /* Adjust based on input area height */
 }
 
 /* Ensure input area is fixed at the bottom and full width */
@@ -14,11 +16,11 @@
     background-color: #b3c2c9; /* Background color for input area */
     z-index: 1000; /* Ensure it's above other content */
 }
-
-/* Ensure the messages container scrolls properly */
-#messages-container {
-    max-height: calc(100vh - 60px); /* Adjust based on the height of the input area */
-    overflow-y: auto; /* Enables vertical scrolling */
+#content-area{
+    scroll-padding-bottom: 60vh;
+    padding-bottom: 400px; /* Reserve space for the input area */
+    margin-bottom: 400px;
+    border-bottom: 400px;
 }
 
 /* Custom styles for the input group and textarea */

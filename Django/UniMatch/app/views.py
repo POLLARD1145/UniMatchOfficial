@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 import json
 #local imports
 #add ai_logic to the system path for imports
@@ -17,13 +18,14 @@ chatbot = Chatbot()
 
 def index(request):
     return render(request=request,template_name="index.html")
-
+@login_required
 def chat(request):
     return render(request=request,template_name="chatbot/index.html")
 
 # Assuming you have models for these
 from accounts.models import Hobby, Interest, Education
 
+@login_required
 def chat(request):
     # Check if the user is authenticated
     if not request.user.is_authenticated:
@@ -70,6 +72,7 @@ def chat(request):
 
     return render(request, template_name="chatbot/index.html", context=context)
 
+
 def universities(request):
     from .ai_logic import qualifications_data as qd
     institutions_data = qd.get_program_and_university()
@@ -78,15 +81,26 @@ def universities(request):
     query = request.GET.get('query', '').lower()
 
     if query:
-        # Filter institutions and programs based on the search query
+        # Filter institutions, programs, and locations based on the search query
         filtered_data = {}
-        for institution, programs in institutions_data.items():
-            # Check if the institution name or any program name matches the query
-            if query in institution.lower() or any(query in program.lower() for program in programs):
-                filtered_data[institution] = [program for program in programs if query in program.lower()]
+        for institution, data in institutions_data.items():
+            location = data['location'].lower()
+            programs = data['programs']
+
+            # Check if the institution name, location, or any program name matches the query
+            if (query in institution.lower() or query in location or
+                any(query in program['name'].lower() for program in programs)):
+                filtered_programs = [program for program in programs if query in program['name'].lower()]
+                filtered_data[institution] = {
+                    'location': location,
+                    'programs': filtered_programs
+                }
 
         institutions_data = filtered_data
+
     return render(request, 'universities.html', {'institutions_data': institutions_data})
+
+
     
 
 # Enhanced sample data with levels and descriptions
@@ -101,56 +115,75 @@ def load_universities_data():
 universities_data = load_universities_data()
 
 def general_recommendations(request):
-    # Extract all programs, university names, and levels
-    all_programs = {program['name'] for programs in universities_data.values() for program in programs}
+    # Extract all programs, university names, levels, and locations
+    universities_data = load_universities_data()  # Ensure this fetches the updated data structure
+    all_programs = {program['name'] for data in universities_data.values() for program in data['programs']}
     all_universities = universities_data.keys()
-    all_levels = {program['level'] for programs in universities_data.values() for program in programs}
+    all_levels = {program['level'] for data in universities_data.values() for program in data['programs']}
+    all_locations = {data['location'] for data in universities_data.values()}
     
     # Get query parameters for filtering
     selected_program = request.GET.get('program')
     selected_university = request.GET.get('university')
     selected_level = request.GET.get('level')
+    selected_location = request.GET.get('location')
 
     # Start with all data
     filtered_universities = universities_data
 
-    # Apply program filter if selected
-    if selected_program:
+    # Apply location filter if selected
+    if selected_location:
         filtered_universities = {
-            uni: [prog for prog in progs if selected_program == prog['name']]
-            for uni, progs in filtered_universities.items()
+            uni: data for uni, data in filtered_universities.items() if selected_location == data['location']
         }
-        filtered_universities = {uni: progs for uni, progs in filtered_universities.items() if progs}
-    
+
     # Apply university filter if selected
     if selected_university:
         filtered_universities = {
-            uni: progs for uni, progs in filtered_universities.items() if selected_university == uni
+            uni: data for uni, data in filtered_universities.items() if selected_university == uni
         }
+
+    # Apply program filter if selected
+    if selected_program:
+        filtered_universities = {
+            uni: {
+                'location': data['location'],
+                'programs': [prog for prog in data['programs'] if selected_program == prog['name']]
+            }
+            for uni, data in filtered_universities.items()
+        }
+        filtered_universities = {uni: data for uni, data in filtered_universities.items() if data['programs']}
 
     # Apply level filter if selected
     if selected_level:
         filtered_universities = {
-            uni: [prog for prog in progs if selected_level == prog['level']]
-            for uni, progs in filtered_universities.items()
+            uni: {
+                'location': data['location'],
+                'programs': [prog for prog in data['programs'] if selected_level == prog['level']]
+            }
+            for uni, data in filtered_universities.items()
         }
-        filtered_universities = {uni: progs for uni, progs in filtered_universities.items() if progs}
+        filtered_universities = {uni: data for uni, data in filtered_universities.items() if data['programs']}
 
     context = {
         'programs': sorted(all_programs),
         'universities': sorted(all_universities),
         'levels': sorted(all_levels),
+        'locations': sorted(all_locations),
         'filtered_universities': filtered_universities,
         'selected_program': selected_program,
         'selected_university': selected_university,
         'selected_level': selected_level,
+        'selected_location': selected_location,
     }
 
     return render(request, 'general_recommendations.html', context)
 
 
 
+
  #fetching and sending messages to the backend   
+@login_required
 @csrf_exempt
 def get_bot_response(request):
     if request.method == 'POST':

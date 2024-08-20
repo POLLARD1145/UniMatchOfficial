@@ -89,11 +89,6 @@
                         <hr>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
-                          <i class="bi bi-gear"></i> Settings
-                        </a>
-                      </li>
-                      <li>
                         <form id="logout-form" method="post" action="{% url 'logout' %}">
                           {% csrf_token %}
                           <button type="submit" class="dropdown-item">

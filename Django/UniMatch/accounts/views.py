@@ -9,7 +9,6 @@ from UniMatch import settings
 from .models import CustomUser, Hobby, Interest
 from .forms import CustomUserCreationForm, CustomUserChangeForm,HobbyForm,InterestForm
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import Hobby, Interest
 from .forms import HobbyForm, InterestForm
@@ -26,7 +25,7 @@ def extract_programs():
     """Extract a sorted list of unique programs from universities_data."""
     programs = set()
     for university in universities_data.values():
-        for program in university:
+        for program in university["programs"]:
             programs.add(program['name'])
     return sorted(programs)
 
@@ -34,8 +33,22 @@ def extract_programs():
 # Views go here
 
 def login(request):
-    return render(request=request, template_name="user_account/login.html")
+    # Get the Referer header from the request
+    referer = request.META.get('HTTP_REFERER', None)
+    
+    # Determine if the user was redirected
+    is_redirected = referer is not None
+    
+    # Prepare a message if the page was accessed via redirection
+    if is_redirected:
+        message = "You must log in to see personalized recommendations and other services."
+    else:
+        message = ""  # Empty message if accessed directly
+    
+    # Render the login template with the message
+    return render(request, 'user_account/login.html', {'message': message})
 
+@login_required
 def user_details(request):
     if not request.user.is_authenticated:
         return redirect(f"{settings.LOGIN_URL}?next={request.path}")
@@ -45,7 +58,7 @@ def user_details(request):
         'hobbies': hobbies,
         'interests' : interests
     })
-
+@login_required
 def user_details(request):
     if not request.user.is_authenticated:
         return redirect(f"{settings.LOGIN_URL}?next={request.path}")
@@ -61,7 +74,7 @@ def user_details(request):
         'education': education,
     })
 
-
+@login_required
 def user_details(request):
     if not request.user.is_authenticated:
         return redirect(f"{settings.LOGIN_URL}?next={request.path}")
@@ -76,7 +89,7 @@ def user_details(request):
         'interests': interests,
         'education': education,
     })
-
+@login_required
 def edit_personal_details(request):
     if not request.user.is_authenticated:
         return redirect(f"{settings.LOGIN_URL}?next={request.path}")
@@ -263,6 +276,26 @@ def edit_details(request):
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
     template_name = 'user_account/login.html'
+
+    def get(self, request, *args, **kwargs):
+        # Get the Referer header from the request
+        # Get the 'next' parameter from the URL
+        next_url = request.GET.get('next', None)
+        
+        # Check if the next URL is the chat page
+        if next_url == '/chat/':
+            message = "You must log in to use the chatbot and access personalized recommendations."
+        elif next_url == "/accounts/details/":
+            message = "You must login to see and edit account details."
+        else:
+            message = ""
+        
+        # Add the message to the context
+        context = self.get_context_data(**kwargs)
+        context['message'] = message
+        
+        # Render the template with the updated context
+        return self.render_to_response(context)
 
 
 

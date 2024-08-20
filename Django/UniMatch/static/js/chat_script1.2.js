@@ -135,10 +135,11 @@ function scrollChatsToBottom() {
 
 // Function to adjust chat container padding
 function setMessagesContainerPadding() {
-    var inputAreaHeight = document.getElementById('input-area-container').offsetHeight;
+    var inputAreaHeight = document.getElementById('input-area-container').clientHeight;
     var chatsArea = document.getElementById('chats-area-container');
     chatsArea.style.bottom = (inputAreaHeight) + 'px';
-    chatsArea.style.marginBottom = 900 + 'px';
+    chatsArea.style.marginBottom = (inputAreaHeight) + 'px';
+    chatsArea.style.paddingBottom = (inputAreaHeight) + 'px';
 }
 
 // Initial setup for message container padding and load chat history

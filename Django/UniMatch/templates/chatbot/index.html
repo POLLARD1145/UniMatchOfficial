@@ -3,52 +3,55 @@
 {% block title %}Personalized Recommendations{% endblock title %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/chat.css' %}">
+<link rel="stylesheet" href="{% static 'css/chat1.0.css' %}">
 {% endblock styles %}
 
 {% block content %}
 <div id="chats-area-container" class="container main-body">
     <div class="grid">
-        <!-- Greeting text and recommendations -->
-        <div id="greeting-text" class="greeting-text position-absolute top-50 start-50 translate-middle text-center">
-            <h1 class="display-4">
-                {% if user.is_authenticated %}
-                    Hello {{ user.first_name|default:user.username }},
-                    Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+        <!-- content area ends here -->
+        <div id="content-area">
+            <!-- Greeting text and recommendations -->
+            <div id="greeting-text" class="greeting-text position-absolute top-50 start-50 translate-middle text-center">
+                <h1 class="display-4">
+                    {% if user.is_authenticated %}
+                        Hello {{ user.first_name|default:user.username }},
+                        Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+                    {% else %}
+                        Hello, Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+                    {% endif %}
+                </h1>
+
+                {% if recommended_programs %}
+                <div class="recommended-programs mt-4">
+                    <p>According to your details, here are the recommended programs and the universities you can pursue them at:</p>
+                    <ul class="list-group mt-3">
+                        {% for program in recommended_programs %}
+                        <li class="list-group-item">
+                            <strong>{{ program.name }}</strong> at
+                            <strong>{{ program.university }}</strong><br>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <p>How else may I help you today?</p>
+                </div>
                 {% else %}
-                    Hello, Welcome to <span><b>Uni</b></span><span><u>Match</u></span>
+                <p>No recommended programs available. Please update your profile details for personalized recommendations.
+                    You can also ask for recommendations based on your interests and hobbies.
+                </p>
+                <p>How may I help you today?</p>
                 {% endif %}
-            </h1>
-
-            {% if recommended_programs %}
-            <div class="recommended-programs mt-4">
-                <p>According to your details, here are the recommended programs and the universities you can pursue them at:</p>
-                <ul class="list-group mt-3">
-                    {% for program in recommended_programs %}
-                    <li class="list-group-item">
-                        <strong>{{ program.name }}</strong> at
-                        <strong>{{ program.university }}</strong><br>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <p>How else may I help you today?</p>
             </div>
-            {% else %}
-            <p>No recommended programs available. Please update your profile details for personalized recommendations.
-                You can also ask for recommendations based on your interests and hobbies.
-            </p>
-            <p>How may I help you today?</p>
-            {% endif %}
-        </div>
 
-        <!-- Chats area -->
-        <div class="container chats-container">
-            <div id="messages-container">
-                <!-- Chat messages will be dynamically added here -->
+            <!-- Chats area -->
+            <div  class="container chats-container">
+                <div id="messages-container">
+                    <!-- Chat messages will be dynamically added here -->
+                </div>
             </div>
+            <!-- Chats area ends here -->
         </div>
-        <!-- Chats area ends here -->
-
+        <!-- content area ends here -->
         <!-- Input area -->
         <div id="input-area-container" class="input-area-container fixed-bottom container">
             <div class="input-group">
@@ -63,6 +66,6 @@
 {% endblock content %}
 
 {% block scripts %}
-<script src="{% static 'js/chat_script1.1.js' %}"></script>
+<script src="{% static 'js/chat_script1.2.js' %}"></script>
 <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
 {% endblock scripts %}

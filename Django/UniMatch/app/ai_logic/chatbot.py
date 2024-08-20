@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import random
 import nltk
+from nltk import pos_tag
 import pickle
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -17,9 +18,10 @@ from textblob import TextBlob
 import recommender
 
 # Download necessary NLTK data
-#nltk.download('stopwords')
-#nltk.download('punkt')
-#nltk.download('wordnet')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
 
 class Chatbot:
     def __init__(self):
@@ -131,8 +133,8 @@ class Chatbot:
         best_pipeline = grid_search.best_estimator_
         y_pred = best_pipeline.predict(df['processed_queries'])
         accuracy = accuracy_score(df['intents'], y_pred)
-        #print("Best Model Accuracy:", accuracy)
-        #print("Classification Report:\n", classification_report(df['intents'], y_pred))
+        print("Best Model Accuracy:", accuracy)
+        print("Classification Report:\n", classification_report(df['intents'], y_pred))
 
         # Save the trained model to a file
         model_path = os.path.join(os.path.dirname(__file__), 'ai_models/trained_model.pkl')
@@ -174,42 +176,63 @@ class Chatbot:
         # Query the Interest model for the given user_id
         interests = Interest.objects.filter(user_id=user_id).values_list('name', flat=True)
         return list(interests)
+    
+    def extract_keywords(self, text):
+        # Tokenize and remove stopwords
+        tokens = word_tokenize(text.lower())
+        tokens = [token for token in tokens if token.isalpha() and token not in stopwords.words('english')]
+        
+        # Lemmatize tokens
+        lemmatizer = WordNetLemmatizer()
+        lemmatized_tokens = [lemmatizer.lemmatize(token) for token in tokens]
+        
+        # Extract nouns and adjectives (assuming strengths, weaknesses, etc. are likely to be nouns or adjectives)
+        tagged_tokens = pos_tag(lemmatized_tokens)
+        keywords = [word for word, pos in tagged_tokens if pos in ('NN', 'JJ')]
+        
+        return keywords
 
     def get_response(self, user_message, user_id):
-        # Manage user session
         session = self.manage_session(user_id)
         user_details = self.get_user_details(user_id)
 
-        # Preprocess the user message
         processed_message = self._preprocess_text(user_message)
 
-        # Use the pipeline to predict the intent
-        predicted_intent = self.pipeline.predict([processed_message])[0]
+        # Predict intent and confidence
+        intent_proba = self.pipeline.predict_proba([processed_message])[0]
+        predicted_intent = self.pipeline.classes_[intent_proba.argmax()]
+        confidence = intent_proba.max()
+        
+        confidence_threshold = 0.4  # Example threshold
+        if confidence < confidence_threshold:
+            return "I'm not sure about this topic. Can you please provide more details or rephrase your question?"
 
         # Handle responses based on the current session stage
         if session["stage"] == "initial":
             if predicted_intent in self.intent_to_function:
-                return self.intent_to_function[predicted_intent](user_details)
+                if predicted_intent == "recommend_programs":
+                    session["stage"] = "collecting_details"
+                    return "Great! Can you tell me about your strengths?"
+                else:
+                    return self.intent_to_function[predicted_intent](user_details)
+            elif predicted_intent in self.data['intents'].unique():
+                return random.choice(self.responses[predicted_intent])
             else:
-                # Randomly choose a response from the predefined ones
-                return random.choice(self.responses.get(predicted_intent, ["I'm sorry, I didn't understand that. Can you please rephrase?"]))
+                return "I'm sorry, I didn't understand your request. Can you please rephrase?, topics to ask on \n- recommendations for you \n- list of universities for ict."
         
         elif session["stage"] == "collecting_details":
             if "strengths" not in session["details"]:
-                session["details"]["strengths"] = user_message
+                session["details"]["strengths"] = self.extract_keywords(user_message)
                 return "Thank you! Now, could you tell me about your weaknesses?"
             elif "weaknesses" not in session["details"]:
-                session["details"]["weaknesses"] = user_message
+                session["details"]["weaknesses"] = self.extract_keywords(user_message)
                 return "Got it! What are your interests?"
             elif "interests" not in session["details"]:
-                # Use stored interests if available, else take user input
-                session["details"]["interests"] = user_details.get('interests') or user_message
+                session["details"]["interests"] = user_details.get('interests') or self.extract_keywords(user_message)
                 return "Interesting! Lastly, what are your hobbies?"
             elif "hobbies" not in session["details"]:
-                # Use stored hobbies if available, else take user input
-                session["details"]["hobbies"] = user_details.get('hobbies') or user_message
+                session["details"]["hobbies"] = user_details.get('hobbies') or self.extract_keywords(user_message)
                 session["stage"] = "initial"
-                # Now we have all the details, provide a recommendation
                 return self._recommend_programs(session["details"])
 
         return "I'm sorry, I didn't understand that. Can you please rephrase?"
@@ -218,12 +241,18 @@ class Chatbot:
     def _list_programs(self, user_details=None):
         import qualifications_data as qd
         ict_universities = qd.get_public_universities()
-        response = "Here is the list of ICT programs offered by public universitis in zambia:\n"
-        for uni in ict_universities.keys():
-            response += f"###### {uni}\n"
-            for program in ict_universities[uni]:
-                response += f"- {program["name"]}\n"  
-        return  response+ "\n"
+        response = "Here is the list of ICT programs offered by public universities in Zambia:\n"
+        
+        for uni, details in ict_universities.items():
+            response += f"###### {uni} (Location: {details['location']})\n"
+            for program in details.get('programs', []):
+                if isinstance(program, dict):
+                    response += f"- {program.get('name', 'Unknown Program Name')}: {program.get('description', 'No description available')} (Level: {program.get('level', 'Unknown')})\n"
+                else:
+                    response += f"- {program}\n"  # In case program is a string or another type
+        
+        return response + "\n"
+
 
     def _rank_universities(self, user_details=None):
         import unirank_web as rank
@@ -266,7 +295,25 @@ class Chatbot:
 
     def _academic_calendar(self, user_details=None):
         # Simulate providing the academic calendar
-        return "The academic year begins in September and ends in June, with breaks in December and April."
+        response = (
+            "The academic year typically begins in February and ends in September, with breaks in April, July and August. "
+            "However, for specific institutions:\n\n"
+            "- **Copperbelt University (CBU)**: The academic year starts in **November**.\n"
+            "- **University of Zambia (UNZA)**: The academic year starts in **February**.\n"
+            "- **Mulungushi University**: The academic year starts in **March**.\n"
+            "- **Kapasa Makasa University**: The academic year starts in **April**.\n"
+            "- **Kwame Nkrumah University**: The academic year starts in **March**.\n\n"
+            "For the most accurate and up-to-date information, please refer to the official academic calendars available on their websites:\n\n"
+            "- [Copperbelt University (CBU) Academic Calendar](https://www.cbu.ac.zm)\n"
+            "- [University of Zambia (UNZA) Academic Calendar](http://www.unza.zm)\n"
+            "- [Mulungushi University Academic Calendar](https://www.mu.ac.zm)\n"
+            "- [Kapasa Makasa University Academic Calendar](https://www.kmu.ac.zm)\n"
+            "- [Kwame Nkrumah University Academic Calendar](https://www.nkrumah.edu.zm)\n\n"
+            "Make sure to check these links regularly for any updates."
+        )
+
+        return response
+
 
     def _scholarship_info(self, user_details=None):
         # Simulate providing scholarship information
@@ -279,41 +326,45 @@ class Chatbot:
             hobbies=user_details.get('hobbies', []),
             data=recommender.data
         )
-        
         response = ""
 
         if user_details.get('strengths'):
-            response += f"**Based on your strengths:**\n"
+            response += f"###### Your Strengths:\n"
+            response += "We noticed these standout qualities:\n"
             for strength in user_details['strengths']:
                 response += f"- {strength}\n"
             response += "\n"
 
         if user_details.get('weaknesses'):
-            response += f"**Weaknesses:**\n"
+            response += f"###### Areas to Improve:\n"
+            response += "Everyone has things to work on. Here are yours:\n"
             for weakness in user_details['weaknesses']:
                 response += f"- {weakness}\n"
             response += "\n"
 
         if user_details.get('interests'):
-            response += f"**Interests:**\n"
+            response += f"###### What Excites You:\n"
+            response += "These are your key interests:\n"
             for interest in user_details['interests']:
                 response += f"- {interest}\n"
             response += "\n"
 
         if user_details.get('hobbies'):
-            response += f"**Hobbies:**\n"
+            response += f"###### Your Hobbies:\n"
+            response += "We see you enjoy these activities:\n"
             for hobby in user_details['hobbies']:
                 response += f"- {hobby}\n"
             response += "\n"
 
-        response += "### Recommended Programs:\n\n"
+        response += "###### What you can study:\n\n"
+        response += "Based on the information you've provided, you should do "
 
-        for _, row in recommended_programs.iterrows():
-            response += f"- **{row['name']}** at **{row['university']}**.\n"
+        response += f"**{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.\n"
 
-        response += "\n*You can update your details in the system to get more accurate recommendations.*"
+        response += "\n*Feel free to update your details anytime for even better recommendations!*"
 
         return response
+
 
 
     # Function to collect user feedback on responses

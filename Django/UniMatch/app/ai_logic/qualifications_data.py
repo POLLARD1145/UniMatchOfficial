@@ -59,18 +59,6 @@ data1 = {
     "Bachelor of Transport and Logistics",
     "Master of Philosophy in Geology"
  ],
-  "Association of Business Executives (ABE)": [
-      "ABE Level 5 Diploma in Business Management",
-      "ABE Level 5 Diploma in Business Management and Marketing",
-      "ABE Level 5 Diploma in Business Management and Human Resources",
-      "ABE Level 6 Diploma in Business Management",
-      "ABE Level 6 Diploma in Business Management and Marketing",
-      "ABE Level 6 Diploma in Business Management and Human Resources"
-  ],
-  "Association of Certified Chartered Accountants (ACCA)": [
-      "Advanced Diploma in Accounting and Business",
-      "ACCA Professional"
-  ],
   "Cavendish University": [
       "Bachelor of Accounting",
       "Bachelor of Arts in Economics",
@@ -90,11 +78,6 @@ data1 = {
       "Master of Development Studies",
       "Master of Science in Project Management"
   ],
-  "Chartered Institute of Management Accountants (CIMA)": [
-      "Diploma in Management Accounting",
-      "Advanced Diploma in Management Accounting",
-      "Chartered Global Management Accounting"
-  ],
   "Chreso University": [
       "Master of Business Administration - Finance and Accounting",
       "Master of Business Administration - Human Resource Management",
@@ -106,13 +89,6 @@ data1 = {
   "Edenberg University": [
       "Bachelor of Business Administration",
       "Bachelor of Education"
-  ],
-  "Examinations Council of Zambia (ECZ)": [
-      "Primary School Certificate",
-      "Junior Secondary School Certificate",
-      "Senior Secondary School Certificate",
-      "Early Childhood Teacher's Diploma",
-      "Primary School Teacher's Diploma"
   ],
   "Information and Communication University (ICU)": [
       "Bachelor of Science in Agricultural Science",
@@ -207,66 +183,8 @@ data1 = {
       "Postgraduate Diploma in Teaching Methodology",
       "Executive Master of Business Administration"
   ],
-  "Nursing and Midwifery Council of Zambia (NMCZ)": [
-      "Advanced Diploma in Registered Clinical Nursing Instructor",
-      "Diploma in Neonatal Nursing",
-      "Diploma in Paediatric Nursing (formerly Paediatric Nursing)",
-      "Diploma in Midwifery (merger of formerly Registered Nurse Midwifery, Registered Nurse-Midwife (Pre-service) and Midwifery Bridging)",
-      "Diploma in Nursing (formerly registered and accredited as Registered Nursing)",
-      "Diploma in Public Health Nursing (formerly Registered Nurse Public Health)",
-      "Diploma in Oncology Nursing (formerly Registered Oncology Nursing)",
-      "Advanced Diploma in Critical Care Nursing (formerly Registered Critical Care Nursing)",
-      "Advanced Diploma in Emergency and Trauma Nursing (formerly Emergency and Trauma Nursing)",
-      "Diploma in Psychiatry and Mental Health Nursing",
-      "Advanced Diploma in Operating Theatre Nursing (formerly Registered Operating Theatre Nursing)"
-  ],
   "Rockview University": [
       "Bachelor of Laws - Generic"
-  ],
-  "Technical Education Vocational and Entrepreneurship Authority (TEVETA)": [
-      "Level 3 Certificate in Automotive Engineering",
-      "Level 3 Certificate in Fashion Design and Textile Technology",
-      "Level 4 Certificate in Automotive Engineering",
-      "Level 4 Certificate in Bricklaying and Masonry",
-      "Level 4 Certificate in Carpentry",
-      "Level 4 Certificate in Heavy Equipment Engineering",
-      "Level 4 Certificate in Joinery",
-      "Level 4 Certificate in Plastering",
-      "Level 4 Certificate in Refractory Masonry",
-      "Level 4 Certificate in Translation and Interpretation",
-      "Level 5 Certificate in Science Laboratory Technology",
-      "Level 5 Certificate in Automotive Engineering",
-      "Level 5 Certificate in Heavy Equipment Engineering",
-      "Level 5 Certificate in Metal Fabrication and Welding",
-      "Diploma in Animal Health Technology",
-      "Diploma in Architecture",
-      "Diploma in Automotive Engineering",
-      "Diploma in Biomedical Engineering",
-      "Diploma in Bricklaying and Masonry",
-      "Diploma in Business Administration",
-      "Diploma in Community Based Work with Children and Youth",
-      "Diploma in Community Development",
-      "Diploma in Computer Networks and Data Communication",
-      "Diploma in Creative Digital Media",
-      "Diploma in Electrical Engineering",
-      "Diploma in Forestry",
-      "Diploma in Heavy Equipment Engineering",
-      "Diploma in Highway Engineering",
-      "Diploma in Hospitality Management",
-      "Diploma in Journalism and Public Relations",
-      "Diploma in Library and Information Science",
-      "Diploma in Local Government Administration",
-      "Diploma in Local Government Finance",
-      "Diploma in Natural Resource Management",
-      "Diploma in Records Management",
-      "Diploma in Science Laboratory Technology",
-      "Diploma in Secretarial Studies and Office Management",
-      "Diploma in Translation and Interpretation",
-      "Diploma in Woodwork Technology",
-      "Teacher's Diploma in Art and English",
-      "Teacher's Diploma in Music and English",
-      "Diploma in Aircraft Maintenance Engineering - Electronics and Armament",
-      "Diploma in Radiation Therapy"
   ],
   "Texila American University": [
       "Bachelor of Pharmacy",
@@ -430,33 +348,8 @@ data1 = {
   ]
 }
 
-public_uni = {
-    "University of Zambia": [
-        {"name": "Software Engineering (SE)", "description": "Focus on designing, developing, and maintaining software systems.", "level": "Degree"},
-        {"name": "Computer Systems Engineering (CSE)", "description": "Combines computer science and electrical engineering for system design.", "level": "Degree"},
-        {"name": "Bachelor of Science in Computer Science", "description": "Comprehensive program covering algorithms, data structures, and software design.", "level": "Degree"}
-    ],
-    "Copperbelt University": [
-        {"name": "Diploma in Information Technology", "description": "Entry-level program in IT, focusing on basic skills and knowledge.", "level": "Diploma"},
-        {"name": "Bachelor of Science in Computer Science", "description": "Focuses on computational theory, programming, and problem-solving.", "level": "Degree"},
-        {"name": "Bachelor of Science in Information System", "description": "Study of systems that manage, process, and analyze data.", "level": "Degree"},
-        {"name": "Masters of Science in Computer Science", "description": "Advanced studies in computer science research and applications.", "level": "Masters"},
-        {"name": "PhD in Computer Science", "description": "Research-focused program aimed at creating new knowledge in the field.", "level": "Doctorate"}
-    ],
-    "Mulungushi University": [
-        {"name": "Bachelor of Science in Computer Science", "description": "Foundational program in computer science principles and applications.", "level": "Degree"},
-        {"name": "Bachelor of Science in Information Technology", "description": "Covers a wide range of topics in IT with a practical approach.", "level": "Degree"},
-        {"name": "Bachelor of Science in Information Systems", "description": "Focuses on information systems design, development, and management.", "level": "Degree"},
-        {"name": "Bachelor of Science in Data Science", "description": "Introduces data analysis, machine learning, and big data technologies.", "level": "Degree"},
-        {"name": "Bachelor of Science in Cyber Security", "description": "Teaches security principles, risk management, and cyber threat prevention.", "level": "Degree"}
-    ],
-    "Kwame Nkrumah University": [
-        {"name": "Bachelor of ICT with Education", "description": "Integrates ICT skills with educational practices for teaching roles.", "level": "Degree"}
-    ],
-    "Kapasa Makasa University": [
-        {"name": "Bachelor of ICT with Education", "description": "Prepares students for educational roles in ICT.", "level": "Degree"}
-    ]
-}
+with open("app/ai_logic/jsonfiles/zambia_public_university.json") as file:
+    public_uni = json.load(file)
 
 def get_list_of_universities():
     return list(data.keys())
