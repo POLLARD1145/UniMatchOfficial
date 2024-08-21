@@ -215,6 +215,7 @@ class Chatbot:
                     session["stage"] = "collecting_details"
                     return "Great! Can you tell me about your strengths?"
                 elif predicted_intent == "get_ict_programs_response":
+                    session["stage"] = "collecting_university_name"
                     return self.get_ict_programs_response(user_message)
                 else:
                     return self.intent_to_function[predicted_intent](user_details)
@@ -237,7 +238,8 @@ class Chatbot:
                 session["details"]["hobbies"] = user_details.get('hobbies') or self.extract_keywords(user_message)
                 session["stage"] = "initial"
                 return self._recommend_programs(session["details"])
-
+        elif session["stage"] == "collecting_university_name":
+            return self.get_ict_programs_response(user_message)
         return "I'm sorry, I didn't understand that. Can you please rephrase?"
 
     # Functions for program listing, university ranking, and other features
@@ -247,27 +249,56 @@ class Chatbot:
         ict_universities = qd.get_public_universities()
         
         if user_input:
-            # Check if the user specified a university
-            user_input = user_input.lower()
-            for uni, details in ict_universities.items():
-                if user_input in uni.lower():
-                    response = f"Here is the list of ICT programs offered at {uni} (Location: {details['location']}):\n"
-                    for program in details.get('programs', []):
-                        response += f"- {program.get('name', 'Unknown Program Name')}: {program.get('description', 'No description available')} (Level: {program.get('level', 'Unknown')})\n"
-                    return response
+            # Identify the university name from the user input
+            university_name = self.identify_university(user_input)
             
-            # If no matching university found
-            return "I'm sorry, I couldn't find any information on that university. I can provide details on Zambian public universities offering ICT programs."
+            if university_name:
+                # Search for the identified university in the list
+                for uni, details in ict_universities.items():
+                    if university_name.lower() in uni.lower():
+                        response = f"Here is the list of ICT programs offered at {uni} (Location: {details['location']}):\n"
+                        for program in details.get('programs', []):
+                            response += f"- {program.get('name', 'Unknown Program Name')}: {program.get('description', 'No description available')} (Level: {program.get('level', 'Unknown')})\n"
+                        return response
+                # If the identified university is not found in the list
+                return "I'm sorry, I couldn't find any information on that university. Kindly type the university name in full."
+            
+            else:
+                # If no university name was identified from the user input
+                return "I'm sorry, I couldn't determine the university you are asking about. Please provide more details or the full name of the university."
         
         else:
-            # List all universities and their ICT programs
+            # List all universities and their ICT programs if no specific university is mentioned
             response = "Here is the list of ICT programs offered by public universities in Zambia:\n"
             for uni, details in ict_universities.items():
-                response += f"###### {uni} (Location: {details['location']})\n"
+                response += f"###### {uni} (Location: {details['location']}):\n"
                 for program in details.get('programs', []):
                     response += f"- {program.get('name', 'Unknown Program Name')}: {program.get('description', 'No description available')} (Level: {program.get('level', 'Unknown')})\n"
             return response
 
+
+    
+
+    def identify_university(user_input):
+        """
+        This function identifies and returns the full university name based on the user input.
+        It converts known abbreviations or short forms into their corresponding full names.
+        """
+        university_mapping = {
+            "cbu": "Copperbelt University",
+            "unza": "University of Zambia",
+            "mu": "Mulungushi University",
+            "knu": "Kwame Nkrumah University",
+            "kmu": "Kapasa Makasa University",
+            "kapasa makasa": "Kapasa Makasa University",
+            "kwame nkrumah": "Kwame Nkrumah University",
+            "Copperbelt": "Copperbelt University",
+        }
+        user_input = user_input.lower()
+        for short_form, full_name in university_mapping.items():
+            if short_form in user_input:
+                return full_name
+        return None
 
     def _list_programs(self, user_details=None):
         import qualifications_data as qd
