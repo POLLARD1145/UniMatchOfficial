@@ -18,10 +18,10 @@ from textblob import TextBlob
 import recommender
 
 # Download necessary NLTK data
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('averaged_perceptron_tagger')
+#nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('wordnet')
+#nltk.download('averaged_perceptron_tagger')
 
 class Chatbot:
     def __init__(self):
@@ -43,7 +43,8 @@ class Chatbot:
             "tuition_fees": self._tuition_fees,
             "campus_facilities": self._campus_facilities,
             "academic_calendar": self._academic_calendar,
-            "scholarship_info": self._scholarship_info
+            "scholarship_info": self._scholarship_info,
+            "get_ict_programs_response": self.get_ict_programs_response
         }
 
     def _load_or_train_model(self):
@@ -213,6 +214,8 @@ class Chatbot:
                 if predicted_intent == "recommend_programs":
                     session["stage"] = "collecting_details"
                     return "Great! Can you tell me about your strengths?"
+                elif predicted_intent == "get_ict_programs_response":
+                    return self.get_ict_programs_response(user_message)
                 else:
                     return self.intent_to_function[predicted_intent](user_details)
             elif predicted_intent in self.data['intents'].unique():
@@ -237,7 +240,35 @@ class Chatbot:
 
         return "I'm sorry, I didn't understand that. Can you please rephrase?"
 
-    # Placeholder functions for program listing, university ranking, and other features
+    # Functions for program listing, university ranking, and other features
+
+    def get_ict_programs_response(self, user_input=None):
+        import qualifications_data as qd
+        ict_universities = qd.get_public_universities()
+        
+        if user_input:
+            # Check if the user specified a university
+            user_input = user_input.lower()
+            for uni, details in ict_universities.items():
+                if user_input in uni.lower():
+                    response = f"Here is the list of ICT programs offered at {uni} (Location: {details['location']}):\n"
+                    for program in details.get('programs', []):
+                        response += f"- {program.get('name', 'Unknown Program Name')}: {program.get('description', 'No description available')} (Level: {program.get('level', 'Unknown')})\n"
+                    return response
+            
+            # If no matching university found
+            return "I'm sorry, I couldn't find any information on that university. I can provide details on Zambian public universities offering ICT programs."
+        
+        else:
+            # List all universities and their ICT programs
+            response = "Here is the list of ICT programs offered by public universities in Zambia:\n"
+            for uni, details in ict_universities.items():
+                response += f"###### {uni} (Location: {details['location']})\n"
+                for program in details.get('programs', []):
+                    response += f"- {program.get('name', 'Unknown Program Name')}: {program.get('description', 'No description available')} (Level: {program.get('level', 'Unknown')})\n"
+            return response
+
+
     def _list_programs(self, user_details=None):
         import qualifications_data as qd
         ict_universities = qd.get_public_universities()
