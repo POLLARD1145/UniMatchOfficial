@@ -1,6 +1,107 @@
 {
     "intents": [
       {
+        "tag": "acknowledgment",
+        "patterns": [
+            "okay",
+            "ahhh",
+            "okay then",
+            "alright",
+            "got it",
+            "understood",
+            "sure",
+            "yeah",
+            "yes",
+            "gotcha",
+            "alright then",
+            "okay sure",
+            "uh-huh",
+            "right",
+            "I see",
+            "okay okay",
+            "ok",
+            "okay thanks",
+            "yes indeed",
+            "yep"
+        ],
+        "responses": [
+            "Got it! If you have any other questions, feel free to ask.",
+            "Understood! Let me know if there's anything else you need.",
+            "Sure thing! I'm here if you need further assistance.",
+            "Alright! If you need more help, just let me know.",
+            "Okay! If you have any more queries, feel free to ask.",
+            "I see! If you need anything else, I'm here to help.",
+            "Gotcha! Reach out if there's anything else you need.",
+            "Right! Let me know if you have more questions.",
+            "Okay then! Feel free to ask if you need more information.",
+            "Yes indeed! I'm here if you need any more assistance."
+        ]
+    },    
+      {
+        "tag": "thanks",
+        "patterns": [
+            "thanks",
+            "thank you",
+            "thanks a lot",
+            "thank you very much",
+            "thanks so much",
+            "thank you so much",
+            "many thanks",
+            "thanks a ton",
+            "thanks a million",
+            "thank you kindly",
+            "thank you very kindly",
+            "I appreciate it",
+            "I'm grateful",
+            "I'm thankful",
+            "thanks for your help",
+            "thanks for your assistance",
+            "thanks for your support",
+            "I appreciate your help",
+            "I appreciate your assistance",
+            "I appreciate your support"
+        ],
+        "responses": [
+            "You're welcome! If you need any more help, just let me know.",
+            "No problem! I'm glad I could assist you.",
+            "You're welcome! Feel free to ask if you have any more questions.",
+            "It was my pleasure! If there's anything else you need, I'm here.",
+            "Glad I could help! Don't hesitate to reach out if you need more assistance.",
+            "You're welcome! I'm here if you have any more questions or need further help.",
+            "I'm happy to help! Let me know if you need anything else.",
+            "You're welcome! If you have any more queries, feel free to ask.",
+            "I'm glad I could assist. Let me know if there's anything more you need.",
+            "You're welcome! If you need any further assistance, just let me know."
+        ]
+    },    
+      {
+        "tag": "thanks_unimatch",
+        "patterns": [
+            "thanks unimatch",
+            "thank you unimatch",
+            "thanks a lot unimatch",
+            "thank you very much unimatch",
+            "thanks so much unimatch",
+            "thank you so much unimatch",
+            "many thanks unimatch",
+            "thanks a ton unimatch",
+            "thanks a million unimatch",
+            "thank you kindly unimatch"
+        ],
+        "responses": [
+            "You're welcome! I'm glad UniMatch could help you.",
+            "No problem! If you need more assistance from UniMatch, just let me know.",
+            "You're welcome! UniMatch is here to assist with any more questions you may have.",
+            "It was my pleasure! If UniMatch can help with anything else, feel free to ask.",
+            "Glad UniMatch could assist! Let me know if you need more help.",
+            "You're welcome! UniMatch is here for any more queries you might have.",
+            "I'm happy to help! If UniMatch can assist further, just let me know.",
+            "You're welcome! If you need anything else from UniMatch, feel free to reach out.",
+            "I'm glad UniMatch could provide the help you needed. Let me know if there's more I can do.",
+            "You're welcome! If there's anything more UniMatch can assist with, just let me know."
+        ]
+    },    
+      {
         "tag": "study_information_technology_requirements",
         "patterns": [
           "What do I need to do to study Information Technology?",
