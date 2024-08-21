@@ -16,6 +16,11 @@ from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
 from textblob import TextBlob
 import recommender
+from nltk import pos_tag, word_tokenize, ne_chunk
+from nltk.util import ngrams
+from collections import Counter
+
+
 
 # Download necessary NLTK data
 #nltk.download('stopwords')
@@ -147,7 +152,6 @@ class Chatbot:
 
         return best_pipeline, low_accuracy
 
-
     def manage_session(self, user_id):
         if user_id not in self.user_sessions:
             self.user_sessions[user_id] = {
@@ -164,34 +168,64 @@ class Chatbot:
 
     def get_user_hobbies(self, user_id):
         #get hobbies from the database
-        from accounts.models import Hobby
-        # Query the Hobby model for the given user_id
-        hobbies = Hobby.objects.filter(user_id=user_id).values_list('name', flat=True)
+        try:
+            from accounts.models import Hobby
 
-        # Convert the QuerySet to a list
-        return list(hobbies)
+            # Query the Hobby model for the given user_id
+            hobbies = Hobby.objects.filter(user_id=user_id).values_list('name', flat=True)
+
+            # Convert the QuerySet to a list
+            return list(hobbies)
+        except ModuleNotFoundError:
+            return None
 
     def get_user_interests(self, user_id):
-        # Database: Return a list of interests
-        from accounts.models import Interest
-        # Query the Interest model for the given user_id
-        interests = Interest.objects.filter(user_id=user_id).values_list('name', flat=True)
-        return list(interests)
+        try:
+            # Database: Return a list of interests
+            from accounts.models import Interest
+            # Query the Interest model for the given user_id
+            interests = Interest.objects.filter(user_id=user_id).values_list('name', flat=True)
+            return list(interests)
+        except:
+            return None
     
     def extract_keywords(self, text):
+        # Correct spelling and preprocess text
+        try:
+            corrected_text = str(TextBlob(text).correct())
+        except Exception as e:
+            corrected_text = text  # Fallback to original text if correction fails
+            print(f"TextBlob correction failed: {e}")
+
         # Tokenize and remove stopwords
-        tokens = word_tokenize(text.lower())
-        tokens = [token for token in tokens if token.isalpha() and token not in stopwords.words('english')]
+        stop_words = set(stopwords.words('english'))
+        tokens = word_tokenize(corrected_text.lower())
+        tokens = [token for token in tokens if token.isalpha() and token not in stop_words]
         
         # Lemmatize tokens
         lemmatizer = WordNetLemmatizer()
         lemmatized_tokens = [lemmatizer.lemmatize(token) for token in tokens]
         
-        # Extract nouns and adjectives (assuming strengths, weaknesses, etc. are likely to be nouns or adjectives)
+        # Extract nouns and adjectives
         tagged_tokens = pos_tag(lemmatized_tokens)
         keywords = [word for word, pos in tagged_tokens if pos in ('NN', 'JJ')]
         
-        return keywords
+        # Filter out non-hobby terms like 'love'
+        relevant_keywords = [word for word in keywords if word not in ['love', 'enjoy', 'like']]
+        
+        # Identify common bigrams (two-word phrases)
+        bigrams = [' '.join(bigram) for bigram in ngrams(lemmatized_tokens, 2)]
+        
+        # Filter bigrams that contain relevant keywords
+        bigram_keywords = [bigram for bigram in bigrams if any(word in bigram for word in relevant_keywords)]
+        
+        # Combine unigrams and bigrams
+        all_keywords = list(set(relevant_keywords + bigram_keywords))
+        
+        # Sort keywords for better readability
+        all_keywords.sort()
+        
+        return all_keywords
 
     def get_response(self, user_message, user_id):
         session = self.manage_session(user_id)
@@ -205,9 +239,6 @@ class Chatbot:
         confidence = intent_proba.max()
         
         confidence_threshold = 0.4  # Example threshold
-        if confidence < confidence_threshold:
-            return "I'm not sure about this topic. Can you please provide more details or rephrase your question?"
-
         # Handle responses based on the current session stage
         if session["stage"] == "initial":
             if predicted_intent in self.intent_to_function:
@@ -234,18 +265,21 @@ class Chatbot:
                 session["details"]["weaknesses"] = self.extract_keywords(user_message)
                 return "Got it! What are your interests?"
             elif "interests" not in session["details"]:
-                session["details"]["interests"] = user_details.get('interests') or self.extract_keywords(user_message)
+                session["details"]["interests"] = self.extract_keywords(user_message)
                 return "Interesting! Lastly, what are your hobbies?"
             elif "hobbies" not in session["details"]:
-                session["details"]["hobbies"] = user_details.get('hobbies') or self.extract_keywords(user_message)
+                session["details"]["hobbies"] = self.extract_keywords(user_message)
                 session["stage"] = "initial"
                 return self._recommend_programs(session["details"])
         elif session["stage"] == "collecting_university_name":
             return self.get_ict_programs_response(user_message)
-        return "I'm sorry, I didn't understand that. Can you please rephrase?"
+        else:
+            if confidence < confidence_threshold:
+                return "I'm sorry, I didn't understand that. Can you please rephrase?"
+            else:
+                return random.choice(self.responses[predicted_intent])
 
     # Functions for program listing, university ranking, and other features
-
     def get_ict_programs_response(self, user_input=None):
         import qualifications_data as qd
         ict_universities = qd.get_public_universities()
@@ -277,10 +311,7 @@ class Chatbot:
                 for program in details.get('programs', []):
                     response += f"- {program.get('name', 'Unknown Program Name')}: {program.get('description', 'No description available')} (Level: {program.get('level', 'Unknown')})\n"
             return response
-
-
-    
-
+   
     def identify_university(self, user_input):
         """
         This function identifies and returns the full university name based on the user input.
@@ -295,6 +326,8 @@ class Chatbot:
             "knu": "Kwame Nkrumah University",
             "kapasa makasa": "Kapasa Makasa University",
             "kwame nkrumah": "Kwame Nkrumah University",
+            "kwame": "Kwame Nkrumah University",
+            "nkrumah": "Kwame Nkrumah University",
             "Copperbelt": "Copperbelt University",
             "CBU": "Copperbelt University",
             "UNZA": "University of Zambia",
@@ -324,7 +357,6 @@ class Chatbot:
         
         return response + "\n"
 
-
     def _rank_universities(self, user_details=None):
         import unirank_web as rank
         universities_info = rank.get_rank_list(5)  # Get the top 5 universities
@@ -340,8 +372,6 @@ class Chatbot:
             "The top 5 universities in Zambia according to the [4icu.org](https://www.4icu.org/zm/) ranking are:\n"
             + "\n".join(university_list)
         )
-
-
 
     def _list_universities(self, user_details=None):
         import qualifications_data as qd
@@ -392,7 +422,6 @@ class Chatbot:
         else:
             return "I'm sorry, I couldn't determine the university you are asking about. I'm only trained on Zambian Public Universities offering ICT programs."
 
-
     def _scholarship_info(self, user_details=None):
         # Simulate providing scholarship information
         return "Scholarships are available based on academic merit and financial need. Applications are open in April each year."
@@ -442,8 +471,6 @@ class Chatbot:
         response += "\n*Feel free to update your details anytime for even better recommendations!*"
 
         return response
-
-
 
     # Function to collect user feedback on responses
     def collect_feedback(self, user_message, bot_response):
