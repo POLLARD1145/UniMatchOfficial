@@ -1,6 +1,267 @@
 {
     "intents": [
       {
+        "tag": "study_information_technology_requirements",
+        "patterns": [
+          "What do I need to do to study Information Technology?",
+          "How can I qualify for an Information Technology program?",
+          "What are the requirements to study Information Technology?",
+          "How do I prepare to study Information Technology?",
+          "What qualifications do I need for Information Technology?",
+          "What are the prerequisites for an Information Technology degree?",
+          "How can I apply for an Information Technology program?",
+          "What should I do to pursue a degree in Information Technology?",
+          "What are the admission requirements for Information Technology?",
+          "How can I get into an Information Technology program?",
+          "What do I need to study Information Technology?",
+          "How can I start studying Information Technology?",
+          "What should I prepare to study Information Technology?",
+          "What are the steps to apply for an Information Technology degree?",
+          "What qualifications are needed for an Information Technology course?",
+          "What do I need to know before studying Information Technology?",
+          "How do I become eligible for an Information Technology degree?",
+          "What are the educational requirements for Information Technology?",
+          "What do I need to enroll in an Information Technology program?",
+          "How do I get started in Information Technology studies?",
+          "What steps should I take to study Information Technology?"
+        ],
+        "responses": [
+          "To study Information Technology (IT), you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on subjects like Mathematics and Computer Science. Familiarity with basic programming and IT concepts will be beneficial.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer comprehensive IT programs, focusing on those that provide hands-on experience in networking, databases, and software development.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in mathematics and computer-related subjects, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement detailing your interest in Information Technology.\n\n4. **Apply for Admission:** Follow the application process provided by the university, paying close attention to deadlines and required materials.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarships, grants, or financial aid options available for IT students.\n\n6. **Prepare for University Life:** Develop your skills in areas like networking, cybersecurity, programming, and database management. Gaining practical experience through internships or personal projects will be valuable.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, obtain the necessary student visa and arrange for accommodation near the university.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and participate in orientation sessions to begin your journey in Information Technology."
+        ]
+      },      
+      {
+        "tag": "study_information_systems_requirements",
+        "patterns": [
+          "What do I need to do to study Information Systems?",
+          "How can I qualify for an Information Systems program?",
+          "What are the requirements to study Information Systems?",
+          "How do I prepare to study Information Systems?",
+          "What qualifications do I need for Information Systems?",
+          "What are the prerequisites for an Information Systems degree?",
+          "How can I apply for an Information Systems program?",
+          "What should I do to pursue a degree in Information Systems?",
+          "What are the admission requirements for Information Systems?",
+          "How can I get into an Information Systems program?",
+          "What do I need to study Information Systems?",
+          "How can I start studying Information Systems?",
+          "What should I prepare to study Information Systems?",
+          "What are the steps to apply for an Information Systems degree?",
+          "What qualifications are needed for an Information Systems course?",
+          "What do I need to know before studying Information Systems?",
+          "How do I become eligible for an Information Systems degree?",
+          "What are the educational requirements for Information Systems?",
+          "What do I need to enroll in an Information Systems program?",
+          "How do I get started in Information Systems studies?",
+          "What steps should I take to study Information Systems?"
+        ],
+        "responses": [
+          "To study Information Systems, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on subjects like Mathematics, Computer Science, and Business Studies. Understanding the intersection of technology and business is key for Information Systems.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer strong Information Systems programs, particularly those that emphasize both technical skills and business acumen.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in mathematics and related subjects, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement explaining your interest in Information Systems.\n\n4. **Apply for Admission:** Follow the application process of your chosen university, ensuring all deadlines are met and all required documents are submitted.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarships, grants, or financial aid options that may be available for students in Information Systems or related fields.\n\n6. **Prepare for University Life:** Develop your skills in programming, data management, and business processes. Practical experience with databases, enterprise systems, or internships in related fields will be beneficial.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, obtain the necessary student visa and arrange for accommodation near your institution.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and attend orientation sessions to start your journey in Information Systems."
+        ]
+      },      
+      {
+        "tag": "study_computer_systems_requirements",
+        "patterns": [
+          "What do I need to do to study Computer Systems?",
+          "How can I qualify for a Computer Systems program?",
+          "What are the requirements to study Computer Systems?",
+          "How do I prepare to study Computer Systems?",
+          "What qualifications do I need for Computer Systems?",
+          "What are the prerequisites for a Computer Systems degree?",
+          "How can I apply for a Computer Systems program?",
+          "What should I do to pursue a degree in Computer Systems?",
+          "What are the admission requirements for Computer Systems?",
+          "How can I get into a Computer Systems program?",
+          "What do I need to study Computer Systems?",
+          "How can I start studying Computer Systems?",
+          "What should I prepare to study Computer Systems?",
+          "What are the steps to apply for a Computer Systems degree?",
+          "What qualifications are needed for a Computer Systems course?",
+          "What do I need to know before studying Computer Systems?",
+          "How do I become eligible for a Computer Systems degree?",
+          "What are the educational requirements for Computer Systems?",
+          "What do I need to enroll in a Computer Systems program?",
+          "How do I get started in Computer Systems studies?",
+          "What steps should I take to study Computer Systems?"
+        ],
+        "responses": [
+          "To study Computer Systems, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on subjects like Mathematics, Physics, and Computer Science. A strong foundation in hardware and software concepts is important.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer robust Computer Systems programs, especially those that emphasize both hardware and software aspects of computing.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, particularly in mathematics and science-related subjects, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement detailing your interest in computer systems.\n\n4. **Apply for Admission:** Follow the application process of your chosen university, ensuring that you meet all deadlines and provide all required documents.\n\n5. **Financial Planning:** Prepare for tuition costs and explore scholarships, grants, or financial aid options specifically for computer systems or engineering students.\n\n6. **Prepare for University Life:** Develop your skills in programming, circuit design, and system architecture. Practical experience with computer hardware and networking will be advantageous.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, obtain the necessary student visa and arrange for accommodation near your institution.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and attend orientation sessions to start your studies in Computer Systems."
+        ]
+      },      
+      {
+        "tag": "study_software_engineering_requirements",
+        "patterns": [
+          "What do I need to do to study Software Engineering?",
+          "How can I qualify for a Software Engineering program?",
+          "What are the requirements to study Software Engineering?",
+          "How do I prepare to study Software Engineering?",
+          "What qualifications do I need for Software Engineering?",
+          "What are the prerequisites for a Software Engineering degree?",
+          "How can I apply for a Software Engineering program?",
+          "What should I do to pursue a degree in Software Engineering?",
+          "What are the admission requirements for Software Engineering?",
+          "How can I get into a Software Engineering program?",
+          "What do I need to study Software Engineering?",
+          "How can I start studying Software Engineering?",
+          "What should I prepare to study Software Engineering?",
+          "What are the steps to apply for a Software Engineering degree?",
+          "What qualifications are needed for a Software Engineering course?",
+          "What do I need to know before studying Software Engineering?",
+          "How do I become eligible for a Software Engineering degree?",
+          "What are the educational requirements for Software Engineering?",
+          "What do I need to enroll in a Software Engineering program?",
+          "How do I get started in Software Engineering studies?",
+          "What steps should I take to study Software Engineering?"
+        ],
+        "responses": [
+          "To study Software Engineering, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on Mathematics and Computer Science. Physics or other science subjects may also be beneficial. A solid foundation in problem-solving and logical thinking is essential.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer comprehensive Software Engineering programs, focusing on those with strong coursework in programming, software design, and systems development.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in relevant subjects like mathematics and computer science, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement highlighting your interest in software engineering.\n\n4. **Apply for Admission:** Follow the application process provided by the university, keeping track of deadlines and required materials.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarships, grants, or financial aid options available for software engineering students.\n\n6. **Prepare for University Life:** Familiarize yourself with programming languages (e.g., Java, C++, Python), algorithms, and software development methodologies. Practical experience through projects or internships will be beneficial.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, obtain the necessary student visa and arrange for accommodation near the university.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and participate in orientation sessions to begin your journey in Software Engineering."
+        ]
+      },      
+      {
+        "tag": "study_cyber_security_requirements",
+        "patterns": [
+          "What do I need to do to study Cyber Security?",
+          "How can I qualify for a Cyber Security program?",
+          "What are the requirements to study Cyber Security?",
+          "How do I prepare to study Cyber Security?",
+          "What qualifications do I need for Cyber Security?",
+          "What are the prerequisites for a Cyber Security degree?",
+          "How can I apply for a Cyber Security program?",
+          "What should I do to pursue a degree in Cyber Security?",
+          "What are the admission requirements for Cyber Security?",
+          "How can I get into a Cyber Security program?",
+          "What do I need to study Cyber Security?",
+          "How can I start studying Cyber Security?",
+          "What should I prepare to study Cyber Security?",
+          "What are the steps to apply for a Cyber Security degree?",
+          "What qualifications are needed for a Cyber Security course?",
+          "What do I need to know before studying Cyber Security?",
+          "How do I become eligible for a Cyber Security degree?",
+          "What are the educational requirements for Cyber Security?",
+          "What do I need to enroll in a Cyber Security program?",
+          "How do I get started in Cyber Security studies?",
+          "What steps should I take to study Cyber Security?"
+        ],
+        "responses": [
+          "To study Cyber Security, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on Mathematics, Computer Science, and possibly subjects like Physics or Engineering. A solid understanding of basic computer science principles is crucial.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer comprehensive Cyber Security programs, focusing on those with strong technical and practical training components.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in relevant subjects like mathematics and computer science, and submit necessary documents such as transcripts, letters of recommendation, and a personal statement outlining your interest in cyber security.\n\n4. **Apply for Admission:** Follow the specific application process of the chosen university, ensuring you meet all deadlines and provide complete documentation.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore financial aid options, including scholarships, grants, or assistantships related to Cyber Security.\n\n6. **Prepare for University Life:** Familiarize yourself with basic programming, networking, and information security principles. Gaining hands-on experience through internships or self-study in areas like ethical hacking or network security will also be beneficial.\n\n7. **Visa and Travel (For International Students):** If planning to study abroad, obtain the necessary student visa and arrange for accommodation near your institution.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and attend orientation sessions to start your Cyber Security education."
+        ]
+      },      
+      {
+        "tag": "study_ict_with_education_requirements",
+        "patterns": [
+          "What do I need to do to study ICT with Education?",
+          "How can I qualify for an ICT with Education program?",
+          "What are the requirements to study ICT with Education?",
+          "How do I prepare to study ICT with Education?",
+          "What qualifications do I need for ICT with Education?",
+          "What are the prerequisites for an ICT with Education degree?",
+          "How can I apply for an ICT with Education program?",
+          "What should I do to pursue a degree in ICT with Education?",
+          "What are the admission requirements for ICT with Education?",
+          "How can I get into an ICT with Education program?",
+          "What do I need to study ICT with Education?",
+          "How can I start studying ICT with Education?",
+          "What should I prepare to study ICT with Education?",
+          "What are the steps to apply for an ICT with Education degree?",
+          "What qualifications are needed for an ICT with Education course?",
+          "What do I need to know before studying ICT with Education?",
+          "How do I become eligible for an ICT with Education degree?",
+          "What are the educational requirements for ICT with Education?",
+          "What do I need to enroll in an ICT with Education program?",
+          "How do I get started in ICT with Education studies?",
+          "What steps should I take to study ICT with Education?"
+        ],
+        "responses": [
+          "To study ICT with Education, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on subjects like Mathematics, Computer Science, and possibly English or another language. A strong foundation in ICT-related subjects and communication skills is important.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer ICT with Education programs, focusing on those that integrate technology with teaching methodologies.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in relevant subjects, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement highlighting your interest in both ICT and education.\n\n4. **Apply for Admission:** Follow the application process of the chosen university, ensuring you adhere to deadlines and provide all required documentation.\n\n5. **Financial Planning:** Understand the tuition costs and explore scholarships, grants, or financial aid options specifically for education and ICT students.\n\n6. **Prepare for University Life:** Familiarize yourself with basic teaching principles, ICT tools, and software. Developing strong interpersonal and communication skills will be beneficial for your future teaching career.\n\n7. **Visa and Travel (For International Students):** If studying abroad, obtain the necessary student visa and arrange for accommodation near the university.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and participate in orientation sessions to begin your studies in ICT with Education."
+        ]
+      },      
+      {
+        "tag": "study_data_science_requirements",
+        "patterns": [
+          "What do I need to do to study data science?",
+          "How can I qualify for a data science program?",
+          "What are the requirements to study data science?",
+          "How do I prepare to study data science?",
+          "What qualifications do I need for data science?",
+          "What are the prerequisites for a data science degree?",
+          "How can I apply for a data science program?",
+          "What should I do to pursue a degree in data science?",
+          "What are the admission requirements for data science?",
+          "How can I get into a data science program?",
+          "What do I need to study data science?",
+          "How can I start studying data science?",
+          "What should I prepare to study data science?",
+          "What are the steps to apply for a data science degree?",
+          "What qualifications are needed for a data science course?",
+          "What do I need to know before studying data science?",
+          "How do I become eligible for a data science degree?",
+          "What are the educational requirements for data science?",
+          "What do I need to enroll in a data science program?",
+          "How do I get started in data science studies?",
+          "What steps should I take to study data science?"
+        ],
+        "responses": [
+          "To study Data Science, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on Mathematics, Statistics, and possibly Computer Science. A strong foundation in mathematics and statistical methods is essential.\n\n2. **Research and Choose a University/College:** Select accredited institutions that offer comprehensive Data Science programs, including those with strong analytical and computational components.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in mathematics and science subjects, and submit necessary documents like transcripts, letters of recommendation, and a personal statement.\n\n4. **Apply for Admission:** Follow the application process provided by the university, keeping track of deadlines and required materials.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore financial aid options, including scholarships, grants, or assistantships related to data science.\n\n6. **Prepare for University Life:** Familiarize yourself with basic programming (e.g., Python, R), statistics, and data analysis tools. Strong analytical thinking and problem-solving skills are also important.\n\n7. **Visa and Travel (For International Students):** Obtain the necessary student visa if studying abroad, and arrange for accommodation.\n\n8. **Enrollment:** After acceptance, complete the required enrollment procedures, register for courses, and attend orientation sessions to get started on your Data Science journey."
+        ]
+      }, 
+      {
+        "tag": "study_computer_engineering_requirements",
+        "patterns": [
+          "What do I need to do to study computer engineering?",
+          "How can I qualify for a computer engineering program?",
+          "What are the requirements to study computer engineering?",
+          "How do I prepare to study computer engineering?",
+          "What qualifications do I need for computer engineering?",
+          "What are the prerequisites for a computer engineering degree?",
+          "How can I apply for a computer engineering program?",
+          "What should I do to pursue a degree in computer engineering?",
+          "What are the admission requirements for computer engineering?",
+          "How can I get into a computer engineering program?",
+          "What do I need to study computer engineering?",
+          "How can I start studying computer engineering?",
+          "What should I prepare to study computer engineering?",
+          "What are the steps to apply for a computer engineering degree?",
+          "What qualifications are needed for a computer engineering course?",
+          "What do I need to know before studying computer engineering?",
+          "How do I become eligible for a computer engineering degree?",
+          "What are the educational requirements for computer engineering?",
+          "What do I need to enroll in a computer engineering program?",
+          "How do I get started in computer engineering studies?",
+          "What steps should I take to study computer engineering?"
+        ],
+        "responses": [
+          "To study Computer Engineering, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on Mathematics, Physics, and possibly Computer Science. Proficiency in mathematics and physical sciences is crucial.\n\n2. **Research and Choose a University/College:** Select accredited institutions that offer well-regarded Computer Engineering programs.\n\n3. **Meet Admission Requirements:** Make sure you meet the required grades, standardized test scores, and submit necessary documents like transcripts, letters of recommendation, and a personal statement.\n\n4. **Apply for Admission:** Follow the specific application process of the university, and be mindful of application deadlines.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarship opportunities, grants, or financial aid options.\n\n6. **Prepare for University Life:** It’s beneficial to have basic knowledge of programming, electronics, and an understanding of engineering principles. Good study habits and time management skills are also important.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, ensure you obtain the necessary student visa and arrange for accommodation.\n\n8. **Enrollment:** Once accepted, complete the required enrollment procedures, register for courses, and participate in any orientation sessions."
+        ]
+      },
+      {
+        "tag": "study_computer_science_requirements",
+        "patterns": [
+          "What do I need to do to study computer science?",
+          "How can I qualify for a computer science program?",
+          "What are the requirements to study computer science?",
+          "How do I prepare to study computer science?",
+          "What qualifications do I need for computer science?",
+          "What are the prerequisites for a computer science degree?",
+          "How can I apply for a computer science program?",
+          "What should I do to pursue a degree in computer science?",
+          "What are the admission requirements for computer science?",
+          "How can I get into a computer science program?",
+          "What do I need to study computer science?",
+          "How can I start studying computer science?",
+          "What should I prepare to study computer science?",
+          "What are the steps to apply for a computer science degree?",
+          "What qualifications are needed for a computer science course?",
+          "What do I need to know before studying computer science?",
+          "How do I become eligible for a computer science degree?",
+          "What are the educational requirements for computer science?",
+          "What do I need to enroll in a computer science program?",
+          "How do I get started in computer science studies?",
+          "What steps should I take to study computer science?"
+        ],
+        "responses": [
+          "To study Computer Science, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on Mathematics, Physics, and possibly Computer Science. Strong mathematics skills are essential.\n\n2. **Research and Choose a University/College:** Look for accredited institutions with strong Computer Science programs.\n\n3. **Meet Admission Requirements:** Ensure you meet the grades and other requirements, which may include standardized tests, transcripts, and letters of recommendation.\n\n4. **Apply for Admission:** Follow the application process of your chosen university, ensuring you meet all deadlines.\n\n5. **Financial Planning:** Be prepared for tuition fees and look into scholarships or financial aid options.\n\n6. **Prepare for University Life:** Brush up on basic programming skills, and ensure you have good time management and study habits.\n\n7. **Visa and Travel (For International Students):** Obtain a student visa if studying abroad and arrange accommodation.\n\n8. **Enrollment:** Complete the necessary enrollment procedures after acceptance."
+        ]
+      },
+      {
         "tag": "get_ict_programs_response",
         "patterns": [
           "Can you list the ICT programs offered by public universities in Zambia?",
@@ -22,6 +283,7 @@
           "What ICT programs are available at UNZA?",
           "Does CBU offer any ICT programs?",
           "What ICT degrees are available at Mulungushi University?",
+          "give me a list of all programs at CBU",
           "Can you tell me about ICT programs at public universities?",
           "List the ICT programs at UNZA, CBU, and Mulungushi University.",
           "What are the ICT programs offered by universities in Zambia?",
@@ -954,66 +1216,6 @@
                 "Here is a list of universities in Zambia...",
                 "These are the universities you can apply to...",
                 "You can consider these universities for your studies..."
-            ]
-        },
-        {
-            "tag": "get_program_details",
-            "patterns": [
-                "Tell me about the computer science program.",
-                "What courses are available for software engineering?",
-                "Give me details about the ICT program.",
-                "What does the nursing program entail?",
-                "Provide information about the engineering program.",
-                "What are the course details for law?",
-                "Explain the business administration program.",
-                "What subjects are covered in the arts program?",
-                "Tell me about the economics course.",
-                "What is included in the psychology program?",
-                "Can you describe the education program?",
-                "What courses are offered in the technology program?",
-                "Explain the structure of the biology program.",
-                "What modules are in the history course?",
-                "Provide details on the chemistry program.",
-                "Tell me about the curriculum for physics.",
-                "What are the learning outcomes for sociology?",
-                "Describe the environmental science program.",
-                "What is the focus of the architecture course?",
-                "Can you detail the content of the journalism program?"
-            ],
-            "responses": [
-                "The Computer Science program focuses on algorithms, data structures, and software development...",
-                "Our Software Engineering program covers subjects such as system design, programming, and project management...",
-                "The Nursing program includes both theoretical and practical training in patient care..."
-            ]
-        },
-        {
-            "tag": "tuition_fees",
-            "patterns": [
-                "How much is the tuition fee for medicine?",
-                "What are the fees for the business course?",
-                "Tell me the cost of studying engineering.",
-                "What is the tuition for the law program?",
-                "How much does it cost to study computer science?",
-                "What are the fees for the arts degree?",
-                "Explain the tuition for the economics program.",
-                "How much is the psychology course fee?",
-                "What are the charges for the nursing program?",
-                "How much do I pay for the education course?",
-                "What is the cost of the biology program?",
-                "Tell me about the fees for sociology.",
-                "How much is the architecture degree?",
-                "What is the tuition for the journalism course?",
-                "What are the costs for the chemistry program?",
-                "How much do I pay for physics studies?",
-                "What are the financial requirements for environmental science?",
-                "How much is the ICT program fee?",
-                "What is the price of the engineering diploma?",
-                "Tell me the expenses for the business administration course."
-            ],
-            "responses": [
-                "The tuition fee for Medicine is approximately $2,000 per year...",
-                "Studying Business Administration costs around $1,500 annually...",
-                "The fees for Engineering programs are generally $1,800 per academic year..."
             ]
         },
         {

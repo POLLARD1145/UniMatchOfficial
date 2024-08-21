@@ -217,6 +217,8 @@ class Chatbot:
                 elif predicted_intent == "get_ict_programs_response":
                     session["stage"] = "collecting_university_name"
                     return self.get_ict_programs_response(user_message)
+                elif predicted_intent == "academic_calendar":
+                    return self._academic_calendar(user_message)
                 else:
                     return self.intent_to_function[predicted_intent](user_details)
             elif predicted_intent in self.data['intents'].unique():
@@ -279,7 +281,7 @@ class Chatbot:
 
     
 
-    def identify_university(user_input):
+    def identify_university(self, user_input):
         """
         This function identifies and returns the full university name based on the user input.
         It converts known abbreviations or short forms into their corresponding full names.
@@ -287,12 +289,19 @@ class Chatbot:
         university_mapping = {
             "cbu": "Copperbelt University",
             "unza": "University of Zambia",
-            "mu": "Mulungushi University",
-            "knu": "Kwame Nkrumah University",
             "kmu": "Kapasa Makasa University",
+            "mu": "Mulungushi University",
+            "Mulungushi": "Mulungushi University",
+            "knu": "Kwame Nkrumah University",
             "kapasa makasa": "Kapasa Makasa University",
             "kwame nkrumah": "Kwame Nkrumah University",
             "Copperbelt": "Copperbelt University",
+            "CBU": "Copperbelt University",
+            "UNZA": "University of Zambia",
+            "KMU": "Kapasa Makasa University",
+            "MU": "Mulungushi University",
+            "KNU": "Kwame Nkrumah University",
+            
         }
         user_input = user_input.lower()
         for short_form, full_name in university_mapping.items():
@@ -355,26 +364,33 @@ class Chatbot:
         # Simulate describing campus facilities
         return "The campus offers a library, sports facilities, research labs, and student housing."
 
-    def _academic_calendar(self, user_details=None):
+    def _academic_calendar(self, user_message=None):
         # Simulate providing the academic calendar
-        response = (
-            "The academic year typically begins in February and ends in September, with breaks in April, July and August. "
-            "However, for specific institutions:\n\n"
-            "- **Copperbelt University (CBU)**: The academic year starts in **November**.\n"
-            "- **University of Zambia (UNZA)**: The academic year starts in **February**.\n"
-            "- **Mulungushi University**: The academic year starts in **March**.\n"
-            "- **Kapasa Makasa University**: The academic year starts in **April**.\n"
-            "- **Kwame Nkrumah University**: The academic year starts in **March**.\n\n"
-            "For the most accurate and up-to-date information, please refer to the official academic calendars available on their websites:\n\n"
-            "- [Copperbelt University (CBU) Academic Calendar](https://www.cbu.ac.zm)\n"
-            "- [University of Zambia (UNZA) Academic Calendar](http://www.unza.zm)\n"
-            "- [Mulungushi University Academic Calendar](https://www.mu.ac.zm)\n"
-            "- [Kapasa Makasa University Academic Calendar](https://www.kmu.ac.zm)\n"
-            "- [Kwame Nkrumah University Academic Calendar](https://www.nkrumah.edu.zm)\n\n"
-            "Make sure to check these links regularly for any updates."
-        )
+        import qualifications_data as qd
+        universities = qd.get_opening_dates()
 
-        return response
+        if user_message:
+            # Identify the university name from the user input
+            university_name = self.identify_university(user_message)
+            
+            if university_name:
+                # Check if the identified university exists in the data
+                if university_name in universities:
+                    uni_data = universities[university_name]
+                    response = ""
+                    response += f"The academic year at **{university_name}** typically begins in {uni_data['open']} and ends in {uni_data['close']}. For mid-year breaks, you can check the university website."
+                    response += f"\nFor the most accurate and up-to-date information, please refer to the official academic calendar available on their website: [{university_name}]({uni_data['link']})"
+                    response += "\nMake sure to check these links regularly for any updates."
+                    return response
+                else:
+                    return "I'm sorry, I couldn't find any information on that university. Kindly type the university name in full."
+            
+            else:
+                # If no university name was identified from the user input
+                return "I'm sorry, I couldn't determine the university you are asking about. I'm only trained on Zambian Public Universities offering ICT programs."
+        
+        else:
+            return "I'm sorry, I couldn't determine the university you are asking about. I'm only trained on Zambian Public Universities offering ICT programs."
 
 
     def _scholarship_info(self, user_details=None):
