@@ -365,6 +365,14 @@
       {
         "tag": "get_ict_programs_response",
         "patterns": [
+          "unza programs",
+          "cbu programs",
+          "mu programs",
+          "kmu programs",
+          "kwame programs",
+          "unza ICT courses",
+          "University of Zambia ICT",
+          "CBU ICT degrees",
           "Can you list the ICT programs offered by public universities in Zambia?",
           "Tell me about the ICT programs in Zambian public universities.",
           "What ICT programs are available at Zambian public universities?",
@@ -381,12 +389,12 @@
           "I want information on ICT programs at Mulungushi University.",
           "Which ICT programs are available at Kwame Nkrumah University?",
           "Can you list the ICT courses at Kapasa Makasa University?",
-          "What ICT programs are available at UNZA?",
-          "Does CBU offer any ICT programs?",
+          "What ICT programs are available at unza?",
+          "Does cbu offer any ICT programs?",
           "What ICT degrees are available at Mulungushi University?",
-          "give me a list of all programs at CBU",
+          "give me a list of all programs at cbu",
           "Can you tell me about ICT programs at public universities?",
-          "List the ICT programs at UNZA, CBU, and Mulungushi University.",
+          "List the ICT programs at unza, cbu, and Mulungushi University.",
           "What are the ICT programs offered by universities in Zambia?",
           "I need details on ICT programs at Zambian universities.",
           "Tell me about the computer science programs at Zambian public universities.",
@@ -553,26 +561,26 @@
       {
         "tag": "admission_unza",
         "patterns": [
-          "How can I apply for admission at UNZA?",
-          "What is the process for applying to UNZA?",
-          "I want to apply for admission at UNZA.",
+          "How can I apply for admission at unza?",
+          "What is the process for applying to unza?",
+          "I want to apply for admission at unza.",
           "How do I apply to the University of Zambia?",
-          "How to get admission into UNZA?",
-          "What are the steps to apply for UNZA?",
-          "Can you tell me how to apply for admission at UNZA?",
+          "How to get admission into unza?",
+          "What are the steps to apply for unza?",
+          "Can you tell me how to apply for admission at unza?",
           "Where do I apply for admission at UNZA?",
-          "What do I need to do to apply to UNZA?",
-          "How do I start the admission process at UNZA?",
-          "I need to apply for admission at UNZA. What should I do?",
-          "Where can I find the application portal for UNZA?",
-          "How do I access the admission application for UNZA?",
-          "Where is the UNZA application portal?",
-          "Tell me how to apply to UNZA.",
-          "What is the procedure for applying to UNZA?",
-          "Can you guide me on how to apply for admission at UNZA?",
-          "I want to know how to apply for UNZA.",
-          "Can you show me how to apply to UNZA?",
-          "How do I get started with my application to UNZA?"
+          "What do I need to do to apply to unza?",
+          "How do I start the admission process at unza?",
+          "I need to apply for admission at unza. What should I do?",
+          "Where can I find the application portal for unza?",
+          "How do I access the admission application for unza?",
+          "Where is the unza application portal?",
+          "Tell me how to apply to unza.",
+          "What is the procedure for applying to unza?",
+          "Can you guide me on how to apply for admission at unza?",
+          "I want to know how to apply for unza.",
+          "Can you show me how to apply to unza?",
+          "How do I get started with my application to unza?"
         ],
         "responses": [
           "To apply for admission at UNZA, visit the student portal and click on the application portal at [this link](https://applications.unza.zm/).",
@@ -585,26 +593,26 @@
       {
         "tag": "admission_cbu",
         "patterns": [
-          "How can I apply for admission at CBU?",
-          "What is the process for applying to CBU?",
-          "I want to apply for admission at CBU.",
+          "How can I apply for admission at cbu?",
+          "What is the process for applying to cbu?",
+          "I want to apply for admission at cbu.",
           "How do I apply to Copperbelt University?",
-          "How to get admission into CBU?",
-          "What are the steps to apply for CBU?",
-          "Can you tell me how to apply for admission at CBU?",
-          "Where do I apply for admission at CBU?",
-          "What do I need to do to apply to CBU?",
-          "How do I start the admission process at CBU?",
-          "I need to apply for admission at CBU. What should I do?",
-          "Where can I find the application portal for CBU?",
-          "How do I access the admission application for CBU?",
-          "Where is the CBU application portal?",
-          "Tell me how to apply to CBU.",
-          "What is the procedure for applying to CBU?",
-          "Can you guide me on how to apply for admission at CBU?",
-          "I want to know how to apply for CBU.",
-          "Can you show me how to apply to CBU?",
-          "How do I get started with my application to CBU?"
+          "How to get admission into cbu?",
+          "What are the steps to apply for cbu?",
+          "Can you tell me how to apply for admission at cbu?",
+          "Where do I apply for admission at cbu?",
+          "What do I need to do to apply to cbu?",
+          "How do I start the admission process at cbu?",
+          "I need to apply for admission at cbu. What should I do?",
+          "Where can I find the application portal for cbu?",
+          "How do I access the admission application for cbu?",
+          "Where is the cbu application portal?",
+          "Tell me how to apply to cbu.",
+          "What is the procedure for applying to cbu?",
+          "Can you guide me on how to apply for admission at cbu?",
+          "I want to know how to apply for cbu.",
+          "Can you show me how to apply to cbu?",
+          "How do I get started with my application to cbu?"
         ],
         "responses": [
           "To apply for admission at CBU, simply visit the student portal and click on the application portal at [this link](http://www.cbu.ac.zm/opus/apply/apply.new.php).",
@@ -617,11 +625,11 @@
               {
                 "tag": "admission_requirements_software_engineering",
                 "patterns": [
-                  "What are the admission requirements for Software Engineering at UNZA?",
+                  "What are the admission requirements for Software Engineering at unza?",
                   "How can I get into Software Engineering at the University of Zambia?",
-                  "What do I need to study Software Engineering at UNZA?",
-                  "Admission criteria for Software Engineering at UNZA?",
-                  "What qualifications are needed for Software Engineering at UNZA?"
+                  "What do I need to study Software Engineering at unza?",
+                  "Admission criteria for Software Engineering at unza?",
+                  "What qualifications are needed for Software Engineering at unza?"
                 ],
                 "responses": [
                   "The admission requirements for Software Engineering at the University of Zambia (UNZA) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [UNZA Software Engineering Admission Requirements](http://www.unza.zm)."
@@ -630,11 +638,11 @@
               {
                 "tag": "admission_requirements_computer_systems_engineering",
                 "patterns": [
-                  "What are the admission requirements for Computer Systems Engineering at UNZA?",
+                  "What are the admission requirements for Computer Systems Engineering at unza?",
                   "How can I get into Computer Systems Engineering at the University of Zambia?",
-                  "What do I need to study Computer Systems Engineering at UNZA?",
-                  "Admission criteria for Computer Systems Engineering at UNZA?",
-                  "What qualifications are needed for Computer Systems Engineering at UNZA?"
+                  "What do I need to study Computer Systems Engineering at unza?",
+                  "Admission criteria for Computer Systems Engineering at unza?",
+                  "What qualifications are needed for Computer Systems Engineering at unza?"
                 ],
                 "responses": [
                   "The admission requirements for Computer Systems Engineering at the University of Zambia (UNZA) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [UNZA Computer Systems Engineering Admission Requirements](http://www.unza.zm)."
@@ -643,11 +651,11 @@
               {
                 "tag": "admission_requirements_computer_science_bachelor",
                 "patterns": [
-                  "What are the admission requirements for a Bachelor's in Computer Science at UNZA?",
+                  "What are the admission requirements for a Bachelor's in Computer Science at unza?",
                   "How can I get into the Computer Science program at the University of Zambia?",
-                  "What do I need to study Computer Science at UNZA?",
-                  "Admission criteria for Computer Science at UNZA?",
-                  "What qualifications are needed for a Bachelor's in Computer Science at UNZA?"
+                  "What do I need to study Computer Science at unza?",
+                  "Admission criteria for Computer Science at unza?",
+                  "What qualifications are needed for a Bachelor's in Computer Science at unza?"
                 ],
                 "responses": [
                   "The admission requirements for a Bachelor's in Computer Science at the University of Zambia (UNZA) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [UNZA Computer Science Admission Requirements](http://www.unza.zm)."
@@ -656,11 +664,11 @@
               {
                 "tag": "admission_requirements_information_technology_diploma",
                 "patterns": [
-                  "What are the admission requirements for a Diploma in Information Technology at CBU?",
+                  "What are the admission requirements for a Diploma in Information Technology at cbu?",
                   "How can I get into the IT diploma program at Copperbelt University?",
-                  "What do I need to study IT at CBU?",
-                  "Admission criteria for IT diploma at CBU?",
-                  "What qualifications are needed for a Diploma in Information Technology at CBU?"
+                  "What do I need to study IT at cbu?",
+                  "Admission criteria for IT diploma at cbu?",
+                  "What qualifications are needed for a Diploma in Information Technology at cbu?"
                 ],
                 "responses": [
                   "The admission requirements for a Diploma in Information Technology at Copperbelt University (CBU) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [CBU IT Diploma Admission Requirements](https://www.cbu.ac.zm)."
@@ -669,11 +677,11 @@
               {
                 "tag": "admission_requirements_computer_science_masters",
                 "patterns": [
-                  "What are the admission requirements for a Master's in Computer Science at CBU?",
+                  "What are the admission requirements for a Master's in Computer Science at cbu?",
                   "How can I get into the Master's in Computer Science program at Copperbelt University?",
-                  "What do I need to study Computer Science at CBU at the Master's level?",
-                  "Admission criteria for a Master's in Computer Science at CBU?",
-                  "What qualifications are needed for a Master's in Computer Science at CBU?"
+                  "What do I need to study Computer Science at cbu at the Master's level?",
+                  "Admission criteria for a Master's in Computer Science at cbu?",
+                  "What qualifications are needed for a Master's in Computer Science at cbu?"
                 ],
                 "responses": [
                   "The admission requirements for a Master's in Computer Science at Copperbelt University (CBU) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [CBU Master's in Computer Science Admission Requirements](https://www.cbu.ac.zm)."
@@ -682,11 +690,11 @@
               {
                 "tag": "admission_requirements_computer_science_phd",
                 "patterns": [
-                  "What are the admission requirements for a PhD in Computer Science at CBU?",
+                  "What are the admission requirements for a PhD in Computer Science at cbu?",
                   "How can I get into the PhD in Computer Science program at Copperbelt University?",
-                  "What do I need to study Computer Science at CBU at the PhD level?",
-                  "Admission criteria for a PhD in Computer Science at CBU?",
-                  "What qualifications are needed for a PhD in Computer Science at CBU?"
+                  "What do I need to study Computer Science at cbu at the PhD level?",
+                  "Admission criteria for a PhD in Computer Science at cbu?",
+                  "What qualifications are needed for a PhD in Computer Science at cbu?"
                 ],
                 "responses": [
                   "The admission requirements for a PhD in Computer Science at Copperbelt University (CBU) include [insert specific admission criteria here]. For more information, please visit the official website: [CBU PhD in Computer Science Admission Requirements](https://www.cbu.ac.zm)."
@@ -695,11 +703,11 @@
               {
                 "tag": "admission_requirements_information_systems_bachelor",
                 "patterns": [
-                  "What are the admission requirements for a Bachelor's in Information Systems at CBU?",
+                  "What are the admission requirements for a Bachelor's in Information Systems at cbu?",
                   "How can I get into the Information Systems program at Copperbelt University?",
-                  "What do I need to study Information Systems at CBU?",
-                  "Admission criteria for Information Systems at CBU?",
-                  "What qualifications are needed for a Bachelor's in Information Systems at CBU?"
+                  "What do I need to study Information Systems at cbu?",
+                  "Admission criteria for Information Systems at cbu?",
+                  "What qualifications are needed for a Bachelor's in Information Systems at cbu?"
                 ],
                 "responses": [
                   "The admission requirements for a Bachelor's in Information Systems at Copperbelt University (CBU) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [CBU Information Systems Admission Requirements](https://www.cbu.ac.zm)."
@@ -772,8 +780,61 @@
                 ]
               },
               {
+                "tag": "best_computer_science_university",
+                "patterns": [
+                    "Which is the best university for computer science?",
+                    "Best university for computer science studies?",
+                    "Top university for computer science?",
+                    "Where can I study the best computer science?",
+                    "Best place to pursue computer science?",
+                    "Which university is the best for computer science?",
+                    "Top university in Zambia for computer science?",
+                    "What is the best university for computer science?",
+                    "Best institution for computer science in Zambia?",
+                    "Top school for computer science?",
+                    "Which university offers the best computer science program?",
+                    "Best place to study computer science in Zambia?",
+                    "Best university for a degree in computer science?",
+                    "Top-ranked university for computer science?",
+                    "Which is the top university for computer science?",
+                    "Where can I find the best computer science program?",
+                    "Best college for computer science in Zambia?",
+                    "Top university for a computer science degree?",
+                    "Which Zambian university is best for computer science?",
+                    "Best-rated computer science program in Zambia?"
+                ],
+                "responses": [
+                    "**Bachelor's Degree**: The best university for a Bachelor's in Computer Science is the **University of Zambia (UNZA)**.",
+                    "**Master's Degree**: For a Master's in Computer Science, the top university is **Copperbelt University (CBU)**.",
+                    "**PhD**: If you're looking to pursue a PhD in Computer Science, **Copperbelt University (CBU)** is the best choice.",
+                    "For a **Bachelor's in Computer Science**, the **University of Zambia (UNZA)** is the best option.",
+                    "The **University of Zambia (UNZA)** is the best university for a Bachelor's in Computer Science.",
+                    "If you're pursuing a **Master's in Computer Science**, **Copperbelt University (CBU)** is the top choice.",
+                    "For **PhD studies in Computer Science**, **Copperbelt University (CBU)** stands out as the best.",
+                    "The best **Bachelor's program in Computer Science** can be found at **University of Zambia (UNZA)**.",
+                    "**Copperbelt University (CBU)** offers the best **Master's** and **PhD** programs in Computer Science.",
+                    "To study **Computer Science at a Bachelor's level**, go for **University of Zambia (UNZA)**.",
+                    "For a **Master's** in Computer Science, choose **Copperbelt University (CBU)**.",
+                    "**Copperbelt University (CBU)** is your best bet for a **PhD** in Computer Science.",
+                    "For **Bachelor's** in Computer Science, **University of Zambia (UNZA)** is the best.",
+                    "Want the best **Master's** in Computer Science? Go for **Copperbelt University (CBU)**.",
+                    "**Copperbelt University (CBU)** is the top university for a **PhD** in Computer Science.",
+                    "The best **Bachelor's** program in Computer Science is at **University of Zambia (UNZA)**.",
+                    "If you're interested in a **Master's** in Computer Science, **Copperbelt University (CBU)** is the best.",
+                    "For the best **PhD** in Computer Science, choose **Copperbelt University (CBU)**.",
+                    "Study **Computer Science** at the **University of Zambia (UNZA)** for a Bachelor's degree.",
+                    "**Copperbelt University (CBU)** is the top institution for a **Master's** or **PhD** in Computer Science."
+                ]
+            },            
+              {
                 "tag": "best_computer_science_bachelor",
                 "patterns": [
+                  "best for computer science",
+                  "top university to study computer science",
+                  "best university for computer science in zambia",
+                  "top computer science university in zambia",
+                  "best computer science university in zambia",
+                  "best computer science university in zambia for bachelors",
                   "What is the best university for a Bachelor's in Computer Science?",
                   "Which university offers the best Bachelor's in Computer Science?",
                   "Top university for a Bachelor's in Computer Science in Zambia?"
@@ -796,6 +857,9 @@
               {
                 "tag": "best_computer_science_masters",
                 "patterns": [
+                  "best for computer science masters",
+                  "top university for computer science masters in zambia",
+                  "best university for computer science masters in zambia",
                   "What is the best university for a Master's in Computer Science?",
                   "Which university offers the best Master's in Computer Science?",
                   "Top university for a Master's in Computer Science in Zambia?"
@@ -807,6 +871,7 @@
               {
                 "tag": "best_computer_science_phd",
                 "patterns": [
+                  "best for computer science phd",
                   "What is the best university for a PhD in Computer Science?",
                   "Which university offers the best PhD in Computer Science?",
                   "Top university for a PhD in Computer Science in Zambia?"
@@ -882,6 +947,8 @@
               {
                 "tag": "best_for_computer_engineering",
                 "patterns": [
+                  "best for computer engineering",
+                  "top computer engineering university",
                   "What is the best university for computer engineering?",
                   "Where should I study computer engineering?",
                   "Best program for computer engineering?",
@@ -889,6 +956,53 @@
                 ],
                 "responses": "The best university for Computer Engineering (CE) is the **Copperbelt University (CBU)**. This program combines computer science and electrical engineering to equip students with the skills needed for system design."
               },
+              {
+                "tag": "top_computer_engineering_zambia",
+                "patterns": [
+                    "Which is the top university for computer engineering in Zambia?",
+                    "Best university for computer engineering in Zambia?",
+                    "Top computer engineering program in Zambia?",
+                    "top computer engineering",
+                    "best for computer engineering",
+                    "top computer engineering university",
+                    "What is the top university for computer engineering in Zambia?",
+                    "Where should I study computer engineering in Zambia?",
+                    "Best program for computer engineering in Zambia?",
+                    "Top university for computer engineering in Zambia?",
+                    "Which university is best for computer engineering in Zambia?",
+                    "Top computer engineering university in Zambia",
+                    "Which university is the best for computer engineering in Zambia?",
+                    "Where can I study the best computer engineering in Zambia?",
+                    "Top university for computer engineering in Zambia?",
+                    "Which university offers the best computer engineering in Zambia?",
+                    "Best place to study computer engineering in Zambia?",
+                    "What is the top computer engineering university in Zambia?",
+                    "Which is the leading university for computer engineering in Zambia?",
+                    "Top school for computer engineering in Zambia?",
+                    "Best institution for computer engineering in Zambia?",
+                    "Top college for computer engineering in Zambia?",
+                    "Best place to pursue computer engineering in Zambia?",
+                    "Which is the top institution for computer engineering in Zambia?",
+                    "Top-ranked university for computer engineering in Zambia?",
+                    "Which Zambian university is best for computer engineering?",
+                    "Best-rated computer engineering program in Zambia?",
+                    "Top university in Zambia for computer engineering?",
+                    "Best Zambian university for computer engineering?"
+                ],
+                "responses": [
+                    "The best university for Computer Engineering (CE) is the **Copperbelt University (CBU)**. This program combines computer science and electrical engineering to equip students with the skills needed for system design.",
+                    "CBU is the best university for computer engineering in Zambia.",
+                    "When it comes to computer engineering in Zambia, CBU tops the list.",
+                    "The best place to study computer engineering in Zambia is CBU.",
+                    "For computer engineering in Zambia, CBU is the leading university.",
+                    "CBU offers the top computer engineering program in Zambia.",
+                    "If you're looking for the best in computer engineering in Zambia, CBU is the place.",
+                    "CBU is the best choice for computer engineering in Zambia.",
+                    "In Zambia, CBU stands out as the best for computer engineering.",
+                    "The best university for computer engineering in Zambia is CBU.",
+                    "CBU is recognized as the top university for computer engineering in Zambia."
+                ]
+            },           
           
         {
             "tag": "best_university_computer_science",
@@ -953,6 +1067,9 @@
             "patterns": [
                 "Bye",
                 "Goodbye",
+                "bye",
+                "see ya",
+                "later",
                 "See you later",
                 "Talk to you soon"
             ],
@@ -1008,9 +1125,9 @@
             "tag": "unza_ict",
             "patterns": [
                 "Tell me about ICT programs at the University of Zambia",
-                "UNZA ICT courses",
+                "unza ICT courses",
                 "University of Zambia ICT",
-                "ICT at UNZA"
+                "ICT at unza"
             ],
             "responses": [
                 "The University of Zambia offers ICT programs such as Computer Science, Information Systems, and Software Engineering. What specific information do you need about these programs?",
@@ -1322,6 +1439,11 @@
         {
             "tag": "academic_calendar",
             "patterns": [
+                "when does cbu open?",
+                "calander for cbu",
+                "unza calender",
+                "mu calender",
+                "when does kmu open",
                 "when does CBU open",
                 "when does UNZA open",
                 "when does Mulungushi open",

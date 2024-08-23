@@ -238,7 +238,7 @@ class Chatbot:
         predicted_intent = self.pipeline.classes_[intent_proba.argmax()]
         confidence = intent_proba.max()
         
-        confidence_threshold = 0.4  # Example threshold
+        confidence_threshold = 0.7  # Example threshold
         # Handle responses based on the current session stage
         if session["stage"] == "initial":
             if predicted_intent in self.intent_to_function:
@@ -272,6 +272,7 @@ class Chatbot:
                 session["stage"] = "initial"
                 return self._recommend_programs(session["details"])
         elif session["stage"] == "collecting_university_name":
+            session["stage"] = "initial"
             return self.get_ict_programs_response(user_message)
         else:
             if confidence < confidence_threshold:
@@ -302,6 +303,7 @@ class Chatbot:
             else:
                 # If no university name was identified from the user input
                 return "I'm sorry, I couldn't determine the university you are asking about. Please provide more details or the full name of the university."
+                
         
         else:
             # List all universities and their ICT programs if no specific university is mentioned
@@ -407,11 +409,27 @@ class Chatbot:
                 # Check if the identified university exists in the data
                 if university_name in universities:
                     uni_data = universities[university_name]
-                    response = ""
-                    response += f"The academic year at **{university_name}** typically begins in {uni_data['open']} and ends in {uni_data['close']}. For mid-year breaks, you can check the university website."
+                    
+                    responses = [
+                        f"The academic year at **{university_name}** typically begins in {uni_data['open']} and ends in {uni_data['close']}. For mid-year breaks, you can check the university website.",
+                        f"The academic year at **{university_name}** generally kicks off in {uni_data['open']} and concludes in {uni_data['close']}. Check their website for more on mid-year breaks.",
+                        f"For **{university_name}**, the academic year usually begins in {uni_data['open']} and ends in {uni_data['close']}. You can find mid-year break info on their website.",
+                        f"**{university_name}** commences its academic year in {uni_data['open']} and closes in {uni_data['close']}. For mid-year breaks, refer to their official site.",
+                        f"The academic calendar for **{university_name}** usually starts in {uni_data['open']} and finishes in {uni_data['close']}. Visit their site for mid-year break schedules.",
+                        f"**{university_name}** academic year typically begins in {uni_data['open']} and ends in {uni_data['close']}. Mid-year breaks are detailed on their website.",
+                        f"At **{university_name}**, the academic year usually starts in {uni_data['open']} and ends in {uni_data['close']}. Check out their site for mid-year break information.",
+                        f"**{university_name}** starts its academic year in {uni_data['open']} and concludes in {uni_data['close']}. More details, including mid-year breaks, can be found on their website.",
+                        f"The academic year at **{university_name}** generally begins in {uni_data['open']} and ends around {uni_data['close']}. For more information, visit their website.",
+                        f"**{university_name}** usually opens its academic year in {uni_data['open']} and wraps it up in {uni_data['close']}. Check their official site for details on mid-year breaks."
+                    ]
+                    
+                    # Randomly select a response
+                    import random
+                    response = random.choice(responses)
                     response += f"\nFor the most accurate and up-to-date information, please refer to the official academic calendar available on their website: [{university_name}]({uni_data['link']})"
                     response += "\nMake sure to check these links regularly for any updates."
                     return response
+                
                 else:
                     return "I'm sorry, I couldn't find any information on that university. Kindly type the university name in full."
             
@@ -464,11 +482,25 @@ class Chatbot:
             response += "\n"
 
         response += "###### What you can study:\n\n"
-        response += "Based on the information you've provided, you should do "
 
-        response += f"**{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.\n"
+        recommendations = [
+            f"Based on the information you've provided, you should pursue **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.",
+            f"Given your background, we recommend **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.",
+            f"With your strengths and interests, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** would be a great fit.",
+            f"We suggest you study **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** based on your profile.",
+            f"Considering what you've shared, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is highly recommended.",
+            f"Our analysis indicates that **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is an ideal match for you.",
+            f"Your profile suggests that **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** would be a perfect choice.",
+            f"You should consider studying **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.",
+            f"**{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is a strong recommendation based on your provided details.",
+            f"Given your interests and strengths, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is a suitable option."
+        ]
 
-        response += "\n*Feel free to update your details anytime for even better recommendations!*"
+        # Randomly select a recommendation response
+        import random
+        response += random.choice(recommendations)
+
+        response += "\n\n*Feel free to update your details anytime for even better recommendations!*"
 
         return response
 
@@ -499,7 +531,7 @@ if __name__ == "__main__":
     # Example usage with user messages
     user_id = 1  # Simulated user ID for session management
     messages = [
-        "Can you recommend some programs for me?",
+        "top university to study computer science",
         "I am good at problem solving.",
         "I struggle with time management.",
         "I am interested in technology and innovation.",
