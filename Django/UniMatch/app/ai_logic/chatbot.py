@@ -2,6 +2,7 @@ import json
 import os
 import pandas as pd
 import random
+import re
 import nltk
 from nltk import pos_tag
 import pickle
@@ -38,6 +39,93 @@ class Chatbot:
         self.pipeline, self.low_accuracy = self._load_or_train_model()
         self.user_sessions = {}
         self.feedback_storage = []
+        self.programs_and_universities = {
+            "Computer Science": ["University of Zambia", "Copperbelt University", "Mulungushi University"],
+            "Computer Engineering": ["University of Zambia", "Copperbelt University", "Mulungushi University"],
+            "Software Engineering": ["University of Zambia"],
+            "Information Technology": ["Copperbelt University", "Mulungushi University"],
+            "Information Systems": ["Copperbelt University"],
+            "Cyber Security": ["Mulungushi University", "Kapasa Makasa University"],
+            "ICT with Education": ["Kwame Nkrumah University", "Kapasa Makasa University"]
+        }
+        self.program_shortcut_mapping = {
+            "cs": "Computer Science",
+            "computer science": "Computer Science",
+            "ce": "Computer Engineering",
+            "computer engineering": "Computer Engineering",
+            "se": "Software Engineering",
+            "software engineering": "Software Engineering",
+            "it": "Information Technology",
+            "information technology": "Information Technology",
+            "ict": "ICT with Education",
+            "ict with education": "ICT with Education",
+            "is": "Information Systems",
+            "information systems": "Information Systems",
+            "cyber security": "Cyber Security",
+            "Cybersec": "Cyber Security",
+            "cybersec": "Cyber Security",
+            "cyber security": "Cyber Security",
+            "cse": "Computer Systems Engineering",
+            "computer systems engineering": "Computer Systems Engineering",
+            "info tech": "Information Technology",
+            "info sys": "Information Systems",
+            "ds": "Data Science",
+            "data science": "Data Science",
+            "cysec": "Cyber Security",
+            "ml": "Machine Learning",
+            "machine learning": "Machine Learning",
+            "ai": "Artificial Intelligence",
+            "artificial intelligence": "Artificial Intelligence",
+            "net sec": "Network Security",
+            "network security": "Network Security",
+            "cs eng": "Computer Science and Engineering",
+            "computer science and engineering": "Computer Science and Engineering",
+            "it sec": "Information Technology Security",
+            "information technology security": "Information Technology Security",
+            "sys admin": "Systems Administration",
+            "systems administration": "Systems Administration",
+            "comp eng": "Computer Engineering",
+            "info sec": "Information Security",
+            "information security": "Information Security",
+            "soft dev": "Software Development",
+            "software development": "Software Development",
+            "data eng": "Data Engineering",
+            "data engineering": "Data Engineering"
+        }
+        # Structure for programs and their top-ranked universities
+        self.program_rankings = {
+            "Cyber Security": {
+                "Mulungushi University": 1,
+                "Kapasa Makasa Univerity": 2
+            },
+            "Computer Science": {
+                "University of Zambia": 1,
+                "Copperbelt University": 2,
+                "Mulungushi University": 3,
+                "Kwame Nkrumah University": 4
+            },
+            "Computer Engineering": {
+                "Copperbelt University": 1,
+                "University of Zambia": 2,
+                "Mulungushi University": 3
+            },
+            "Software Engineering": {
+                "University of Zambia": 1
+            },
+            "Information Technology": {
+                "Copperbelt University": 1,
+                "Kwame Nkrumah University": 2,
+                "Mulungushi University": 3
+            },
+            "Information Systems": {
+                "Copperbelt University": 1,
+                "Kwame Nkrumah University": 2,
+                "Mulungushi University": 3
+            },
+            "Data Science": {
+                "Mulungushi University": 1
+            }
+        }
         self.intent_to_function = {
             "recommend_programs": self._recommend_programs,
             "list_programs": self._list_programs,
@@ -49,7 +137,9 @@ class Chatbot:
             "campus_facilities": self._campus_facilities,
             "academic_calendar": self._academic_calendar,
             "scholarship_info": self._scholarship_info,
-            "get_ict_programs_response": self.get_ict_programs_response
+            "get_ict_programs_response": self.get_ict_programs_response,
+            "program_inquiry": self._program_inquiry,
+            "best_university_for_study": self._get_best_university_response
         }
 
     def _load_or_train_model(self):
@@ -244,12 +334,29 @@ class Chatbot:
             if predicted_intent in self.intent_to_function:
                 if predicted_intent == "recommend_programs":
                     session["stage"] = "collecting_details"
-                    return "Great! Can you tell me about your strengths?"
+                    phrases = [
+                        "Before I can help you with matching the right university for you, kindly provide me with the following information. What are your strengths?",
+                        "Sure! To assist you better, I'd like to know more about you. Could you tell me about your strengths?",
+                        "Of course! Let's start by getting to know you better. What would you say are your strengths?",
+                        "I'm here to help you find the best match. First, could you share your strengths with me?",
+                        "Let's begin by understanding your strong points. Can you tell me about your strengths?",
+                        "To ensure I recommend the best fit, I'd like to know about your strengths. What are they?",
+                        "Great! To guide you effectively, I'll need to know your strengths first. What are they?",
+                        "Before proceeding, I'd like to know more about you. Could you tell me your strengths?",
+                        "I'd be happy to assist you! But first, let's talk about your strengths. What are they?",
+                        "Let's start the process by discussing your strengths. What do you consider to be your strongest qualities?"
+                    ]
+                    
+                    return random.choice(phrases)
                 elif predicted_intent == "get_ict_programs_response":
                     session["stage"] = "collecting_university_name"
                     return self.get_ict_programs_response(user_message)
                 elif predicted_intent == "academic_calendar":
                     return self._academic_calendar(user_message)
+                elif predicted_intent == "program_inquiry":
+                    return self._program_inquiry(user_message)
+                elif predicted_intent == "best_university_for_study":
+                    return self._get_best_university_response(user_message)
                 else:
                     return self.intent_to_function[predicted_intent](user_details)
             elif predicted_intent in self.data['intents'].unique():
@@ -314,6 +421,72 @@ class Chatbot:
                     response += f"- {program.get('name', 'Unknown Program Name')}: {program.get('description', 'No description available')} (Level: {program.get('level', 'Unknown')})\n"
             return response
    
+    def _program_inquiry(self, user_message=None):
+        # Example list of programs and universities offering them
+        self.programs_and_universities = {
+            "Computer Science": ["University of Zambia", "Copperbelt University", "Mulungushi University"],
+            "Computer Engineering": ["University of Zambia", "Copperbelt University", "Mulungushi University"],
+            "Software Engineering": ["University of Zambia"],
+            "Information Technology": ["Copperbelt University", "Mulungushi University"],
+            "Information Systems": ["Copperbelt University"],
+            "Cyber Security": ["Mulungushi University", "Kapasa Makasa University"],
+            "ICT with Education": ["Kwame Nkrumah University", "Kapasa Makasa University"]
+        }
+
+        # Program synonyms mapping
+        program_synonyms = self.program_shortcut_mapping
+
+        def identify_program(user_message):
+            # Normalize user message
+            user_message = user_message.lower()
+
+            # Replace synonyms with full forms
+            for synonym, full_form in program_synonyms.items():
+                if synonym.lower() in user_message:
+                    user_message = re.sub(r'\b{}\b'.format(re.escape(synonym.lower())), full_form, user_message)
+
+            # Identify the program from the user input
+            identified_program = None
+            for program in self.programs_and_universities.keys():
+                if program.lower() in user_message:
+                    identified_program = program
+                    break
+
+            return identified_program
+
+        def filter_universities_for_program(program):
+            # Get universities offering the identified program
+            if program in self.programs_and_universities:
+                return self.programs_and_universities[program]
+            else:
+                return []
+
+        def generate_response(program, universities):
+            response_phrases = [
+                f"You can pursue **{program}** at the following universities: {'\n- **'.join(universities)}",
+                f"Here are some great places to study **{program}**: {', **'.join(universities)}",
+                f"If you're interested in **{program}**, you can study at these universities: {', '.join(universities)}.",
+                f"Looking to study **{program}**? Consider these universities: {', '.join(universities)}.",
+                f"**{program}** is offered at: {', '.join(universities)}.",
+                f"For **{program}**, check out these universities: {', '.join(universities)}.",
+                f"You'll find **{program}** programs at: {', '.join(universities)}.",
+                f"The following universities offer **{program}**: {', '.join(universities)}.",
+                f"These universities provide **{program}** courses: {', '.join(universities)}.",
+                f"If you're aiming for a degree in **{program}**, consider these institutions: {', '.join(universities)}."
+            ]
+            return random.choice(response_phrases)
+        
+        # Example usage:
+        program = identify_program(user_message)
+        if program:
+            universities = filter_universities_for_program(program)
+            if universities:
+                return generate_response(program, universities)
+            else:
+                return "Sorry, it seems we don't have information on universities offering that program."
+        else:
+            return "Sorry, I couldn't identify the program you're asking about."
+
     def identify_university(self, user_input):
         """
         This function identifies and returns the full university name based on the user input.
@@ -338,10 +511,24 @@ class Chatbot:
             "KNU": "Kwame Nkrumah University",
             
         }
+        
         user_input = user_input.lower()
         for short_form, full_name in university_mapping.items():
             if short_form in user_input:
                 return full_name
+        return None
+
+    def identify_program(self, user_input):
+        """
+        Identifies and returns the program name based on the user input.
+        Converts known program names into a standardized format.
+        """
+        program_mapping = self.program_shortcut_mapping
+
+        user_input = user_input.lower()
+        for program_name, program_key in program_mapping.items():
+            if program_name in user_input:
+                return program_key
         return None
 
     def _list_programs(self, user_details=None):
@@ -375,6 +562,46 @@ class Chatbot:
             + "\n".join(university_list)
         )
 
+    def _get_best_university_response(self, user_input):
+        """
+        Returns the best university for the specified program based on the user's input.
+        """
+        # Detect the program name from user input
+        detected_program = self.identify_program(user_input)
+        
+        if detected_program:
+            # Check if the detected program exists in the rankings
+            if detected_program in self.program_rankings:
+                # Get the top-ranked university for the detected program
+                top_university = None
+                top_rank = float('inf')
+                for university, rank in self.program_rankings[detected_program].items():
+                    if rank < top_rank:
+                        top_rank = rank
+                        top_university = university
+                
+                if top_university:
+                    response_templates = [
+                        f"The top university for studying **{detected_program.replace('_', ' ')}** is **{top_university}**.",
+                        f"When it comes to **{detected_program.replace('_', ' ')}**, **{top_university}** stands out as the best.",
+                        f"If you're looking for the best university for **{detected_program.replace('_', ' ')}**, **{top_university}** is your top choice.",
+                        f"For the program in **{detected_program.replace('_', ' ')}**, **{top_university}** is ranked the highest.",
+                        f"The leading university for **{detected_program.replace('_', ' ')}** is **{top_university}**.",
+                        f"Among universities offering **{detected_program.replace('_', ' ')}**, **{top_university}** is the best.",
+                        f"In terms of **{detected_program.replace('_', ' ')}**, **{top_university}** offers the top program.",
+                        f"The best place to study **{detected_program.replace('_', ' ')}** is **{top_university}**.",
+                        f"For excellence in **{detected_program.replace('_', ' ')}**, **{top_university}** is the best option.",
+                        f"If you want to pursue **{detected_program.replace('_', ' ')}**, **{top_university}** is the top university to consider."
+                    ]
+                    return random.choice(response_templates)
+                else:
+                    return "I couldn't find the best university for the specified program."
+            else:
+                return "The specified program is not recognized in our rankings."
+        
+        else:
+            return "I'm sorry, I couldn't determine the program you're asking about. Please specify the program (e.g., Computer Science, Software Engineering, Information Technology)."
+         
     def _list_universities(self, user_details=None):
         import qualifications_data as qd
         universities = qd.get_list_of_universities()
@@ -483,21 +710,21 @@ class Chatbot:
 
         response += "###### What you can study:\n\n"
 
+        # Different phrasings for the recommendation
         recommendations = [
             f"Based on the information you've provided, you should pursue **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.",
             f"Given your background, we recommend **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.",
             f"With your strengths and interests, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** would be a great fit.",
-            f"We suggest you study **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** based on your profile.",
-            f"Considering what you've shared, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is highly recommended.",
-            f"Our analysis indicates that **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is an ideal match for you.",
-            f"Your profile suggests that **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** would be a perfect choice.",
-            f"You should consider studying **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.",
-            f"**{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is a strong recommendation based on your provided details.",
-            f"Given your interests and strengths, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is a suitable option."
+            f"Our analysis suggests you study **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.",
+            f"Considering your profile, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is highly recommended.",
+            f"Looking at your details, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** is an ideal match.",
+            f"Based on what you've shared, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** would be perfect for you.",
+            f"Our recommendation: Study **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}**.",
+            f"For you, **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** stands out as a great option.",
+            f"Your strengths and interests make **{recommended_programs.iloc[0]['name']}** at **{recommended_programs.iloc[0]['university']}** a solid choice."
         ]
 
         # Randomly select a recommendation response
-        import random
         response += random.choice(recommendations)
 
         response += "\n\n*Feel free to update your details anytime for even better recommendations!*"
