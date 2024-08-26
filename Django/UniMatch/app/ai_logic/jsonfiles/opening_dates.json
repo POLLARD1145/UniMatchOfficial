@@ -1,0 +1,27 @@
+{
+    "Copperbelt University": {
+        "open": "November",
+        "close": "September",
+        "link": "https://www.cbu.ac.zm"
+    },
+    "University of Zambia": {
+        "open": "February",
+        "close": "October",
+        "link": "http://www.unza.zm"
+    },
+    "Mulungushi University": {
+        "open": "April",
+        "close": "January",
+        "link": "https://www.mu.ac.zm"
+    },
+    "Kapasa Makasa University": {
+        "open": "January",
+        "close": "November",
+        "link": "https://www.kmu.ac.zm"
+    },
+    "Kwame Nkrumah University": {
+        "open": "July",
+        "close": "April",
+        "link": "https://www.nkrumah.edu.zm"
+    }
+}

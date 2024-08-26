@@ -78,7 +78,7 @@ def recommend_based_on_interests(interests, hobbies, data):
 # Example usage: get interests from chatbot and recommend programs
 if __name__ == "__main__":
     # Mock user interests and hobbies
-    chatbot_interests = ["education", "ai"]
+    chatbot_interests = ["programming","education", "ai"]
     chatbot_hobbies = ["reading", "coding"]
 
     # Get recommendations based on interests and hobbies

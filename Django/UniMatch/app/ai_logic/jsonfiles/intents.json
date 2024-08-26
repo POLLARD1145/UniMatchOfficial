@@ -1,25 +1,1292 @@
 {
     "intents": [
+      {
+          "tag": "best_university_for_study",
+          "patterns": [
+            "what's the best university for computer science",
+            "top university for computer science",
+            "best university for studying computer science",
+            "which university is best for computer science",
+            "best computer science university in zambia",
+            "top computer science school in zambia",
+            "what is the top university for computer science",
+            "which university offers the best computer science program",
+            "best school for computer science in zambia",
+            "best zambian university for computer science",
+            "which university has the best computer science program",
+            "leading university for computer science",
+            "top choice for computer science studies",
+            "most reputable university for computer science",
+            "best place to study computer science",
+            "best computer science department in zambia",
+            "top-rated university for computer science",
+            "best university for computer science courses",
+            "best program for computer science in zambia",
+            "best university for computer science majors",
+            "most prestigious university for computer science",
+            "top computer science program in zambia",
+            "which school is best for computer science",
+            "best academic institution for computer science",
+            "top-rated computer science school",
+            "leading school for computer science in zambia",
+            "best computer science university in zambia for international students",
+            "best university for computer science research",
+            "top university for computer science degrees",
+            "best choice for computer science education",
+            "top-ranked university for computer science",
+            "which university is known for computer science",
+            "best place to study computer science in zambia",
+            "best university for computer science studies in zambia",
+            "leading institution for computer science in zambia",
+            "best university for a computer science degree",
+            "top institution for computer science",
+            "most popular university for computer science",
+            "best school for a computer science degree",
+            "leading university for computer science studies",
+            "best university for computer science programs",
+            "best zambian university for studying computer science",
+            "top university in zambia for computer science",
+            "best choice for computer science in zambia",
+            "most renowned university for computer science",
+            "best school for computer science education",
+            "best university offering computer science",
+            
+            "what's the best university for software engineering",
+            "top university for software engineering",
+            "best university for studying software engineering",
+            "which university is best for software engineering",
+            "best software engineering university in zambia",
+            "top software engineering school in zambia",
+            "what is the top university for software engineering",
+            "which university offers the best software engineering program",
+            "best school for software engineering in zambia",
+            "best zambian university for software engineering",
+            "which university has the best software engineering program",
+            "leading university for software engineering",
+            "top choice for software engineering studies",
+            "most reputable university for software engineering",
+            "best place to study software engineering",
+            "best software engineering department in zambia",
+            "top-rated university for software engineering",
+            "best university for software engineering courses",
+            "best program for software engineering in zambia",
+            "best university for software engineering majors",
+            "most prestigious university for software engineering",
+            "top software engineering program in zambia",
+            "which school is best for software engineering",
+            "best academic institution for software engineering",
+            "top-rated software engineering school",
+            "leading school for software engineering in zambia",
+            "best software engineering university in zambia for international students",
+            "best university for software engineering research",
+            "top university for software engineering degrees",
+            "best choice for software engineering education",
+            "top-ranked university for software engineering",
+            "which university is known for software engineering",
+            "best place to study software engineering in zambia",
+            "best university for software engineering studies in zambia",
+            "leading institution for software engineering in zambia",
+            "best university for a software engineering degree",
+            "top institution for software engineering",
+            "most popular university for software engineering",
+            "best school for a software engineering degree",
+            "leading university for software engineering studies",
+            "best university for software engineering programs",
+            "best zambian university for studying software engineering",
+            "top university in zambia for software engineering",
+            "best choice for software engineering in zambia",
+            "most renowned university for software engineering",
+            "best school for software engineering education",
+            "best university offering software engineering",
+            
+            "what's the best university for information technology",
+            "top university for information technology",
+            "best university for studying information technology",
+            "which university is best for information technology",
+            "best information technology university in zambia",
+            "top information technology school in zambia",
+            "what is the top university for information technology",
+            "which university offers the best information technology program",
+            "best school for information technology in zambia",
+            "best zambian university for information technology",
+            "which university has the best information technology program",
+            "leading university for information technology",
+            "top choice for information technology studies",
+            "most reputable university for information technology",
+            "best place to study information technology",
+            "best information technology department in zambia",
+            "top-rated university for information technology",
+            "best university for information technology courses",
+            "best program for information technology in zambia",
+            "best university for information technology majors",
+            "most prestigious university for information technology",
+            "top information technology program in zambia",
+            "which school is best for information technology",
+            "best academic institution for information technology",
+            "top-rated information technology school",
+            "leading school for information technology in zambia",
+            "best information technology university in zambia for international students",
+            "best university for information technology research",
+            "top university for information technology degrees",
+            "best choice for information technology education",
+            "top-ranked university for information technology",
+            "which university is known for information technology",
+            "best place to study information technology in zambia",
+            "best university for information technology studies in zambia",
+            "leading institution for information technology in zambia",
+            "best university for an information technology degree",
+            "top institution for information technology",
+            "most popular university for information technology",
+            "best school for an information technology degree",
+            "leading university for information technology studies",
+            "best university for information technology programs",
+            "best zambian university for studying information technology",
+            "top university in zambia for information technology",
+            "best choice for information technology in zambia",
+            "most renowned university for information technology",
+            "best school for information technology education",
+            "best university offering information technology"
+          ],
+          "responses": [
+            "The best university for computer science is [University Name].",
+            "For computer science, [University Name] is top-rated.",
+            "If you're studying computer science, [University Name] is highly recommended.",
+            "Many consider [University Name] the best for computer science in Zambia.",
+            "The leading institution for computer science is [University Name].",
+            "For top computer science programs, [University Name] is a great choice.",
+            "Check out [University Name] for the best computer science education.",
+            "[University Name] offers one of the best computer science programs.",
+            "For computer science in Zambia, [University Name] stands out.",
+            "[University Name] is renowned for its computer science department.",
+            
+            "The best university for software engineering is [University Name].",
+            "For software engineering, [University Name] is top-rated.",
+            "If you're studying software engineering, [University Name] is highly recommended.",
+            "Many consider [University Name] the best for software engineering in Zambia.",
+            "The leading institution for software engineering is [University Name].",
+            "For top software engineering programs, [University Name] is a great choice.",
+            "Check out [University Name] for the best software engineering education.",
+            "[University Name] offers one of the best software engineering programs.",
+            "For software engineering in Zambia, [University Name] stands out.",
+            "[University Name] is renowned for its software engineering department.",
+            
+            "The best university for information technology is [University Name].",
+            "For information technology, [University Name] is top-rated.",
+            "If you're studying information technology, [University Name] is highly recommended.",
+            "Many consider [University Name] the best for information technology in Zambia.",
+            "The leading institution for information technology is [University Name].",
+            "For top information technology programs, [University Name] is a great choice.",
+            "Check out [University Name] for the best information technology education.",
+            "[University Name] offers one of the best information technology programs.",
+            "For information technology in Zambia, [University Name] stands out.",
+            "[University Name] is renowned for its information technology department."
+          ]
+      },      
+      {
+        "tag": "acknowledgment",
+        "patterns": [
+            "okay",
+            "ahhh",
+            "okay then",
+            "alright",
+            "got it",
+            "understood",
+            "sure",
+            "yeah",
+            "yes",
+            "gotcha",
+            "alright then",
+            "okay sure",
+            "uh-huh",
+            "right",
+            "I see",
+            "okay okay",
+            "ok",
+            "okay thanks",
+            "yes indeed",
+            "yep"
+        ],
+        "responses": [
+            "Got it! If you have any other questions, feel free to ask.",
+            "Understood! Let me know if there's anything else you need.",
+            "Sure thing! I'm here if you need further assistance.",
+            "Alright! If you need more help, just let me know.",
+            "Okay! If you have any more queries, feel free to ask.",
+            "I see! If you need anything else, I'm here to help.",
+            "Gotcha! Reach out if there's anything else you need.",
+            "Right! Let me know if you have more questions.",
+            "Okay then! Feel free to ask if you need more information.",
+            "Yes indeed! I'm here if you need any more assistance."
+        ]
+    },    
+      {
+        "tag": "thanks",
+        "patterns": [
+            "thanks",
+            "thank you",
+            "thanks a lot",
+            "thank you very much",
+            "thanks so much",
+            "thank you so much",
+            "many thanks",
+            "thanks a ton",
+            "thanks a million",
+            "thank you kindly",
+            "thank you very kindly",
+            "I appreciate it",
+            "I'm grateful",
+            "I'm thankful",
+            "thanks for your help",
+            "thanks for your assistance",
+            "thanks for your support",
+            "I appreciate your help",
+            "I appreciate your assistance",
+            "I appreciate your support"
+        ],
+        "responses": [
+            "You're welcome! If you need any more help, just let me know.",
+            "No problem! I'm glad I could assist you.",
+            "You're welcome! Feel free to ask if you have any more questions.",
+            "It was my pleasure! If there's anything else you need, I'm here.",
+            "Glad I could help! Don't hesitate to reach out if you need more assistance.",
+            "You're welcome! I'm here if you have any more questions or need further help.",
+            "I'm happy to help! Let me know if you need anything else.",
+            "You're welcome! If you have any more queries, feel free to ask.",
+            "I'm glad I could assist. Let me know if there's anything more you need.",
+            "You're welcome! If you need any further assistance, just let me know."
+        ]
+    },    
+      {
+        "tag": "thanks_unimatch",
+        "patterns": [
+            "thanks unimatch",
+            "thank you unimatch",
+            "thanks a lot unimatch",
+            "thank you very much unimatch",
+            "thanks so much unimatch",
+            "thank you so much unimatch",
+            "many thanks unimatch",
+            "thanks a ton unimatch",
+            "thanks a million unimatch",
+            "thank you kindly unimatch"
+        ],
+        "responses": [
+            "You're welcome! I'm glad UniMatch could help you.",
+            "No problem! If you need more assistance from UniMatch, just let me know.",
+            "You're welcome! UniMatch is here to assist with any more questions you may have.",
+            "It was my pleasure! If UniMatch can help with anything else, feel free to ask.",
+            "Glad UniMatch could assist! Let me know if you need more help.",
+            "You're welcome! UniMatch is here for any more queries you might have.",
+            "I'm happy to help! If UniMatch can assist further, just let me know.",
+            "You're welcome! If you need anything else from UniMatch, feel free to reach out.",
+            "I'm glad UniMatch could provide the help you needed. Let me know if there's more I can do.",
+            "You're welcome! If there's anything more UniMatch can assist with, just let me know."
+        ]
+    },    
+      {
+        "tag": "study_information_technology_requirements",
+        "patterns": [
+          "What do I need to do to study Information Technology?",
+          "How can I qualify for an Information Technology program?",
+          "What are the requirements to study Information Technology?",
+          "How do I prepare to study Information Technology?",
+          "What qualifications do I need for Information Technology?",
+          "What are the prerequisites for an Information Technology degree?",
+          "How can I apply for an Information Technology program?",
+          "What should I do to pursue a degree in Information Technology?",
+          "What are the admission requirements for Information Technology?",
+          "How can I get into an Information Technology program?",
+          "What do I need to study Information Technology?",
+          "How can I start studying Information Technology?",
+          "What should I prepare to study Information Technology?",
+          "What are the steps to apply for an Information Technology degree?",
+          "What qualifications are needed for an Information Technology course?",
+          "What do I need to know before studying Information Technology?",
+          "How do I become eligible for an Information Technology degree?",
+          "What are the educational requirements for Information Technology?",
+          "What do I need to enroll in an Information Technology program?",
+          "How do I get started in Information Technology studies?",
+          "What steps should I take to study Information Technology?"
+        ],
+        "responses": [
+          "To study Information Technology (IT), you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on subjects like Mathematics and Computer Science. Familiarity with basic programming and IT concepts will be beneficial.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer comprehensive IT programs, focusing on those that provide hands-on experience in networking, databases, and software development.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in mathematics and computer-related subjects, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement detailing your interest in Information Technology.\n\n4. **Apply for Admission:** Follow the application process provided by the university, paying close attention to deadlines and required materials.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarships, grants, or financial aid options available for IT students.\n\n6. **Prepare for University Life:** Develop your skills in areas like networking, cybersecurity, programming, and database management. Gaining practical experience through internships or personal projects will be valuable.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, obtain the necessary student visa and arrange for accommodation near the university.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and participate in orientation sessions to begin your journey in Information Technology."
+        ]
+      },      
+      {
+        "tag": "study_information_systems_requirements",
+        "patterns": [
+          "What do I need to do to study Information Systems?",
+          "How can I qualify for an Information Systems program?",
+          "What are the requirements to study Information Systems?",
+          "How do I prepare to study Information Systems?",
+          "What qualifications do I need for Information Systems?",
+          "What are the prerequisites for an Information Systems degree?",
+          "How can I apply for an Information Systems program?",
+          "What should I do to pursue a degree in Information Systems?",
+          "What are the admission requirements for Information Systems?",
+          "How can I get into an Information Systems program?",
+          "What do I need to study Information Systems?",
+          "How can I start studying Information Systems?",
+          "What should I prepare to study Information Systems?",
+          "What are the steps to apply for an Information Systems degree?",
+          "What qualifications are needed for an Information Systems course?",
+          "What do I need to know before studying Information Systems?",
+          "How do I become eligible for an Information Systems degree?",
+          "What are the educational requirements for Information Systems?",
+          "What do I need to enroll in an Information Systems program?",
+          "How do I get started in Information Systems studies?",
+          "What steps should I take to study Information Systems?"
+        ],
+        "responses": [
+          "To study Information Systems, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on subjects like Mathematics, Computer Science, and Business Studies. Understanding the intersection of technology and business is key for Information Systems.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer strong Information Systems programs, particularly those that emphasize both technical skills and business acumen.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in mathematics and related subjects, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement explaining your interest in Information Systems.\n\n4. **Apply for Admission:** Follow the application process of your chosen university, ensuring all deadlines are met and all required documents are submitted.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarships, grants, or financial aid options that may be available for students in Information Systems or related fields.\n\n6. **Prepare for University Life:** Develop your skills in programming, data management, and business processes. Practical experience with databases, enterprise systems, or internships in related fields will be beneficial.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, obtain the necessary student visa and arrange for accommodation near your institution.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and attend orientation sessions to start your journey in Information Systems."
+        ]
+      },      
+      {
+        "tag": "study_computer_systems_requirements",
+        "patterns": [
+          "What do I need to do to study Computer Systems?",
+          "How can I qualify for a Computer Systems program?",
+          "What are the requirements to study Computer Systems?",
+          "How do I prepare to study Computer Systems?",
+          "What qualifications do I need for Computer Systems?",
+          "What are the prerequisites for a Computer Systems degree?",
+          "How can I apply for a Computer Systems program?",
+          "What should I do to pursue a degree in Computer Systems?",
+          "What are the admission requirements for Computer Systems?",
+          "How can I get into a Computer Systems program?",
+          "What do I need to study Computer Systems?",
+          "How can I start studying Computer Systems?",
+          "What should I prepare to study Computer Systems?",
+          "What are the steps to apply for a Computer Systems degree?",
+          "What qualifications are needed for a Computer Systems course?",
+          "What do I need to know before studying Computer Systems?",
+          "How do I become eligible for a Computer Systems degree?",
+          "What are the educational requirements for Computer Systems?",
+          "What do I need to enroll in a Computer Systems program?",
+          "How do I get started in Computer Systems studies?",
+          "What steps should I take to study Computer Systems?"
+        ],
+        "responses": [
+          "To study Computer Systems, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on subjects like Mathematics, Physics, and Computer Science. A strong foundation in hardware and software concepts is important.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer robust Computer Systems programs, especially those that emphasize both hardware and software aspects of computing.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, particularly in mathematics and science-related subjects, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement detailing your interest in computer systems.\n\n4. **Apply for Admission:** Follow the application process of your chosen university, ensuring that you meet all deadlines and provide all required documents.\n\n5. **Financial Planning:** Prepare for tuition costs and explore scholarships, grants, or financial aid options specifically for computer systems or engineering students.\n\n6. **Prepare for University Life:** Develop your skills in programming, circuit design, and system architecture. Practical experience with computer hardware and networking will be advantageous.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, obtain the necessary student visa and arrange for accommodation near your institution.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and attend orientation sessions to start your studies in Computer Systems."
+        ]
+      },      
+      {
+        "tag": "study_software_engineering_requirements",
+        "patterns": [
+          "What do I need to do to study Software Engineering?",
+          "How can I qualify for a Software Engineering program?",
+          "What are the requirements to study Software Engineering?",
+          "How do I prepare to study Software Engineering?",
+          "What qualifications do I need for Software Engineering?",
+          "What are the prerequisites for a Software Engineering degree?",
+          "How can I apply for a Software Engineering program?",
+          "What should I do to pursue a degree in Software Engineering?",
+          "What are the admission requirements for Software Engineering?",
+          "How can I get into a Software Engineering program?",
+          "What do I need to study Software Engineering?",
+          "How can I start studying Software Engineering?",
+          "What should I prepare to study Software Engineering?",
+          "What are the steps to apply for a Software Engineering degree?",
+          "What qualifications are needed for a Software Engineering course?",
+          "What do I need to know before studying Software Engineering?",
+          "How do I become eligible for a Software Engineering degree?",
+          "What are the educational requirements for Software Engineering?",
+          "What do I need to enroll in a Software Engineering program?",
+          "How do I get started in Software Engineering studies?",
+          "What steps should I take to study Software Engineering?"
+        ],
+        "responses": [
+          "To study Software Engineering, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on Mathematics and Computer Science. Physics or other science subjects may also be beneficial. A solid foundation in problem-solving and logical thinking is essential.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer comprehensive Software Engineering programs, focusing on those with strong coursework in programming, software design, and systems development.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in relevant subjects like mathematics and computer science, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement highlighting your interest in software engineering.\n\n4. **Apply for Admission:** Follow the application process provided by the university, keeping track of deadlines and required materials.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarships, grants, or financial aid options available for software engineering students.\n\n6. **Prepare for University Life:** Familiarize yourself with programming languages (e.g., Java, C++, Python), algorithms, and software development methodologies. Practical experience through projects or internships will be beneficial.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, obtain the necessary student visa and arrange for accommodation near the university.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and participate in orientation sessions to begin your journey in Software Engineering."
+        ]
+      },      
+      {
+        "tag": "study_cyber_security_requirements",
+        "patterns": [
+          "What do I need to do to study Cyber Security?",
+          "How can I qualify for a Cyber Security program?",
+          "What are the requirements to study Cyber Security?",
+          "How do I prepare to study Cyber Security?",
+          "What qualifications do I need for Cyber Security?",
+          "What are the prerequisites for a Cyber Security degree?",
+          "How can I apply for a Cyber Security program?",
+          "What should I do to pursue a degree in Cyber Security?",
+          "What are the admission requirements for Cyber Security?",
+          "How can I get into a Cyber Security program?",
+          "What do I need to study Cyber Security?",
+          "How can I start studying Cyber Security?",
+          "What should I prepare to study Cyber Security?",
+          "What are the steps to apply for a Cyber Security degree?",
+          "What qualifications are needed for a Cyber Security course?",
+          "What do I need to know before studying Cyber Security?",
+          "How do I become eligible for a Cyber Security degree?",
+          "What are the educational requirements for Cyber Security?",
+          "What do I need to enroll in a Cyber Security program?",
+          "How do I get started in Cyber Security studies?",
+          "What steps should I take to study Cyber Security?"
+        ],
+        "responses": [
+          "To study Cyber Security, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on Mathematics, Computer Science, and possibly subjects like Physics or Engineering. A solid understanding of basic computer science principles is crucial.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer comprehensive Cyber Security programs, focusing on those with strong technical and practical training components.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in relevant subjects like mathematics and computer science, and submit necessary documents such as transcripts, letters of recommendation, and a personal statement outlining your interest in cyber security.\n\n4. **Apply for Admission:** Follow the specific application process of the chosen university, ensuring you meet all deadlines and provide complete documentation.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore financial aid options, including scholarships, grants, or assistantships related to Cyber Security.\n\n6. **Prepare for University Life:** Familiarize yourself with basic programming, networking, and information security principles. Gaining hands-on experience through internships or self-study in areas like ethical hacking or network security will also be beneficial.\n\n7. **Visa and Travel (For International Students):** If planning to study abroad, obtain the necessary student visa and arrange for accommodation near your institution.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and attend orientation sessions to start your Cyber Security education."
+        ]
+      },      
+      {
+        "tag": "study_ict_with_education_requirements",
+        "patterns": [
+          "What do I need to do to study ICT with Education?",
+          "How can I qualify for an ICT with Education program?",
+          "What are the requirements to study ICT with Education?",
+          "How do I prepare to study ICT with Education?",
+          "What qualifications do I need for ICT with Education?",
+          "What are the prerequisites for an ICT with Education degree?",
+          "How can I apply for an ICT with Education program?",
+          "What should I do to pursue a degree in ICT with Education?",
+          "What are the admission requirements for ICT with Education?",
+          "How can I get into an ICT with Education program?",
+          "What do I need to study ICT with Education?",
+          "How can I start studying ICT with Education?",
+          "What should I prepare to study ICT with Education?",
+          "What are the steps to apply for an ICT with Education degree?",
+          "What qualifications are needed for an ICT with Education course?",
+          "What do I need to know before studying ICT with Education?",
+          "How do I become eligible for an ICT with Education degree?",
+          "What are the educational requirements for ICT with Education?",
+          "What do I need to enroll in an ICT with Education program?",
+          "How do I get started in ICT with Education studies?",
+          "What steps should I take to study ICT with Education?"
+        ],
+        "responses": [
+          "To study ICT with Education, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on subjects like Mathematics, Computer Science, and possibly English or another language. A strong foundation in ICT-related subjects and communication skills is important.\n\n2. **Research and Choose a University/College:** Look for accredited institutions that offer ICT with Education programs, focusing on those that integrate technology with teaching methodologies.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in relevant subjects, and submit necessary documents such as academic transcripts, letters of recommendation, and a personal statement highlighting your interest in both ICT and education.\n\n4. **Apply for Admission:** Follow the application process of the chosen university, ensuring you adhere to deadlines and provide all required documentation.\n\n5. **Financial Planning:** Understand the tuition costs and explore scholarships, grants, or financial aid options specifically for education and ICT students.\n\n6. **Prepare for University Life:** Familiarize yourself with basic teaching principles, ICT tools, and software. Developing strong interpersonal and communication skills will be beneficial for your future teaching career.\n\n7. **Visa and Travel (For International Students):** If studying abroad, obtain the necessary student visa and arrange for accommodation near the university.\n\n8. **Enrollment:** After acceptance, complete the enrollment process, register for courses, and participate in orientation sessions to begin your studies in ICT with Education."
+        ]
+      },      
+      {
+        "tag": "study_data_science_requirements",
+        "patterns": [
+          "What do I need to do to study data science?",
+          "How can I qualify for a data science program?",
+          "What are the requirements to study data science?",
+          "How do I prepare to study data science?",
+          "What qualifications do I need for data science?",
+          "What are the prerequisites for a data science degree?",
+          "How can I apply for a data science program?",
+          "What should I do to pursue a degree in data science?",
+          "What are the admission requirements for data science?",
+          "How can I get into a data science program?",
+          "What do I need to study data science?",
+          "How can I start studying data science?",
+          "What should I prepare to study data science?",
+          "What are the steps to apply for a data science degree?",
+          "What qualifications are needed for a data science course?",
+          "What do I need to know before studying data science?",
+          "How do I become eligible for a data science degree?",
+          "What are the educational requirements for data science?",
+          "What do I need to enroll in a data science program?",
+          "How do I get started in data science studies?",
+          "What steps should I take to study data science?"
+        ],
+        "responses": [
+          "To study Data Science, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on Mathematics, Statistics, and possibly Computer Science. A strong foundation in mathematics and statistical methods is essential.\n\n2. **Research and Choose a University/College:** Select accredited institutions that offer comprehensive Data Science programs, including those with strong analytical and computational components.\n\n3. **Meet Admission Requirements:** Ensure you meet the required grades, especially in mathematics and science subjects, and submit necessary documents like transcripts, letters of recommendation, and a personal statement.\n\n4. **Apply for Admission:** Follow the application process provided by the university, keeping track of deadlines and required materials.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore financial aid options, including scholarships, grants, or assistantships related to data science.\n\n6. **Prepare for University Life:** Familiarize yourself with basic programming (e.g., Python, R), statistics, and data analysis tools. Strong analytical thinking and problem-solving skills are also important.\n\n7. **Visa and Travel (For International Students):** Obtain the necessary student visa if studying abroad, and arrange for accommodation.\n\n8. **Enrollment:** After acceptance, complete the required enrollment procedures, register for courses, and attend orientation sessions to get started on your Data Science journey."
+        ]
+      }, 
+      {
+        "tag": "study_computer_engineering_requirements",
+        "patterns": [
+          "What do I need to do to study computer engineering?",
+          "How can I qualify for a computer engineering program?",
+          "What are the requirements to study computer engineering?",
+          "How do I prepare to study computer engineering?",
+          "What qualifications do I need for computer engineering?",
+          "What are the prerequisites for a computer engineering degree?",
+          "How can I apply for a computer engineering program?",
+          "What should I do to pursue a degree in computer engineering?",
+          "What are the admission requirements for computer engineering?",
+          "How can I get into a computer engineering program?",
+          "What do I need to study computer engineering?",
+          "How can I start studying computer engineering?",
+          "What should I prepare to study computer engineering?",
+          "What are the steps to apply for a computer engineering degree?",
+          "What qualifications are needed for a computer engineering course?",
+          "What do I need to know before studying computer engineering?",
+          "How do I become eligible for a computer engineering degree?",
+          "What are the educational requirements for computer engineering?",
+          "What do I need to enroll in a computer engineering program?",
+          "How do I get started in computer engineering studies?",
+          "What steps should I take to study computer engineering?"
+        ],
+        "responses": [
+          "To study Computer Engineering, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on Mathematics, Physics, and possibly Computer Science. Proficiency in mathematics and physical sciences is crucial.\n\n2. **Research and Choose a University/College:** Select accredited institutions that offer well-regarded Computer Engineering programs.\n\n3. **Meet Admission Requirements:** Make sure you meet the required grades, standardized test scores, and submit necessary documents like transcripts, letters of recommendation, and a personal statement.\n\n4. **Apply for Admission:** Follow the specific application process of the university, and be mindful of application deadlines.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarship opportunities, grants, or financial aid options.\n\n6. **Prepare for University Life:** It’s beneficial to have basic knowledge of programming, electronics, and an understanding of engineering principles. Good study habits and time management skills are also important.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, ensure you obtain the necessary student visa and arrange for accommodation.\n\n8. **Enrollment:** Once accepted, complete the required enrollment procedures, register for courses, and participate in any orientation sessions."
+        ]
+      },
+      {
+        "tag": "study_computer_science_requirements",
+        "patterns": [
+          "What do I need to do to study computer science?",
+          "How can I qualify for a computer science program?",
+          "What are the requirements to study computer science?",
+          "How do I prepare to study computer science?",
+          "What qualifications do I need for computer science?",
+          "What are the prerequisites for a computer science degree?",
+          "How can I apply for a computer science program?",
+          "What should I do to pursue a degree in computer science?",
+          "What are the admission requirements for computer science?",
+          "How can I get into a computer science program?",
+          "What do I need to study computer science?",
+          "How can I start studying computer science?",
+          "What should I prepare to study computer science?",
+          "What are the steps to apply for a computer science degree?",
+          "What qualifications are needed for a computer science course?",
+          "What do I need to know before studying computer science?",
+          "How do I become eligible for a computer science degree?",
+          "What are the educational requirements for computer science?",
+          "What do I need to enroll in a computer science program?",
+          "How do I get started in computer science studies?",
+          "What steps should I take to study computer science?"
+        ],
+        "responses": [
+          "To study Computer Science, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a focus on Mathematics, Physics, and possibly Computer Science. Strong mathematics skills are essential.\n\n2. **Research and Choose a University/College:** Look for accredited institutions with strong Computer Science programs.\n\n3. **Meet Admission Requirements:** Ensure you meet the grades and other requirements, which may include standardized tests, transcripts, and letters of recommendation.\n\n4. **Apply for Admission:** Follow the application process of your chosen university, ensuring you meet all deadlines.\n\n5. **Financial Planning:** Be prepared for tuition fees and look into scholarships or financial aid options.\n\n6. **Prepare for University Life:** Brush up on basic programming skills, and ensure you have good time management and study habits.\n\n7. **Visa and Travel (For International Students):** Obtain a student visa if studying abroad and arrange accommodation.\n\n8. **Enrollment:** Complete the necessary enrollment procedures after acceptance."
+        ]
+      },
+      {
+        "tag": "get_ict_programs_response",
+        "patterns": [
+          "unza programs",
+          "cbu programs",
+          "mu programs",
+          "kmu programs",
+          "kwame programs",
+          "unza ICT courses",
+          "University of Zambia ICT",
+          "CBU ICT degrees",
+          "Can you list the ICT programs offered by public universities in Zambia?",
+          "Tell me about the ICT programs in Zambian public universities.",
+          "What ICT programs are available at Zambian public universities?",
+          "List the ICT programs offered by universities in Zambia.",
+          "I want to know about the ICT programs at public universities in Zambia.",
+          "What ICT degrees can I study at Zambian public universities?",
+          "Give me the ICT program options at public universities in Zambia.",
+          "Which universities in Zambia offer ICT programs?",
+          "Tell me the ICT programs at Zambian universities.",
+          "Can you provide a list of ICT programs at public universities in Zambia?",
+          "What ICT courses are offered by public universities in Zambia?",
+          "Tell me about ICT programs at the University of Zambia.",
+          "What ICT programs does Copperbelt University offer?",
+          "I want information on ICT programs at Mulungushi University.",
+          "Which ICT programs are available at Kwame Nkrumah University?",
+          "Can you list the ICT courses at Kapasa Makasa University?",
+          "What ICT programs are available at unza?",
+          "Does cbu offer any ICT programs?",
+          "What ICT degrees are available at Mulungushi University?",
+          "give me a list of all programs at cbu",
+          "Can you tell me about ICT programs at public universities?",
+          "List the ICT programs at unza, cbu, and Mulungushi University.",
+          "What are the ICT programs offered by universities in Zambia?",
+          "I need details on ICT programs at Zambian universities.",
+          "Tell me about the computer science programs at Zambian public universities.",
+          "Which universities in Zambia offer computer science degrees?",
+          "Can you list the cyber security programs at Zambian public universities?",
+          "What IT-related programs are available at public universities in Zambia?",
+          "Give me the list of ICT programs at universities in Zambia.",
+          "What are the available ICT degrees in Zambian public universities?",
+          "Can you tell me the ICT programs in Zambia's universities?",
+          "Where can I study ICT in Zambia?",
+          "Which public universities in Zambia offer computer science programs?",
+          "What ICT-related courses are available at Zambian universities?",
+          "Tell me the computer systems engineering programs in Zambia.",
+          "What cybersecurity programs can I find at Zambian universities?"
+        ],
+        "responses": [
+          "Here is the list of ICT programs offered by public universities in Zambia:\n\n{list of programs}"
+        ]
+      },      
+      {
+        "tag": "colleges_info",
+        "patterns": [
+          "Can you tell me about colleges?",
+          "What are some good colleges?",
+          "I need information about colleges.",
+          "How do I apply to colleges?",
+          "What colleges can I apply to?",
+          "Tell me about colleges in Zambia.",
+          "What are the best colleges?",
+          "Can you list some colleges?",
+          "How do I find colleges?",
+          "Which colleges offer ICT programs?",
+          "Can you recommend a college?",
+          "What colleges should I consider?",
+          "Can you help me find a college?",
+          "I want to know about colleges.",
+          "What are my college options?",
+          "Do you have information on colleges?",
+          "How do I choose a college?",
+          "Can you give me a list of colleges?",
+          "Where can I find colleges?",
+          "What colleges are there in Zambia?",
+          "What colleges offer ICT programs?",
+          "Can you tell me about applying to colleges?",
+          "Which colleges should I apply to?",
+          "How do I get into a college?",
+          "I need help finding a college.",
+          "Can you assist with college applications?",
+          "Tell me how to apply to colleges.",
+          "What are the options for colleges in Zambia?",
+          "Which colleges should I look into?",
+          "Can you guide me on choosing a college?",
+          "What colleges offer the best ICT programs?",
+          "How do I search for colleges?",
+          "What are the top colleges for ICT?",
+          "Can you suggest some colleges?",
+          "I'm interested in colleges offering ICT programs.",
+          "Where can I study ICT in Zambia?",
+          "What are the ICT-focused colleges in Zambia?"
+        ],
+        "responses": [
+          "I'm currently trained to advise only on Zambian public universities that offer ICT programs.",
+          "For information on colleges, I can provide details specifically about Zambian public universities that offer ICT programs.",
+          "I specialize in advising on Zambian public universities with ICT programs, so I can only help with that.",
+          "My expertise is limited to Zambian public universities offering ICT programs. I can assist you with that.",
+          "I'm here to help with information about Zambian public universities that offer ICT programs. Let me know if that’s what you’re looking for."
+        ]
+      },      
+      {
+        "tag": "admission_kmu",
+        "patterns": [
+          "How can I apply for admission at Kapasa Makasa University?",
+          "What is the process for applying to KMU?",
+          "I want to apply for admission at Kapasa Makasa University.",
+          "How do I apply to KMU?",
+          "How to get admission into Kapasa Makasa University?",
+          "What are the steps to apply for KMU?",
+          "Can you tell me how to apply for admission at Kapasa Makasa University?",
+          "Where do I apply for admission at KMU?",
+          "What do I need to do to apply to Kapasa Makasa University?",
+          "How do I start the admission process at KMU?",
+          "I need to apply for admission at Kapasa Makasa University. What should I do?",
+          "Where can I find the application portal for KMU?",
+          "How do I access the admission application for Kapasa Makasa University?",
+          "Where is the KMU application portal?",
+          "Tell me how to apply to Kapasa Makasa University.",
+          "What is the procedure for applying to KMU?",
+          "Can you guide me on how to apply for admission at Kapasa Makasa University?",
+          "I want to know how to apply for KMU.",
+          "Can you show me how to apply to Kapasa Makasa University?",
+          "How do I get started with my application to KMU?"
+        ],
+        "responses": [
+          "To apply for admission at Kapasa Makasa University, visit the student portal and click on the application portal at [this link](https://kmu.ac.zm/apply).",
+          "You can apply for admission at Kapasa Makasa University by going to the student portal and selecting the application portal at this [link](https://kmu.ac.zm/apply).",
+          "To start your admission process at Kapasa Makasa University, visit the student portal and choose the application portal here: [https://kmu.ac.zm/apply](https://kmu.ac.zm/apply).",
+          "Applying for admission at Kapasa Makasa University is easy! Just visit the student portal and use the application portal at [this link](https://kmu.ac.zm/apply).",
+          "If you're looking to apply for admission at Kapasa Makasa University, visit the student portal and access the application portal via [this link](https://kmu.ac.zm/apply)."
+        ]
+      },      
+      {
+        "tag": "admission_knrumah",
+        "patterns": [
+          "How can I apply for admission at Kwame Nkrumah University?",
+          "What is the process for applying to KNRUMAH?",
+          "I want to apply for admission at Kwame Nkrumah University.",
+          "How do I apply to KNRUMAH?",
+          "How to get admission into Kwame Nkrumah University?",
+          "What are the steps to apply for KNRUMAH?",
+          "Can you tell me how to apply for admission at Kwame Nkrumah University?",
+          "Where do I apply for admission at KNRUMAH?",
+          "What do I need to do to apply to Kwame Nkrumah University?",
+          "How do I start the admission process at KNRUMAH?",
+          "I need to apply for admission at Kwame Nkrumah University. What should I do?",
+          "Where can I find the application portal for KNRUMAH?",
+          "How do I access the admission application for Kwame Nkrumah University?",
+          "Where is the KNRUMAH application portal?",
+          "Tell me how to apply to Kwame Nkrumah University.",
+          "What is the procedure for applying to KNRUMAH?",
+          "Can you guide me on how to apply for admission at Kwame Nkrumah University?",
+          "I want to know how to apply for KNRUMAH.",
+          "Can you show me how to apply to Kwame Nkrumah University?",
+          "How do I get started with my application to KNRUMAH?"
+        ],
+        "responses": [
+          "To apply for admission at Kwame Nkrumah University, visit the student portal and click on the application portal at [this link](https://knru.ac.zm/apply).",
+          "You can apply for admission at Kwame Nkrumah University by going to the student portal and selecting the application portal at this [link](https://knru.ac.zm/apply).",
+          "To start your admission process at Kwame Nkrumah University, visit the student portal and choose the application portal here: [https://knru.ac.zm/apply](https://knru.ac.zm/apply).",
+          "Applying for admission at Kwame Nkrumah University is easy! Just visit the student portal and use the application portal at [this link](https://knru.ac.zm/apply).",
+          "If you're looking to apply for admission at Kwame Nkrumah University, visit the student portal and access the application portal via [this link](https://knru.ac.zm/apply)."
+        ]
+      },      
+      {
+        "tag": "admission_mu",
+        "patterns": [
+          "How can I apply for admission at Mulungushi University?",
+          "What is the process for applying to MU?",
+          "I want to apply for admission at Mulungushi University.",
+          "How do I apply to MU?",
+          "How to get admission into Mulungushi University?",
+          "What are the steps to apply for MU?",
+          "Can you tell me how to apply for admission at Mulungushi University?",
+          "Where do I apply for admission at MU?",
+          "What do I need to do to apply to Mulungushi University?",
+          "How do I start the admission process at MU?",
+          "I need to apply for admission at Mulungushi University. What should I do?",
+          "Where can I find the application portal for MU?",
+          "How do I access the admission application for Mulungushi University?",
+          "Where is the MU application portal?",
+          "Tell me how to apply to Mulungushi University.",
+          "What is the procedure for applying to MU?",
+          "Can you guide me on how to apply for admission at Mulungushi University?",
+          "I want to know how to apply for MU.",
+          "Can you show me how to apply to Mulungushi University?",
+          "How do I get started with my application to MU?"
+        ],
+        "responses": [
+          "To apply for admission at Mulungushi University, visit the student portal and click on the application portal at [this link](https://mu.ac.zm/apply).",
+          "You can apply for admission at Mulungushi University by going to the student portal and selecting the application portal at this [link](https://mu.ac.zm/apply).",
+          "To start your admission process at Mulungushi University, visit the student portal and choose the application portal here: [https://mu.ac.zm/apply](https://mu.ac.zm/apply).",
+          "Applying for admission at Mulungushi University is easy! Just visit the student portal and use the application portal at [this link](https://mu.ac.zm/apply)."
+        ]
+      },      
+      {
+        "tag": "admission_unza",
+        "patterns": [
+          "How can I apply for admission at unza?",
+          "What is the process for applying to unza?",
+          "I want to apply for admission at unza.",
+          "How do I apply to the University of Zambia?",
+          "How to get admission into unza?",
+          "What are the steps to apply for unza?",
+          "Can you tell me how to apply for admission at unza?",
+          "Where do I apply for admission at UNZA?",
+          "What do I need to do to apply to unza?",
+          "How do I start the admission process at unza?",
+          "I need to apply for admission at unza. What should I do?",
+          "Where can I find the application portal for unza?",
+          "How do I access the admission application for unza?",
+          "Where is the unza application portal?",
+          "Tell me how to apply to unza.",
+          "What is the procedure for applying to unza?",
+          "Can you guide me on how to apply for admission at unza?",
+          "I want to know how to apply for unza.",
+          "Can you show me how to apply to unza?",
+          "How do I get started with my application to unza?"
+        ],
+        "responses": [
+          "To apply for admission at UNZA, visit the student portal and click on the application portal at [this link](https://applications.unza.zm/).",
+          "You can apply for admission at UNZA by accessing the student portal and selecting the application portal at this [link](https://applications.unza.zm/).",
+          "To start your admission process at UNZA, visit the student portal and choose the application portal here: [https://applications.unza.zm/](https://applications.unza.zm/).",
+          "Applying for admission at UNZA is straightforward! Just visit the student portal and use the application portal at [this link](https://applications.unza.zm/).",
+          "If you're looking to apply for admission at UNZA, visit the student portal and access the application portal via [this link](https://applications.unza.zm/)."
+        ]
+      },      
+      {
+        "tag": "admission_cbu",
+        "patterns": [
+          "How can I apply for admission at cbu?",
+          "What is the process for applying to cbu?",
+          "I want to apply for admission at cbu.",
+          "How do I apply to Copperbelt University?",
+          "How to get admission into cbu?",
+          "What are the steps to apply for cbu?",
+          "Can you tell me how to apply for admission at cbu?",
+          "Where do I apply for admission at cbu?",
+          "What do I need to do to apply to cbu?",
+          "How do I start the admission process at cbu?",
+          "I need to apply for admission at cbu. What should I do?",
+          "Where can I find the application portal for cbu?",
+          "How do I access the admission application for cbu?",
+          "Where is the cbu application portal?",
+          "Tell me how to apply to cbu.",
+          "What is the procedure for applying to cbu?",
+          "Can you guide me on how to apply for admission at cbu?",
+          "I want to know how to apply for cbu.",
+          "Can you show me how to apply to cbu?",
+          "How do I get started with my application to cbu?"
+        ],
+        "responses": [
+          "To apply for admission at CBU, simply visit the student portal and click on the application portal at [this link](http://www.cbu.ac.zm/opus/apply/apply.new.php).",
+          "You can apply for admission at CBU by going to the student portal and selecting the application portal at this [link](http://www.cbu.ac.zm/opus/apply/apply.new.php).",
+          "To start your admission process at CBU, head to the student portal and choose the application portal here: [http://www.cbu.ac.zm/opus/apply/apply.new.php](http://www.cbu.ac.zm/opus/apply/apply.new.php).",
+          "Applying for admission at CBU is easy! Just visit the student portal and access the application portal through [this link](http://www.cbu.ac.zm/opus/apply/apply.new.php).",
+          "If you're looking to apply for admission at CBU, visit the student portal and use the application portal available at [this link](http://www.cbu.ac.zm/opus/apply/apply.new.php)."
+        ]
+      },      
+              {
+                "tag": "admission_requirements_software_engineering",
+                "patterns": [
+                  "What are the admission requirements for Software Engineering at unza?",
+                  "How can I get into Software Engineering at the University of Zambia?",
+                  "What do I need to study Software Engineering at unza?",
+                  "Admission criteria for Software Engineering at unza?",
+                  "What qualifications are needed for Software Engineering at unza?"
+                ],
+                "responses": [
+                  "The admission requirements for Software Engineering at the University of Zambia (UNZA) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [UNZA Software Engineering Admission Requirements](http://www.unza.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_computer_systems_engineering",
+                "patterns": [
+                  "What are the admission requirements for Computer Systems Engineering at unza?",
+                  "How can I get into Computer Systems Engineering at the University of Zambia?",
+                  "What do I need to study Computer Systems Engineering at unza?",
+                  "Admission criteria for Computer Systems Engineering at unza?",
+                  "What qualifications are needed for Computer Systems Engineering at unza?"
+                ],
+                "responses": [
+                  "The admission requirements for Computer Systems Engineering at the University of Zambia (UNZA) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [UNZA Computer Systems Engineering Admission Requirements](http://www.unza.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_computer_science_bachelor",
+                "patterns": [
+                  "What are the admission requirements for a Bachelor's in Computer Science at unza?",
+                  "How can I get into the Computer Science program at the University of Zambia?",
+                  "What do I need to study Computer Science at unza?",
+                  "Admission criteria for Computer Science at unza?",
+                  "What qualifications are needed for a Bachelor's in Computer Science at unza?"
+                ],
+                "responses": [
+                  "The admission requirements for a Bachelor's in Computer Science at the University of Zambia (UNZA) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [UNZA Computer Science Admission Requirements](http://www.unza.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_information_technology_diploma",
+                "patterns": [
+                  "What are the admission requirements for a Diploma in Information Technology at cbu?",
+                  "How can I get into the IT diploma program at Copperbelt University?",
+                  "What do I need to study IT at cbu?",
+                  "Admission criteria for IT diploma at cbu?",
+                  "What qualifications are needed for a Diploma in Information Technology at cbu?"
+                ],
+                "responses": [
+                  "The admission requirements for a Diploma in Information Technology at Copperbelt University (CBU) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [CBU IT Diploma Admission Requirements](https://www.cbu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_computer_science_masters",
+                "patterns": [
+                  "What are the admission requirements for a Master's in Computer Science at cbu?",
+                  "How can I get into the Master's in Computer Science program at Copperbelt University?",
+                  "What do I need to study Computer Science at cbu at the Master's level?",
+                  "Admission criteria for a Master's in Computer Science at cbu?",
+                  "What qualifications are needed for a Master's in Computer Science at cbu?"
+                ],
+                "responses": [
+                  "The admission requirements for a Master's in Computer Science at Copperbelt University (CBU) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [CBU Master's in Computer Science Admission Requirements](https://www.cbu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_computer_science_phd",
+                "patterns": [
+                  "What are the admission requirements for a PhD in Computer Science at cbu?",
+                  "How can I get into the PhD in Computer Science program at Copperbelt University?",
+                  "What do I need to study Computer Science at cbu at the PhD level?",
+                  "Admission criteria for a PhD in Computer Science at cbu?",
+                  "What qualifications are needed for a PhD in Computer Science at cbu?"
+                ],
+                "responses": [
+                  "The admission requirements for a PhD in Computer Science at Copperbelt University (CBU) include [insert specific admission criteria here]. For more information, please visit the official website: [CBU PhD in Computer Science Admission Requirements](https://www.cbu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_information_systems_bachelor",
+                "patterns": [
+                  "What are the admission requirements for a Bachelor's in Information Systems at cbu?",
+                  "How can I get into the Information Systems program at Copperbelt University?",
+                  "What do I need to study Information Systems at cbu?",
+                  "Admission criteria for Information Systems at cbu?",
+                  "What qualifications are needed for a Bachelor's in Information Systems at cbu?"
+                ],
+                "responses": [
+                  "The admission requirements for a Bachelor's in Information Systems at Copperbelt University (CBU) include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [CBU Information Systems Admission Requirements](https://www.cbu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_data_science_bachelor",
+                "patterns": [
+                  "What are the admission requirements for a Bachelor's in Data Science at Mulungushi University?",
+                  "How can I get into the Data Science program at Mulungushi University?",
+                  "What do I need to study Data Science at Mulungushi University?",
+                  "Admission criteria for Data Science at Mulungushi University?",
+                  "What qualifications are needed for a Bachelor's in Data Science at Mulungushi University?"
+                ],
+                "responses": [
+                  "The admission requirements for a Bachelor's in Data Science at Mulungushi University include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [Mulungushi Data Science Admission Requirements](https://www.mu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_cyber_security_bachelor",
+                "patterns": [
+                  "What are the admission requirements for a Bachelor's in Cyber Security at Mulungushi University?",
+                  "How can I get into the Cyber Security program at Mulungushi University?",
+                  "What do I need to study Cyber Security at Mulungushi University?",
+                  "Admission criteria for Cyber Security at Mulungushi University?",
+                  "What qualifications are needed for a Bachelor's in Cyber Security at Mulungushi University?"
+                ],
+                "responses": [
+                  "The admission requirements for a Bachelor's in Cyber Security at Mulungushi University include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [Mulungushi Cyber Security Admission Requirements](https://www.mu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "admission_requirements_ict_education_bachelor",
+                "patterns": [
+                  "What are the admission requirements for a Bachelor's in ICT with Education at Kwame Nkrumah University?",
+                  "How can I get into the ICT with Education program at Kwame Nkrumah University?",
+                  "What do I need to study ICT with Education at Kwame Nkrumah University?",
+                  "Admission criteria for ICT with Education at Kwame Nkrumah University?",
+                  "What qualifications are needed for a Bachelor's in ICT with Education at Kwame Nkrumah University?",
+                  "What are the admission requirements for a Bachelor's in ICT with Education at Kapasa Makasa University?",
+                  "How can I get into the ICT with Education program at Kapasa Makasa University?",
+                  "What do I need to study ICT with Education at Kapasa Makasa University?",
+                  "Admission criteria for ICT with Education at Kapasa Makasa University?",
+                  "What qualifications are needed for a Bachelor's in ICT with Education at Kapasa Makasa University?"
+                ],
+                "responses": [
+                  "The admission requirements for a Bachelor's in ICT with Education include having five O-levels, including English, Mathematics and Sciences. For more information, please visit the official website: [ICT with Education Admission Requirements](https://www.nkrumah.edu.zm)."
+                ]
+              },          
+                {
+                "tag": "best_software_engineering",
+                "patterns": [
+                  "What is the best university for Software Engineering?",
+                  "Which university is best for Software Engineering?",
+                  "Top university for Software Engineering in Zambia?"
+                ],
+                "responses": [
+                  "The best university for Software Engineering is the **University of Zambia (UNZA)**. The program focuses on designing, developing, and maintaining software systems. For more details, visit their official website: [UNZA Software Engineering Program](http://www.unza.zm)."
+                ]
+              },
+              {
+                "tag": "best_computer_systems_engineering",
+                "patterns": [
+                  "What is the best university for Computer Systems Engineering?",
+                  "Which university is best for Computer Systems Engineering?",
+                  "Top university for Computer Systems Engineering in Zambia?"
+                ],
+                "responses": [
+                  "The best university for Computer Systems Engineering is the **University of Zambia (UNZA)**. This program combines computer science and electrical engineering for system design. For more details, visit their official website: [UNZA Computer Systems Engineering Program](http://www.unza.zm)."
+                ]
+              },
+              {
+                "tag": "best_computer_science_university",
+                "patterns": [
+                    "Which is the best university for computer science?",
+                    "Best university for computer science studies?",
+                    "Top university for computer science?",
+                    "Where can I study the best computer science?",
+                    "Best place to pursue computer science?",
+                    "Which university is the best for computer science?",
+                    "Top university in Zambia for computer science?",
+                    "What is the best university for computer science?",
+                    "Best institution for computer science in Zambia?",
+                    "Top school for computer science?",
+                    "Which university offers the best computer science program?",
+                    "Best place to study computer science in Zambia?",
+                    "Best university for a degree in computer science?",
+                    "Top-ranked university for computer science?",
+                    "Which is the top university for computer science?",
+                    "Where can I find the best computer science program?",
+                    "Best college for computer science in Zambia?",
+                    "Top university for a computer science degree?",
+                    "Which Zambian university is best for computer science?",
+                    "Best-rated computer science program in Zambia?"
+                ],
+                "responses": [
+                    "**Bachelor's Degree**: The best university for a Bachelor's in Computer Science is the **University of Zambia (UNZA)**.",
+                    "**Master's Degree**: For a Master's in Computer Science, the top university is **Copperbelt University (CBU)**.",
+                    "**PhD**: If you're looking to pursue a PhD in Computer Science, **Copperbelt University (CBU)** is the best choice.",
+                    "For a **Bachelor's in Computer Science**, the **University of Zambia (UNZA)** is the best option.",
+                    "The **University of Zambia (UNZA)** is the best university for a Bachelor's in Computer Science.",
+                    "If you're pursuing a **Master's in Computer Science**, **Copperbelt University (CBU)** is the top choice.",
+                    "For **PhD studies in Computer Science**, **Copperbelt University (CBU)** stands out as the best.",
+                    "The best **Bachelor's program in Computer Science** can be found at **University of Zambia (UNZA)**.",
+                    "**Copperbelt University (CBU)** offers the best **Master's** and **PhD** programs in Computer Science.",
+                    "To study **Computer Science at a Bachelor's level**, go for **University of Zambia (UNZA)**.",
+                    "For a **Master's** in Computer Science, choose **Copperbelt University (CBU)**.",
+                    "**Copperbelt University (CBU)** is your best bet for a **PhD** in Computer Science.",
+                    "For **Bachelor's** in Computer Science, **University of Zambia (UNZA)** is the best.",
+                    "Want the best **Master's** in Computer Science? Go for **Copperbelt University (CBU)**.",
+                    "**Copperbelt University (CBU)** is the top university for a **PhD** in Computer Science.",
+                    "The best **Bachelor's** program in Computer Science is at **University of Zambia (UNZA)**.",
+                    "If you're interested in a **Master's** in Computer Science, **Copperbelt University (CBU)** is the best.",
+                    "For the best **PhD** in Computer Science, choose **Copperbelt University (CBU)**.",
+                    "Study **Computer Science** at the **University of Zambia (UNZA)** for a Bachelor's degree.",
+                    "**Copperbelt University (CBU)** is the top institution for a **Master's** or **PhD** in Computer Science."
+                ]
+            },            
+              {
+                "tag": "best_computer_science_bachelor",
+                "patterns": [
+                  "best for computer science",
+                  "top university to study computer science",
+                  "best university for computer science in zambia",
+                  "top computer science university in zambia",
+                  "best computer science university in zambia",
+                  "best computer science university in zambia for bachelors",
+                  "What is the best university for a Bachelor's in Computer Science?",
+                  "Which university offers the best Bachelor's in Computer Science?",
+                  "Top university for a Bachelor's in Computer Science in Zambia?"
+                ],
+                "responses": [
+                  "The best university for a Bachelor's in Computer Science is the **University of Zambia (UNZA)**. Their program covers algorithms, data structures, and software design comprehensively. For more details, visit their official website: [UNZA Computer Science Program](http://www.unza.zm)."
+                ]
+              },
+              {
+                "tag": "best_information_technology_diploma",
+                "patterns": [
+                  "What is the best university for a Diploma in Information Technology?",
+                  "Which university offers the best IT diploma?",
+                  "Top university for an IT diploma in Zambia?"
+                ],
+                "responses": [
+                  "The best university for a Diploma in Information Technology is the **Copperbelt University (CBU)**. This entry-level program focuses on essential IT skills and knowledge. For more details, visit their official website: [CBU IT Diploma Program](https://www.cbu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "best_computer_science_masters",
+                "patterns": [
+                  "best for computer science masters",
+                  "top university for computer science masters in zambia",
+                  "best university for computer science masters in zambia",
+                  "What is the best university for a Master's in Computer Science?",
+                  "Which university offers the best Master's in Computer Science?",
+                  "Top university for a Master's in Computer Science in Zambia?"
+                ],
+                "responses": [
+                  "The best university for a Master's in Computer Science is the **Copperbelt University (CBU)**. This program offers advanced studies in computer science research and applications. For more details, visit their official website: [CBU Master's in Computer Science Program](https://www.cbu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "best_computer_science_phd",
+                "patterns": [
+                  "best for computer science phd",
+                  "What is the best university for a PhD in Computer Science?",
+                  "Which university offers the best PhD in Computer Science?",
+                  "Top university for a PhD in Computer Science in Zambia?"
+                ],
+                "responses": [
+                  "The best university for a PhD in Computer Science is the **Copperbelt University (CBU)**. This research-focused program is aimed at creating new knowledge in the field. For more details, visit their official website: [CBU PhD in Computer Science Program](https://www.cbu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "best_information_systems_bachelor",
+                "patterns": [
+                  "top-rated university for information systems what university is best",
+                  "What's the best university for a Bachelor's in Information Systems?",
+                  "Which university is best for a Bachelor's in Information Systems?",
+                  "Top university for a Bachelor's in Information Systems?",
+                  "Best school for a Bachelor's in Information Systems in Zambia?",
+                  "Which university offers the top Bachelor's in Information Systems?",
+                  "Best Zambian university for a Bachelor's in Information Systems?",
+                  "Which school is best for a Bachelor's in Information Systems?",
+                  "What's the top university for a Bachelor's in Information Systems?",
+                  "Best university in Zambia for a Bachelor's in Information Systems?",
+                  "Which university has the best Bachelor's in Information Systems?",
+                  "Top Bachelor's in Information Systems university in Zambia?",
+                  "Best Bachelor's in Information Systems school in Zambia?",
+                  "Which university provides the best Bachelor's in Information Systems?",
+                  "What's the top school for a Bachelor's in Information Systems?",
+                  "Best university for studying Information Systems in Zambia?",
+                  "Which university is the top for a Bachelor's in Information Systems?",
+                  "Top school in Zambia for a Bachelor's in Information Systems?",
+                  "Which university offers the best Bachelor's in Information Systems?",
+                  "Best Zambian school for a Bachelor's in Information Systems?",
+                  "What's the best school in Zambia for Information Systems?"
+              ],
+                "responses": [
+                  "The best university for a Bachelor's in Information Systems is the **Copperbelt University (CBU)**. This program focuses on the study of systems that manage, process, and analyze data. For more details, visit their official website: [CBU Information Systems Program](https://www.cbu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "best_data_science_bachelor",
+                "patterns": [
+                  "what's the best university for data science",
+                  "top university for data science",
+                  "best university for studying data science",
+                  "which university is best for data science",
+                  "best data science university in zambia",
+                  "top data science school in zambia",
+                  "what is the top university for data science",
+                  "which university offers the best data science program",
+                  "best school for data science in zambia",
+                  "best zambian university for data science",
+                  "which university has the best data science program",
+                  "top data science program in zambia",
+                  "which university provides the best data science education",
+                  "what's the top school for data science in zambia",
+                  "best zambian school for data science",
+                  "which university is the top for data science",
+                  "best university in zambia for data science",
+                  "top university for a bachelor's in data science",
+                  "which university is the best for data science",
+                  "best data science school in zambia"
+              ],
+                "responses": [
+                  "The best university for a Bachelor's in Data Science is **Mulungushi University**. This program introduces data analysis, machine learning, and big data technologies. For more details, visit their official website: [Mulungushi Data Science Program](https://www.mu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "best_cyber_security_bachelor",
+                "patterns": [
+                  "What is the best university for a Bachelor's in Cyber Security?",
+                  "Which university offers the best Bachelor's in Cyber Security?",
+                  "Top university for a Bachelor's in Cyber Security in Zambia?"
+                ],
+                "responses": [
+                  "The best university for a Bachelor's in Cyber Security is **Mulungushi University**. The program teaches security principles, risk management, and cyber threat prevention. For more details, visit their official website: [Mulungushi Cyber Security Program](https://www.mu.ac.zm)."
+                ]
+              },
+              {
+                "tag": "best_ict_education_bachelor",
+                "patterns": [
+                  "What is the best university for a Bachelor's in ICT with Education?",
+                  "Which university offers the best Bachelor's in ICT with Education?",
+                  "Top university for a Bachelor's in ICT with Education in Zambia?"
+                ],
+                "responses": [
+                  "The best university for a Bachelor's in ICT with Education is **Kwame Nkrumah University**. The program integrates ICT skills with educational practices for teaching roles. For more details, visit their official website: [Kwame Nkrumah ICT with Education Program](https://www.nkrumah.edu.zm)."
+                ]
+              },          
+              {
+                "tag": "best_for_software_engineering",
+                "patterns": [
+                  "What is the best university for software engineering?",
+                  "Where should I study software engineering?",
+                  "Best program for software engineering?",
+                  "Top university for software engineering?"
+                ],
+                "responses": "The best university for Software Engineering (SE) is the **University of Zambia (UNZA)**. This program focuses on designing, developing, and maintaining software systems, providing a strong foundation for a career in software engineering."
+              },
+              {
+                "tag": "best_for_computer_systems_engineering",
+                "patterns": [
+                  "What is the best university for computer systems engineering?",
+                  "Where should I study computer systems engineering?",
+                  "Best program for computer systems engineering?",
+                  "Top university for computer systems engineering?"
+                ],
+                "responses": "The best university for Computer Systems Engineering (CSE) is the **University of Zambia (UNZA)**. This program combines computer science and electrical engineering to equip students with the skills needed for system design."
+              },
+              {
+                "tag": "best_for_computer_engineering",
+                "patterns": [
+                  "best for computer engineering",
+                  "top computer engineering university",
+                  "What is the best university for computer engineering?",
+                  "Where should I study computer engineering?",
+                  "Best program for computer engineering?",
+                  "Top university for computer engineering?"
+                ],
+                "responses": "The best university for Computer Engineering (CE) is the **Copperbelt University (CBU)**. This program combines computer science and electrical engineering to equip students with the skills needed for system design."
+              },
+              {
+                "tag": "top_computer_engineering_zambia",
+                "patterns": [
+                    "Which is the top university for computer engineering in Zambia?",
+                    "Best university for computer engineering in Zambia?",
+                    "Top computer engineering program in Zambia?",
+                    "top computer engineering",
+                    "best for computer engineering",
+                    "top computer engineering university",
+                    "What is the top university for computer engineering in Zambia?",
+                    "Where should I study computer engineering in Zambia?",
+                    "Best program for computer engineering in Zambia?",
+                    "Top university for computer engineering in Zambia?",
+                    "Which university is best for computer engineering in Zambia?",
+                    "Top computer engineering university in Zambia",
+                    "Which university is the best for computer engineering in Zambia?",
+                    "Where can I study the best computer engineering in Zambia?",
+                    "Top university for computer engineering in Zambia?",
+                    "Which university offers the best computer engineering in Zambia?",
+                    "Best place to study computer engineering in Zambia?",
+                    "What is the top computer engineering university in Zambia?",
+                    "Which is the leading university for computer engineering in Zambia?",
+                    "Top school for computer engineering in Zambia?",
+                    "Best institution for computer engineering in Zambia?",
+                    "Top college for computer engineering in Zambia?",
+                    "Best place to pursue computer engineering in Zambia?",
+                    "Which is the top institution for computer engineering in Zambia?",
+                    "Top-ranked university for computer engineering in Zambia?",
+                    "Which Zambian university is best for computer engineering?",
+                    "Best-rated computer engineering program in Zambia?",
+                    "Top university in Zambia for computer engineering?",
+                    "Best Zambian university for computer engineering?"
+                ],
+                "responses": [
+                    "The best university for Computer Engineering (CE) is the **Copperbelt University (CBU)**. This program combines computer science and electrical engineering to equip students with the skills needed for system design.",
+                    "CBU is the best university for computer engineering in Zambia.",
+                    "When it comes to computer engineering in Zambia, CBU tops the list.",
+                    "The best place to study computer engineering in Zambia is CBU.",
+                    "For computer engineering in Zambia, CBU is the leading university.",
+                    "CBU offers the top computer engineering program in Zambia.",
+                    "If you're looking for the best in computer engineering in Zambia, CBU is the place.",
+                    "CBU is the best choice for computer engineering in Zambia.",
+                    "In Zambia, CBU stands out as the best for computer engineering.",
+                    "The best university for computer engineering in Zambia is CBU.",
+                    "CBU is recognized as the top university for computer engineering in Zambia."
+                ]
+            },           
+          
         {
-            "tag": "greeting",
+            "tag": "best_university_computer_science",
             "patterns": [
-                "Hi",
-                "Hello",
-                "How are you?",
-                "Hey there",
-                "Good day"
+              "What is the best university to study computer science?",
+              "Which university is the top choice for computer science?",
+              "Where should I study computer science?",
+              "Best university for computer science in Zambia?",
+              "Top university for computer science?"
             ],
-            "responses": [
-                "Hello! How can I assist you with ICT programs at Zambian universities today?",
-                "Hi there! What information do you need about ICT programs?",
-                "Hey! How can I help you with your university search?"
-            ]
+            "responses": "If you're looking to study computer science, the **University of Zambia (UNZA)** is widely regarded as the top choice. UNZA offers a comprehensive curriculum with strong industry connections, making it an excellent place to build a foundation in computer science. To learn more about their program, you can visit their official website: [UNZA Computer Science Program](http://www.unza.zm)."
+          },          
+        {
+                "tag": "greeting",
+                "patterns": [
+                    "Hi",
+                    "hi",
+                    "Hello",
+                    "How are you?",
+                    "Hey there",
+                    "Good day",
+                    "What's up?",
+                    "Howdy",
+                    "Greetings",
+                    "Hey",
+                    "Hi there",
+                    "Hello there",
+                    "Good morning",
+                    "Good afternoon",
+                    "Good evening",
+                    "Hey! How's it going?",
+                    "What's new?",
+                    "What's going on?",
+                    "How's everything?",
+                    "How's life?",
+                    "How are you doing?",
+                    "Yo",
+                    "Hiya",
+                    "How's your day?",
+                    "How's your day going?",
+                    "Hello! What's happening?",
+                    "Hi! What's up?",
+                    "Good to see you!",
+                    "Hi! Need any help?",
+                    "Hello! Anything I can do for you?"
+                ],
+                "responses": [
+                    "Hello! How can I assist you with ICT programs at Zambian universities today?",
+                    "Hi there! What information do you need about ICT programs?",
+                    "Hey! How can I help you with your university search?",
+                    "Greetings! What would you like to know about ICT courses?",
+                    "Hi! Looking for details on ICT programs? I'm here to help.",
+                    "Hello! How can I support your research on ICT studies?",
+                    "Hey there! Need any guidance on Zambian university ICT programs?",
+                    "Hi! I'm here to answer any questions you have about ICT education.",
+                    "Good day! How can I assist you with your ICT program inquiries?",
+                    "Hello! Ready to explore ICT programs at Zambian universities? I'm here to help."
+                ]            
         },
         {
             "tag": "goodbye",
             "patterns": [
                 "Bye",
                 "Goodbye",
+                "bye",
+                "see ya",
+                "later",
                 "See you later",
                 "Talk to you soon"
             ],
@@ -35,7 +1302,10 @@
                 "Who are you?",
                 "What is your name?",
                 "Your name",
-                "Tell me your name"
+                "Tell me your name",
+                "what are you?",
+                "name",
+                "what should I call you?"
             ],
             "responses": [
                 "My name is UniMatch, a personalized recommendation system for universities in Zambia.",
@@ -64,17 +1334,17 @@
                 "Where can I study ICT in Zambia?"
             ],
             "responses": [
-                "The public universities in Zambia offering ICT programs include the University of Zambia, Copperbelt University, and Mulungushi University.",
-                "You can study ICT at public universities like the University of Zambia, Copperbelt University, and Mulungushi University. Which university would you like more information on?"
+                "The public universities in Zambia offering ICT programs include the University of Zambia, Copperbelt University, Mulungushi University, Kapasa Makasa University, and Kwame Nkrumah University.",
+                "You can study ICT at public universities like UNZA, CBU, MU, KMU, and Kwame Nkrumah University. Which university would you like more information on?"
             ]
         },
         {
             "tag": "unza_ict",
             "patterns": [
                 "Tell me about ICT programs at the University of Zambia",
-                "UNZA ICT courses",
+                "unza ICT courses",
                 "University of Zambia ICT",
-                "ICT at UNZA"
+                "ICT at unza"
             ],
             "responses": [
                 "The University of Zambia offers ICT programs such as Computer Science, Information Systems, and Software Engineering. What specific information do you need about these programs?",
@@ -105,6 +1375,32 @@
             "responses": [
                 "Mulungushi University offers ICT programs including Computer Science and Information Systems. Would you like more details on these programs?",
                 "At MU, you can pursue degrees in Computer Science and Information Systems. Are you interested in the course structure or admission requirements?"
+            ]
+        },
+        {
+            "tag": "kmu_ict",
+            "patterns": [
+                "ICT programs at Kapasa Makasa University",
+                "Tell me about ICT courses at KMU",
+                "Kapasa Makasa University ICT",
+                "KMU ICT degrees"
+            ],
+            "responses": [
+                "Kapasa Makasa University offers ICT programs like Software Engineering and Data Science. Do you want details on any specific program?",
+                "At KMU, you can study Software Engineering, Data Science, and more. Are you looking for details on undergraduate or postgraduate options?"
+            ]
+        },
+        {
+            "tag": "kwame_ict",
+            "patterns": [
+                "ICT courses at Kwame Nkrumah University",
+                "Kwame Nkrumah University ICT programs",
+                "ICT at Kwame Nkrumah",
+                "Tell me about Kwame Nkrumah University's ICT degrees"
+            ],
+            "responses": [
+                "Kwame Nkrumah University offers ICT programs such as Computer Science and Information Technology. Would you like more details on these programs?",
+                "At Kwame Nkrumah University, you can pursue degrees in Computer Science and Information Technology. Are you interested in the course structure or admission requirements?"
             ]
         },
         {
@@ -156,7 +1452,7 @@
             ],
             "responses": [
                 "Application deadlines vary by university and program. Generally, applications are accepted in the first half of the year. Would you like the deadlines for a specific university?",
-                "The application deadlines for ICT programs depend on the university. Are you interested in the deadlines for UNZA, CBU, or MU?"
+                "The application deadlines for ICT programs depend on the university. Are you interested in the deadlines for UNZA, CBU, MU, KMU, or Kwame Nkrumah University?"
             ]
         },
         {
@@ -169,7 +1465,7 @@
             ],
             "responses": [
                 "Universities offer various facilities for ICT students, including computer labs, libraries, and research centers. Would you like to know about facilities at a specific university?",
-                "ICT students have access to computer labs, study areas, and specialized equipment. Are you looking for information on facilities at UNZA, CBU, or MU?"
+                "ICT students have access to computer labs, study areas, and specialized equipment. Are you looking for information on facilities at UNZA, CBU, MU, KMU, or Kwame Nkrumah University?"
             ]
         },
         {
@@ -182,7 +1478,7 @@
             ],
             "responses": [
                 "Student life for ICT students includes engaging in various tech clubs, attending seminars, and participating in hackathons. Do you want to know about student life at a particular university?",
-                "ICT students often participate in tech clubs, coding competitions, and workshops. Are you interested in the student life at UNZA, CBU, or MU?"
+                "ICT students often participate in tech clubs, coding competitions, and workshops. Are you interested in the student life at UNZA, CBU, MU, KMU, or Kwame Nkrumah University?"
             ]
         },
         {
@@ -195,7 +1491,7 @@
             ],
             "responses": [
                 "The cost of attending ICT programs varies by university. Would you like detailed information on tuition fees for a specific university?",
-                "Tuition fees for ICT programs differ between universities. Are you interested in the costs at UNZA, CBU, or MU?"
+                "Tuition fees for ICT programs differ between universities. Are you interested in the costs at UNZA, CBU, MU, KMU, or Kwame Nkrumah University?"
             ]
         },
         {
@@ -208,7 +1504,7 @@
             ],
             "responses": [
                 "ICT graduates have diverse career opportunities in fields such as software development, network administration, and cybersecurity. Would you like to know about specific success stories from any university?",
-                "Career prospects for ICT graduates are excellent, with opportunities in various tech industries. Are you interested in alumni success from UNZA, CBU, or MU?"
+                "Career prospects for ICT graduates are excellent, with opportunities in various tech industries. Are you interested in alumni success from UNZA, CBU, MU, KMU, or Kwame Nkrumah University?"
             ]
         },
         {
@@ -221,7 +1517,7 @@
             ],
             "responses": [
                 "To apply for ICT programs, you'll need to fill out an application form, submit your academic transcripts, and possibly attend an interview. Do you need the application procedure for a specific university?",
-                "The application process typically involves submitting an online application, providing academic records, and sometimes attending an interview. Are you looking for the procedure at UNZA, CBU, or MU?"
+                "The application process typically involves submitting an online application, providing academic records, and sometimes attending an interview. Are you looking for the procedure at UNZA, CBU, MU, KMU, or Kwame Nkrumah University?"
             ]
         },
         {
@@ -234,309 +1530,247 @@
             ],
             "responses": [
                 "ICT programs cover subjects like programming, databases, networking, and cybersecurity. Would you like the detailed curriculum for a specific university?",
-                "The curriculum for ICT programs includes courses in software development, network security, and data analysis. Are you looking for detailed course content from UNZA, CBU, or MU?"
+                "The curriculum for ICT programs includes courses in software development, network security, and data analysis. Are you looking for detailed course content from UNZA, CBU, MU, KMU, or Kwame Nkrumah University?"
             ]
         },
-                {
-                    "tag": "recommend_programs",
-                    "patterns": [
-                        "Can you suggest some study programs?",
-                        "Recommend a program for me.",
-                        "What programs should I study?",
-                        "Which courses are suitable for me?",
-                        "Suggest a course based on my interests.",
-                        "What should I enroll in?",
-                        "Help me choose a program.",
-                        "Find a suitable program for me.",
-                        "Which degree is best for me?",
-                        "Guide me to a study program.",
-                        "What program matches my skills?",
-                        "Recommend a course for my career.",
-                        "Suggest a study path.",
-                        "What courses align with my goals?",
-                        "Help me pick a university program.",
-                        "Which program should I pursue?",
-                        "Advise me on academic programs.",
-                        "What programs fit my interests?",
-                        "Suggest a degree based on my profile.",
-                        "What courses do you recommend?"
-                    ],
-                    "responses": [
-                        "Based on your interests, I recommend the following programs...",
-                        "Here are some programs that might interest you...",
-                        "Considering your strengths and interests, these programs could be a great fit..."
-                    ]
-                },
-                {
-                    "tag": "list_programs",
-                    "patterns": [
-                        "List all available programs.",
-                        "What programs do you offer?",
-                        "Show me the course list.",
-                        "What courses are there?",
-                        "Can you list the programs?",
-                        "What are the study options?",
-                        "Give me a list of courses.",
-                        "Display the available programs.",
-                        "What programs can I choose from?",
-                        "List all courses.",
-                        "What programs are provided?",
-                        "What courses are offered?",
-                        "Show all study options.",
-                        "List the degrees available.",
-                        "What are the educational programs?",
-                        "Can I see the course catalog?",
-                        "What courses can I enroll in?",
-                        "Show the list of programs.",
-                        "Display the available courses.",
-                        "What academic programs are there?"
-                    ],
-                    "responses": [
-                        "Here is a list of available programs...",
-                        "These are the programs currently offered...",
-                        "Check out these programs you can enroll in..."
-                    ]
-                },
-                {
-                    "tag": "rank_universities",
-                    "patterns": [
-                        "Rank the universities in Zambia.",
-                        "What are the top universities?",
-                        "Show me the university rankings.",
-                        "Which universities are the best?",
-                        "List the top-ranked universities.",
-                        "Who are the leading universities?",
-                        "What is the university ranking?",
-                        "Which university is number one?",
-                        "Give me a ranking of universities.",
-                        "What are the top universities in the country?",
-                        "Who tops the university list?",
-                        "Where does UNZA rank among universities?",
-                        "Which universities rank the highest?",
-                        "List the highest-ranking universities.",
-                        "Tell me about the best universities.",
-                        "Show the university leaderboard.",
-                        "Which universities have the best ratings?",
-                        "How are universities ranked here?",
-                        "Tell me the university standings.",
-                        "Which university ranks at the top?"
-                    ],
-                    "responses": [
-                        "Here are the top universities in Zambia...",
-                        "These universities rank highest in the country...",
-                        "According to recent rankings, the top universities are..."
-                    ]
-                },
-                {
-                    "tag": "list_universities",
-                    "patterns": [
-                        "List all universities in Zambia.",
-                        "Show me the universities.",
-                        "What universities are there?",
-                        "Give me a list of universities.",
-                        "What universities can I apply to?",
-                        "Which universities are available?",
-                        "List the universities.",
-                        "Tell me about the universities here.",
-                        "Show all universities in the country.",
-                        "Which universities can I consider?",
-                        "What universities are open for application?",
-                        "Can you list the universities?",
-                        "What are the universities I can choose from?",
-                        "Display the universities in Zambia.",
-                        "What universities are there to select from?",
-                        "List universities offering ICT programs.",
-                        "Tell me the universities I can attend.",
-                        "Which universities should I consider?",
-                        "Show me all the universities.",
-                        "Give me the university options."
-                    ],
-                    "responses": [
-                        "Here is a list of universities in Zambia...",
-                        "These are the universities you can apply to...",
-                        "You can consider these universities for your studies..."
-                    ]
-                },
-                {
-                    "tag": "get_program_details",
-                    "patterns": [
-                        "Tell me about the computer science program.",
-                        "What courses are available for software engineering?",
-                        "Give me details about the ICT program.",
-                        "What does the nursing program entail?",
-                        "Provide information about the engineering program.",
-                        "What are the course details for law?",
-                        "Explain the business administration program.",
-                        "What subjects are covered in the arts program?",
-                        "Tell me about the economics course.",
-                        "What is included in the psychology program?",
-                        "Can you describe the education program?",
-                        "What courses are offered in the technology program?",
-                        "Explain the structure of the biology program.",
-                        "What modules are in the history course?",
-                        "Provide details on the chemistry program.",
-                        "Tell me about the curriculum for physics.",
-                        "What are the learning outcomes for sociology?",
-                        "Describe the environmental science program.",
-                        "What is the focus of the architecture course?",
-                        "Can you detail the content of the journalism program?"
-                    ],
-                    "responses": [
-                        "The Computer Science program focuses on algorithms, data structures, and software development...",
-                        "Our Software Engineering program covers subjects such as system design, programming, and project management...",
-                        "The Nursing program includes both theoretical and practical training in patient care..."
-                    ]
-                },
-                {
-                    "tag": "admission_requirements",
-                    "patterns": [
-                        "What are the admission requirements for engineering?",
-                        "How do I qualify for the law program?",
-                        "What do I need to get into medical school?",
-                        "Tell me the criteria for admission to business studies.",
-                        "What are the prerequisites for the computer science course?",
-                        "How can I enroll in the arts program?",
-                        "What are the entry requirements for psychology?",
-                        "What qualifications do I need for nursing?",
-                        "How do I apply to the economics program?",
-                        "What is needed to get into the education course?",
-                        "Explain the requirements for the biology program.",
-                        "What are the conditions for admission to sociology?",
-                        "How do I become eligible for the architecture course?",
-                        "What are the standards for admission to journalism?",
-                        "Tell me about the requirements for the chemistry program.",
-                        "What are the admission guidelines for the physics course?",
-                        "How can I join the environmental science program?",
-                        "What are the criteria for the ICT degree?",
-                        "What do I need to apply for the engineering diploma?",
-                        "Tell me how to qualify for the business administration course."
-                    ],
-                    "responses": [
-                        "Admission requirements for Engineering include O-Level credits in Mathematics and Science...",
-                        "To qualify for the Law program, you need strong grades in English and Social Studies...",
-                        "Medical School requires a background in Biology, Chemistry, and high academic performance..."
-                    ]
-                },
-                {
-                    "tag": "tuition_fees",
-                    "patterns": [
-                        "How much is the tuition fee for medicine?",
-                        "What are the fees for the business course?",
-                        "Tell me the cost of studying engineering.",
-                        "What is the tuition for the law program?",
-                        "How much does it cost to study computer science?",
-                        "What are the fees for the arts degree?",
-                        "Explain the tuition for the economics program.",
-                        "How much is the psychology course fee?",
-                        "What are the charges for the nursing program?",
-                        "How much do I pay for the education course?",
-                        "What is the cost of the biology program?",
-                        "Tell me about the fees for sociology.",
-                        "How much is the architecture degree?",
-                        "What is the tuition for the journalism course?",
-                        "What are the costs for the chemistry program?",
-                        "How much do I pay for physics studies?",
-                        "What are the financial requirements for environmental science?",
-                        "How much is the ICT program fee?",
-                        "What is the price of the engineering diploma?",
-                        "Tell me the expenses for the business administration course."
-                    ],
-                    "responses": [
-                        "The tuition fee for Medicine is approximately $2,000 per year...",
-                        "Studying Business Administration costs around $1,500 annually...",
-                        "The fees for Engineering programs are generally $1,800 per academic year..."
-                    ]
-                },
-                {
-                    "tag": "campus_facilities",
-                    "patterns": [
-                        "What facilities are available for ICT students?",
-                        "Describe the campus facilities.",
-                        "What resources are on campus for students?",
-                        "Tell me about the university facilities.",
-                        "What amenities are available at the campus?",
-                        "What facilities can students use?",
-                        "What student resources are there?",
-                        "What does the campus offer for students?",
-                        "Explain the facilities at the university.",
-                        "What is available for student use on campus?",
-                        "What services are provided to students?",
-                        "What facilities support student learning?",
-                        "What resources are accessible to students?",
-                        "What amenities are provided at the university?",
-                        "Tell me about the study facilities available.",
-                        "What student activities are supported by the campus?",
-                        "What does the university provide for student engagement?",
-                        "What facilities enhance student experience?",
-                        "What infrastructure is available for student support?",
-                        "Explain what the campus offers for academic and personal growth."
-                    ],
-                    "responses": [
-                        "The campus offers a state-of-the-art library, sports complex, and research labs...",
-                        "Students have access to modern computer labs and a student center...",
-                        "Campus facilities include a health clinic, cafeteria, and student housing..."
-                    ]
-                },
-                {
-                    "tag": "academic_calendar",
-                    "patterns": [
-                        "When does the academic year start?",
-                        "Tell me about the school calendar.",
-                        "What is the academic schedule?",
-                        "When are the academic terms?",
-                        "Explain the academic calendar.",
-                        "What are the school year dates?",
-                        "When does the semester begin?",
-                        "What is the academic year timeline?",
-                        "When are the holidays in the school year?",
-                        "What is the schedule for classes?",
-                        "When do semesters start and end?",
-                        "What are the important dates for the academic year?",
-                        "When does the new school year begin?",
-                        "What is the timeline for the academic session?",
-                        "When are classes scheduled to begin?",
-                        "Explain the academic year layout.",
-                        "When do students return to campus?",
-                        "What are the start and end dates for the school year?",
-                        "When is the academic break scheduled?",
-                        "Tell me about the class schedule for the year."
-                    ],
-                    "responses": [
-                        "The academic year begins in September and ends in June...",
-                        "Classes start in August and the year concludes in May...",
-                        "The university follows a semester system, with terms beginning in January and July..."
-                    ]
-                },
-                {
-                    "tag": "scholarship_info",
-                    "patterns": [
-                        "How can I apply for a scholarship?",
-                        "Are there scholarships for ICT programs?",
-                        "What scholarships are available?",
-                        "Tell me about financial aid options.",
-                        "How do I get a scholarship?",
-                        "What funding opportunities exist for students?",
-                        "Explain the scholarship application process.",
-                        "What are the requirements for a scholarship?",
-                        "Can you tell me about the scholarships offered?",
-                        "What scholarships are provided by the university?",
-                        "How can I qualify for financial aid?",
-                        "What are the criteria for getting a scholarship?",
-                        "How do I access funding for my studies?",
-                        "What scholarships support ICT programs?",
-                        "Can I get a scholarship for computer science?",
-                        "What are the available bursaries for students?",
-                        "How does one apply for university scholarships?",
-                        "What financial assistance can I receive?",
-                        "Tell me about the scholarships for academic excellence.",
-                        "How can students apply for bursaries?"
-                    ],
-                    "responses": [
-                        "Scholarships are available for students with high academic achievement and financial need...",
-                        "You can apply for scholarships through the university's financial aid office...",
-                        "There are several scholarships available for ICT programs, including merit-based awards..."
-                    ]
-                }
-        
+        {
+            "tag": "recommend_programs",
+            "patterns": [
+                "Can you suggest some study programs?",
+                "Recommend a program for me.",
+                "What programs should I study?",
+                "Which courses are suitable for me?",
+                "Suggest a course based on my interests.",
+                "What should I enroll in?",
+                "Help me choose a program.",
+                "Find a suitable program for me.",
+                "Which degree is best for me?",
+                "Guide me to a study program.",
+                "What program matches my skills?",
+                "Recommend a course for my career.",
+                "Suggest a study path.",
+                "What courses align with my goals?",
+                "Help me pick a university program.",
+                "Which program should I pursue?",
+                "Advise me on academic programs.",
+                "What programs fit my interests?",
+                "Suggest a degree based on my profile.",
+                "What courses do you recommend?"
+            ],
+            "responses": [
+                "Based on your interests, I recommend the following programs...",
+                "Here are some programs that might interest you...",
+                "Considering your strengths and interests, these programs could be a great fit..."
+            ]
+        },
+        {
+            "tag": "list_programs",
+            "patterns": [
+                "List all available programs.",
+                "What programs do you offer?",
+                "Show me the course list.",
+                "What courses are there?",
+                "Can you list the programs?",
+                "What are the study options?",
+                "Give me a list of courses.",
+                "Display the available programs.",
+                "What programs can I choose from?",
+                "List all courses.",
+                "What programs are provided?",
+                "What courses are offered?",
+                "Show all study options.",
+                "List the degrees available.",
+                "What are the educational programs?",
+                "Can I see the course catalog?",
+                "What courses can I enroll in?",
+                "Show the list of programs.",
+                "Display the available courses.",
+                "What academic programs are there?"
+            ],
+            "responses": [
+                "Here is a list of available programs...",
+                "These are the programs currently offered...",
+                "Check out these programs you can enroll in..."
+            ]
+        },
+        {
+            "tag": "rank_universities",
+            "patterns": [
+                "Rank the universities in Zambia.",
+                "What are the top universities?",
+                "Show me the university rankings.",
+                "Which universities are the best?",
+                "List the top-ranked universities.",
+                "Who are the leading universities?",
+                "What is the university ranking?",
+                "Which university is number one?",
+                "Give me a ranking of universities.",
+                "What are the top universities in the country?",
+                "Who tops the university list?",
+                "Where does UNZA rank among universities?",
+                "Which universities rank the highest?",
+                "List the highest-ranking universities.",
+                "Tell me about the best universities.",
+                "Show the university leaderboard.",
+                "Which universities have the best ratings?",
+                "How are universities ranked here?",
+                "Tell me the university standings.",
+                "Which university ranks at the top?"
+            ],
+            "responses": [
+                "Here are the top universities in Zambia...",
+                "These universities rank highest in the country...",
+                "According to recent rankings, the top universities are..."
+            ]
+        },
+        {
+            "tag": "list_universities",
+            "patterns": [
+                "List all universities in Zambia.",
+                "Show me the universities.",
+                "What universities are there?",
+                "Give me a list of universities.",
+                "What universities can I apply to?",
+                "Which universities are available?",
+                "List the universities.",
+                "Tell me about the universities here.",
+                "Show all universities in the country.",
+                "Which universities can I consider?",
+                "What universities are open for application?",
+                "Can you list the universities?",
+                "What are the universities I can choose from?",
+                "Display the universities in Zambia.",
+                "What universities are there to select from?",
+                "List universities offering ICT programs.",
+                "Tell me the universities I can attend.",
+                "Which universities should I consider?",
+                "Show me all the universities.",
+                "Give me the university options."
+            ],
+            "responses": [
+                "Here is a list of universities in Zambia...",
+                "These are the universities you can apply to...",
+                "You can consider these universities for your studies..."
+            ]
+        },
+            {
+              "tag": "program_inquiry",
+              "patterns": [
+                "I want to study computer science, where can I study from?",
+                "Where can I study computer science in Zambia?",
+                "Which universities offer computer science in Zambia?",
+                "Where can I enroll for a computer science degree?",
+                "What are the top universities for computer science?",
+                "Best universities in Zambia for computer science?",
+                "Which school offers computer science?",
+                "What university offers computer science programs?",
+                "Which college provides computer science courses?",
+                "Tell me where to study computer science.",
+                "I want to know the universities offering computer science.",
+                "Can you tell me where to study computer science?",
+                "What universities in Zambia have computer science?",
+                "List of universities offering computer science in Zambia.",
+                "Which universities in Zambia offer computer science?",
+                "Where can I get a degree in computer science?",
+                "Best university for computer science in Zambia?",
+                "Computer science degree, where can I study?",
+                "What are the options for studying computer science?",
+                "Where should I go for computer science?",
+                "Where can I study Software Engineering in Zambia?",
+                "Which universities offer Software Engineering programs?",
+                "Where can I find a Software Engineering degree?",
+                "Best universities for Software Engineering in Zambia?",
+                "What schools offer Software Engineering?",
+                "Where can I study Information Technology in Zambia?",
+                "Which universities offer Information Technology degrees?",
+                "Where can I enroll for Information Technology?",
+                "Best universities for Information Technology in Zambia?",
+                "What schools offer Information Technology courses?",
+                "Where can I study Cyber Security in Zambia?",
+                "Which universities offer Cyber Security programs?",
+                "Where can I get a Cyber Security degree?",
+                "Best universities for Cyber Security in Zambia?",
+                "What schools offer Cyber Security courses?",
+                "Where can I study ICT with Education in Zambia?",
+                "Which universities offer ICT with Education degrees?",
+                "Where can I enroll for ICT with Education?",
+                "Best universities for ICT with Education in Zambia?",
+                "What schools offer ICT with Education courses?",
+                "Where can I study Data Science in Zambia?",
+                "Which universities offer Data Science programs?",
+                "Where can I get a Data Science degree?",
+                "Best universities for Data Science in Zambia?",
+                "What schools offer Data Science courses?",
+                "Where can I find a program in Computer Systems Engineering?",
+                "Which universities offer Computer Systems Engineering degrees?",
+                "Where can I study Computer Systems Engineering in Zambia?",
+                "Best universities for Computer Systems Engineering in Zambia?",
+                "What schools offer Computer Systems Engineering programs?"
+              ],
+              "responses": [
+                "The University of Zambia offers a Bachelor's in Computer Science.",
+                "You can study Computer Science at Copperbelt University.",
+                "Mulungushi University has a Computer Science program.",
+                "You can enroll in Computer Science at the University of Zambia.",
+                "Copperbelt University offers a Bachelor's in Computer Science.",
+                "Mulungushi University also has a Computer Science degree.",
+                "The University of Zambia, Copperbelt University, and Mulungushi University all offer Computer Science.",
+                "Consider studying Computer Science at Copperbelt University or the University of Zambia.",
+                "Both the University of Zambia and Mulungushi University offer Computer Science degrees.",
+                "Mulungushi University and Copperbelt University are great options for Computer Science.",
+                "For Software Engineering, check out the University of Zambia.",
+                "You can study Software Engineering at the University of Zambia.",
+                "Copperbelt University does not currently offer Software Engineering.",
+                "The University of Zambia is the top choice for Software Engineering.",
+                "Mulungushi University does not offer Software Engineering at this time.",
+                "For Information Technology, you can study at Copperbelt University or Mulungushi University.",
+                "Copperbelt University and Mulungushi University both offer Information Technology programs.",
+                "You can enroll in Information Technology at Copperbelt University or Mulungushi University.",
+                "The University of Zambia does not offer Information Technology.",
+                "For Cyber Security, Mulungushi University offers the best program.",
+                "You can study Cyber Security at Mulungushi University.",
+                "Copperbelt University and the University of Zambia do not currently offer Cyber Security programs.",
+                "Mulungushi University is the top option for Cyber Security studies.",
+                "For ICT with Education, Kwame Nkrumah University and Kapasa Makasa University offer excellent programs.",
+                "Kwame Nkrumah University and Kapasa Makasa University both have ICT with Education degrees.",
+                "You can study ICT with Education at Kwame Nkrumah University or Kapasa Makasa University.",
+                "The University of Zambia does not offer ICT with Education.",
+                "Mulungushi University offers a Bachelor's in Data Science.",
+                "You can study Data Science at Mulungushi University.",
+                "The University of Zambia and Copperbelt University do not currently offer Data Science.",
+                "For Data Science, Mulungushi University is a great choice.",
+                "University of Zambia does not have a Data Science program.",
+                "Copperbelt University and Mulungushi University both offer Computer Systems Engineering.",
+                "You can study Computer Systems Engineering at Copperbelt University or the University of Zambia.",
+                "Mulungushi University does not offer Computer Systems Engineering.",
+                "For Computer Systems Engineering, consider Copperbelt University or the University of Zambia."
+              ]
+            },        
+        {
+            "tag": "academic_calendar",
+            "patterns": [
+                "when does cbu open?",
+                "calander for cbu",
+                "unza calender",
+                "mu calender",
+                "when does kmu open",
+                "when does CBU open",
+                "when does UNZA open",
+                "when does Mulungushi open",
+                "When does the academic year start?",
+                "What is the academic calendar for Copperbelt University?",
+                "Tell me the start and end dates of the academic year for UNZA.",
+                "When does Mulungushi University begin their academic year?",
+                "What are the term dates for Kapasa Makasa University?",
+                "How does the academic calendar work for Kwame Nkrumah University?",
+                "Can you provide the academic year schedule for this university?",
+                "When do classes begin at Copperbelt University?",
+                "What are the key dates in the academic calendar for UNZA?",
+                "When does the academic year start and end at Mulungushi University?"
+            ],
+            "responses": [
+                "The academic year typically begins in September and ends in June, with breaks in December and April. However, for specific institutions:\n - **Copperbelt University (CBU)**: The academic year starts in **November**.- **University of Zambia (UNZA)**: The academic year starts in **February**.- **Mulungushi University**: The academic year starts in **March**.- **Kapasa Makasa University**: The academic year starts in **April**.- **Kwame Nkrumah University**: The academic year starts in **March**.\nFor the most accurate and up-to-date information, please refer to the official academic calendars available on their websites:\n\n- [Copperbelt University (CBU) Academic Calendar](https://www.cbu.ac.zm)\n- [University of Zambia (UNZA) Academic Calendar](http://www.unza.zm)\n- [Mulungushi University Academic Calendar](https://www.mu.ac.zm)\n- [Kapasa Makasa University Academic Calendar](https://www.kmu.ac.zm)\n- [Kwame Nkrumah University Academic Calendar](https://www.nku.edu.zm)\n\nMake sure to check these links regularly for any updates."
+            ]
+        }        
     ]
 }

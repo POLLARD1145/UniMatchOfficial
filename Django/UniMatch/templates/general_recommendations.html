@@ -14,7 +14,7 @@
 
     <!-- Filters Section -->
     <form method="get" action="{% url 'general_recommendations' %}" class="row mt-4">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="programFilter" class="form-label">Filter by Program of Study</label>
             <select class="form-select" id="programFilter" name="program" onchange="this.form.submit()">
                 <option value="">Choose...</option>
@@ -23,7 +23,7 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="universityFilter" class="form-label">Filter by University</label>
             <select class="form-select" id="universityFilter" name="university" onchange="this.form.submit()">
                 <option value="">Choose...</option>
@@ -32,7 +32,7 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label for="levelFilter" class="form-label">Filter by Level of Study</label>
             <select class="form-select" id="levelFilter" name="level" onchange="this.form.submit()">
                 <option value="">Choose...</option>
@@ -41,17 +41,26 @@
                 {% endfor %}
             </select>
         </div>
+        <div class="col-md-3">
+            <label for="locationFilter" class="form-label">Filter by Location</label>
+            <select class="form-select" id="locationFilter" name="location" onchange="this.form.submit()">
+                <option value="">Choose...</option>
+                {% for location in locations %}
+                    <option value="{{ location }}" {% if selected_location == location %}selected{% endif %}>{{ location }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </form>
 
     <!-- Recommendations Section -->
     <div class="row mt-5">
-        {% for university, programs in filtered_universities.items %}
+        {% for university, data in filtered_universities.items %}
             <div class="col-12 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ university }}</h5>
+                        <h5 class="card-title">{{ university }} - {{ data.location }}</h5>
                         <ul class="card-text">
-                            {% for program in programs %}
+                            {% for program in data.programs %}
                                 <li>
                                     <strong>{{ program.name }}</strong>: {{ program.description }} <em>({{ program.level }})</em>
                                 </li>
