@@ -51,20 +51,20 @@ class Chatbot:
         self.program_shortcut_mapping = {
             "cs": "Computer Science",
             "computer science": "Computer Science",
+            "cyber security": "Cyber Security",
+            "Cybersec": "Cyber Security",
+            "cybersec": "Cyber Security",
+            "cyber security": "Cyber Security",
             "ce": "Computer Engineering",
+            "ict": "ICT with Education",
+            "ict with education": "ICT with Education",
             "computer engineering": "Computer Engineering",
             "se": "Software Engineering",
             "software engineering": "Software Engineering",
             "it": "Information Technology",
             "information technology": "Information Technology",
-            "ict": "ICT with Education",
-            "ict with education": "ICT with Education",
             "is": "Information Systems",
             "information systems": "Information Systems",
-            "cyber security": "Cyber Security",
-            "Cybersec": "Cyber Security",
-            "cybersec": "Cyber Security",
-            "cyber security": "Cyber Security",
             "cse": "Computer Systems Engineering",
             "computer systems engineering": "Computer Systems Engineering",
             "info tech": "Information Technology",
@@ -434,25 +434,8 @@ class Chatbot:
         }
 
         # Program synonyms mapping
-        program_synonyms = self.program_shortcut_mapping
+        program_mapping = self.program_shortcut_mapping
 
-        def identify_program(user_message):
-            # Normalize user message
-            user_message = user_message.lower()
-
-            # Replace synonyms with full forms
-            for synonym, full_form in program_synonyms.items():
-                if synonym.lower() in user_message:
-                    user_message = re.sub(r'\b{}\b'.format(re.escape(synonym.lower())), full_form, user_message)
-
-            # Identify the program from the user input
-            identified_program = None
-            for program in self.programs_and_universities.keys():
-                if program.lower() in user_message:
-                    identified_program = program
-                    break
-
-            return identified_program
 
         def filter_universities_for_program(program):
             # Get universities offering the identified program
@@ -477,7 +460,7 @@ class Chatbot:
             return random.choice(response_phrases)
         
         # Example usage:
-        program = identify_program(user_message)
+        program = self.identify_program(user_message)
         if program:
             universities = filter_universities_for_program(program)
             if universities:
@@ -521,15 +504,16 @@ class Chatbot:
     def identify_program(self, user_input):
         """
         Identifies and returns the program name based on the user input.
-        Converts known program names into a standardized format.
+        Matches both known program shortcuts and full forms with substrings in the user input.
         """
         program_mapping = self.program_shortcut_mapping
 
         user_input = user_input.lower()
-        for program_name, program_key in program_mapping.items():
-            if program_name in user_input:
-                return program_key
-        return None
+        for program_key, program_name in program_mapping.items():
+            # Check if either the shortcut or the full form is a substring in the user input
+            if program_key in user_input or program_name.lower() in user_input:
+                return program_name
+        return "Sorry, I couldn't identify the program you're asking about."
 
     def _list_programs(self, user_details=None):
         import qualifications_data as qd
@@ -605,7 +589,7 @@ class Chatbot:
     def _list_universities(self, user_details=None):
         import qualifications_data as qd
         universities = qd.get_list_of_universities()
-        return "Here is the list of universities in Zambia:\n" + "\n- ".join(universities)
+        return "Here is the list of universities in Zambia:\n- " + "\n- ".join(universities)
 
     def _get_program_details(self, user_details=None):
         # Simulate fetching details for a specific program
