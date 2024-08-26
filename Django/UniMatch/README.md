@@ -2,6 +2,11 @@
 ## University Recommendation System
 
 This project is a University Recommendation System built using the Django framework for web applications, Beautiful Soup for web scraping, and various Python libraries such as Pandas, NumPy, and other machine learning frameworks.
+## Screenshots
+![Home Page](static\images\snapshots\Home.png)Home Page / Landing Page
+
+![Recommendation Page](static\images\snapshots\Recommendation.jpg)Personalised Recommendation Page
+
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -9,6 +14,7 @@ This project is a University Recommendation System built using the Django framew
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
+- [Important Dependencies](#important-dependencies)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -40,7 +46,6 @@ The University Recommendation System is designed to help students find suitable 
     cd Django
     cd UniMatch
     ```
-
 
 3. **Create and activate a virtual environment:**
     ```sh
@@ -82,6 +87,17 @@ The University Recommendation System is designed to help students find suitable 
 - **NumPy:** For numerical computations
 - **Scikit-learn:** For implementing machine learning algorithms
 - **Matplotlib/Seaborn:** For data visualization
+
+## Important Dependencies
+- **asgiref:** ASGI reference implementation, required for Django's async support.
+- **channels:** Adds WebSocket and asynchronous capabilities to Django.
+- **joblib:** Helps in parallel processing, often used in machine learning.
+- **nltk:** Natural Language Toolkit, used for text processing tasks.
+- **scipy:** Scientific computing library, often used with numpy.
+- **regex:** Advanced regular expressions for matching patterns.
+- **rich:** For creating rich text formatting in the terminal.
+- **spacy:** Industrial-strength NLP library for text processing.
+- **textblob:** Simplified text processing for basic NLP tasks.
 
 ## Contributing
 We welcome contributions to enhance the project. To contribute:
