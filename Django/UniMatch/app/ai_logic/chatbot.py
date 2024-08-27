@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')  # Ensure this is added at the top of your script
 import json
 import os
 import pandas as pd
@@ -6,6 +8,7 @@ import re
 import nltk
 from nltk import pos_tag
 import pickle
+import matplotlib.pyplot as plt
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -39,6 +42,7 @@ class Chatbot:
         self.pipeline, self.low_accuracy = self._load_or_train_model()
         self.user_sessions = {}
         self.feedback_storage = []
+        self.image_folder = "./static/images/generated"
         self.programs_and_universities = {
             "Computer Science": ["University of Zambia", "Copperbelt University", "Mulungushi University"],
             "Computer Engineering": ["University of Zambia", "Copperbelt University", "Mulungushi University"],
@@ -470,6 +474,24 @@ class Chatbot:
         else:
             return "Sorry, I couldn't identify the program you're asking about."
 
+
+    # Function to visualize program rankings and save the chart as an image
+    def visualize_and_save_program_rankings(self, program_rankings):
+        for program, rankings in program_rankings.items():
+            universities = list(rankings.keys())
+            ranks = list(rankings.values())
+
+            plt.figure(figsize=(10, 6))
+            plt.barh(universities, ranks, color='skyblue')
+            plt.xlabel('Rank')
+            plt.ylabel('University')
+            plt.title(f'{program} Rankings')
+            plt.gca().invert_yaxis()  # Higher rank (1) at the top
+            plt.savefig(f'{program}_rankings.png')  # Save chart as image
+            plt.close()  # Close the figure after saving
+
+
+
     def identify_university(self, user_input):
         """
         This function identifies and returns the full university name based on the user input.
@@ -507,6 +529,8 @@ class Chatbot:
         Matches both known program shortcuts and full forms with substrings in the user input.
         """
         program_mapping = self.program_shortcut_mapping
+        # Save the charts as images
+        #self.visualize_and_save_program_rankings(self.program_rankings)
 
         user_input = user_input.lower()
         for program_key, program_name in program_mapping.items():
@@ -545,6 +569,37 @@ class Chatbot:
             "The top 5 universities in Zambia according to the [4icu.org](https://www.4icu.org/zm/) ranking are:\n"
             + "\n".join(university_list)
         )
+    
+
+    def generate_ranking_chart(self, program_name):
+        # Remove spaces from the program name
+        safe_program_name = program_name.replace(" ", "_")
+
+        # Get rankings and reverse the ranks to give larger portions to smaller ranks
+        rankings = self.program_rankings[program_name]
+        universities = list(rankings.keys())
+        ranks = list(rankings.values())
+
+        # Invert the ranks for the pie chart (smaller rank -> larger portion)
+        inverted_ranks = [1 / rank for rank in ranks]
+        
+        # Generate pie chart
+        plt.figure(figsize=(4, 4))
+        plt.pie(inverted_ranks, labels=universities, autopct='%1.1f%%', startangle=140, colors=plt.cm.Paired(range(len(universities))))
+        plt.title(f'{program_name} Rankings')
+
+        # Add a legend
+        plt.legend(universities, title="Universities", loc="upper left", bbox_to_anchor=(1, 1))
+
+        # Save the image
+        image_path = os.path.join(self.image_folder, f'{safe_program_name}_rankings.png')
+        image_path = image_path.replace('\\', '/')
+        plt.savefig(image_path, bbox_inches='tight')
+        plt.close()
+
+        # Return the relative path for use in the HTML
+        return f'../static/images/generated/{safe_program_name}_rankings.png'
+
 
     def _get_best_university_response(self, user_input):
         """
@@ -552,7 +607,7 @@ class Chatbot:
         """
         # Detect the program name from user input
         detected_program = self.identify_program(user_input)
-        
+
         if detected_program:
             # Check if the detected program exists in the rankings
             if detected_program in self.program_rankings:
@@ -563,29 +618,26 @@ class Chatbot:
                     if rank < top_rank:
                         top_rank = rank
                         top_university = university
-                
+
                 if top_university:
+                    # Generate the chart
+                    chart_path = self.generate_ranking_chart(detected_program)
+
                     response_templates = [
-                        f"The top university for studying **{detected_program.replace('_', ' ')}** is **{top_university}**.",
-                        f"When it comes to **{detected_program.replace('_', ' ')}**, **{top_university}** stands out as the best.",
-                        f"If you're looking for the best university for **{detected_program.replace('_', ' ')}**, **{top_university}** is your top choice.",
-                        f"For the program in **{detected_program.replace('_', ' ')}**, **{top_university}** is ranked the highest.",
-                        f"The leading university for **{detected_program.replace('_', ' ')}** is **{top_university}**.",
-                        f"Among universities offering **{detected_program.replace('_', ' ')}**, **{top_university}** is the best.",
-                        f"In terms of **{detected_program.replace('_', ' ')}**, **{top_university}** offers the top program.",
-                        f"The best place to study **{detected_program.replace('_', ' ')}** is **{top_university}**.",
-                        f"For excellence in **{detected_program.replace('_', ' ')}**, **{top_university}** is the best option.",
-                        f"If you want to pursue **{detected_program.replace('_', ' ')}**, **{top_university}** is the top university to consider."
+                        f"The top university for studying **{detected_program.replace('_', ' ')}** is **{top_university}**. Here are the rankings:\n![Rankings]({chart_path})",
+                        f"When it comes to **{detected_program.replace('_', ' ')}**, **{top_university}** stands out as the best. Check the rankings:\n![Rankings]({chart_path})",
+                        f"If you're looking for the best university for **{detected_program.replace('_', ' ')}**, **{top_university}** is your top choice. See the full rankings:\n![Rankings]({chart_path})",
+                        f"For the program in **{detected_program.replace('_', ' ')}**, **{top_university}** is ranked the highest. Here's how others rank:\n![Rankings]({chart_path})",
+                        f"The leading university for **{detected_program.replace('_', ' ')}** is **{top_university}**. Take a look at the full rankings:\n![Rankings]({chart_path})"
                     ]
                     return random.choice(response_templates)
                 else:
                     return "I couldn't find the best university for the specified program."
             else:
                 return "The specified program is not recognized in our rankings."
-        
         else:
             return "I'm sorry, I couldn't determine the program you're asking about. Please specify the program (e.g., Computer Science, Software Engineering, Information Technology)."
-         
+     
     def _list_universities(self, user_details=None):
         import qualifications_data as qd
         universities = qd.get_list_of_universities()
