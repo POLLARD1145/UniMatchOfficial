@@ -332,7 +332,7 @@ class Chatbot:
         predicted_intent = self.pipeline.classes_[intent_proba.argmax()]
         confidence = intent_proba.max()
         
-        confidence_threshold = 0.7  # Example threshold
+        confidence_threshold = 0.5  # Example threshold
         # Handle responses based on the current session stage
         if session["stage"] == "initial":
             if predicted_intent in self.intent_to_function:
@@ -360,7 +360,11 @@ class Chatbot:
                 elif predicted_intent == "program_inquiry":
                     return self._program_inquiry(user_message)
                 elif predicted_intent == "best_university_for_study":
+                    session["stage"] = "collect_best_university_name"
                     return self._get_best_university_response(user_message)
+                elif predicted_intent == "rank_universities":
+                    session["stage"] = "collect_ranking"
+                    return self._rank_universities()
                 else:
                     return self.intent_to_function[predicted_intent](user_details)
             elif predicted_intent in self.data['intents'].unique():
@@ -385,6 +389,19 @@ class Chatbot:
         elif session["stage"] == "collecting_university_name":
             session["stage"] = "initial"
             return self.get_ict_programs_response(user_message)
+        elif session["stage"] == "collect_best_university_name":
+            session["stage"] = "initial"
+            program = self.identify_program(user_message)
+            if program:
+                return self._get_best_university_response(user_message)
+            else:
+                return random.choice(self.responses[predicted_intent])
+        elif session["stage"] == "collect_ranking":
+            session["stage"] = "initial"
+            if "full" in user_message.lower():
+                return self._rank_universities_full()
+            else:
+                return random.choice(self.responses[predicted_intent])
         else:
             if confidence < confidence_threshold:
                 return "I'm sorry, I didn't understand that. Can you please rephrase?"
@@ -565,10 +582,47 @@ class Chatbot:
             )
         ]
         
-        return (
-            "The top 5 universities in Zambia according to the [4icu.org](https://www.4icu.org/zm/) ranking are:\n"
-            + "\n".join(university_list)
-        )
+        phrases = [
+            "Here are the top 5 universities in Zambia based on the [4icu.org](https://www.4icu.org/zm/) rankings:\n" + "\n".join(university_list),
+            "According to [4icu.org](https://www.4icu.org/zm/), the top 5 universities in Zambia are:\n" + "\n".join(university_list),
+            "The top 5 Zambian universities according to the [4icu.org](https://www.4icu.org/zm/) rankings are:\n" + "\n".join(university_list),
+            "Based on the [4icu.org](https://www.4icu.org/zm/) rankings, here are the top 5 universities in Zambia:\n" + "\n".join(university_list),
+            "Check out the top 5 universities in Zambia as ranked by [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list),
+            "According to [4icu.org](https://www.4icu.org/zm/), these are the top 5 universities in Zambia:\n" + "\n".join(university_list),
+            "The following are the top 5 universities in Zambia according to the [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list),
+            "Here’s the ranking of the top 5 universities in Zambia according to [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list),
+            "The [4icu.org](https://www.4icu.org/zm/) rankings list the top 5 universities in Zambia as:\n" + "\n".join(university_list),
+            "Discover the top 5 universities in Zambia from the [4icu.org](https://www.4icu.org/zm/) rankings:\n" + "\n".join(university_list)
+        ]
+        
+        return random.choice(phrases)
+    
+    def _rank_universities_full(self, user_details=None):
+        import unirank_web as rank
+        universities_info = rank.get_rank_list_all()  # Get all universities
+        
+        university_list = [
+            f"- **{rank}**: {name} in {town}"
+            for rank, name, town in zip(
+                universities_info["rank"], universities_info["name"], universities_info["town"]
+            )
+        ]
+        
+        phrases = [
+            "Here are some of the best universities in Zambia according to [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For different rankings, you might want to explore other ranking sites, or ask for rankings for specific programs and I can provide those.",
+            "Based on the rankings from [4icu.org](https://www.4icu.org/zm/), these are some notable universities in Zambia:\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For more detailed rankings, consider checking other sites or asking for specific program rankings.",
+            "According to [4icu.org](https://www.4icu.org/zm/), these universities are highly ranked in Zambia:\n" + "\n".join(university_list) + "\n\nNote: 'un' denotes unranked universities. You can explore other ranking sources for a broader view or ask for rankings of specific programs.",
+            "Here's a list of well-regarded universities in Zambia according to [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities marked 'un' are unranked. For additional rankings, please check other sites or request rankings for specific programs.",
+            "These universities are recognized for their excellence in Zambia as per [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. You may want to look at other ranking websites for different details or ask for program-specific rankings.",
+            "Discover some of the leading universities in Zambia based on [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities with 'un' are unranked. For varied rankings, consider other sources or inquire about specific program rankings.",
+            "According to [4icu.org](https://www.4icu.org/zm/), here are some of Zambia’s top universities:\n" + "\n".join(university_list) + "\n\nNote: 'un' indicates unranked universities. Check additional ranking sites for a different perspective or ask for specific program rankings.",
+            "Here's a selection of highly-ranked universities in Zambia from [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities labeled 'un' are unranked. Explore other rankings for additional information or request rankings for specific programs.",
+            "Explore the following universities in Zambia as ranked by [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For more detailed rankings, consider other ranking websites or ask for rankings related to specific programs.",
+            "The following universities in Zambia are highlighted according to [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' denotes unranked. For different ranks, check out other ranking sites or ask for rankings for specific programs."
+        ]
+
+        
+        return random.choice(phrases)
     
 
     def generate_ranking_chart(self, program_name):
@@ -584,7 +638,7 @@ class Chatbot:
         inverted_ranks = [1 / rank for rank in ranks]
         
         # Generate pie chart
-        plt.figure(figsize=(4, 4))
+        plt.figure(figsize=(4, 8))
         plt.pie(inverted_ranks, labels=universities, autopct='%1.1f%%', startangle=140, colors=plt.cm.Paired(range(len(universities))))
         plt.title(f'{program_name} Rankings')
 

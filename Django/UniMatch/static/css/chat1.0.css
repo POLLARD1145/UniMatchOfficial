@@ -18,9 +18,9 @@
 }
 #content-area{
     scroll-padding-bottom: 60vh;
-    padding-bottom: 400px; /* Reserve space for the input area */
-    margin-bottom: 400px;
-    border-bottom: 400px;
+    padding-bottom: 100px; /* Reserve space for the input area */
+    margin-bottom: 100px;
+    border-bottom: 100px;
 }
 
 /* Custom styles for the input group and textarea */
