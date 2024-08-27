@@ -153,38 +153,12 @@
             "best university offering information technology"
           ],
           "responses": [
-            "The best university for computer science is [University Name].",
-            "For computer science, [University Name] is top-rated.",
-            "If you're studying computer science, [University Name] is highly recommended.",
-            "Many consider [University Name] the best for computer science in Zambia.",
-            "The leading institution for computer science is [University Name].",
-            "For top computer science programs, [University Name] is a great choice.",
-            "Check out [University Name] for the best computer science education.",
-            "[University Name] offers one of the best computer science programs.",
-            "For computer science in Zambia, [University Name] stands out.",
-            "[University Name] is renowned for its computer science department.",
+            "The best university for computer science is UNZA.",
+            "For computer science, UNZA is top-rated.",
             
-            "The best university for software engineering is [University Name].",
-            "For software engineering, [University Name] is top-rated.",
-            "If you're studying software engineering, [University Name] is highly recommended.",
-            "Many consider [University Name] the best for software engineering in Zambia.",
-            "The leading institution for software engineering is [University Name].",
-            "For top software engineering programs, [University Name] is a great choice.",
-            "Check out [University Name] for the best software engineering education.",
-            "[University Name] offers one of the best software engineering programs.",
-            "For software engineering in Zambia, [University Name] stands out.",
-            "[University Name] is renowned for its software engineering department.",
+            "The best university for software engineering is UNZA.",
             
-            "The best university for information technology is [University Name].",
-            "For information technology, [University Name] is top-rated.",
-            "If you're studying information technology, [University Name] is highly recommended.",
-            "Many consider [University Name] the best for information technology in Zambia.",
-            "The leading institution for information technology is [University Name].",
-            "For top information technology programs, [University Name] is a great choice.",
-            "Check out [University Name] for the best information technology education.",
-            "[University Name] offers one of the best information technology programs.",
-            "For information technology in Zambia, [University Name] stands out.",
-            "[University Name] is renowned for its information technology department."
+            "The best university for information technology is CBU."
           ]
       },      
       {
@@ -517,7 +491,7 @@
           "What steps should I take to study computer engineering?"
         ],
         "responses": [
-          "To study Computer Engineering, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on Mathematics, Physics, and possibly Computer Science. Proficiency in mathematics and physical sciences is crucial.\n\n2. **Research and Choose a University/College:** Select accredited institutions that offer well-regarded Computer Engineering programs.\n\n3. **Meet Admission Requirements:** Make sure you meet the required grades, standardized test scores, and submit necessary documents like transcripts, letters of recommendation, and a personal statement.\n\n4. **Apply for Admission:** Follow the specific application process of the university, and be mindful of application deadlines.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarship opportunities, grants, or financial aid options.\n\n6. **Prepare for University Life:** It’s beneficial to have basic knowledge of programming, electronics, and an understanding of engineering principles. Good study habits and time management skills are also important.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, ensure you obtain the necessary student visa and arrange for accommodation.\n\n8. **Enrollment:** Once accepted, complete the required enrollment procedures, register for courses, and participate in any orientation sessions."
+          "To study Computer Engineering, you typically need to fulfill the following requirements:\n\n1. **Educational Prerequisites:** Complete your secondary education with a strong focus on Mathematics, Physics, and possibly Computer Science. Proficiency in mathematics and physical sciences is crucial.\n\n2. **Research and Choose a University/College:** Select accredited institutions that offer well-regarded Computer Engineering programs.\n\n3. **Meet Admission Requirements:** Make sure you meet the required grades, standardized test scores, and submit necessary documents like transcripts, letters of recommendation, and a personal statement.\n\n4. **Apply for Admission:** Follow the specific application process of the university, and be mindful of application deadlines.\n\n5. **Financial Planning:** Be prepared for tuition costs and explore scholarship opportunities, grants, or financial aid options.\n\n6. **Prepare for University Life:** It's beneficial to have basic knowledge of programming, electronics, and an understanding of engineering principles. Good study habits and time management skills are also important.\n\n7. **Visa and Travel (For International Students):** If you plan to study abroad, ensure you obtain the necessary student visa and arrange for accommodation.\n\n8. **Enrollment:** Once accepted, complete the required enrollment procedures, register for courses, and participate in any orientation sessions."
         ]
       },
       {
@@ -647,7 +621,7 @@
           "For information on colleges, I can provide details specifically about Zambian public universities that offer ICT programs.",
           "I specialize in advising on Zambian public universities with ICT programs, so I can only help with that.",
           "My expertise is limited to Zambian public universities offering ICT programs. I can assist you with that.",
-          "I'm here to help with information about Zambian public universities that offer ICT programs. Let me know if that’s what you’re looking for."
+          "I'm here to help with information about Zambian public universities that offer ICT programs. Let me know if that's what you're looking for."
         ]
       },      
       {
