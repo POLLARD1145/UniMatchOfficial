@@ -20,6 +20,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
 from textblob import TextBlob
 import recommender
+import edu_rank_web as rank
 from nltk import pos_tag, word_tokenize, ne_chunk
 from nltk.util import ngrams
 from collections import Counter
@@ -571,59 +572,57 @@ class Chatbot:
         
         return response + "\n"
 
-    def _rank_universities(self, user_details=None):
-        import unirank_web as rank
-        universities_info = rank.get_rank_list(5)  # Get the top 5 universities
-        
-        university_list = [
-            f"- **{rank}**: {name} in {town}"
-            for rank, name, town in zip(
-                universities_info["rank"], universities_info["name"], universities_info["town"]
-            )
-        ]
-        
-        phrases = [
-            "Here are the top 5 universities in Zambia based on the [4icu.org](https://www.4icu.org/zm/) rankings:\n" + "\n".join(university_list),
-            "According to [4icu.org](https://www.4icu.org/zm/), the top 5 universities in Zambia are:\n" + "\n".join(university_list),
-            "The top 5 Zambian universities according to the [4icu.org](https://www.4icu.org/zm/) rankings are:\n" + "\n".join(university_list),
-            "Based on the [4icu.org](https://www.4icu.org/zm/) rankings, here are the top 5 universities in Zambia:\n" + "\n".join(university_list),
-            "Check out the top 5 universities in Zambia as ranked by [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list),
-            "According to [4icu.org](https://www.4icu.org/zm/), these are the top 5 universities in Zambia:\n" + "\n".join(university_list),
-            "The following are the top 5 universities in Zambia according to the [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list),
-            "Here’s the ranking of the top 5 universities in Zambia according to [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list),
-            "The [4icu.org](https://www.4icu.org/zm/) rankings list the top 5 universities in Zambia as:\n" + "\n".join(university_list),
-            "Discover the top 5 universities in Zambia from the [4icu.org](https://www.4icu.org/zm/) rankings:\n" + "\n".join(university_list)
-        ]
-        
-        return random.choice(phrases)
     
-    def _rank_universities_full(self, user_details=None):
-        import unirank_web as rank
-        universities_info = rank.get_rank_list_all()  # Get all universities
+
+    def _rank_universities(self, user_details=None):
+        universities_info = rank.get_universities(limit=5)  # Get the top 5 universities from edu_rank_web
         
         university_list = [
-            f"- **{rank}**: {name} in {town}"
-            for rank, name, town in zip(
-                universities_info["rank"], universities_info["name"], universities_info["town"]
-            )
-        ]
-        
-        phrases = [
-            "Here are some of the best universities in Zambia according to [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For different rankings, you might want to explore other ranking sites, or ask for rankings for specific programs and I can provide those.",
-            "Based on the rankings from [4icu.org](https://www.4icu.org/zm/), these are some notable universities in Zambia:\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For more detailed rankings, consider checking other sites or asking for specific program rankings.",
-            "According to [4icu.org](https://www.4icu.org/zm/), these universities are highly ranked in Zambia:\n" + "\n".join(university_list) + "\n\nNote: 'un' denotes unranked universities. You can explore other ranking sources for a broader view or ask for rankings of specific programs.",
-            "Here's a list of well-regarded universities in Zambia according to [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities marked 'un' are unranked. For additional rankings, please check other sites or request rankings for specific programs.",
-            "These universities are recognized for their excellence in Zambia as per [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. You may want to look at other ranking websites for different details or ask for program-specific rankings.",
-            "Discover some of the leading universities in Zambia based on [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities with 'un' are unranked. For varied rankings, consider other sources or inquire about specific program rankings.",
-            "According to [4icu.org](https://www.4icu.org/zm/), here are some of Zambia’s top universities:\n" + "\n".join(university_list) + "\n\nNote: 'un' indicates unranked universities. Check additional ranking sites for a different perspective or ask for specific program rankings.",
-            "Here's a selection of highly-ranked universities in Zambia from [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities labeled 'un' are unranked. Explore other rankings for additional information or request rankings for specific programs.",
-            "Explore the following universities in Zambia as ranked by [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For more detailed rankings, consider other ranking websites or ask for rankings related to specific programs.",
-            "The following universities in Zambia are highlighted according to [4icu.org](https://www.4icu.org/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' denotes unranked. For different ranks, check out other ranking sites or ask for rankings for specific programs."
+            f"- **{uni['rank']}**: {uni['name']} in {uni['town']} (World Rank: {uni['world_rank']})"
+            for uni in universities_info
         ]
 
         
+        phrases = [
+            "Here are the top 5 universities in Zambia based on the [EduRank](https://edurank.org/geo/zm/) rankings:\n" + "\n".join(university_list),
+            "According to [EduRank](https://edurank.org/geo/zm/), the top 5 universities in Zambia are:\n" + "\n".join(university_list),
+            "The top 5 Zambian universities according to the [EduRank](https://edurank.org/geo/zm/) rankings are:\n" + "\n".join(university_list),
+            "Based on the [EduRank](https://edurank.org/geo/zm/) rankings, here are the top 5 universities in Zambia:\n" + "\n".join(university_list),
+            "Check out the top 5 universities in Zambia as ranked by [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list),
+            "According to [EduRank](https://edurank.org/geo/zm/), these are the top 5 universities in Zambia:\n" + "\n".join(university_list),
+            "The following are the top 5 universities in Zambia according to [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list),
+            "Here's the ranking of the top 5 universities in Zambia according to [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list),
+            "[EduRank](https://edurank.org/geo/zm/) lists the top 5 universities in Zambia as:\n" + "\n".join(university_list),
+            "Discover the top 5 universities in Zambia from the [EduRank](https://edurank.org/geo/zm/) rankings:\n" + "\n".join(university_list)
+        ]
+        
         return random.choice(phrases)
-    
+
+
+
+    def _rank_universities_full(self, user_details=None):
+        universities_info = rank.get_universities() # Get all universities
+        
+        university_list = [
+            f"- **{uni['rank']}**: {uni['name']} in {uni['town']} (World Rank: {uni['world_rank']})"
+            for uni in universities_info
+        ]
+        
+        phrases = [
+            "Here are some of the best universities in Zambia according to [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For different rankings, you might want to explore other ranking sites, or ask for rankings for specific programs and I can provide those.",
+            "Based on the rankings from [EduRank](https://edurank.org/geo/zm/), these are some notable universities in Zambia:\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For more detailed rankings, consider checking other sites or asking for specific program rankings.",
+            "According to [EduRank](https://edurank.org/geo/zm/), these universities are highly ranked in Zambia:\n" + "\n".join(university_list) + "\n\nNote: 'un' denotes unranked universities. You can explore other ranking sources for a broader view or ask for rankings of specific programs.",
+            "Here's a list of well-regarded universities in Zambia according to [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities marked 'un' are unranked. For additional rankings, please check other sites or request rankings for specific programs.",
+            "These universities are recognized for their excellence in Zambia as per [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. You may want to look at other ranking websites for different details or ask for program-specific rankings.",
+            "Discover some of the leading universities in Zambia based on [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities with 'un' are unranked. For varied rankings, consider other sources or inquire about specific program rankings.",
+            "According to [EduRank](https://edurank.org/geo/zm/), here are some of Zambia's top universities:\n" + "\n".join(university_list) + "\n\nNote: 'un' indicates unranked universities. Check additional ranking sites for a different perspective or ask for specific program rankings.",
+            "Here's a selection of highly-ranked universities in Zambia from [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list) + "\n\nNote: Universities labeled 'un' are unranked. Explore other rankings for additional information or request rankings for specific programs.",
+            "Explore the following universities in Zambia as ranked by [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' means unranked. For more detailed rankings, consider other ranking websites or ask for rankings related to specific programs.",
+            "The following universities in Zambia are highlighted according to [EduRank](https://edurank.org/geo/zm/):\n" + "\n".join(university_list) + "\n\nNote: 'un' denotes unranked. For different ranks, check out other ranking sites or ask for rankings for specific programs."
+        ]
+        
+        return random.choice(phrases)
+ 
 
     def generate_ranking_chart(self, program_name):
         # Remove spaces from the program name
@@ -769,36 +768,6 @@ class Chatbot:
             data=recommender.data
         )
         response = ""
-
-        if user_details.get('strengths'):
-            response += f"###### Your Strengths:\n"
-            response += "We noticed these standout qualities:\n"
-            for strength in user_details['strengths']:
-                response += f"- {strength}\n"
-            response += "\n"
-
-        if user_details.get('weaknesses'):
-            response += f"###### Areas to Improve:\n"
-            response += "Everyone has things to work on. Here are yours:\n"
-            for weakness in user_details['weaknesses']:
-                response += f"- {weakness}\n"
-            response += "\n"
-
-        if user_details.get('interests'):
-            response += f"###### What Excites You:\n"
-            response += "These are your key interests:\n"
-            for interest in user_details['interests']:
-                response += f"- {interest}\n"
-            response += "\n"
-
-        if user_details.get('hobbies'):
-            response += f"###### Your Hobbies:\n"
-            response += "We see you enjoy these activities:\n"
-            for hobby in user_details['hobbies']:
-                response += f"- {hobby}\n"
-            response += "\n"
-
-        response += "###### What you can study:\n\n"
 
         # Different phrasings for the recommendation
         recommendations = [
