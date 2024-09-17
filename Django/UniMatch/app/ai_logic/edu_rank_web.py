@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 # URL of the EduRank page for Zambian universities
 url = 'https://edurank.org/geo/zm/'
@@ -25,9 +26,15 @@ def get_universities(limit=None):
         rank_tag = uni.find('span', class_='text-color-def')
         rank_in_country = rank_tag.get_text(strip=True) if rank_tag else 'N/A'
         
+
         # Extract world rank
         world_rank_tag = uni.find('div', class_='uni-card__rank').find_next_sibling('div')
-        world_rank = world_rank_tag.get_text(strip=True) if world_rank_tag else 'N/A'
+        world_rank_text = world_rank_tag.get_text(strip=True) if world_rank_tag else 'N/A'
+
+        # Use regex to extract the number
+        world_rank_match = re.search(r'#(\d+)', world_rank_text)
+        world_rank = world_rank_match.group(1) if world_rank_match else 'N/A'
+
         
         # Extract town
         town_tag = uni.find('a', href=lambda x: x and 'geo/' in x)
