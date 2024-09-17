@@ -578,7 +578,7 @@ class Chatbot:
         universities_info = rank.get_universities(limit=5)  # Get the top 5 universities from edu_rank_web
         
         university_list = [
-            f"- **{uni['rank']}**: {uni['name']} in {uni['town']} (World Rank: {uni['world_rank']})"
+            f"- **{uni['rank']}** {uni['name']} in {uni['town']} (World Rank: {uni['world_rank']})"
             for uni in universities_info
         ]
 
@@ -604,7 +604,7 @@ class Chatbot:
         universities_info = rank.get_universities() # Get all universities
         
         university_list = [
-            f"- **{uni['rank']}**: {uni['name']} in {uni['town']} (World Rank: {uni['world_rank']})"
+            f"- **{uni['rank']}** {uni['name']} in {uni['town']} (World Rank: {uni['world_rank']})"
             for uni in universities_info
         ]
         
