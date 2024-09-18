@@ -101,23 +101,33 @@ class Chatbot:
         self.university_tour_links = {
             "Copperbelt University": [
                 "https://www.youtube.com/watch?v=1Hz5T3zhmmQ",
-                "https://www.youtube.com/watch?v=qui5QgoXzuU&pp=ygUQY2J1IGNhbXB1cyB0b3VyIA%3D%3D"
+                "https://www.youtube.com/watch?v=qui5QgoXzuU&pp=ygUQY2J1IGNhbXB1cyB0b3VyIA%3D%3D",
+                "https://www.youtube.com/embed/1Hz5T3zhmmQ",
+                "https://www.youtube.com/embed/qui5QgoXzuU&pp=ygUQY2J1IGNhbXB1cyB0b3VyIA%3D%3D"
             ],
             "University of Zambia": [
                 "https://www.youtube.com/watch?v=WxNNo3NCcow&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D",
-                "https://www.youtube.com/watch?v=Rc3-VMpPD9I&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D"
+                "https://www.youtube.com/watch?v=Rc3-VMpPD9I&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/WxNNo3NCcow&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/Rc3-VMpPD9I&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D"
             ],
             "Kapasa Makasa University": [
                 "https://www.youtube.com/watch?v=nlcCdhm3cbY&pp=ygUaa2FwYXNhIG1ha2FzYSBjYW1wdXMgdG91ciA%3D",
-                "https://www.youtube.com/watch?v=yjTKex7k4NI"
+                "https://www.youtube.com/watch?v=yjTKex7k4NI",
+                "https://www.youtube.com/embed/nlcCdhm3cbY&pp=ygUaa2FwYXNhIG1ha2FzYSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/yjTKex7k4NI"
             ],
             "Mulungushi University": [
                 "https://www.youtube.com/watch?v=1D18MQwL8r0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D",
-                "https://www.youtube.com/watch?v=JWQvtvmJPf0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D"
+                "https://www.youtube.com/watch?v=JWQvtvmJPf0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/1D18MQwL8r0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/JWQvtvmJPf0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D"
             ],
             "Kwame Nkrumah University": [
                 "https://www.youtube.com/watch?v=RGy10FSiSm0&pp=ygUZa3dhbWUgbmtydW1hIGNhbXB1cyB0b3VyIA%3D%3D",
-                "https://www.youtube.com/watch?v=N4hrGVoicpw"
+                "https://www.youtube.com/watch?v=N4hrGVoicpw",
+                "https://www.youtube.com/embed/RGy10FSiSm0&pp=ygUZa3dhbWUgbmtydW1hIGNhbXB1cyB0b3VyIA%3D%3D",
+                "https://www.youtube.com/embed/N4hrGVoicpw"
             ]
         }
 
@@ -851,46 +861,53 @@ class Chatbot:
         #check if university name is availbale in prompt
         if university == None:
             return "Sorry, I didn't understand the university name. Please try again with the full name or use common name or abbreviation."
-        # Get the tour links for the identified university
+        
+        #get list of links for the selected university
         tour_links = self.university_tour_links[university]
-
+        
         # If no links are available, provide a generic response
         if not tour_links:
             return f"Sorry, I don't have a campus tour available for {university} at the moment."
 
-        # Create multiple response phrases
-        response_phrases = [
-            f"Here's a tour of {university}: <a href='{random.choice(tour_links)}' target='_blank'>Watch now</a>.",
-            f"Interested in {university}'s campus? Check out this video: <a href='{random.choice(tour_links)}' target='_blank'>Campus Tour</a>.",
-            f"Take a virtual tour of {university} through this video: <a href='{random.choice(tour_links)}' target='_blank'>Click here</a>.",
-            f"Explore {university} with this campus tour: <a href='{random.choice(tour_links)}' target='_blank'>Watch here</a>.",
-            f"Want to see {university}'s campus? <a href='{random.choice(tour_links)}' target='_blank'>Watch the tour</a>.",
-            f"Experience {university}'s campus from anywhere: <a href='{random.choice(tour_links)}' target='_blank'>See the tour</a>.",
-            f"Get a closer look at {university} with this tour video: <a href='{random.choice(tour_links)}' target='_blank'>View now</a>.",
-            f"Check out the campus of {university} with this tour: <a href='{random.choice(tour_links)}' target='_blank'>Watch here</a>.",
-            f"Discover {university} through this virtual campus tour: <a href='{random.choice(tour_links)}' target='_blank'>Explore</a>.",
-            f"See what {university} has to offer with this campus tour: <a href='{random.choice(tour_links)}' target='_blank'>Click to view</a>.",
-
-            f"Here's a tour of {university}: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"Interested in {university}'s campus? Check out this video: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"Take a virtual tour of {university} through this video: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"Explore {university} with this campus tour: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"Want to see {university}'s campus? <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"Experience {university}'s campus from anywhere: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"Get a closer look at {university} with this tour video: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"Check out the campus of {university} with this tour: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"Discover {university} through this virtual campus tour: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-            f"See what {university} has to offer with this campus tour: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
-
-            f"Here's a tour of {university}: [Watch now]({random.choice(tour_links)}).",
-            f"Interested in {university}'s campus? Check out this video: [Campus Tour]({random.choice(tour_links)}).",
-            f"Take a virtual tour of {university} through this video: [Click here]({random.choice(tour_links)}).",
-            f"Explore {university} with this campus tour: [Watch here]({random.choice(tour_links)}).",
-            f"Want to see {university}'s campus? [Watch the tour]({random.choice(tour_links)}).",
+        # Define response phrases for links
+        link_phrases = [
+            f"Here's a tour of {university}: <a href='{random_link}' target='_blank'>Watch now</a>.",
+            f"Interested in {university}'s campus? Check out this video: <a href='{random_link}' target='_blank'>Campus Tour</a>.",
+            f"Take a virtual tour of {university} through this video: <a href='{random_link}' target='_blank'>Click here</a>.",
+            f"Explore {university} with this campus tour: <a href='{random_link}' target='_blank'>Watch here</a>.",
+            f"Want to see {university}'s campus? <a href='{random_link}' target='_blank'>Watch the tour</a>.",
+            f"Experience {university}'s campus from anywhere: <a href='{random_link}' target='_blank'>See the tour</a>.",
+            f"Get a closer look at {university} with this tour video: <a href='{random_link}' target='_blank'>View now</a>.",
+            f"Check out the campus of {university} with this tour: <a href='{random_link}' target='_blank'>Watch here</a>.",
+            f"Discover {university} through this virtual campus tour: <a href='{random_link}' target='_blank'>Explore</a>.",
+            f"See what {university} has to offer with this campus tour: <a href='{random_link}' target='_blank'>Click to view</a>.",
         ]
 
-        # Choose a random phrase to return
-        return random.choice(response_phrases)
+        # Define response phrases for iframes
+        iframe_phrases = [
+            f"Here's a tour of {university}: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Interested in {university}'s campus? Check out this video: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Take a virtual tour of {university} through this video: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Explore {university} with this campus tour: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Want to see {university}'s campus? <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Experience {university}'s campus from anywhere: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Get a closer look at {university} with this tour video: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Check out the campus of {university} with this tour: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Discover {university} through this virtual campus tour: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"See what {university} has to offer with this campus tour: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+        ]
+
+        # Pick a random link
+        random_link = random.choice(tour_links)
+
+        # Check if the chosen link contains 'embed/'
+        if 'embed/' in random_link:
+            # Return a random iframe phrase with the chosen link
+            return random.choice(iframe_phrases).format(random_link=random_link)
+        else:
+            # Return a random link phrase with the chosen link
+            return random.choice(link_phrases).format(random_link=random_link)
+
 
 
     def _recommend_programs(self, user_details):
