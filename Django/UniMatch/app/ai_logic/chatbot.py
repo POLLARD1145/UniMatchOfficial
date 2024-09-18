@@ -869,6 +869,9 @@ class Chatbot:
         if not tour_links:
             return f"Sorry, I don't have a campus tour available for {university} at the moment."
 
+        # Pick a random link
+        random_link = random.choice(tour_links)
+
         # Define response phrases for links
         link_phrases = [
             f"Here's a tour of {university}: <a href='{random_link}' target='_blank'>Watch now</a>.",
@@ -897,16 +900,13 @@ class Chatbot:
             f"See what {university} has to offer with this campus tour: <iframe src='{random_link}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
         ]
 
-        # Pick a random link
-        random_link = random.choice(tour_links)
-
         # Check if the chosen link contains 'embed/'
         if 'embed/' in random_link:
             # Return a random iframe phrase with the chosen link
-            return random.choice(iframe_phrases).format(random_link=random_link)
+            return random.choice(iframe_phrases)
         else:
             # Return a random link phrase with the chosen link
-            return random.choice(link_phrases).format(random_link=random_link)
+            return random.choice(link_phrases)
 
 
 
