@@ -97,6 +97,30 @@ class Chatbot:
             "data eng": "Data Engineering",
             "data engineering": "Data Engineering"
         }
+        #university tours
+        self.university_tour_links = {
+            "Copperbelt University": [
+                "https://www.youtube.com/watch?v=1Hz5T3zhmmQ",
+                "https://www.youtube.com/watch?v=qui5QgoXzuU&pp=ygUQY2J1IGNhbXB1cyB0b3VyIA%3D%3D"
+            ],
+            "University of Zambia": [
+                "https://www.youtube.com/watch?v=WxNNo3NCcow&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/watch?v=Rc3-VMpPD9I&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D"
+            ],
+            "Kapasa Makasa University": [
+                "https://www.youtube.com/watch?v=nlcCdhm3cbY&pp=ygUaa2FwYXNhIG1ha2FzYSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/watch?v=yjTKex7k4NI"
+            ],
+            "Mulungushi University": [
+                "https://www.youtube.com/watch?v=1D18MQwL8r0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/watch?v=JWQvtvmJPf0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D"
+            ],
+            "Kwame Nkrumah University": [
+                "https://www.youtube.com/watch?v=RGy10FSiSm0&pp=ygUZa3dhbWUgbmtydW1hIGNhbXB1cyB0b3VyIA%3D%3D",
+                "https://www.youtube.com/watch?v=N4hrGVoicpw"
+            ]
+        }
+
         # Structure for programs and their top-ranked universities
         self.program_rankings = {
             "Cyber Security": {
@@ -132,6 +156,7 @@ class Chatbot:
             }
         }
         self.intent_to_function = {
+            "campus_tour": self._campus_tour,
             "recommend_programs": self._recommend_programs,
             "list_programs": self._list_programs,
             "rank_universities": self._rank_universities,
@@ -142,6 +167,7 @@ class Chatbot:
             "campus_facilities": self._campus_facilities,
             "academic_calendar": self._academic_calendar,
             "scholarship_info": self._scholarship_info,
+            "scholarships": self._scholarship_info,
             "get_ict_programs_response": self.get_ict_programs_response,
             "program_inquiry": self._program_inquiry,
             "best_university_for_study": self._get_best_university_response
@@ -366,6 +392,9 @@ class Chatbot:
                 elif predicted_intent == "rank_universities":
                     session["stage"] = "collect_ranking"
                     return self._rank_universities()
+                elif predicted_intent == "campus_tour":
+                    session["stage"] = "campus_tour"
+                    return self._campus_tour(user_message)
                 else:
                     return self.intent_to_function[predicted_intent](user_details)
             elif predicted_intent in self.data['intents'].unique():
@@ -403,6 +432,9 @@ class Chatbot:
                 return self._rank_universities_full()
             else:
                 return random.choice(self.responses[predicted_intent])
+        elif session["stage"] == "campus_tour":
+            session["stage"] = "initial"
+            return self._campus_tour(user_message.lower())
         else:
             if confidence < confidence_threshold:
                 return "I'm sorry, I didn't understand that. Can you please rephrase?"
@@ -706,7 +738,7 @@ class Chatbot:
 
     def _tuition_fees(self, user_details=None):
         # Simulate providing information on tuition fees
-        return "The tuition fee for the medicine program is approximately $2,000 per year."
+        return "Can you speciy the university or program of study?"
 
     def _campus_facilities(self, user_details=None):
         # Simulate describing campus facilities
@@ -757,8 +789,109 @@ class Chatbot:
             return "I'm sorry, I couldn't determine the university you are asking about. I'm only trained on Zambian Public Universities offering ICT programs."
 
     def _scholarship_info(self, user_details=None):
-        # Simulate providing scholarship information
-        return "Scholarships are available based on academic merit and financial need. Applications are open in April each year."
+        phrases = [
+            "Scholarships and government loans are available for students with Grade 12 points ranging from 6 to 15. To apply, visit the [HELSB website](https://helsb.gov.zm/) or purchase forms at any Natsave Bank. You can submit the completed forms to a Natsave branch or the HELSB offices. For online applications and more details, visit [HELSB's guide](https://helsb.gov.zm/loans/how-to-apply-loans/). These loans cover tuition, accommodation, meal, book, and project allowances, and must be repaid one year after graduation.",
+            
+            "If you have Grade 12 points between 6 and 15, you qualify to apply for government loans. Applications can be completed online at the [HELSB website](https://helsb.gov.zm/) or by purchasing loan forms from Natsave Bank. Once filled, submit them to any Natsave branch or HELSB offices. Learn more about the application process [here](https://helsb.gov.zm/loans/how-to-apply-loans/). The loans assist with tuition, accommodation, and other allowances and must be repaid a year after completing your studies.",
+            
+            "Students scoring 6-15 points in their Grade 12 exams can apply for scholarships via the Higher Education Loans and Scholarships Board (HELSB). Forms are available online on the [HELSB website](https://helsb.gov.zm/) or at Natsave Bank. The completed forms can be submitted at any Natsave Bank branch or directly at HELSB offices. For more application details, check [here](https://helsb.gov.zm/loans/how-to-apply-loans/). The loan covers tuition and accommodation and is repayable one year post-graduation.",
+            
+            "Qualifying students (Grade 12 points 6-15) can access government scholarships and loans. Visit the [HELSB site](https://helsb.gov.zm/) for online applications or get forms from any Natsave Bank. The forms should be submitted at Natsave branches or HELSB offices. The loan includes tuition, accommodation, and allowances and is repayable a year after you finish your studies. Check [HELSB's guide](https://helsb.gov.zm/loans/how-to-apply-loans/) for more information.",
+            
+            "HELSB provides loans to students with Grade 12 points between 6 and 15. You can apply online through the [HELSB website](https://helsb.gov.zm/) or pick up forms from a Natsave Bank branch. Submit the forms to Natsave or HELSB offices. For the application process, visit [this link](https://helsb.gov.zm/loans/how-to-apply-loans/). These loans cover tuition, accommodation, meals, books, and projects and require repayment one year after graduation.",
+            
+            "Scholarships are available for students who achieved 6-15 points in their Grade 12 exams. Visit [HELSB](https://helsb.gov.zm/) to apply online or buy forms from Natsave Bank. Submit completed forms to any Natsave branch or HELSB office. More information can be found [here](https://helsb.gov.zm/loans/how-to-apply-loans/). Loans are provided for tuition, accommodation, and allowances, with repayment starting a year after leaving university.",
+            
+            "To apply for a government loan, Grade 12 students with points between 6 and 15 can visit the [HELSB website](https://helsb.gov.zm/). Alternatively, forms can be purchased from Natsave Bank and submitted to HELSB offices or Natsave branches. Learn about the application process [here](https://helsb.gov.zm/loans/how-to-apply-loans/). These loans cover various student expenses and need to be repaid a year after completing studies.",
+            
+            "Students who score between 6 and 15 points at Grade 12 level qualify for HELSB loans. Apply online at [HELSB](https://helsb.gov.zm/) or obtain forms from Natsave Bank, which can then be submitted to their branches or HELSB offices. [Find out how to apply](https://helsb.gov.zm/loans/how-to-apply-loans/). The loans help with tuition, accommodation, meal, book, and project allowances, repayable a year after leaving university.",
+            
+            "HELSB offers scholarships for students with Grade 12 points from 6 to 15. Applications can be submitted online via the [HELSB site](https://helsb.gov.zm/) or by picking up forms at Natsave Bank. Submit the forms to any Natsave branch or HELSB offices. Details on the process are [here](https://helsb.gov.zm/loans/how-to-apply-loans/). The loans are repayable a year after you graduate and cover tuition and other expenses.",
+            
+            "Government loans are available for students who scored between 6-15 points in Grade 12. Visit the [HELSB website](https://helsb.gov.zm/) for online applications or obtain forms from Natsave Bank. Submit your forms to Natsave or HELSB offices. [Learn how to apply](https://helsb.gov.zm/loans/how-to-apply-loans/). These loans support tuition, accommodation, meals, books, and projects and must be repaid one year after graduation.",
+            
+            "If you achieved 6-15 points in Grade 12, you qualify for HELSB loans. Apply online at the [HELSB website](https://helsb.gov.zm/) or pick up forms from any Natsave Bank. Submit forms to Natsave branches or HELSB offices. For more details, visit [HELSB's guide](https://helsb.gov.zm/loans/how-to-apply-loans/). The loan helps with tuition and living expenses and requires repayment a year after completing your studies.",
+            
+            "Students with Grade 12 points between 6-15 can apply for government loans via the [HELSB website](https://helsb.gov.zm/). You can also get application forms from Natsave Bank. Completed forms must be submitted to any Natsave branch or HELSB offices. The loan covers tuition, accommodation, and allowances, repayable after one year post-graduation. More application details are available [here](https://helsb.gov.zm/loans/how-to-apply-loans/).",
+            
+            "HELSB provides loans to students who scored 6-15 points in Grade 12. Applications are online at [HELSB](https://helsb.gov.zm/) or via forms at Natsave Bank. Submit the filled forms to Natsave branches or HELSB offices. Find out [how to apply](https://helsb.gov.zm/loans/how-to-apply-loans/). The loans cover tuition, accommodation, and more, with repayment starting a year after graduation.",
+            
+            "Grade 12 students with 6-15 points qualify for scholarships and loans from HELSB. Visit the [HELSB website](https://helsb.gov.zm/) for online applications or pick up forms at Natsave Bank. Submit your completed forms to Natsave branches or HELSB offices. [Learn more](https://helsb.gov.zm/loans/how-to-apply-loans/). The loans cater to tuition, accommodation, meal, book, and project allowances, and repayment starts a year post-graduation.",
+            
+            "For students with 6-15 points in Grade 12, government loans are available through HELSB. Apply online at [HELSB](https://helsb.gov.zm/) or obtain forms from Natsave Bank. Submit forms at Natsave branches or HELSB offices. Check the application process [here](https://helsb.gov.zm/loans/how-to-apply-loans/). Loans cover various student expenses and must be repaid one year after finishing studies.",
+
+            "HELSB provides loans to students at various public universities, including UNZA, CBU, KMU, MKU, MU, CHAU, and KNU. Apply online via the [HELSB website](https://helsb.gov.zm/) or pick up forms from any Natsave Bank. Completed forms can be submitted to Natsave branches or HELSB offices. For more details, visit [this link](https://helsb.gov.zm/loans/how-to-apply-loans/). The loans cover tuition, accommodation, and allowances and must be repaid a year after graduation.",
+            
+            "If you are studying at UNZA, CBU, KMU, MKU, MU, CHAU, or KNU, you can apply for student loans through HELSB. Visit [HELSB's website](https://helsb.gov.zm/) for online applications, or get forms from Natsave Bank. Submit completed forms to Natsave branches or the HELSB offices. The loans cover a variety of student expenses and are repayable one year after completing your studies. Learn more about the application process [here](https://helsb.gov.zm/loans/how-to-apply-loans/).",
+            
+            "Government loans are available for students enrolled at public universities like UNZA, CBU, KMU, MKU, MU, CHAU, and KNU. You can apply online through the [HELSB website](https://helsb.gov.zm/) or by purchasing forms at Natsave Bank. Submit the forms to Natsave branches or HELSB offices. Details on the application process are available [here](https://helsb.gov.zm/loans/how-to-apply-loans/). The loan covers tuition, accommodation, and more and requires repayment a year after leaving university.",
+            
+            "Students at universities such as UNZA, CBU, KMU, MKU, MU, CHAU, and KNU can apply for government loans through HELSB. Apply online at the [HELSB website](https://helsb.gov.zm/) or obtain forms from any Natsave Bank. Submit filled forms to Natsave or HELSB offices. The loan provides for tuition, accommodation, and various allowances and is repayable one year after graduation. Learn more about the application [here](https://helsb.gov.zm/loans/how-to-apply-loans/).",
+            
+            "HELSB loans support students studying at public universities like UNZA, CBU, KMU, MKU, MU, CHAU, and KNU. Apply online at [HELSB's site](https://helsb.gov.zm/) or pick up forms at Natsave Bank. Submit completed forms to Natsave branches or HELSB offices. The loans cover tuition, accommodation, and other allowances, with repayment starting a year after completing your studies. More details are available [here](https://helsb.gov.zm/loans/how-to-apply-loans/).",
+            
+            "Currently, HELSB provides student loans for those enrolled at UNZA, CBU, KMU, MKU, MU, CHAU, and KNU. You can apply through the [HELSB website](https://helsb.gov.zm/) or by purchasing forms at Natsave Bank. Forms should be submitted to Natsave branches or HELSB offices. The loans cover tuition, accommodation, meals, books, and project allowances, with repayment due one year after graduation. For more information, click [here](https://helsb.gov.zm/loans/how-to-apply-loans/).",
+            
+            "Students at public universities, including UNZA, CBU, KMU, MKU, MU, CHAU, and KNU, are eligible for loans through HELSB. Apply online via [HELSB](https://helsb.gov.zm/) or pick up forms from any Natsave Bank. Completed forms should be submitted to Natsave branches or HELSB offices. The loans cover tuition, accommodation, and more, repayable after a year. Learn more [here](https://helsb.gov.zm/loans/how-to-apply-loans/).",
+            
+            "If you are a student at UNZA, CBU, KMU, MKU, MU, CHAU, or KNU, you can access government loans provided by HELSB. Apply online at [HELSB's website](https://helsb.gov.zm/) or collect forms from Natsave Bank. Forms can be submitted to Natsave branches or HELSB offices. The loans assist with tuition, accommodation, meals, books, and projects, and repayment starts one year after graduation. Check out the application process [here](https://helsb.gov.zm/loans/how-to-apply-loans/).",
+            
+            "HELSB loans are available for students at institutions like UNZA, CBU, KMU, MKU, MU, CHAU, and KNU. Applications can be submitted online through the [HELSB website](https://helsb.gov.zm/) or by obtaining forms at Natsave Bank. Submit the completed forms at Natsave branches or HELSB offices. The loans cover tuition, accommodation, and other student expenses, repayable one year after you complete your studies. Find out more [here](https://helsb.gov.zm/loans/how-to-apply-loans/).",
+            
+            "Students attending public universities such as UNZA, CBU, KMU, MKU, MU, CHAU, and KNU can apply for student loans through HELSB. Apply online at [HELSB](https://helsb.gov.zm/) or obtain forms from any Natsave Bank. Completed forms can be submitted to Natsave branches or HELSB offices. The loans cater to tuition, accommodation, meal, book, and project allowances, and repayment starts a year after leaving the university. For more details, visit [this link](https://helsb.gov.zm/loans/how-to-apply-loans/)."
+        ]
+
+
+        return random.choice(phrases)
+    
+    def _campus_tour(self, user_message):
+        # Identify the university
+        university = self.identify_university(user_message)
+        
+        #check if university name is availbale in prompt
+        if university == None:
+            return "Sorry, I didn't understand the university name. Please try again with the full name or use common name or abbreviation."
+        # Get the tour links for the identified university
+        tour_links = self.university_tour_links[university]
+
+        # If no links are available, provide a generic response
+        if not tour_links:
+            return f"Sorry, I don't have a campus tour available for {university} at the moment."
+
+        # Create multiple response phrases
+        response_phrases = [
+            f"Here's a tour of {university}: <a href='{random.choice(tour_links)}' target='_blank'>Watch now</a>.",
+            f"Interested in {university}'s campus? Check out this video: <a href='{random.choice(tour_links)}' target='_blank'>Campus Tour</a>.",
+            f"Take a virtual tour of {university} through this video: <a href='{random.choice(tour_links)}' target='_blank'>Click here</a>.",
+            f"Explore {university} with this campus tour: <a href='{random.choice(tour_links)}' target='_blank'>Watch here</a>.",
+            f"Want to see {university}'s campus? <a href='{random.choice(tour_links)}' target='_blank'>Watch the tour</a>.",
+            f"Experience {university}'s campus from anywhere: <a href='{random.choice(tour_links)}' target='_blank'>See the tour</a>.",
+            f"Get a closer look at {university} with this tour video: <a href='{random.choice(tour_links)}' target='_blank'>View now</a>.",
+            f"Check out the campus of {university} with this tour: <a href='{random.choice(tour_links)}' target='_blank'>Watch here</a>.",
+            f"Discover {university} through this virtual campus tour: <a href='{random.choice(tour_links)}' target='_blank'>Explore</a>.",
+            f"See what {university} has to offer with this campus tour: <a href='{random.choice(tour_links)}' target='_blank'>Click to view</a>.",
+
+            f"Here's a tour of {university}: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Interested in {university}'s campus? Check out this video: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Take a virtual tour of {university} through this video: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Explore {university} with this campus tour: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Want to see {university}'s campus? <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Experience {university}'s campus from anywhere: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Get a closer look at {university} with this tour video: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Check out the campus of {university} with this tour: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"Discover {university} through this virtual campus tour: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+            f"See what {university} has to offer with this campus tour: <iframe src='{random.choice(tour_links)}' width='100%' height='315' frameborder='0' allowfullscreen></iframe>",
+
+            f"Here's a tour of {university}: [Watch now]({random.choice(tour_links)}).",
+            f"Interested in {university}'s campus? Check out this video: [Campus Tour]({random.choice(tour_links)}).",
+            f"Take a virtual tour of {university} through this video: [Click here]({random.choice(tour_links)}).",
+            f"Explore {university} with this campus tour: [Watch here]({random.choice(tour_links)}).",
+            f"Want to see {university}'s campus? [Watch the tour]({random.choice(tour_links)}).",
+        ]
+
+        # Choose a random phrase to return
+        return random.choice(response_phrases)
+
 
     def _recommend_programs(self, user_details):
         # Use the recommender module to get program recommendations

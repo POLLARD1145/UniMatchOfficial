@@ -1398,15 +1398,80 @@
         {
             "tag": "scholarships",
             "patterns": [
-                "Are there scholarships for ICT programs?",
-                "ICT scholarships",
-                "Funding for ICT studies",
-                "Financial aid for ICT degrees"
-            ],
+              "Are there scholarships for ICT programs?",
+              "ICT scholarships",
+              "Funding for ICT studies",
+              "Financial aid for ICT degrees",
+              "Are there any scholarships at CBU?",
+              "Any bursaries for ICT students?",
+              "Does UNZA offer student loans?",
+              "Government loans for university students",
+              "How can I apply for a student bursary?",
+              "Is there financial aid for computer science programs?",
+              "Are there any funding options at KMU?",
+              "How to get a scholarship at Zambian universities?",
+              "Does HELSB offer loans for students?",
+              "Where can I find bursary forms?",
+              "What are the requirements for student loans in Zambia?",
+              "Can I get a loan for studying ICT?",
+              "Does CBU provide financial aid?",
+              "What is the process to apply for a bursary?",
+              "Are there any bursaries for engineering students?",
+              "Which universities provide student loans in Zambia?",
+              "How do I get funding for my degree?",
+              "Is there financial support for university students?",
+              "Any scholarships for undergraduates?",
+              "How to get a student loan in Zambia?",
+              "Does Mulungushi University offer student loans?",
+              "Are there scholarships for new university students?",
+              "Where to apply for university funding?",
+              "Can I get a bursary at Copperbelt University?",
+              "Are there any government scholarships available?",
+              "How do I qualify for a university loan?",
+              "Is there a scholarship program for science students?",
+              "How to apply for HELSB loans?",
+              "Is funding available for information technology degrees?"
+          ]
+          ,
             "responses": [
                 "Yes, there are scholarships available for ICT programs at various universities. Would you like information on scholarships for a specific university?",
                 "Scholarships for ICT programs are offered by several universities and organizations. Do you have a particular university or scholarship program in mind?"
             ]
+        },
+        {
+          "tag": "campus_tour",
+          "patterns": [
+              "Can you provide a campus tour for me?",
+              "I'd like a campus tour",
+              "Show me around the campus",
+              "Can I get a tour of the university?",
+              "Campus tour request",
+              "I want to explore the campus",
+              "Do you offer campus tours?",
+              "How do I arrange a campus tour?",
+              "Can you show me the university facilities?",
+              "Is a virtual campus tour available?",
+              "can you help me tour cbu",
+              "Can I get a tour of the university campus?",
+              "Can you provide a virtual tour of the university?",
+              "How do I get a campus tour at CBU?",
+              "Can I get a tour of the university facilities?",
+              "Can you show me around the campus?",
+              "Can I get a campus tour at CBU?",
+              "Can you provide a campus tour?",
+              "unza tour",
+              "kmu tour",
+              "kwame tour"
+          ],
+          "responses": [
+              "We would be glad to arrange a campus tour for you! Most universities provide both in-person and virtual tours. You can visit the university's official website for more details, or contact their admissions office to schedule a visit. Virtual tours may include an overview of key facilities such as lecture halls, libraries, sports centers, and student accommodations.",
+              "Certainly! Many universities offer campus tours to showcase their facilities. Check the official website of the university you are interested in for tour details, including scheduling options for in-person or virtual tours.",
+              "You can get a campus tour by visiting the university's website or contacting their admissions office. Virtual tours are a great way to explore the campus remotely. Let me know if you want more details for a specific university!",
+              "A campus tour can help you get a feel of the university environment. You can arrange a visit by contacting the university directly, or explore their virtual tour options on their website. Need help finding a specific university's tour information?",
+              "Most universities provide campus tours for prospective students. Whether you prefer an in-person or virtual tour, check out the university's website or contact their admissions office to make arrangements."
+          ]
+
+
         },
         {
             "tag": "program_duration",
