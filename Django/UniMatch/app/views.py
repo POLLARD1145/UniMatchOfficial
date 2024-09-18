@@ -25,7 +25,7 @@ def chat(request):
 # Assuming you have models for these
 from accounts.models import Hobby, Interest, Education
 
-@login_required
+#@login_required
 def chat(request):
     # Check if the user is authenticated
     if not request.user.is_authenticated:
@@ -183,7 +183,6 @@ def general_recommendations(request):
 
 
  #fetching and sending messages to the backend   
-@login_required
 @csrf_exempt
 def get_bot_response(request):
     if request.method == 'POST':
