@@ -1,0 +1,23 @@
+{
+    "universities": [
+      {
+        "name": "CBU",
+        "min_grade": 15,
+        "sports": ["soccer", "basketball", "running"],
+        "rank": 3
+      },
+      {
+        "name": "UNZA",
+        "min_grade": 12,
+        "sports": ["volleyball", "swimming", "running"],
+        "rank": 1
+      },
+      {
+        "name": "OtherUniversity",
+        "min_grade": 10,
+        "sports": ["chess", "basketball"],
+        "rank": 5
+      }
+    ]
+  }
+  

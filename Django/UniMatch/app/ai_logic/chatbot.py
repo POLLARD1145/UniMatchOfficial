@@ -24,6 +24,7 @@ import edu_rank_web as rank
 from nltk import pos_tag, word_tokenize, ne_chunk
 from nltk.util import ngrams
 from collections import Counter
+import data_preprocessor as preprocessor
 
 
 
@@ -369,9 +370,21 @@ class Chatbot:
         predicted_intent = self.pipeline.classes_[intent_proba.argmax()]
         confidence = intent_proba.max()
         
-        confidence_threshold = 0.5  # Example threshold
+        confidence_threshold = 0.99  # Example threshold
         # Handle responses based on the current session stage
         if session["stage"] == "initial":
+            # Check if the user mentions using their details
+            if "using my details" in user_message.lower() or "my details" in user_message.lower():
+                user_details = self.get_user_details(user_id)
+                
+                if not user_details:
+                    return "It looks like you are not logged in. Please log in to access your details."
+                else:
+                    # Append user details to the user_message
+                    extended_message = f"{user_message}. User details: {user_details}"
+                    return preprocessor.generate_response(extended_message)
+            if confidence < 1.0:
+                return preprocessor.generate_response(user_message)
             if predicted_intent in self.intent_to_function:
                 if predicted_intent == "recommend_programs":
                     session["stage"] = "collecting_details"
@@ -447,7 +460,7 @@ class Chatbot:
             return self._campus_tour(user_message.lower())
         else:
             if confidence < confidence_threshold:
-                return "I'm sorry, I didn't understand that. Can you please rephrase?"
+                return preprocessor.generate_response(user_message)
             else:
                 return random.choice(self.responses[predicted_intent])
 
