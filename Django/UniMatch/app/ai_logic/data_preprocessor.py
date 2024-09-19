@@ -158,7 +158,7 @@ def generate_response(prompt):
 
 
     # Craft the full prompt
-    full_prompt = f"UniMatch is a recommender system for selecting the best ICT programs in Zambian public universities. On top of the available information with the following information:\n{knowledge_base}\n\nUser query: {prompt}"
+    full_prompt = f"UniMatch is a recommender system for selecting the best ICT programs in Zambian public universities. On top of the available information with the following information:\n{knowledge_base}\n\n and can not go beyond the Zambian public universities context and anything not related to universities and ict User query: {prompt}"
 
     # Perform the chat completion
     response = client.chat_completion(
