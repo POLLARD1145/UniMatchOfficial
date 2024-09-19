@@ -293,11 +293,47 @@ class Chatbot:
         return self.user_sessions[user_id]
 
     def get_user_details(self, user_id):
-        # Mockup functions for user details
-        hobbies = self.get_user_hobbies(user_id)
-        interests = self.get_user_interests(user_id)
-        return {"hobbies": hobbies, "interests": interests}
+        try:
+            # Fetch user details from different sources
+            hobbies = self.get_user_hobbies(user_id)
+            interests = self.get_user_interests(user_id)
+            academic_details = self.get_academic_details(user_id)
+            
+            # Return a dictionary with all collected details
+            return {
+                "hobbies": hobbies,
+                "interests": interests,
+                "academic_details": academic_details
+            }
+        except Exception:
+            # Return None in case of an error
+            return None
+    
 
+    def get_academic_details(self, user_id):
+        try:
+            from accounts.models import Education
+            # Query the Education model for the given user_id
+            academic_details = Education.objects.filter(user_id=user_id)
+            
+            # Check if there are any records for the given user_id
+            if not academic_details.exists():
+                return "No academic details found for this user."
+            
+            # Convert the QuerySet to a list of formatted strings
+            details_list = []
+            for detail in academic_details:
+                if detail.degree:
+                    details_list.append(f"{detail.degree} in {detail.field} from {detail.institution} ({detail.year})")
+                else:
+                    details_list.append(f"Secondary School: {detail.institution} - Grade 12 Points: {detail.grade_twelve_points} ({detail.year})")
+            
+            # Join the list into a single string for easy display
+            return "\n".join(details_list)
+        
+        except Exception:
+            # Return None in case of an error
+            return None
     def get_user_hobbies(self, user_id):
         #get hobbies from the database
         try:
@@ -374,14 +410,14 @@ class Chatbot:
         # Handle responses based on the current session stage
         if session["stage"] == "initial":
             # Check if the user mentions using their details
-            if "using my details" in user_message.lower() or "my details" in user_message.lower():
+            if "using my details" in self._preprocess_text(user_message).lower() or "i qualify" in self._preprocess_text(user_message).lower() or "my details" in self._preprocess_text(user_message).lower() or "my" in user_message.lower():
                 user_details = self.get_user_details(user_id)
                 
                 if not user_details:
                     return "It looks like you are not logged in. Please log in to access your details."
                 else:
                     # Append user details to the user_message
-                    extended_message = f"{user_message}. User details: {user_details}"
+                    extended_message = f"{user_message}.Here are my details {user_details}"
                     return preprocessor.generate_response(extended_message)
             if confidence < 1.0:
                 return preprocessor.generate_response(user_message)

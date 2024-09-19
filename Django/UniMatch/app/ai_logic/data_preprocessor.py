@@ -136,7 +136,7 @@ def generate_response(prompt):
         messages=[
             {"role": "user", "content": full_prompt}
         ],
-        max_tokens=150,
+        max_tokens=500,
         stream=False,  # Set to True if you want streaming responses
     )
 
