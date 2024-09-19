@@ -99,37 +99,66 @@ def generate_response(prompt):
 
     # Knowledge base about Zambian universities and their ICT programs
     knowledge_base = """
+    
     UniMatch is here to help you select the best ICT programs at Zambian public universities. Here is some information about the universities and their ICT programs:
+        Copperbelt University (Kitwe):
+        - Programs:
+        - Diploma in Information Technology: Entry-level program in IT, focusing on basic skills and knowledge. (Diploma)
+        - Bachelor of Science in Computer Science: Focuses on computational theory, programming, and problem-solving. (Degree)
+        - Computer Engineering (CE): Combines computer science and electrical engineering for system design. (Degree)
+        - Bachelor of Science in Information System: Study of systems that manage, process, and analyze data. (Degree)
+        - Masters of Science in Computer Science: Advanced studies in computer science research and applications. (Masters)
+        - PhD in Computer Science: Research-focused program aimed at creating new knowledge in the field. (Doctorate)
+        - Admission Criteria: 6 to 20 points (6 to 10 points are good for top universities)
+        - Application Period: November to September
+        - Tuition Fees: K 22,000 to K 33,000 per academic year
+        - Website: [CBU](https://www.cbu.ac.zm)
 
-    University of Zambia (Lusaka):
-    - Software Engineering (SE): Focus on designing, developing, and maintaining software systems. (Degree)
-    - Computer Systems Engineering (CSE): Combines computer science and electrical engineering for system design. (Degree)
-    - Bachelor of Science in Computer Science: Comprehensive program covering algorithms, data structures, and software design. (Degree)
+        University of Zambia (Lusaka):
+        - Programs:
+        - Software Engineering (SE): Focus on designing, developing, and maintaining software systems. (Degree)
+        - Computer Systems Engineering (CSE): Combines computer science and electrical engineering for system design. (Degree)
+        - Bachelor of Science in Computer Science: Comprehensive program covering algorithms, data structures, and software design. (Degree)
+        - Admission Criteria: 6 to 20 points (6 to 10 points are good for top universities)
+        - Application Period: February to October
+        - Tuition Fees: K 22,000 to K 30,000 per academic year
+        - Website: [UNZA](http://www.unza.zm)
 
-    Copperbelt University (Kitwe):
-    - Diploma in Information Technology: Entry-level program in IT, focusing on basic skills and knowledge. (Diploma)
-    - Bachelor of Science in Computer Science: Focuses on computational theory, programming, and problem-solving. (Degree)
-    - Bachelor of Science in Information System: Study of systems that manage, process, and analyze data. (Degree)
-    - Masters of Science in Computer Science: Advanced studies in computer science research and applications. (Masters)
-    - PhD in Computer Science: Research-focused program aimed at creating new knowledge in the field. (Doctorate)
 
-    Mulungushi University (Kabwe):
-    - Bachelor of Science in Computer Science: Foundational program in computer science principles and applications. (Degree)
-    - Bachelor of Science in Information Technology: Covers a wide range of topics in IT with a practical approach. (Degree)
-    - Bachelor of Science in Information Systems: Focuses on information systems design, development, and management. (Degree)
-    - Bachelor of Science in Data Science: Introduces data analysis, machine learning, and big data technologies. (Degree)
-    - Bachelor of Science in Cyber Security: Teaches security principles, risk management, and cyber threat prevention. (Degree)
+        Mulungushi University (Kabwe):
+        - Programs:
+        - Bachelor of Science in Computer Science: Foundational program in computer science principles and applications. (Degree)
+        - Bachelor of Science in Information Technology: Covers a wide range of topics in IT with a practical approach. (Degree)
+        - Bachelor of Science in Information Systems: Focuses on information systems design, development, and management. (Degree)
+        - Bachelor of Science in Data Science: Introduces data analysis, machine learning, and big data technologies. (Degree)
+        - Bachelor of Science in Cyber Security: Teaches security principles, risk management, and cyber threat prevention. (Degree)
+        - Admission Criteria: 6 to 20 points
+        - Application Period: April to January
+        - Website: [Mulungushi University](https://www.mu.ac.zm)
 
-    Kwame Nkrumah University (Kabwe):
-    - Bachelor of ICT with Education: Integrates ICT skills with educational practices for teaching roles. (Degree)
+        Kwame Nkrumah University (Kabwe):
+        - Programs:
+        - Computer Science Degree
+        - Bachelor of ICT with Education: Integrates ICT skills with educational practices for teaching roles. (Degree)
+        - Admission Criteria: 6 to 20 points
+        - Application Period: July to April
+        - Website: [Kwame Nkrumah University](https://www.nkrumah.edu.zm)
 
-    Kapasa Makasa University (Chinsali):
-    - Bachelor of ICT with Education: Prepares students for educational roles in ICT. (Degree)
-    - Bachelor of Science in Cyber Security: Teaches security principles, risk management, and cyber threat prevention. (Degree)
-    """
+        Kapasa Makasa University (Chinsali):
+        - Programs:
+        - Bachelor of ICT with Education: Prepares students for educational roles in ICT. (Degree)
+        - Bachelor of Science in Cyber Security: Teaches security principles, risk management, and cyber threat prevention. (Degree)
+        - Admission Criteria: 6 to 20 points
+        - Application Period: January to November
+        - Website: [Kapasa Makasa University](https://www.kmu.ac.zm)
+
+        Admission Criteria for Top Universities:
+        - 6 to 10 points is considered good for top universities like Copperbelt University (CBU) and University of Zambia (UNZA).
+        """
+
 
     # Craft the full prompt
-    full_prompt = f"UniMatch is a recommender system for selecting the best ICT programs in Zambian public universities. Based on the following information:\n{knowledge_base}\n\nUser query: {prompt}"
+    full_prompt = f"UniMatch is a recommender system for selecting the best ICT programs in Zambian public universities. On top of the available information with the following information:\n{knowledge_base}\n\nUser query: {prompt}"
 
     # Perform the chat completion
     response = client.chat_completion(
