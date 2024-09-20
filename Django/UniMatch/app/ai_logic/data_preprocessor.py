@@ -101,7 +101,7 @@ def generate_response(prompt):
     knowledge_base = """
     
     UniMatch is here to help you select the best ICT programs at Zambian public universities. Here is some information about the universities and their ICT programs:
-        Copperbelt University (Kitwe):
+        1. Copperbelt University (Kitwe):
         - Programs:
         - Diploma in Information Technology: Entry-level program in IT, focusing on basic skills and knowledge. (Diploma)
         - Bachelor of Science in Computer Science: Focuses on computational theory, programming, and problem-solving. (Degree)
@@ -114,7 +114,7 @@ def generate_response(prompt):
         - Tuition Fees: K 22,000 to K 33,000 per academic year
         - Website: [CBU](https://www.cbu.ac.zm)
 
-        University of Zambia (Lusaka):
+        2. University of Zambia (Lusaka):
         - Programs:
         - Software Engineering (SE): Focus on designing, developing, and maintaining software systems. (Degree)
         - Computer Systems Engineering (CSE): Combines computer science and electrical engineering for system design. (Degree)
@@ -125,7 +125,7 @@ def generate_response(prompt):
         - Website: [UNZA](http://www.unza.zm)
 
 
-        Mulungushi University (Kabwe):
+        3. Mulungushi University (Kabwe):
         - Programs:
         - Bachelor of Science in Computer Science: Foundational program in computer science principles and applications. (Degree)
         - Bachelor of Science in Information Technology: Covers a wide range of topics in IT with a practical approach. (Degree)
@@ -136,7 +136,7 @@ def generate_response(prompt):
         - Application Period: April to January
         - Website: [Mulungushi University](https://www.mu.ac.zm)
 
-        Kwame Nkrumah University (Kabwe):
+        4. Kwame Nkrumah University (Kabwe):
         - Programs:
         - Computer Science Degree
         - Bachelor of ICT with Education: Integrates ICT skills with educational practices for teaching roles. (Degree)
@@ -144,7 +144,7 @@ def generate_response(prompt):
         - Application Period: July to April
         - Website: [Kwame Nkrumah University](https://www.nkrumah.edu.zm)
 
-        Kapasa Makasa University (Chinsali):
+        5. Kapasa Makasa University (Chinsali):
         - Programs:
         - Bachelor of ICT with Education: Prepares students for educational roles in ICT. (Degree)
         - Bachelor of Science in Cyber Security: Teaches security principles, risk management, and cyber threat prevention. (Degree)
@@ -154,6 +154,65 @@ def generate_response(prompt):
 
         Admission Criteria for Top Universities:
         - 6 to 10 points is considered good for top universities like Copperbelt University (CBU) and University of Zambia (UNZA).
+        other public
+        Here are some of the programs offered at **Mukuba University** and **Palabana University** in Zambia:
+
+### **Mukuba University**
+Mukuba University primarily focuses on education and science-related fields, offering programs such as:
+1. **Bachelor of Education in Chemistry**
+2. **Bachelor of Education in Physics**
+3. **Bachelor of Education in Biology**
+4. **Bachelor of Education in Mathematics**
+5. **Bachelor of Education in Agriculture Science**
+6. **Bachelor of Education in Computer Science**
+7. **Bachelor of Science in Mathematics**
+8. **Bachelor of Science in Chemistry**
+
+### **Palabana University**
+Palabana University is known for its emphasis on agricultural sciences and offers programs like:
+1. **Bachelor of Science in Animal Science**
+2. **Bachelor of Science in Crop Science**
+3. **Bachelor of Science in Fisheries and Aquaculture**
+4. **Bachelor of Science in Agricultural Economics**
+5. **Bachelor of Science in Agribusiness Management**
+
+These programs focus on education, agriculture, and science fields. You may want to check with the respective institutions for the latest updates or additional programs they might offer.
+        University virtual tour videos to
+
+        {
+            "Copperbelt University": [
+                "https://www.youtube.com/watch?v=1Hz5T3zhmmQ",
+                "https://www.youtube.com/watch?v=qui5QgoXzuU&pp=ygUQY2J1IGNhbXB1cyB0b3VyIA%3D%3D",
+                "https://www.youtube.com/embed/1Hz5T3zhmmQ",
+                "https://www.youtube.com/embed/qui5QgoXzuU&pp=ygUQY2J1IGNhbXB1cyB0b3VyIA%3D%3D"
+            ],
+            "University of Zambia": [
+                "https://www.youtube.com/watch?v=WxNNo3NCcow&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/watch?v=Rc3-VMpPD9I&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/WxNNo3NCcow&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/Rc3-VMpPD9I&pp=ygURdW56YSBjYW1wdXMgdG91ciA%3D"
+            ],
+            "Kapasa Makasa University": [
+                "https://www.youtube.com/watch?v=nlcCdhm3cbY&pp=ygUaa2FwYXNhIG1ha2FzYSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/watch?v=yjTKex7k4NI",
+                "https://www.youtube.com/embed/nlcCdhm3cbY&pp=ygUaa2FwYXNhIG1ha2FzYSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/yjTKex7k4NI"
+            ],
+            "Mulungushi University": [
+                "https://www.youtube.com/watch?v=1D18MQwL8r0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/watch?v=JWQvtvmJPf0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/1D18MQwL8r0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D",
+                "https://www.youtube.com/embed/JWQvtvmJPf0&pp=ygUXbXVsdW5ndXNoaSBjYW1wdXMgdG91ciA%3D"
+            ],
+            "Kwame Nkrumah University": [
+                "https://www.youtube.com/watch?v=RGy10FSiSm0&pp=ygUZa3dhbWUgbmtydW1hIGNhbXB1cyB0b3VyIA%3D%3D",
+                "https://www.youtube.com/watch?v=N4hrGVoicpw",
+                "https://www.youtube.com/embed/RGy10FSiSm0&pp=ygUZa3dhbWUgbmtydW1hIGNhbXB1cyB0b3VyIA%3D%3D",
+                "https://www.youtube.com/embed/N4hrGVoicpw"
+            ]
+        }
+        you can embed these videos in the responses sometimes
+
         """
 
 

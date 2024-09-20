@@ -6,6 +6,12 @@ import pandas as pd
 import random
 import re
 import nltk
+# Download necessary NLTK data
+#nltk.download('stopwords')
+#nltk.download('punkt_tab')
+#nltk.download('wordnet')
+#nltk.download('averaged_perceptron_tagger')
+
 from nltk import pos_tag
 import pickle
 import matplotlib.pyplot as plt
@@ -26,13 +32,6 @@ from nltk.util import ngrams
 from collections import Counter
 import data_preprocessor as preprocessor
 
-
-
-# Download necessary NLTK data
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('averaged_perceptron_tagger')
 
 class Chatbot:
     def __init__(self):
@@ -203,7 +202,7 @@ class Chatbot:
             #print("Classification Report:\n", classification_report(df['intents'], y_pred))
 
             # Determine if feedback is needed based on accuracy
-            low_accuracy = accuracy < 0.8
+            low_accuracy = accuracy < 0.9
             return best_pipeline, low_accuracy
 
         else:
@@ -419,7 +418,7 @@ class Chatbot:
                     # Append user details to the user_message
                     extended_message = f"{user_message}.Here are my details {user_details}"
                     return preprocessor.generate_response(extended_message)
-            if confidence < 1.0:
+            if confidence < 0.80:
                 return preprocessor.generate_response(user_message)
             if predicted_intent in self.intent_to_function:
                 if predicted_intent == "recommend_programs":
