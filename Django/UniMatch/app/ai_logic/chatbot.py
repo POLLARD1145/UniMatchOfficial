@@ -29,10 +29,10 @@ import data_preprocessor as preprocessor
 
 
 # Download necessary NLTK data
-#nltk.download('stopwords')
-#nltk.download('punkt')
-#nltk.download('wordnet')
-#nltk.download('averaged_perceptron_tagger')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
 
 class Chatbot:
     def __init__(self):
